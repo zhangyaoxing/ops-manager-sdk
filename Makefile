@@ -1,23 +1,31 @@
 PYTHON ?= python3
 PACKAGE = ops_manager_sdk
+VENV = .venv
+VENV_PYTHON = $(VENV)/bin/python
 
-.PHONY: help install install-dev lint clean
+.PHONY: help venv install install-dev lint clean
 
 help:
 	@echo "Available targets:"
+	@echo "  venv         Create the local virtual environment"
 	@echo "  install      Install runtime dependencies"
 	@echo "  install-dev  Install package with development dependencies"
 	@echo "  lint         Run pylint on source and tests"
 	@echo "  clean        Remove Python build artifacts"
 
-install:
-	$(PYTHON) -m pip install -e .
+venv:
+	@if [ ! -x "$(VENV_PYTHON)" ]; then $(PYTHON) -m venv $(VENV); fi
+	$(VENV_PYTHON) -m pip install --upgrade pip
 
-install-dev:
-	$(PYTHON) -m pip install -e .[dev]
+install: venv
+	$(VENV_PYTHON) -m pip install -e .
 
-lint:
-	$(PYTHON) -m pylint src/$(PACKAGE) tests
+install-dev: venv
+	$(VENV_PYTHON) -m pip install -e .[dev]
+	$(VENV_PYTHON) -m playwright install chromium
+
+lint: venv
+	$(VENV_PYTHON) -m pylint src/$(PACKAGE) tests
 
 clean:
 	find . -type d \( -name __pycache__ -o -name .pytest_cache -o -name .mypy_cache \) -prune -exec rm -rf {} +

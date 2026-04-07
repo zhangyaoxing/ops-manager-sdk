@@ -9,17 +9,11 @@ description = "Python SDK for invoking Ops Manager REST APIs"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [
-  { name = "yaoxing.zhang" }
-]
-dependencies = [
-  "httpx>=0.27,<1.0"
-]
+authors = [{ name = "yaoxing.zhang" }]
+dependencies = ["httpx>=0.27,<1.0", "loguru>=0.7,<1.0"]
 
 [project.optional-dependencies]
-dev = [
-  "pylint>=3.2,<4.0"
-]
+dev = ["pylint>=3.2,<4.0", "playwright>=1.58"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }
@@ -36,7 +30,7 @@ disable = [
   "missing-module-docstring",
   "missing-class-docstring",
   "missing-function-docstring",
-  "too-few-public-methods"
+  "too-few-public-methods",
 ]
 
 [tool.pylint.format]
