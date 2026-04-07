@@ -1,5 +1,14 @@
 {
   "python.analysis.extraPaths": [
     "src"
+  ],
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "black-formatter.args": [
+    "--line-length",
+    "100"
   ]
 }
