@@ -11,11 +11,21 @@ from .exceptions import ApiError, AuthenticationError, RequestError
 class OpsManagerClient:
     def __init__(self, config: ClientConfig) -> None:
         self._config = config
+        headers = dict(config.headers())
+        auth = self._build_auth(config)
+
         self._client = httpx.Client(
             base_url=config.base_url.rstrip("/"),
-            headers=config.headers(),
+            headers=headers,
             timeout=config.timeout,
+            auth=auth,
         )
+
+    @staticmethod
+    def _build_auth(config: ClientConfig) -> httpx.Auth | None:
+        if config.digest_username and config.digest_password:
+            return httpx.DigestAuth(config.digest_username, config.digest_password)
+        return None
 
     def close(self) -> None:
         self._client.close()

@@ -29,7 +29,9 @@ from ops_manager_sdk import ClientConfig, OpsManagerClient
 
 config = ClientConfig(
 	base_url="https://example.ops-manager.local/api/v1",
-	api_token="your-token",
+	base_url="https://example.ops-manager.local/api/v1",
+	digest_username="api-user",
+	digest_password="api-password",
 )
 
 with OpsManagerClient(config) as client:
@@ -47,4 +49,4 @@ make lint
 
 - Add concrete resource modules under `src/ops_manager_sdk/resources/`
 - Add test cases for authentication, error handling, and resource wrappers
-- Expand request authentication if the target API uses digest auth, API keys, or signed headers
+- Add retries and backoff strategy for transient HTTP failures
