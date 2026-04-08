@@ -16,7 +16,10 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/ops_manager_sdk/generator/__main__.py",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "env": {
+                "LOG_LEVEL": "DEBUG"
+            }
         }
     ]
 }
