@@ -59,7 +59,7 @@ LOCATORS = {
     "query_params": "xpath=(//h3[text()='Request Query Parameters'])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
     "body_params": "xpath=(//h3[text()='Request Body Parameters'])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
     "api_path": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
-    "category_page": "xpath=//h2[text()='Endpoints']",
+    "category_page": "xpath=//h2[contains(text(), 'Endpoints')]",
 }
 
 
@@ -143,8 +143,11 @@ def extract_apis() -> dict[str, list]:
             )
             query_params: list[dict[str, Any]] = get_params(page.locator(LOCATORS["query_params"]))
             body_params: list[dict[str, Any]] = get_params(page.locator(LOCATORS["body_params"]))
-            category_name: str = page.locator(LOCATORS["api_path"]).last.inner_text()
-            category_name = category_name.title().replace(" ", "")
+            category_locator: Locator = page.locator(LOCATORS["api_path"])
+            if category_locator.count() == 0:
+                category_name: str = "Root"
+            else:
+                category_name = category_locator.last.inner_text().title().replace(" ", "")
             if category_name not in api_docs:
                 api_docs[category_name] = []
             api_docs[category_name].append(
