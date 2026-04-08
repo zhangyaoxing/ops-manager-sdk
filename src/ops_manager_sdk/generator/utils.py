@@ -76,10 +76,7 @@ def extract_apis() -> dict[str, list]:
     output_file = HOME_DIR / "api_docs.json"
     if output_file.exists():
         output_file_time = datetime.fromtimestamp(output_file.stat().st_mtime, tz=timezone.utc)
-        if (
-            datetime.now(timezone.utc) - output_file_time < timedelta(days=EXPIRE_DAYS)
-            and not is_debug
-        ):
+        if datetime.now(timezone.utc) - output_file_time < timedelta(days=EXPIRE_DAYS):
             logger.info(f"API documentation already exists at {output_file}. Loading from file.")
             with output_file.open("r", encoding="utf-8") as f:
                 return json.load(f)
