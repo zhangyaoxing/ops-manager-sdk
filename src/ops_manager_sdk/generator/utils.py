@@ -155,6 +155,7 @@ def extract_apis() -> dict[str, list]:
                     "query_params": query_params,
                     "body_params": body_params,
                     "capture_time": datetime.now(timezone.utc).isoformat(),
+                    "doc_url": url,
                 }
             )
             page.close()
