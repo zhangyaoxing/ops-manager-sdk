@@ -2,30 +2,40 @@ from typing import Any, Optional
 from pathlib import Path
 import os
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 import httpx
 from loguru import logger
-from playwright.sync_api import Locator, sync_playwright
+from playwright.sync_api import Locator, Page, sync_playwright, Response
 
 
 SITEMAP_URL: str = "https://www.mongodb.com/docs/ops-manager/current/sitemap-0.xml"
 API_BASE_URL: str = "https://www.mongodb.com/docs/ops-manager/current/reference/api/"
 HOME_DIR: Path = Path.home() / ".ops_manager_sdk"
 EXPIRE_DAYS: int = 7
+# These are examples or informational pages that we don't want to generate code for.
+BLACKLIST_TITLES: list[str] = [
+    "Ops Manager Administration API Resources",
+    "Example Automation Configuration",
+    "Automation Configuration Parameters",
+    "Measurement Types",
+    "Organization Programmatic API Key Access Lists",
+    "Performance Advisor",
+]
 
-
-def get_html_text(http_url: str) -> str:
-    """Fetches the HTML content of the given URL.
-    Args:
-        http_url: The URL to fetch.
-    Returns:
-        The HTML content as a string.
-    """
-    response = httpx.get(http_url)
-    response.raise_for_status()
-    logger.debug("Fetched URL: %s", http_url)
-    return response.text
+LOCATORS = {
+    # Title is unique per API.
+    "title": "xpath=(//h1)[1]",
+    # There can be more than one resources per API.
+    "resource": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[contains(@class, 'intro-code-block')]//td",
+    # There can be more than one path/query/body parameters per API.
+    "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
+    "path_params_alternative": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[not(contains(@class, 'intro-code-block'))]//tbody[1]/tr",
+    "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table/tbody/tr",
+    "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
+    "api_path": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
+    "resource_overview": "xpath=//h2[contains(text(), 'Endpoints')]",
+}
 
 
 def get_sitemap_urls() -> list[str]:
@@ -33,7 +43,10 @@ def get_sitemap_urls() -> list[str]:
     Returns:
         A list of URLs found in the sitemap.
     """
-    text = get_html_text(SITEMAP_URL)
+    logger.info(f"Fetching sitemap from: {SITEMAP_URL}")
+    response = httpx.get(SITEMAP_URL)
+    response.raise_for_status()
+    text = response.text
     root = ET.fromstring(text)
     namespace: str = root.tag.split("}")[0].strip("{")
     ns = {"ns": namespace}
@@ -49,21 +62,72 @@ def get_sitemap_urls() -> list[str]:
     return api_urls
 
 
-LOCATORS = {
-    # Title is unique per API.
-    "title": "xpath=(//h1)[1]",
-    # There can be more than one resources per API.
-    "resource": "xpath=(//h2[text()='Resource'])[1]/following-sibling::div//td",
-    # There can be more than one path/query/body parameters per API.
-    "path_params": "xpath=(//h3[text()='Request Path Parameters'])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
-    "query_params": "xpath=(//h3[text()='Request Query Parameters'])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
-    "body_params": "xpath=(//h3[text()='Request Body Parameters'])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
-    "api_path": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
-    "category_page": "xpath=//h2[contains(text(), 'Endpoints')]",
-}
+def _get_params(params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
+    """Extracts parameters from the given locator.
+    Args:
+        params_locator: A Playwright Locator pointing to the parameter rows in the API documentation.
+        kwargs: Optional keyword arguments for parameter extraction.
+            - required_override: If provided, this value will be used for the "required" field of all parameters, overriding any value found in the document.
+    Returns:
+        A list of dictionaries, each representing a parameter with its name, type, required status, and default value.
+    """
+    required_override = kwargs.get("required_override", None)
+    params: list[dict[str, Any]] = []
+    locators: list = params_locator.all()
+    for param in locators:
+        param_name: str = param.locator("xpath=./td[1]").inner_text()
+        param_type: str = param.locator("xpath=./td[2]").inner_text()
+        if required_override is not None:
+            required: str = required_override
+        else:
+            required_locator = param.locator("xpath=./td[3]")
+            if required_locator.count() > 0:
+                required = required_locator.inner_text()
+            else:
+                required = "Optional"
+        default_locator = param.locator("xpath=./td[5]")
+        if default_locator.count() > 0:
+            default_value: Optional[str] = default_locator.inner_text()
+        else:
+            default_value = None
+        params.append(
+            {
+                "name": param_name,
+                "type": param_type,
+                "required": required,
+                "default": default_value,
+            }
+        )
+    return params
 
 
-def extract_apis() -> dict[str, list]:
+def _extract_expired_docs(api_docs: dict[str, list[dict[str, Any]]]) -> list[str]:
+    """Extracts the URLs of API documentation that were:
+        - captured more than `EXPIRE_DAYS` ago.
+        - returned a 403 or 401 status code.
+    Args:
+        api_docs: A dictionary containing the API documentation categorized by resource.
+    Returns:
+        A list of URLs for the API documentation that need to be recrawled.
+    """
+    recrawl_urls: list[str] = []
+    now = datetime.now(timezone.utc)
+    for _, apis in api_docs.items():
+        for api in apis:
+            status: str = api["status"]
+            capture_time_str: str = api["capture_time"]
+            capture_time = datetime.fromisoformat(capture_time_str)
+            if (now - capture_time).days >= EXPIRE_DAYS:
+                recrawl_urls.append(api["doc_url"])
+            if status in [403, 401]:
+                recrawl_urls.append(api["doc_url"])
+        # remove recrawled URLs from the existing docs to avoid duplication
+        apis[:] = [api for api in apis if api["doc_url"] not in recrawl_urls]
+
+    return recrawl_urls
+
+
+def extract_apis(urls: list[str]) -> dict[str, list]:
     """Fetches the HTML content of the given URLs using Playwright.
     Extract API endpoint and parameters from the HTML content.
     The API URLs are obtained from the sitemap.
@@ -74,72 +138,59 @@ def extract_apis() -> dict[str, list]:
     # Check if the API document was crawled recently (within the last 7 days).
     HOME_DIR.mkdir(parents=True, exist_ok=True)
     output_file = HOME_DIR / "api_docs.json"
+    api_docs: dict[str, list] = {}
     if output_file.exists():
-        output_file_time = datetime.fromtimestamp(output_file.stat().st_mtime, tz=timezone.utc)
-        if datetime.now(timezone.utc) - output_file_time < timedelta(days=EXPIRE_DAYS):
-            logger.info(f"API documentation already exists at {output_file}. Loading from file.")
-            with output_file.open("r", encoding="utf-8") as f:
-                return json.load(f)
-        else:
-            logger.info(f"API documentation at {output_file} is expired. Re-crawling.")
-            output_file.unlink()
+        logger.info(f"API documentation already exists at {output_file}. Loading from file.")
+        with output_file.open("r", encoding="utf-8") as f:
+            api_docs = json.load(f)
+            logger.info(
+                "Looking for URLs that need to be recrawled due to expiration or access issues..."
+            )
+            urls = _extract_expired_docs(api_docs)
+            if len(urls) == 0:
+                logger.info("No API documentation needs to be recrawled. Skipping crawling.")
+                return api_docs
+            logger.info(f"Found {len(urls)} API documentation to recrawl. Recrawling...")
 
     with sync_playwright() as p:
         logger.info("Starting API documentation extraction...")
         browser = p.chromium.launch(headless=not is_debug)
         context = browser.new_context()
-        api_docs: dict[str, list] = {}
-        urls = get_sitemap_urls()
-
-        def get_params(params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
-            required_override = kwargs.get("required_override", None)
-            params: list[dict[str, Any]] = []
-            locators: list = params_locator.all()
-            for param in locators:
-                param_name: str = param.locator("xpath=./td[1]").inner_text()
-                param_type: str = param.locator("xpath=./td[2]").inner_text()
-                if required_override is not None:
-                    required: str = required_override
-                else:
-                    required_locator = param.locator("xpath=./td[3]")
-                    if required_locator.count() > 0:
-                        required = required_locator.inner_text()
-                    else:
-                        required = "Optional"
-                default_locator = param.locator("xpath=./td[5]")
-                if default_locator.count() > 0:
-                    default_value: Optional[str] = default_locator.inner_text()
-                else:
-                    default_value = None
-                params.append(
-                    {
-                        "name": param_name,
-                        "type": param_type,
-                        "required": required,
-                        "default": default_value,
-                    }
-                )
-            return params
 
         for index, url in enumerate(urls):
-            page = context.new_page()
-            page.goto(url, wait_until="domcontentloaded")
+            page: Page = context.new_page()
+            res: Optional[Response] = page.goto(url, wait_until="domcontentloaded")
+            status: Optional[int] = res.status if res else None
+            if status in [403, 401]:
+                logger.warning(f"Failed to fetch page: {status} ({url})")
+
             processed = index + 1
             if processed % 10 == 0:
                 logger.info(f"Processed APIs: {processed}/{len(urls)}")
-            category = page.locator(LOCATORS["category_page"])
-            if category.count() > 0:
-                logger.info(f"Skipping category page: {url}")
+            resource_overview = page.locator(LOCATORS["resource_overview"])
+            if resource_overview.count() > 0:
+                logger.info(f"Skipping resource overview page: {url}")
                 page.close()
                 continue
             title: str = page.locator(LOCATORS["title"]).inner_text()
+            if title in BLACKLIST_TITLES:
+                logger.info(f"Skipping blacklisted page: {title} ({url})")
+                page.close()
+                continue
             resources: list[str] = page.locator(LOCATORS["resource"]).all_inner_texts()
             # All path parameters are required. Sometimes the document misses the "Required" column.
-            path_params: list[dict[str, Any]] = get_params(
+            path_params: list[dict[str, Any]] = _get_params(
                 page.locator(LOCATORS["path_params"]), required_override="Required"
             )
-            query_params: list[dict[str, Any]] = get_params(page.locator(LOCATORS["query_params"]))
-            body_params: list[dict[str, Any]] = get_params(page.locator(LOCATORS["body_params"]))
+            if len(path_params) == 0:
+                # Try the alternative locator for path parameters.
+                # This is a special handling for the following page:
+                # https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
+                path_params = _get_params(
+                    page.locator(LOCATORS["path_params_alternative"]), required_override="Required"
+                )
+            query_params: list[dict[str, Any]] = _get_params(page.locator(LOCATORS["query_params"]))
+            body_params: list[dict[str, Any]] = _get_params(page.locator(LOCATORS["body_params"]))
             category_locator: Locator = page.locator(LOCATORS["api_path"])
             if category_locator.count() == 0:
                 category_name: str = "Root"
@@ -156,6 +207,7 @@ def extract_apis() -> dict[str, list]:
                     "body_params": body_params,
                     "capture_time": datetime.now(timezone.utc).isoformat(),
                     "doc_url": url,
+                    "status": status,
                 }
             )
             page.close()
