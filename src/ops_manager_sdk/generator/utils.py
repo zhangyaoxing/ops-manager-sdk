@@ -98,7 +98,8 @@ def _get_params(params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
                 required = "Optional"
         default_locator = param.locator("xpath=./td[5]")
         if default_locator.count() > 0:
-            default_value: Optional[str] = default_locator.inner_text()
+            inner_text = default_locator.inner_text()
+            default_value: Optional[str] = inner_text if inner_text else None
         else:
             default_value = None
         params.append(
