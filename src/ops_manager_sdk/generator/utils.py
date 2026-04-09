@@ -13,15 +13,6 @@ SITEMAP_URL: str = "https://www.mongodb.com/docs/ops-manager/current/sitemap-0.x
 API_BASE_URL: str = "https://www.mongodb.com/docs/ops-manager/current/reference/api/"
 HOME_DIR: Path = Path.home() / ".ops_manager_sdk"
 EXPIRE_DAYS: int = 7
-# These are examples or informational pages that we don't want to generate code for.
-BLACKLIST_TITLES: list[str] = [
-    "Ops Manager Administration API Resources",
-    "Example Automation Configuration",
-    "Automation Configuration Parameters",
-    "Measurement Types",
-    "Organization Programmatic API Key Access Lists",
-    "Performance Advisor",
-]
 
 LOCATORS = {
     # Title is unique per API.
@@ -34,7 +25,6 @@ LOCATORS = {
     "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table/tbody/tr",
     "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
     "api_path": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
-    "resource_overview": "xpath=//h2[contains(text(), 'Endpoints')]",
 }
 
 
@@ -117,9 +107,7 @@ def _extract_expired_docs(api_docs: dict[str, list[dict[str, Any]]]) -> list[str
             status: str = api["status"]
             capture_time_str: str = api["capture_time"]
             capture_time = datetime.fromisoformat(capture_time_str)
-            if (now - capture_time).days >= EXPIRE_DAYS:
-                recrawl_urls.append(api["doc_url"])
-            if status in [403, 401]:
+            if status in [403, 401] or (now - capture_time).days >= EXPIRE_DAYS:
                 recrawl_urls.append(api["doc_url"])
         # remove recrawled URLs from the existing docs to avoid duplication
         apis[:] = [api for api in apis if api["doc_url"] not in recrawl_urls]
@@ -158,61 +146,76 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
         context = browser.new_context()
 
         for index, url in enumerate(urls):
-            page: Page = context.new_page()
-            res: Optional[Response] = page.goto(url, wait_until="domcontentloaded")
-            status: Optional[int] = res.status if res else None
-            if status in [403, 401]:
-                logger.warning(f"Failed to fetch page: {status} ({url})")
+            try:
+                page: Page = context.new_page()
+                res: Optional[Response] = page.goto(url, wait_until="domcontentloaded")
+                status: Optional[int] = res.status if res else None
+                if status in [403, 401]:
+                    # In this case we still want to write the result into output file,
+                    # so that the URL can be recrawled in the next run.
+                    logger.warning(f"Failed to fetch page: {status} ({url})")
+                    api_docs["Root"] = api_docs.get("Root", []) + [
+                        {
+                            "title": f"Access Denied ({status})",
+                            "capture_time": datetime.now(timezone.utc).isoformat(),
+                            "doc_url": url,
+                            "status": status,
+                        }
+                    ]
+                    continue
 
-            processed = index + 1
-            if processed % 10 == 0:
-                logger.info(f"Processed APIs: {processed}/{len(urls)}")
-            resource_overview = page.locator(LOCATORS["resource_overview"])
-            if resource_overview.count() > 0:
-                logger.info(f"Skipping resource overview page: {url}")
-                page.close()
-                continue
-            title: str = page.locator(LOCATORS["title"]).inner_text()
-            if title in BLACKLIST_TITLES:
-                logger.info(f"Skipping blacklisted page: {title} ({url})")
-                page.close()
-                continue
-            resources: list[str] = page.locator(LOCATORS["resource"]).all_inner_texts()
-            # All path parameters are required. Sometimes the document misses the "Required" column.
-            path_params: list[dict[str, Any]] = _get_params(
-                page.locator(LOCATORS["path_params"]), required_override="Required"
-            )
-            if len(path_params) == 0:
-                # Try the alternative locator for path parameters.
-                # This is a special handling for the following page:
-                # https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
-                path_params = _get_params(
-                    page.locator(LOCATORS["path_params_alternative"]), required_override="Required"
+                title: str = page.locator(LOCATORS["title"]).inner_text()
+                resources: list[str] = page.locator(LOCATORS["resource"]).all_inner_texts()
+                if len(resources) == 0:
+                    logger.warning(f"No endpoint found in document: {title} ({url})")
+                    continue
+                # All path parameters are required. Sometimes documents miss the "Required" column.
+                path_params: list[dict[str, Any]] = _get_params(
+                    page.locator(LOCATORS["path_params"]), required_override="Required"
                 )
-            query_params: list[dict[str, Any]] = _get_params(page.locator(LOCATORS["query_params"]))
-            body_params: list[dict[str, Any]] = _get_params(page.locator(LOCATORS["body_params"]))
-            category_locator: Locator = page.locator(LOCATORS["api_path"])
-            if category_locator.count() == 0:
-                category_name: str = "Root"
-            else:
-                category_name = category_locator.last.inner_text().title().replace(" ", "")
-            if category_name not in api_docs:
-                api_docs[category_name] = []
-            api_docs[category_name].append(
-                {
-                    "title": title,
-                    "resources": resources,
-                    "path_params": path_params,
-                    "query_params": query_params,
-                    "body_params": body_params,
-                    "capture_time": datetime.now(timezone.utc).isoformat(),
-                    "doc_url": url,
-                    "status": status,
-                }
-            )
-            page.close()
-            if is_debug and index >= 10:
-                break
+                if len(path_params) == 0:
+                    # Try the alternative locator for path parameters.
+                    # This is a special handling for the following page:
+                    # https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
+                    path_params = _get_params(
+                        page.locator(LOCATORS["path_params_alternative"]),
+                        required_override="Required",
+                    )
+                query_params: list[dict[str, Any]] = _get_params(
+                    page.locator(LOCATORS["query_params"])
+                )
+                body_params: list[dict[str, Any]] = _get_params(
+                    page.locator(LOCATORS["body_params"])
+                )
+                category_locator: Locator = page.locator(LOCATORS["api_path"])
+                if category_locator.count() == 0:
+                    category_name: str = "Root"
+                else:
+                    category_name = category_locator.last.inner_text().title().replace(" ", "")
+                if category_name not in api_docs:
+                    api_docs[category_name] = []
+                api_docs[category_name].append(
+                    {
+                        "title": title,
+                        "resources": resources,
+                        "path_params": path_params,
+                        "query_params": query_params,
+                        "body_params": body_params,
+                        "capture_time": datetime.now(timezone.utc).isoformat(),
+                        "doc_url": url,
+                        "status": status,
+                    }
+                )
+                if is_debug and index >= 10:
+                    break
+            except (httpx.HTTPError, AttributeError) as exc:
+                logger.error(f"Error processing URL {url}: {exc}")
+                continue
+            finally:
+                processed = index + 1
+                if processed % 10 == 0:
+                    logger.info(f"Processed APIs: {processed}/{len(urls)}")
+                page.close()
         browser.close()
         with output_file.open("w", encoding="utf-8") as f:
             indent: Optional[int] = 4 if is_debug else None
