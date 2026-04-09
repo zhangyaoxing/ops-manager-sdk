@@ -18,7 +18,7 @@ LOCATORS = {
     # Title is unique per API.
     "title": "xpath=(//h1)[1]",
     # There can be more than one resources per API.
-    "resource": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[contains(@class, 'intro-code-block')]//td",
+    "endpoints": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[contains(@class, 'intro-code-block')]//td",
     # There can be more than one path/query/body parameters per API.
     "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
     "path_params_alternative": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[not(contains(@class, 'intro-code-block'))]//tbody[1]/tr",
@@ -58,15 +58,36 @@ def _get_params(params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
         params_locator: A Playwright Locator pointing to the parameter rows in the API documentation.
         kwargs: Optional keyword arguments for parameter extraction.
             - required_override: If provided, this value will be used for the "required" field of all parameters, overriding any value found in the document.
+            - type_override: If provided, this value will be used for the "type" field of all parameters, overriding any value found in the document.
     Returns:
         A list of dictionaries, each representing a parameter with its name, type, required status, and default value.
     """
     required_override = kwargs.get("required_override", None)
+    type_override = kwargs.get("type_override", None)
     params: list[dict[str, Any]] = []
     locators: list = params_locator.all()
     for param in locators:
         param_name: str = param.locator("xpath=./td[1]").inner_text()
-        param_type: str = param.locator("xpath=./td[2]").inner_text()
+        if type_override is not None:
+            param_type: str = type_override
+        else:
+            param_type_locator = param.locator("xpath=./td[2]")
+            if param_type_locator.count() > 0:
+                param_type = param_type_locator.inner_text()
+            else:
+                param_type = "string"
+        # If param_name is one of the following, overwrite the type.
+        # Because some pages have incorrect type for these parameters
+        if param_name in ["pageNum", "itemsPerPage"]:
+            param_type = "number"
+        if param_name in ["envelope", "pretty"]:
+            param_type = "boolean"
+        if param_name in ["since", "duration"]:
+            param_type = "long"
+        if param_name == "CLUSTER-ID":
+            param_name = "clusterId"
+            param_type = "string"
+
         if required_override is not None:
             required: str = required_override
         else:
@@ -165,13 +186,16 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
                     continue
 
                 title: str = page.locator(LOCATORS["title"]).inner_text()
-                resources: list[str] = page.locator(LOCATORS["resource"]).all_inner_texts()
-                if len(resources) == 0:
+                endpoints: list[str] = page.locator(LOCATORS["endpoints"]).all_inner_texts()
+                if len(endpoints) == 0:
                     logger.warning(f"No endpoint found in document: {title} ({url})")
                     continue
                 # All path parameters are required. Sometimes documents miss the "Required" column.
+                # All path parameters are of type string. Sometimes documents miss the "Type" column or have incorrect type for path parameters.
                 path_params: list[dict[str, Any]] = _get_params(
-                    page.locator(LOCATORS["path_params"]), required_override="Required"
+                    page.locator(LOCATORS["path_params"]),
+                    required_override="Required",
+                    type_override="string",
                 )
                 if len(path_params) == 0:
                     # Try the alternative locator for path parameters.
@@ -180,6 +204,7 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
                     path_params = _get_params(
                         page.locator(LOCATORS["path_params_alternative"]),
                         required_override="Required",
+                        type_override="string",
                     )
                 query_params: list[dict[str, Any]] = _get_params(
                     page.locator(LOCATORS["query_params"])
@@ -197,7 +222,7 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
                 api_docs[category_name].append(
                     {
                         "title": title,
-                        "resources": resources,
+                        "endpoints": endpoints,
                         "path_params": path_params,
                         "query_params": query_params,
                         "body_params": body_params,
