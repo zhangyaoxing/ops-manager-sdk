@@ -17,6 +17,8 @@ EXPIRE_DAYS: int = 7
 LOCATORS = {
     # Title is unique per API.
     "title": "xpath=(//h1)[1]",
+    "name": "xpath=(//a[@aria-current='page'])[1]",
+    "description": "xpath=(//div[@class='body'])[1]/section[1]/p[1]",
     # There can be more than one resources per API.
     "endpoints": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[contains(@class, 'intro-code-block')]//td",
     # There can be more than one path/query/body parameters per API.
@@ -220,9 +222,21 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
                     category_name = category_locator.last.inner_text().title().replace(" ", "")
                 if category_name not in api_docs:
                     api_docs[category_name] = []
+                action_locator: Locator = page.locator(LOCATORS["name"])
+                if action_locator.count() > 0:
+                    name = action_locator.inner_text()
+                else:
+                    name = title
+                description_locator: Locator = page.locator(LOCATORS["description"])
+                if description_locator.count() > 0:
+                    description = description_locator.inner_text()
+                else:
+                    description = ""
                 api_docs[category_name].append(
                     {
                         "title": title,
+                        "name": name,
+                        "description": description,
                         "endpoints": endpoints,
                         "path_params": path_params,
                         "query_params": query_params,
