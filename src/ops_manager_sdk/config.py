@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Mapping
 
 
 @dataclass(slots=True)
@@ -10,7 +9,8 @@ class ClientConfig:
     timeout: float = 30.0
     user_agent: str = "ops-manager-sdk/0.1.0"
 
-    def headers(self) -> Mapping[str, str]:
+    @property
+    def headers(self) -> dict[str, str]:
         return {
             "Accept": "application/json",
             "Content-Type": "application/json",

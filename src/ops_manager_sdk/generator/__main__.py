@@ -1,6 +1,7 @@
 import os
 import sys
 from loguru import logger
+from ops_manager_sdk.generator.code_generator import resource_generator
 from ops_manager_sdk.generator.utils import extract_apis, get_sitemap_urls
 
 LOG_LEVELS: list[str] = [
@@ -21,3 +22,4 @@ logger.add(sys.stderr, level=LEVEL)
 if __name__ == "__main__":
     urls = get_sitemap_urls()
     api_docs = extract_apis(urls)
+    resource_generator(api_docs)
