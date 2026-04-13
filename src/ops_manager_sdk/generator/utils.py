@@ -25,7 +25,7 @@ LOCATORS = {
     "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
     "path_params_alternative": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[not(contains(@class, 'intro-code-block'))]//tbody[1]/tr",
     "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table/tbody/tr",
-    "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
+    "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div/table[1]/tbody[1]/tr",
     "api_path": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
 }
 
