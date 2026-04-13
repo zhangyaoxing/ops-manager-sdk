@@ -1,4 +1,4 @@
-from .client import OpsManagerClient
+from .ops_manager_client import OpsManagerClient
 from .config import ClientConfig
 from .exceptions import ApiError, AuthenticationError, RequestError
 

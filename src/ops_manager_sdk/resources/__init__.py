@@ -1,3 +1,3 @@
-from .base import ResourceClient
+from .base_resource import BaseResource
 
-__all__ = ["ResourceClient"]
+__all__ = ["BaseResource"]

@@ -7,7 +7,7 @@ SRC_PATH = Path(__file__).resolve().parents[1] / "src"
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
-from ops_manager_sdk.client import OpsManagerClient
+from ops_manager_sdk.ops_manager_client import OpsManagerClient
 from ops_manager_sdk.config import ClientConfig
 
 
