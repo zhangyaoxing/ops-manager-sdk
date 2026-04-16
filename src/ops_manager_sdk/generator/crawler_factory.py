@@ -120,10 +120,10 @@ class StandardCrawler:
         if description_locator.count() > 0:
             description: str = description_locator.inner_text()
             logger.debug(f"Extracted description: {description} from {page.url}")
-            return description
-        logger.warning(f"No description found in document: {page.url}")
-        # TODO: Some pages miss the description.
-        return ""
+            if "Base URL" not in description:
+                return description
+        logger.info(f"No description found in document: {page.url}")
+        return "No description."
 
     def get_endpoints(self, page: Page) -> list[str]:
         endpoints = page.locator(self.LOCATORS["endpoints"]).all_inner_texts()
