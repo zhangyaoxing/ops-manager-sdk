@@ -93,10 +93,13 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
                 logger.info("No API documentation needs to be recrawled. Skipping crawling.")
                 return api_docs
             logger.info(f"Found {len(urls)} API documentation to recrawl. Recrawling...")
+
     CrawlerFactory.initiate_crawler()
     for index, url in enumerate(urls):
         count = index + 1
         resource, api_doc = CrawlerFactory.crawl(url)
+        if resource is None or api_doc is None:
+            continue
         if resource not in api_docs:
             api_docs[resource] = []
         api_docs[resource].append(api_doc)

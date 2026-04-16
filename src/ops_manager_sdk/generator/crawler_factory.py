@@ -127,8 +127,6 @@ class StandardCrawler:
 
     def get_endpoints(self, page: Page) -> list[str]:
         endpoints = page.locator(self.LOCATORS["endpoints"]).all_inner_texts()
-        if len(endpoints) == 0:
-            logger.warning(f"No endpoint found in document: {page.url}")
         logger.debug(f"Extracted endpoints: {endpoints} from {page.url}")
         return endpoints
 
@@ -148,7 +146,7 @@ class StandardCrawler:
     def get_body_params(self, page: Page) -> list[dict[str, Any]]:
         return self._get_params(page.locator(self.LOCATORS["body_params"]))
 
-    def crawl(self, url: str) -> tuple[str, dict[str, Any]]:
+    def crawl(self, url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
         try:
             page = self.context.new_page()
             res: Optional[Response] = page.goto(url, wait_until="domcontentloaded")
@@ -164,6 +162,11 @@ class StandardCrawler:
             path_params: list[dict[str, Any]] = self.get_path_params(page)
             query_params: list[dict[str, Any]] = self.get_query_params(page)
             body_params: list[dict[str, Any]] = self.get_body_params(page)
+            if len(endpoints) == 0:
+                logger.warning(
+                    f"No endpoints found for URL: {url}. Skipping this API documentation."
+                )
+                return None, None
             return resource_name, {
                 "title": title,
                 "name": action_name,
@@ -223,7 +226,7 @@ class CrawlerFactory:
         CrawlerFactory.playwright.stop()
 
     @staticmethod
-    def crawl(url: str) -> tuple[str, dict[str, Any]]:
+    def crawl(url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
         if url in [
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/"
         ]:
