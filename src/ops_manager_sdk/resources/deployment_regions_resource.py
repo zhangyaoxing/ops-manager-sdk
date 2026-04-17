@@ -1,12 +1,13 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class DeploymentRegionsResource(BaseResource):
     """Client for DeploymentRegionsResource resource."""
     class AssignPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class AssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -14,8 +15,6 @@ class DeploymentRegionsResource(BaseResource):
     class AssignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         deployment_configs: list[dict] = Field(alias="deploymentConfigs")
-        deployment_configs.rs_id: str = Field(alias="deploymentConfigs.rsId")
-        deployment_configs.deployment_id: str = Field(alias="deploymentConfigs.deploymentId")
         multi_region_backup_enabled: bool = Field(alias="multiRegionBackupEnabled")
     def assign(self,
         path_params: AssignPathParams,
@@ -34,7 +33,7 @@ class DeploymentRegionsResource(BaseResource):
         )
     class CreateByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_id: str = Field(alias="DEPLOYMENT-ID")
+        deployment_id: str = Field("None", alias="DEPLOYMENT-ID")
     class CreateByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -42,10 +41,10 @@ class DeploymentRegionsResource(BaseResource):
     class CreateByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        bq_proxy_endpoint: str = Field(alias="bqProxyEndpoint")
-        deployment_description: str = Field(alias="deploymentDescription")
-        ingestion_endpoint: Optional[str] = Field(alias="ingestionEndpoint")
-        restore_endpoint: str = Field(alias="restoreEndpoint")
+        bq_proxy_endpoint: str = Field("None", alias="bqProxyEndpoint")
+        deployment_description: str = Field("None", alias="deploymentDescription")
+        ingestion_endpoint: Optional[str] = Field("None", alias="ingestionEndpoint")
+        restore_endpoint: str = Field("None", alias="restoreEndpoint")
     def create_by_id(self,
         path_params: CreateByIdPathParams,
         query_params: Optional[CreateByIdQueryParams],
@@ -70,11 +69,11 @@ class DeploymentRegionsResource(BaseResource):
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        bq_proxy_endpoint: str = Field(alias="bqProxyEndpoint")
-        deployment_description: str = Field(alias="deploymentDescription")
-        id: Optional[str] = Field(alias="id")
-        ingestion_endpoint: Optional[str] = Field(alias="ingestionEndpoint")
-        restore_endpoint: str = Field(alias="restoreEndpoint")
+        bq_proxy_endpoint: str = Field("None", alias="bqProxyEndpoint")
+        deployment_description: str = Field("None", alias="deploymentDescription")
+        id: Optional[str] = Field("None", alias="id")
+        ingestion_endpoint: Optional[str] = Field("None", alias="ingestionEndpoint")
+        restore_endpoint: str = Field("None", alias="restoreEndpoint")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -92,7 +91,7 @@ class DeploymentRegionsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_id: str = Field(alias="DEPLOYMENT-ID")
+        deployment_id: str = Field("None", alias="DEPLOYMENT-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -141,7 +140,7 @@ class DeploymentRegionsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_id: str = Field(alias="DEPLOYMENT-ID")
+        deployment_id: str = Field("None", alias="DEPLOYMENT-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")

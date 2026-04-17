@@ -2,11 +2,13 @@ from typing import Any
 import re
 from pathlib import Path
 from jinja2 import Template
+from loguru import logger
 
 from ops_manager_sdk.generator.utils import parse_value, type_mapping
 
 RESOURCE_TEMPLATE = """
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -69,7 +71,12 @@ class APIResource:
             required_str: str = param.get("required", "").lower()
             is_required: bool = "required" in required_str and "required if" not in required_str
             original_name: str = param["name"]
-            if "{" in original_name and "}" in original_name:
+            if "." in original_name:
+                logger.warning(
+                    f"Parameter name '{original_name}' is a nested parameter. Which is not supported in the current version. Skipping..."
+                )
+                continue
+            if "{" in original_name or "}" in original_name:
                 original_name = original_name.strip("{}")
             # Sometimes the required is written in the parameter name.
             if "\nrequired" in original_name.lower():
@@ -92,7 +99,7 @@ class APIResource:
                     "alias": original_name,
                     "type": param_type,
                     "required": is_required,
-                    "default": default_value,
+                    "default": default_value if param_type != "str" else f'"{default_value}"',
                 }
             )
         return params_required, result

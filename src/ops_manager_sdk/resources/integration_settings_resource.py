@@ -1,12 +1,13 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class IntegrationSettingsResource(BaseResource):
     """Client for IntegrationSettingsResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        integration_type: str = Field(alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -41,8 +42,8 @@ class IntegrationSettingsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        integration_type: str = Field(alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -68,7 +69,7 @@ class IntegrationSettingsResource(BaseResource):
         )
     class ReturnLatestPrometheusTargetsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class ReturnLatestPrometheusTargetsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -94,7 +95,7 @@ class IntegrationSettingsResource(BaseResource):
         )
     class GetAllConfigurationsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetAllConfigurationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -120,8 +121,8 @@ class IntegrationSettingsResource(BaseResource):
         )
     class GetOneConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        integration_type: str = Field(alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
     class GetOneConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -147,8 +148,8 @@ class IntegrationSettingsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        integration_type: str = Field(alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")

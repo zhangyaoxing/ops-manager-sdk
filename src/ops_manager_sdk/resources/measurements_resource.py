@@ -1,13 +1,14 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class MeasurementsResource(BaseResource):
     """Client for MeasurementsResource resource."""
     class DatabasePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
-        database_name: str = Field(alias="DATABASE-NAME")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
+        database_name: str = Field("None", alias="DATABASE-NAME")
     class DatabaseQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class DatabaseBodyParams(BaseModel):
@@ -29,9 +30,9 @@ class MeasurementsResource(BaseResource):
         )
     class DiskPartitionPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
-        partition_name: str = Field(alias="PARTITION-NAME")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
+        partition_name: str = Field("None", alias="PARTITION-NAME")
     class DiskPartitionQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class DiskPartitionBodyParams(BaseModel):
@@ -53,8 +54,8 @@ class MeasurementsResource(BaseResource):
         )
     class HostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class HostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class HostBodyParams(BaseModel):
@@ -76,8 +77,8 @@ class MeasurementsResource(BaseResource):
         )
     class GetTypesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetTypesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class GetTypesBodyParams(BaseModel):

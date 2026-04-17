@@ -1,12 +1,13 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ImportDeploymentsResource(BaseResource):
     """Client for ImportDeploymentsResource resource."""
     class CancelImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        request_id: str = Field(alias="REQUEST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        request_id: str = Field("None", alias="REQUEST-ID")
     class CancelImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -30,32 +31,28 @@ class ImportDeploymentsResource(BaseResource):
         )
     class CreateImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class CreateImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class CreateImportDeploymentRequestBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        seed_hostport: str = Field(alias="seedHostport")
+        seed_hostport: str = Field("None", alias="seedHostport")
         required_processes: list[Any] = Field(alias="requiredProcesses")
         timeouts: Optional[dict] = Field(alias="timeouts")
-        timeouts.seed_host_connection_sec: Optional[float] = Field(alias="timeouts.seedHostConnectionSec")
-        timeouts.processes_discovery_sec: Optional[float] = Field(alias="timeouts.processesDiscoverySec")
-        timeouts.automation_imported: Optional[float] = Field(alias="timeouts.automationImported")
-        timeouts.goal_state_sec: Optional[float] = Field(alias="timeouts.goalStateSec")
-        auth_mechanism: Optional[str] = Field(alias="authMechanism")
-        username: Optional[str] = Field(alias="username")
-        password: Optional[str] = Field(alias="password")
-        admin_db: Optional[str] = Field(alias="adminDb")
-        pem_key_file_path: Optional[str] = Field(alias="pemKeyFilePath")
-        pem_key_file_password: Optional[str] = Field(alias="pemKeyFilePassword")
-        admin_kerberos_keytab: Optional[str] = Field(alias="adminKerberosKeytab")
-        admin_ldap_group_dn: Optional[str] = Field(alias="adminLdapGroupDn")
-        sasl_service_name: Optional[str] = Field(alias="saslServiceName")
-        ca_file_path: Optional[str] = Field(alias="caFilePath")
-        cluster_ca_file_path: Optional[str] = Field(alias="clusterCaFilePath")
-        client_certificate_mode: Optional[str] = Field(alias="clientCertificateMode")
+        auth_mechanism: Optional[str] = Field("None", alias="authMechanism")
+        username: Optional[str] = Field("None", alias="username")
+        password: Optional[str] = Field("None", alias="password")
+        admin_db: Optional[str] = Field("None", alias="adminDb")
+        pem_key_file_path: Optional[str] = Field("None", alias="pemKeyFilePath")
+        pem_key_file_password: Optional[str] = Field("None", alias="pemKeyFilePassword")
+        admin_kerberos_keytab: Optional[str] = Field("None", alias="adminKerberosKeytab")
+        admin_ldap_group_dn: Optional[str] = Field("None", alias="adminLdapGroupDn")
+        sasl_service_name: Optional[str] = Field("None", alias="saslServiceName")
+        ca_file_path: Optional[str] = Field("None", alias="caFilePath")
+        cluster_ca_file_path: Optional[str] = Field("None", alias="clusterCaFilePath")
+        client_certificate_mode: Optional[str] = Field("None", alias="clientCertificateMode")
     def create_import_deployment_request(self,
         path_params: CreateImportDeploymentRequestPathParams,
         query_params: Optional[CreateImportDeploymentRequestQueryParams],
@@ -73,8 +70,8 @@ class ImportDeploymentsResource(BaseResource):
         )
     class DeleteImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        request_id: str = Field(alias="REQUEST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        request_id: str = Field("None", alias="REQUEST-ID")
     class DeleteImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -98,7 +95,7 @@ class ImportDeploymentsResource(BaseResource):
         )
     class GetImportDeploymentRequestsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetImportDeploymentRequestsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -122,8 +119,8 @@ class ImportDeploymentsResource(BaseResource):
         )
     class GetImportDeploymentRequestStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        import_process_id: str = Field(alias="IMPORT-PROCESS-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        import_process_id: str = Field("None", alias="IMPORT-PROCESS-ID")
     class GetImportDeploymentRequestStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

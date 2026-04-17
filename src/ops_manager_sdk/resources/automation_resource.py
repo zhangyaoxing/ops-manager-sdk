@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class AutomationResource(BaseResource):
     """Client for AutomationResource resource."""
     class GetStatusOfLast50PlansPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
     class GetStatusOfLast50PlansQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -29,7 +30,7 @@ class AutomationResource(BaseResource):
         )
     class GetStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

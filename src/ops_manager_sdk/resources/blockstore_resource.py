@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class BlockstoreResource(BaseResource):
@@ -13,13 +14,13 @@ class BlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
         encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
-        id: Optional[str] = Field(alias="id")
+        id: Optional[str] = Field("None", alias="id")
         labels: Optional[list[str]] = Field(alias="labels")
         load_factor: Optional[float] = Field(alias="loadFactor")
         max_capacity_gb: Optional[float] = Field(alias="maxCapacityGB")
-        uri: Optional[str] = Field(alias="uri")
+        uri: Optional[str] = Field("None", alias="uri")
         ssl: Optional[bool] = Field(alias="ssl")
-        write_concern: Optional[str] = Field(alias="writeConcern")
+        write_concern: Optional[str] = Field("None", alias="writeConcern")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -37,7 +38,7 @@ class BlockstoreResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        blockstore_id: str = Field(alias="BLOCKSTORE-ID")
+        blockstore_id: str = Field("None", alias="BLOCKSTORE-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -87,7 +88,7 @@ class BlockstoreResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        blockstore_id: str = Field(alias="BLOCKSTORE-ID")
+        blockstore_id: str = Field("None", alias="BLOCKSTORE-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -111,7 +112,7 @@ class BlockstoreResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        blockstore_id: str = Field(alias="BLOCKSTORE-ID")
+        blockstore_id: str = Field("None", alias="BLOCKSTORE-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -123,9 +124,9 @@ class BlockstoreResource(BaseResource):
         labels: Optional[list[str]] = Field(alias="labels")
         load_factor: Optional[float] = Field(alias="loadFactor")
         max_capacity_gb: Optional[float] = Field(alias="maxCapacityGB")
-        uri: Optional[str] = Field(alias="uri")
+        uri: Optional[str] = Field("None", alias="uri")
         ssl: Optional[bool] = Field(alias="ssl")
-        write_concern: Optional[str] = Field(alias="writeConcern")
+        write_concern: Optional[str] = Field("None", alias="writeConcern")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class FeatureControlPoliciesResource(BaseResource):
@@ -30,7 +31,7 @@ class FeatureControlPoliciesResource(BaseResource):
         )
     class RetrieveForOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -56,7 +57,7 @@ class FeatureControlPoliciesResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -66,12 +67,7 @@ class FeatureControlPoliciesResource(BaseResource):
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         external_management_system: Optional[dict] = Field(alias="externalManagementSystem")
-        external_management_system.name: Optional[str] = Field(alias="externalManagementSystem.name")
-        external_management_system.system_id: Optional[str] = Field(alias="externalManagementSystem.systemId")
-        external_management_system.version: Optional[str] = Field(alias="externalManagementSystem.version")
         policies: Optional[list[Any]] = Field(alias="policies")
-        policies.policy[n]: Optional[dict] = Field(alias="policies.policy[n]")
-        policies[n].disabled_params: Optional[list[Any]] = Field(alias="policies[n].disabledParams")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

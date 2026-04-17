@@ -1,12 +1,13 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class RestoreJobsResource(BaseResource):
     """Client for RestoreJobsResource resource."""
     class CreateClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class CreateClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -30,26 +31,20 @@ class RestoreJobsResource(BaseResource):
         )
     class CreateConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class CreateConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class CreateConfigServerBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        checkpoint_id: Optional[str] = Field(alias="checkpointId")
+        checkpoint_id: Optional[str] = Field("None", alias="checkpointId")
         delivery: dict = Field(alias="delivery")
-        delivery.expires: Optional[str] = Field(alias="delivery.expires")
-        delivery.expiration_hours: Optional[float] = Field(alias="delivery.expirationHours")
-        delivery.max_downloads: Optional[float] = Field(alias="delivery.maxDownloads")
-        delivery.method_name: str = Field(alias="delivery.methodName")
-        delivery.target_cluster_id: Optional[str] = Field(alias="delivery.targetClusterId")
-        delivery.target_group_id: Optional[str] = Field(alias="delivery.targetGroupId")
-        oplog_ts: Optional[str] = Field(alias="oplogTs")
-        oplog_inc: Optional[str] = Field(alias="oplogInc")
+        oplog_ts: Optional[str] = Field("None", alias="oplogTs")
+        oplog_inc: Optional[str] = Field("None", alias="oplogInc")
         point_in_time_utc_millis: Optional[int] = Field(alias="pointInTimeUTCMillis")
-        snapshot_id: Optional[str] = Field(alias="snapshotId")
+        snapshot_id: Optional[str] = Field("None", alias="snapshotId")
     def create_config_server_(self,
         path_params: CreateConfigServerPathParams,
         query_params: Optional[CreateConfigServerQueryParams],
@@ -67,15 +62,15 @@ class RestoreJobsResource(BaseResource):
         )
     class GetAllClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        batch_id: Optional[str] = Field(alias="BATCH-ID")
+        batch_id: Optional[str] = Field("None", alias="BATCH-ID")
     class GetAllClusterBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_cluster_(self,
@@ -95,8 +90,8 @@ class RestoreJobsResource(BaseResource):
         )
     class GetAllConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetAllConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -122,9 +117,9 @@ class RestoreJobsResource(BaseResource):
         )
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
-        job_id: str = Field(alias="JOB-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
+        job_id: str = Field("None", alias="JOB-ID")
     class GetOneClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -148,9 +143,9 @@ class RestoreJobsResource(BaseResource):
         )
     class GetOneConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
-        job_id: str = Field(alias="JOB-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
+        job_id: str = Field("None", alias="JOB-ID")
     class GetOneConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

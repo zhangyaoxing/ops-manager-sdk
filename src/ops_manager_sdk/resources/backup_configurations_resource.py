@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class BackupConfigurationsResource(BaseResource):
     """Client for BackupConfigurationsResource resource."""
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -31,8 +32,8 @@ class BackupConfigurationsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -56,29 +57,27 @@ class BackupConfigurationsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="projectId")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="projectId")
+        cluster_id: str = Field("None", alias="clusterId")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        auth_mechanism_name: Optional[str] = Field(alias="authMechanismName")
+        auth_mechanism_name: Optional[str] = Field("None", alias="authMechanismName")
         encryption_enabled: Optional[bool] = Field(alias="encryptionEnabled")
         excluded_namespaces: Optional[list[str]] = Field(alias="excludedNamespaces")
         included_namespaces: Optional[list[str]] = Field(alias="includedNamespaces")
-        password: Optional[str] = Field(alias="password")
-        preferred_member: Optional[str] = Field(alias="preferredMember")
+        password: Optional[str] = Field("None", alias="password")
+        preferred_member: Optional[str] = Field("None", alias="preferredMember")
         provisioned: Optional[bool] = Field(alias="provisioned")
         ssl_enabled: Optional[bool] = Field(alias="sslEnabled")
-        status_name: Optional[str] = Field(alias="statusName")
-        storage_engine_name: Optional[str] = Field(alias="storageEngineName")
-        sync_source: Optional[str] = Field(alias="syncSource")
-        username: Optional[str] = Field(alias="username")
+        status_name: Optional[str] = Field("None", alias="statusName")
+        storage_engine_name: Optional[str] = Field("None", alias="storageEngineName")
+        sync_source: Optional[str] = Field("None", alias="syncSource")
+        username: Optional[str] = Field("None", alias="username")
         snapshot_store: Optional[dict] = Field(alias="snapshotStore")
-        snapshot_store.snapshot_store_type: Optional[str] = Field(alias="snapshotStore.snapshotStoreType")
-        snapshot_store.snapshot_store_id: Optional[str] = Field(alias="snapshotStore.snapshotStoreId")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

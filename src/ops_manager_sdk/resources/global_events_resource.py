@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalEventsResource(BaseResource):
@@ -26,7 +27,7 @@ class GlobalEventsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        event_id: str = Field(alias="eventId")
+        event_id: str = Field("None", alias="eventId")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

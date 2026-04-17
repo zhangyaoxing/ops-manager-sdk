@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class BackupDaemonResource(BaseResource):
     """Client for BackupDaemonResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field(alias="MACHINE")
+        machine: str = Field("None", alias="MACHINE")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -16,11 +17,9 @@ class BackupDaemonResource(BaseResource):
         backup_jobs_enabled: Optional[bool] = Field(alias="backupJobsEnabled")
         configured: Optional[bool] = Field(alias="configured")
         garbage_collection_enabled: Optional[bool] = Field(alias="garbageCollectionEnabled")
-        head_disk_type: Optional[str] = Field(alias="headDiskType")
+        head_disk_type: Optional[str] = Field("None", alias="headDiskType")
         labels: Optional[list[str]] = Field(alias="labels")
         machine: dict = Field(alias="machine")
-        machine.head_root_directory: Optional[str] = Field(alias="machine.headRootDirectory")
-        machine.machine: str = Field(alias="machine.machine")
         num_workers: Optional[float] = Field(alias="numWorkers")
         resource_usage_enabled: Optional[bool] = Field(alias="resourceUsageEnabled")
         restore_queryable_jobs_enabled: Optional[bool] = Field(alias="restoreQueryableJobsEnabled")
@@ -41,8 +40,8 @@ class BackupDaemonResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field(alias="MACHINE")
-        head_root_directory: str = Field(alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", alias="MACHINE")
+        head_root_directory: str = Field("None", alias="HEAD-ROOT-DIRECTORY")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -92,8 +91,8 @@ class BackupDaemonResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field(alias="MACHINE")
-        head_root_directory: str = Field(alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", alias="MACHINE")
+        head_root_directory: str = Field("None", alias="HEAD-ROOT-DIRECTORY")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -117,8 +116,8 @@ class BackupDaemonResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field(alias="MACHINE")
-        head_root_directory: str = Field(alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", alias="MACHINE")
+        head_root_directory: str = Field("None", alias="HEAD-ROOT-DIRECTORY")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -129,11 +128,9 @@ class BackupDaemonResource(BaseResource):
         backup_jobs_enabled: Optional[bool] = Field(alias="backupJobsEnabled")
         configured: Optional[bool] = Field(alias="configured")
         garbage_collection_enabled: Optional[bool] = Field(alias="garbageCollectionEnabled")
-        head_disk_type: Optional[str] = Field(alias="headDiskType")
+        head_disk_type: Optional[str] = Field("None", alias="headDiskType")
         labels: Optional[list[str]] = Field(alias="labels")
         machine: dict = Field(alias="machine")
-        machine.head_root_directory: Optional[str] = Field(alias="machine.headRootDirectory")
-        machine.machine: str = Field(alias="machine.machine")
         num_workers: Optional[float] = Field(alias="numWorkers")
         resource_usage_enabled: Optional[bool] = Field(alias="resourceUsageEnabled")
         restore_queryable_jobs_enabled: Optional[bool] = Field(alias="restoreQueryableJobsEnabled")

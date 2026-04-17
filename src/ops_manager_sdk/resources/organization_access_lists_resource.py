@@ -1,12 +1,13 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class OrganizationAccessListsResource(BaseResource):
     """Client for OrganizationAccessListsResource resource."""
     class CreateEntriesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class CreateEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -15,8 +16,6 @@ class OrganizationAccessListsResource(BaseResource):
         envelope: Optional[bool] = Field(alias="envelope")
     class CreateEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        [i].ip_address: Optional[str] = Field(alias="[i].ipAddress")
-        [i].cidr_block: Optional[str] = Field(alias="[i].cidrBlock")
     def create_entries(self,
         path_params: CreateEntriesPathParams,
         query_params: Optional[CreateEntriesQueryParams],
@@ -34,9 +33,9 @@ class OrganizationAccessListsResource(BaseResource):
         )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
-        access_list_entry: str = Field(alias="ACCESS-LIST-ENTRY")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
+        access_list_entry: str = Field("None", alias="ACCESS-LIST-ENTRY")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -62,8 +61,8 @@ class OrganizationAccessListsResource(BaseResource):
         )
     class GetAllEntriesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class GetAllEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -89,9 +88,9 @@ class OrganizationAccessListsResource(BaseResource):
         )
     class GetOneEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
-        access_list_entry: str = Field(alias="ACCESS-LIST-ENTRY")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
+        access_list_entry: str = Field("None", alias="ACCESS-LIST-ENTRY")
     class GetOneEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")

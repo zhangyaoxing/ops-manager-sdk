@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalApiKeysResource(BaseResource):
@@ -11,7 +12,7 @@ class GlobalApiKeysResource(BaseResource):
         envelope: Optional[bool] = Field(False, alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: str = Field(alias="desc")
+        desc: str = Field("None", alias="desc")
         roles: list[str] = Field(alias="roles")
     def create(self,
         path_params: Optional[CreatePathParams],
@@ -30,7 +31,7 @@ class GlobalApiKeysResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        api_key_id: str = Field(alias="API-KEY-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -104,7 +105,7 @@ class GlobalApiKeysResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        api_key_id: str = Field(alias="API-KEY-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -128,14 +129,14 @@ class GlobalApiKeysResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        api_key_id: str = Field(alias="API-KEY-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field(alias="desc")
+        desc: Optional[str] = Field("None", alias="desc")
         roles: Optional[list[str]] = Field(alias="roles")
     def update(self,
         path_params: UpdatePathParams,

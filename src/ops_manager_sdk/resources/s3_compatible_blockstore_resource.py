@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class S3CompatibleBlockstoreResource(BaseResource):
@@ -13,27 +14,25 @@ class S3CompatibleBlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         accepted_tos: bool = Field(alias="acceptedTos")
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        aws_access_key: Optional[str] = Field(alias="awsAccessKey")
-        aws_secret_key: Optional[str] = Field(alias="awsSecretKey")
+        aws_access_key: Optional[str] = Field("None", alias="awsAccessKey")
+        aws_secret_key: Optional[str] = Field("None", alias="awsSecretKey")
         custom_certificates: Optional[list[Any]] = Field(alias="customCertificates")
-        custom_certificates[n].filename: Optional[str] = Field(alias="customCertificates[n].filename")
-        custom_certificates[n].cert_string: Optional[str] = Field(alias="customCertificates[n].certString")
         disable_proxy_s3: Optional[bool] = Field(alias="disableProxyS3")
         encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
-        id: str = Field(alias="id")
+        id: str = Field("None", alias="id")
         labels: Optional[list[str]] = Field(alias="labels")
         load_factor: Optional[float] = Field(alias="loadFactor")
         object_lock_enabled: Optional[bool] = Field(alias="objectLockEnabled")
         path_style_access_enabled: bool = Field(alias="pathStyleAccessEnabled")
-        s3_auth_method: Optional[str] = Field(alias="s3AuthMethod")
-        s3_bucket_endpoint: str = Field(alias="s3BucketEndpoint")
-        s3_bucket_name: str = Field(alias="s3BucketName")
+        s3_auth_method: Optional[str] = Field("None", alias="s3AuthMethod")
+        s3_bucket_endpoint: str = Field("None", alias="s3BucketEndpoint")
+        s3_bucket_name: str = Field("None", alias="s3BucketName")
         s3_max_connections: float = Field(alias="s3MaxConnections")
-        s3_region_override: Optional[str] = Field(alias="s3RegionOverride")
+        s3_region_override: Optional[str] = Field("None", alias="s3RegionOverride")
         sse_enabled: bool = Field(alias="sseEnabled")
         ssl: Optional[bool] = Field(alias="ssl")
-        uri: str = Field(alias="uri")
-        write_concern: Optional[str] = Field(alias="writeConcern")
+        uri: str = Field("None", alias="uri")
+        write_concern: Optional[str] = Field("None", alias="writeConcern")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -51,7 +50,7 @@ class S3CompatibleBlockstoreResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        s3_blockstore_config_id: str = Field(alias="S3-BLOCKSTORE-CONFIG-ID")
+        s3_blockstore_config_id: str = Field("None", alias="S3-BLOCKSTORE-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -101,7 +100,7 @@ class S3CompatibleBlockstoreResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        s3_blockstore_config_id: str = Field(alias="S3-BLOCKSTORE-CONFIG-ID")
+        s3_blockstore_config_id: str = Field("None", alias="S3-BLOCKSTORE-CONFIG-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -125,7 +124,7 @@ class S3CompatibleBlockstoreResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        s3_blockstore_config_id: str = Field(alias="S3-BLOCKSTORE-CONFIG-ID")
+        s3_blockstore_config_id: str = Field("None", alias="S3-BLOCKSTORE-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -134,26 +133,24 @@ class S3CompatibleBlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         accepted_tos: bool = Field(alias="acceptedTos")
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        aws_access_key: Optional[str] = Field(alias="awsAccessKey")
-        aws_secret_key: Optional[str] = Field(alias="awsSecretKey")
+        aws_access_key: Optional[str] = Field("None", alias="awsAccessKey")
+        aws_secret_key: Optional[str] = Field("None", alias="awsSecretKey")
         custom_certificates: Optional[list[Any]] = Field(alias="customCertificates")
-        custom_certificates[n].filename: Optional[str] = Field(alias="customCertificates[n].filename")
-        custom_certificates[n].cert_string: Optional[str] = Field(alias="customCertificates[n].certString")
         disable_proxy_s3: Optional[bool] = Field(alias="disableProxyS3")
         encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
         labels: Optional[list[str]] = Field(alias="labels")
         load_factor: Optional[float] = Field(alias="loadFactor")
         object_lock_enabled: Optional[bool] = Field(alias="objectLockEnabled")
         path_style_access_enabled: bool = Field(alias="pathStyleAccessEnabled")
-        s3_auth_method: Optional[str] = Field(alias="s3AuthMethod")
-        s3_bucket_endpoint: str = Field(alias="s3BucketEndpoint")
-        s3_bucket_name: str = Field(alias="s3BucketName")
+        s3_auth_method: Optional[str] = Field("None", alias="s3AuthMethod")
+        s3_bucket_endpoint: str = Field("None", alias="s3BucketEndpoint")
+        s3_bucket_name: str = Field("None", alias="s3BucketName")
         s3_max_connections: float = Field(alias="s3MaxConnections")
-        s3_region_override: Optional[str] = Field(alias="s3RegionOverride")
+        s3_region_override: Optional[str] = Field("None", alias="s3RegionOverride")
         sse_enabled: bool = Field(alias="sseEnabled")
-        uri: str = Field(alias="uri")
+        uri: str = Field("None", alias="uri")
         ssl: Optional[bool] = Field(alias="ssl")
-        write_concern: Optional[str] = Field(alias="writeConcern")
+        write_concern: Optional[str] = Field("None", alias="writeConcern")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

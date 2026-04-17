@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ClustersResource(BaseResource):
@@ -28,7 +29,7 @@ class ClustersResource(BaseResource):
         )
     class GetAllFromOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetAllFromOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -54,8 +55,8 @@ class ClustersResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -79,15 +80,15 @@ class ClustersResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        cluster_name: str = Field(alias="clusterName")
+        cluster_name: str = Field("None", alias="clusterName")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

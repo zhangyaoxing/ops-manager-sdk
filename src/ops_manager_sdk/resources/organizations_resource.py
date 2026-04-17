@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class OrganizationsResource(BaseResource):
     """Client for OrganizationsResource resource."""
     class InviteUserPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class InviteUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -14,7 +15,7 @@ class OrganizationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         roles: list[str] = Field(alias="roles")
         team_ids: Optional[list[str]] = Field(alias="teamIds")
-        username: str = Field(alias="username")
+        username: str = Field("None", alias="username")
     def invite_user(self,
         path_params: InviteUserPathParams,
         query_params: Optional[InviteUserQueryParams],
@@ -32,8 +33,8 @@ class OrganizationsResource(BaseResource):
         )
     class DeleteInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        invitation_id: str = Field(alias="INVITATION-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        invitation_id: str = Field("None", alias="INVITATION-ID")
     class DeleteInvitationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -57,12 +58,12 @@ class OrganizationsResource(BaseResource):
         )
     class GetAllInvitationsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class GetAllInvitationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        username: Optional[str] = Field(alias="username")
+        username: Optional[str] = Field("None", alias="username")
     class GetAllInvitationsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_invitations(self,
@@ -82,8 +83,8 @@ class OrganizationsResource(BaseResource):
         )
     class GetOneInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        invitation_id: str = Field(alias="INVITATION-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        invitation_id: str = Field("None", alias="INVITATION-ID")
     class GetOneInvitationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -107,8 +108,8 @@ class OrganizationsResource(BaseResource):
         )
     class UpdateByInvitationIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        invitation_id: str = Field(alias="INVITATION-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        invitation_id: str = Field("None", alias="INVITATION-ID")
     class UpdateByInvitationIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -133,7 +134,7 @@ class OrganizationsResource(BaseResource):
         )
     class UpdateInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class UpdateInvitationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -141,7 +142,7 @@ class OrganizationsResource(BaseResource):
     class UpdateInvitationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         roles: list[str] = Field(alias="roles")
-        username: str = Field(alias="username")
+        username: str = Field("None", alias="username")
     def update_invitation(self,
         path_params: UpdateInvitationPathParams,
         query_params: Optional[UpdateInvitationQueryParams],
@@ -168,9 +169,7 @@ class OrganizationsResource(BaseResource):
     class CreateOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         ldap_group_mappings: Optional[list[Any]] = Field(alias="ldapGroupMappings")
-        ldap_group_mappings.role_name: Optional[str] = Field(alias="ldapGroupMappings.roleName")
-        ldap_group_mappings.ldap_groups: Optional[list[Any]] = Field(alias="ldapGroupMappings.ldapGroups")
-        name: str = Field(alias="name")
+        name: str = Field("None", alias="name")
     def create_organization(self,
         path_params: Optional[CreateOrganizationPathParams],
         query_params: Optional[CreateOrganizationQueryParams],
@@ -188,7 +187,7 @@ class OrganizationsResource(BaseResource):
         )
     class DeleteOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class DeleteOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -212,14 +211,14 @@ class OrganizationsResource(BaseResource):
         )
     class GetAllProjectsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class GetAllProjectsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
         items_per_page: Optional[float] = Field(alias="itemsPerPage")
         pretty: Optional[bool] = Field(alias="pretty")
         envelope: Optional[bool] = Field(alias="envelope")
-        name: Optional[str] = Field(alias="name")
+        name: Optional[str] = Field("None", alias="name")
     class GetAllProjectsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_projects(self,
@@ -239,7 +238,7 @@ class OrganizationsResource(BaseResource):
         )
     class GetAllUsersPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class GetAllUsersQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -271,7 +270,7 @@ class OrganizationsResource(BaseResource):
         items_per_page: Optional[float] = Field(alias="itemsPerPage")
         pretty: Optional[bool] = Field(alias="pretty")
         envelope: Optional[bool] = Field(alias="envelope")
-        name: Optional[str] = Field(alias="name")
+        name: Optional[str] = Field("None", alias="name")
         include_deleted_orgs: Optional[bool] = Field(alias="includeDeletedOrgs")
     class GetAllOrganizationsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -292,7 +291,7 @@ class OrganizationsResource(BaseResource):
         )
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class GetOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(alias="pretty")
@@ -317,14 +316,14 @@ class OrganizationsResource(BaseResource):
         )
     class RenameOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class RenameOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class RenameOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        name: Optional[str] = Field(alias="name")
+        name: Optional[str] = Field("None", alias="name")
         ldap_group_mappings: Optional[list[dict]] = Field(alias="ldapGroupMappings")
     def rename_organization(self,
         path_params: RenameOrganizationPathParams,

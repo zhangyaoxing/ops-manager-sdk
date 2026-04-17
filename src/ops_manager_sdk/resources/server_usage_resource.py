@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ServerUsageResource(BaseResource):
     """Client for ServerUsageResource resource."""
     class GetDiagnosticArchivePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetDiagnosticArchiveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -44,10 +45,8 @@ class ServerUsageResource(BaseResource):
     class CreatePhysicalHostBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         virtual_hosts: list[str] = Field(alias="virtualHosts")
-        virtual_hosts.group_id: Optional[str] = Field(alias="virtualHosts.groupId")
-        virtual_hosts.hostname: Optional[str] = Field(alias="virtualHosts.hostname")
-        name: str = Field(alias="name")
-        server_type: str = Field(alias="serverType")
+        name: str = Field("None", alias="name")
+        server_type: str = Field("None", alias="serverType")
     def create_physical_host(self,
         path_params: Optional[CreatePhysicalHostPathParams],
         query_params: Optional[CreatePhysicalHostQueryParams],
@@ -69,9 +68,9 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field(alias="startDate")
-        end_date: str = Field(alias="endDate")
-        file_format: str = Field(alias="fileFormat")
+        start_date: str = Field("None", alias="startDate")
+        end_date: str = Field("None", alias="endDate")
+        file_format: str = Field("None", alias="fileFormat")
         redact: Optional[bool] = Field(True, alias="redact")
     class GetGlobalUsageReportArchiveBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -142,7 +141,7 @@ class ServerUsageResource(BaseResource):
         )
     class GetServerTypeInOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
+        org_id: str = Field("None", alias="orgId")
     class GetServerTypeInOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -166,7 +165,7 @@ class ServerUsageResource(BaseResource):
         )
     class GetDefaultServerTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="groupId")
+        group_id: str = Field("None", alias="groupId")
     class GetDefaultServerTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -190,7 +189,7 @@ class ServerUsageResource(BaseResource):
         )
     class RetreiveOnePhysicalHostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        physical_host_id: str = Field(alias="physicalHostId")
+        physical_host_id: str = Field("None", alias="physicalHostId")
     class RetreiveOnePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -216,13 +215,13 @@ class ServerUsageResource(BaseResource):
         )
     class ListHostAssignmentsInOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
+        org_id: str = Field("None", alias="orgId")
     class ListHostAssignmentsInOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field(alias="startDate")
-        end_date: str = Field(alias="endDate")
+        start_date: str = Field("None", alias="startDate")
+        end_date: str = Field("None", alias="endDate")
         page_num: float = Field(alias="pageNum")
         items_per_page: float = Field(100.0, alias="itemsPerPage")
     class ListHostAssignmentsInOneOrganizationBodyParams(BaseModel):
@@ -244,13 +243,13 @@ class ServerUsageResource(BaseResource):
         )
     class ListHostAssignmentsInOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="groupId")
+        group_id: str = Field("None", alias="groupId")
     class ListHostAssignmentsInOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field(alias="startDate")
-        end_date: str = Field(alias="endDate")
+        start_date: str = Field("None", alias="startDate")
+        end_date: str = Field("None", alias="endDate")
         page_num: float = Field(alias="pageNum")
         items_per_page: float = Field(100.0, alias="itemsPerPage")
     class ListHostAssignmentsInOneProjectBodyParams(BaseModel):
@@ -276,8 +275,8 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field(alias="startDate")
-        end_date: str = Field(alias="endDate")
+        start_date: str = Field("None", alias="startDate")
+        end_date: str = Field("None", alias="endDate")
         page_num: float = Field(alias="pageNum")
         items_per_page: float = Field(100.0, alias="itemsPerPage")
     class ListHostAssignmentsBodyParams(BaseModel):
@@ -299,7 +298,7 @@ class ServerUsageResource(BaseResource):
         )
     class RemovePhysicalHostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        physical_host_id: str = Field(alias="physicalHostId")
+        physical_host_id: str = Field("None", alias="physicalHostId")
     class RemovePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -325,7 +324,7 @@ class ServerUsageResource(BaseResource):
         )
     class UpdateServerTypeForOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
+        org_id: str = Field("None", alias="orgId")
     class UpdateServerTypeForOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -333,8 +332,6 @@ class ServerUsageResource(BaseResource):
     class UpdateServerTypeForOneOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         server_type: dict = Field(alias="serverType")
-        server_type.name: dict = Field(alias="serverType.name")
-        server_type.label: Optional[dict] = Field(alias="serverType.label")
     def update_server_type_for_one_organization(self,
         path_params: UpdateServerTypeForOneOrganizationPathParams,
         query_params: Optional[UpdateServerTypeForOneOrganizationQueryParams],
@@ -352,7 +349,7 @@ class ServerUsageResource(BaseResource):
         )
     class UpdateDefaultServerTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="groupId")
+        group_id: str = Field("None", alias="groupId")
     class UpdateDefaultServerTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -360,8 +357,6 @@ class ServerUsageResource(BaseResource):
     class UpdateDefaultServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         server_type: dict = Field(alias="serverType")
-        server_type.name: dict = Field(alias="serverType.name")
-        server_type.label: Optional[dict] = Field(alias="serverType.label")
     def update_default_server_type(self,
         path_params: UpdateDefaultServerTypePathParams,
         query_params: Optional[UpdateDefaultServerTypeQueryParams],
@@ -379,7 +374,7 @@ class ServerUsageResource(BaseResource):
         )
     class UpdatePhysicalHostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        physical_host_id: str = Field(alias="physicalHostId")
+        physical_host_id: str = Field("None", alias="physicalHostId")
     class UpdatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -389,10 +384,8 @@ class ServerUsageResource(BaseResource):
     class UpdatePhysicalHostBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         virtual_hosts: list[str] = Field(alias="virtualHosts")
-        virtual_hosts.group_id: Optional[str] = Field(alias="virtualHosts.groupId")
-        virtual_hosts.hostname: Optional[str] = Field(alias="virtualHosts.hostname")
-        name: str = Field(alias="name")
-        server_type: str = Field(alias="serverType")
+        name: str = Field("None", alias="name")
+        server_type: str = Field("None", alias="serverType")
     def update_physical_host(self,
         path_params: UpdatePhysicalHostPathParams,
         query_params: Optional[UpdatePhysicalHostQueryParams],
@@ -410,7 +403,7 @@ class ServerUsageResource(BaseResource):
         )
     class UpdateServerTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        host_id: str = Field(alias="hostId")
+        host_id: str = Field("None", alias="hostId")
     class UpdateServerTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -418,8 +411,6 @@ class ServerUsageResource(BaseResource):
     class UpdateServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         server_type: dict = Field(alias="serverType")
-        server_type.name: dict = Field(alias="serverType.name")
-        server_type.label: Optional[dict] = Field(alias="serverType.label")
     def update_server_type(self,
         path_params: UpdateServerTypePathParams,
         query_params: Optional[UpdateServerTypeQueryParams],

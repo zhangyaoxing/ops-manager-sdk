@@ -1,19 +1,20 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalAlertsResource(BaseResource):
     """Client for GlobalAlertsResource resource."""
     class AcknowledgeOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alert_id: str = Field(alias="ALERT-ID")
+        alert_id: str = Field("None", alias="ALERT-ID")
     class AcknowledgeOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class AcknowledgeOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        acknowledged_until: str = Field(alias="acknowledgedUntil")
-        acknowledgement_comment: Optional[str] = Field(alias="acknowledgementComment")
+        acknowledged_until: str = Field("None", alias="acknowledgedUntil")
+        acknowledgement_comment: Optional[str] = Field("None", alias="acknowledgementComment")
     def acknowledge_one(self,
         path_params: AcknowledgeOnePathParams,
         query_params: Optional[AcknowledgeOneQueryParams],
@@ -37,7 +38,7 @@ class GlobalAlertsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        status: Optional[str] = Field(None, alias="status")
+        status: Optional[str] = Field("None", alias="status")
         created_on_or_after: Optional[datetime] = Field(None, alias="createdOnOrAfter")
         created_on_or_before: Optional[datetime] = Field(None, alias="createdOnOrBefore")
     class GetAllBodyParams(BaseModel):
@@ -59,7 +60,7 @@ class GlobalAlertsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alert_id: str = Field(alias="ALERT-ID")
+        alert_id: str = Field("None", alias="ALERT-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class OrganizationApiKeysResource(BaseResource):
     """Client for OrganizationApiKeysResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -14,7 +15,7 @@ class OrganizationApiKeysResource(BaseResource):
         envelope: Optional[bool] = Field(alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field(alias="desc")
+        desc: Optional[str] = Field("None", alias="desc")
         roles: Optional[list[str]] = Field(alias="roles")
     def create(self,
         path_params: CreatePathParams,
@@ -33,8 +34,8 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -60,7 +61,7 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
+        org_id: str = Field("None", alias="ORG-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -86,8 +87,8 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -113,8 +114,8 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="ORG-ID")
-        api_key_id: str = Field(alias="API-KEY-ID")
+        org_id: str = Field("None", alias="ORG-ID")
+        api_key_id: str = Field("None", alias="API-KEY-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -123,7 +124,7 @@ class OrganizationApiKeysResource(BaseResource):
         envelope: Optional[bool] = Field(alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field(alias="desc")
+        desc: Optional[str] = Field("None", alias="desc")
         roles: Optional[list[str]] = Field(alias="roles")
     def update(self,
         path_params: UpdatePathParams,

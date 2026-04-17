@@ -1,18 +1,19 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class AgentsResource(BaseResource):
     """Client for AgentsResource resource."""
     class CreateApiKeyPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class CreateApiKeyQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class CreateApiKeyBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field(alias="desc")
+        desc: Optional[str] = Field("None", alias="desc")
     def create_api_key(self,
         path_params: CreateApiKeyPathParams,
         query_params: Optional[CreateApiKeyQueryParams],
@@ -30,8 +31,8 @@ class AgentsResource(BaseResource):
         )
     class RemoveApiKeyPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        api_agent_key_id: str = Field(alias="API-AGENT-KEY-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        api_agent_key_id: str = Field("None", alias="API-AGENT-KEY-ID")
     class RemoveApiKeyQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -55,7 +56,7 @@ class AgentsResource(BaseResource):
         )
     class GetAllApiKeysPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetAllApiKeysQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -102,7 +103,7 @@ class AgentsResource(BaseResource):
         )
     class RetrieveForOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -126,7 +127,7 @@ class AgentsResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -152,8 +153,8 @@ class AgentsResource(BaseResource):
         )
     class GetByTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        type: str = Field(alias="TYPE")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        type: str = Field("None", alias="TYPE")
     class GetByTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")

@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class AccessListResource(BaseResource):
     """Client for AccessListResource resource."""
     class AddEntriesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field(alias="USER-ID")
+        user_id: str = Field("None", alias="USER-ID")
     class AddEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -14,7 +15,7 @@ class AccessListResource(BaseResource):
         envelope: Optional[bool] = Field(False, alias="envelope")
     class AddEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        ip_address: str = Field(alias="ipAddress")
+        ip_address: str = Field("None", alias="ipAddress")
     def add_entries(self,
         path_params: AddEntriesPathParams,
         query_params: Optional[AddEntriesQueryParams],
@@ -32,8 +33,8 @@ class AccessListResource(BaseResource):
         )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field(alias="USER-ID")
-        access_list_entry: str = Field(alias="ACCESS-LIST-ENTRY")
+        user_id: str = Field("None", alias="USER-ID")
+        access_list_entry: str = Field("None", alias="ACCESS-LIST-ENTRY")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -57,7 +58,7 @@ class AccessListResource(BaseResource):
         )
     class GetForCurrentUserPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field(alias="USER-ID")
+        user_id: str = Field("None", alias="USER-ID")
     class GetForCurrentUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -83,8 +84,8 @@ class AccessListResource(BaseResource):
         )
     class GetForIpAddressPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field(alias="USER-ID")
-        access_list_entry: str = Field(alias="ACCESS-LIST-ENTRY")
+        user_id: str = Field("None", alias="USER-ID")
+        access_list_entry: str = Field("None", alias="ACCESS-LIST-ENTRY")
     class GetForIpAddressQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

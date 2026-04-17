@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalAlertConfigurationsResource(BaseResource):
     """Client for GlobalAlertConfigurationsResource resource."""
     class GetAllOpenAlertsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
+        global_alert_config_id: str = Field("None", alias="GLOBAL-ALERT-CONFIG-ID")
     class GetAllOpenAlertsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -38,42 +39,15 @@ class GlobalAlertConfigurationsResource(BaseResource):
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(alias="enabled")
-        event_type_name: str = Field(alias="eventTypeName")
+        event_type_name: str = Field("None", alias="eventTypeName")
         for_all_groups: bool = Field(alias="forAllGroups")
         group_ids: Optional[list[str]] = Field(alias="groupIds")
         matchers: Optional[list[dict]] = Field(alias="matchers")
-        matchers.field_name: Optional[str] = Field(alias="matchers.fieldName")
-        matchers.operator: Optional[str] = Field(alias="matchers.operator")
-        matchers.value: Optional[str] = Field(alias="matchers.value")
         metric_threshold: Optional[dict] = Field(alias="metricThreshold")
-        metric_threshold.metric_name: Optional[str] = Field(alias="metricThreshold.metricName")
-        metric_threshold.mode: Optional[str] = Field(alias="metricThreshold.mode")
-        metric_threshold.operator: Optional[str] = Field(alias="metricThreshold.operator")
-        metric_threshold.threshold: Optional[float] = Field(alias="metricThreshold.threshold")
-        metric_threshold.units: Optional[str] = Field(alias="metricThreshold.units")
         notifications: list[dict] = Field(alias="notifications")
-        notifications.api_token: Optional[str] = Field(alias="notifications.apiToken")
-        notifications.channel_name: Optional[str] = Field(alias="notifications.channelName")
-        notifications.delay_min: Optional[float] = Field(alias="notifications.delayMin")
-        notifications.email_address: Optional[Any] = Field(alias="notifications.emailAddress")
-        notifications.email_enabled: Optional[bool] = Field(alias="notifications.emailEnabled")
-        notifications.interval_min: Optional[float] = Field(alias="notifications.intervalMin")
-        notifications.webhook_secret: Optional[str] = Field(alias="notifications.webhookSecret")
-        notifications.webhook_url: Optional[str] = Field(alias="notifications.webhookUrl")
-        notifications.webhook_headers_template: Optional[str] = Field(alias="notifications.webhookHeadersTemplate")
-        notifications.webhook_body_template: Optional[str] = Field(alias="notifications.webhookBodyTemplate")
-        notifications.microsoft_teams_webhook_url: Optional[str] = Field(alias="notifications.microsoftTeamsWebhookUrl")
-        notifications.notification_token: Optional[str] = Field(alias="notifications.notificationToken")
-        notifications.room_name: Optional[str] = Field(alias="notifications.roomName")
-        notifications.service_key: Optional[str] = Field(alias="notifications.serviceKey")
-        notifications.sms_enabled: Optional[bool] = Field(alias="notifications.smsEnabled")
-        notifications.type_name: str = Field(alias="notifications.typeName")
-        notifications.username: Optional[str] = Field(alias="notifications.username")
         threshold: Optional[dict] = Field(alias="threshold")
-        threshold.operator: Optional[str] = Field(alias="threshold.operator")
-        threshold.threshold: Optional[float] = Field(alias="threshold.threshold")
         tags: Optional[list[str]] = Field(alias="tags")
-        type_name: Optional[str] = Field(alias="typeName")
+        type_name: Optional[str] = Field("None", alias="typeName")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -91,7 +65,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
+        global_alert_config_id: str = Field("None", alias="GLOBAL-ALERT-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -140,7 +114,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
+        global_alert_config_id: str = Field("None", alias="GLOBAL-ALERT-CONFIG-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -164,8 +138,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class TestGlobalAlertConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alert_config_id: str = Field(alias="ALERT-CONFIG-ID")
-        notification_id: str = Field(alias="NOTIFICATION-ID")
+        alert_config_id: str = Field("None", alias="ALERT-CONFIG-ID")
+        notification_id: str = Field("None", alias="NOTIFICATION-ID")
     class TestGlobalAlertConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class TestGlobalAlertConfigurationBodyParams(BaseModel):
@@ -187,7 +161,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class EnableOrDisablePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
+        global_alert_config_id: str = Field("None", alias="GLOBAL-ALERT-CONFIG-ID")
     class EnableOrDisableQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -212,7 +186,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
+        global_alert_config_id: str = Field("None", alias="GLOBAL-ALERT-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -220,42 +194,15 @@ class GlobalAlertConfigurationsResource(BaseResource):
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(alias="enabled")
-        event_type_name: str = Field(alias="eventTypeName")
+        event_type_name: str = Field("None", alias="eventTypeName")
         for_all_groups: bool = Field(alias="forAllGroups")
         group_ids: Optional[list[str]] = Field(alias="groupIds")
         matchers: Optional[list[dict]] = Field(alias="matchers")
-        matchers.field_name: Optional[str] = Field(alias="matchers.fieldName")
-        matchers.operator: Optional[str] = Field(alias="matchers.operator")
-        matchers.value: Optional[str] = Field(alias="matchers.value")
         metric_threshold: Optional[dict] = Field(alias="metricThreshold")
-        metric_threshold.metric_name: Optional[str] = Field(alias="metricThreshold.metricName")
-        metric_threshold.mode: Optional[str] = Field(alias="metricThreshold.mode")
-        metric_threshold.operator: Optional[str] = Field(alias="metricThreshold.operator")
-        metric_threshold.threshold: Optional[float] = Field(alias="metricThreshold.threshold")
-        metric_threshold.units: Optional[str] = Field(alias="metricThreshold.units")
         notifications: list[dict] = Field(alias="notifications")
-        notifications.api_token: Optional[str] = Field(alias="notifications.apiToken")
-        notifications.channel_name: Optional[str] = Field(alias="notifications.channelName")
-        notifications.delay_min: Optional[float] = Field(alias="notifications.delayMin")
-        notifications.email_address: Optional[Any] = Field(alias="notifications.emailAddress")
-        notifications.email_enabled: Optional[bool] = Field(alias="notifications.emailEnabled")
-        notifications.interval_min: Optional[float] = Field(alias="notifications.intervalMin")
-        notifications.webhook_secret: Optional[str] = Field(alias="notifications.webhookSecret")
-        notifications.webhook_url: Optional[str] = Field(alias="notifications.webhookUrl")
-        notifications.webhook_headers_template: Optional[str] = Field(alias="notifications.webhookHeadersTemplate")
-        notifications.webhook_body_template: Optional[str] = Field(alias="notifications.webhookBodyTemplate")
-        notifications.microsoft_teams_webhook_url: Optional[str] = Field(alias="notifications.microsoftTeamsWebhookUrl")
-        notifications.notification_token: Optional[str] = Field(alias="notifications.notificationToken")
-        notifications.room_name: Optional[str] = Field(alias="notifications.roomName")
-        notifications.service_key: Optional[str] = Field(alias="notifications.serviceKey")
-        notifications.sms_enabled: Optional[bool] = Field(alias="notifications.smsEnabled")
-        notifications.type_name: str = Field(alias="notifications.typeName")
-        notifications.username: Optional[str] = Field(alias="notifications.username")
         threshold: Optional[dict] = Field(alias="threshold")
-        threshold.operator: Optional[str] = Field(alias="threshold.operator")
-        threshold.threshold: Optional[float] = Field(alias="threshold.threshold")
         tags: Optional[list[str]] = Field(alias="tags")
-        type_name: Optional[str] = Field(alias="typeName")
+        type_name: Optional[str] = Field("None", alias="typeName")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

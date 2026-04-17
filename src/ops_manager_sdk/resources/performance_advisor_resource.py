@@ -1,19 +1,20 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class PerformanceAdvisorResource(BaseResource):
     """Client for PerformanceAdvisorResource resource."""
     class GetSlowQueryLogsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetSlowQueryLogsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(alias="pretty")
         envelope: Optional[bool] = Field(alias="envelope")
         since: Optional[int] = Field(alias="since")
         duration: Optional[int] = Field(alias="duration")
-        namespaces: Optional[str] = Field(alias="namespaces")
+        namespaces: Optional[str] = Field("None", alias="namespaces")
         n_logs: Optional[int] = Field(alias="nLogs")
     class GetSlowQueryLogsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -34,15 +35,15 @@ class PerformanceAdvisorResource(BaseResource):
         )
     class GetSuggestedIndexesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetSuggestedIndexesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(alias="pretty")
         envelope: Optional[bool] = Field(alias="envelope")
         since: Optional[int] = Field(alias="since")
         duration: Optional[int] = Field(alias="duration")
-        namespaces: Optional[str] = Field(alias="namespaces")
+        namespaces: Optional[str] = Field("None", alias="namespaces")
         n_indexes: Optional[int] = Field(alias="nIndexes")
         n_examples: Optional[int] = Field(alias="nExamples")
     class GetSuggestedIndexesBodyParams(BaseModel):
@@ -64,8 +65,8 @@ class PerformanceAdvisorResource(BaseResource):
         )
     class GetNamespacesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetNamespacesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         since: Optional[int] = Field(alias="since")

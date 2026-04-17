@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class FileSystemStoreResource(BaseResource):
@@ -12,12 +13,12 @@ class FileSystemStoreResource(BaseResource):
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        id: str = Field(alias="id")
+        id: str = Field("None", alias="id")
         labels: Optional[list[str]] = Field(alias="labels")
         load_factor: Optional[float] = Field(alias="loadFactor")
-        mmapv1_compression_setting: Optional[str] = Field(alias="mmapv1CompressionSetting")
-        store_path: str = Field(alias="storePath")
-        wt_compression_setting: Optional[str] = Field(alias="wtCompressionSetting")
+        mmapv1_compression_setting: Optional[str] = Field("None", alias="mmapv1CompressionSetting")
+        store_path: str = Field("None", alias="storePath")
+        wt_compression_setting: Optional[str] = Field("None", alias="wtCompressionSetting")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -35,7 +36,7 @@ class FileSystemStoreResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        file_system_config_id: str = Field(alias="FILE-SYSTEM-CONFIG-ID")
+        file_system_config_id: str = Field("None", alias="FILE-SYSTEM-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -85,7 +86,7 @@ class FileSystemStoreResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        file_system_config_id: str = Field(alias="FILE-SYSTEM-CONFIG-ID")
+        file_system_config_id: str = Field("None", alias="FILE-SYSTEM-CONFIG-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -109,7 +110,7 @@ class FileSystemStoreResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        file_system_config_id: str = Field(alias="FILE-SYSTEM-CONFIG-ID")
+        file_system_config_id: str = Field("None", alias="FILE-SYSTEM-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -119,9 +120,9 @@ class FileSystemStoreResource(BaseResource):
         assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
         labels: Optional[list[str]] = Field(alias="labels")
         load_factor: Optional[float] = Field(alias="loadFactor")
-        mmapv1_compression_setting: Optional[str] = Field(alias="mmapv1CompressionSetting")
-        store_path: str = Field(alias="storePath")
-        wt_compression_setting: Optional[str] = Field(alias="wtCompressionSetting")
+        mmapv1_compression_setting: Optional[str] = Field("None", alias="mmapv1CompressionSetting")
+        store_path: str = Field("None", alias="storePath")
+        wt_compression_setting: Optional[str] = Field("None", alias="wtCompressionSetting")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

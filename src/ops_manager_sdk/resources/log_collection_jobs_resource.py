@@ -1,12 +1,13 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class LogCollectionJobsResource(BaseResource):
     """Client for LogCollectionJobsResource resource."""
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
-        job_id: str = Field(alias="JOB-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
+        job_id: str = Field("None", alias="JOB-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -30,8 +31,8 @@ class LogCollectionJobsResource(BaseResource):
         )
     class DownloadLogsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
-        job_id: str = Field(alias="JOB-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
+        job_id: str = Field("None", alias="JOB-ID")
     class DownloadLogsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -55,7 +56,7 @@ class LogCollectionJobsResource(BaseResource):
         )
     class GetAllJobsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
     class GetAllJobsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -82,8 +83,8 @@ class LogCollectionJobsResource(BaseResource):
         )
     class GetJobPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
-        job_id: str = Field(alias="JOB-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
+        job_id: str = Field("None", alias="JOB-ID")
     class GetJobQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(alias="pageNum")
@@ -110,8 +111,8 @@ class LogCollectionJobsResource(BaseResource):
         )
     class RetryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
-        job_id: str = Field(alias="JOB-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
+        job_id: str = Field("None", alias="JOB-ID")
     class RetryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -135,15 +136,15 @@ class LogCollectionJobsResource(BaseResource):
         )
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        resource_type: str = Field(alias="resourceType")
-        resource_name: str = Field(alias="resourceName")
+        resource_type: str = Field("None", alias="resourceType")
+        resource_name: str = Field("None", alias="resourceName")
         size_requested_per_file_bytes: float = Field(alias="sizeRequestedPerFileBytes")
         log_types: list[Any] = Field(alias="logTypes")
         redacted: bool = Field(alias="redacted")
@@ -164,15 +165,15 @@ class LogCollectionJobsResource(BaseResource):
         )
     class ExtendPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
-        job_id: str = Field(alias="JOB-ID")
+        group_id: str = Field("None", alias="GROUP-ID")
+        job_id: str = Field("None", alias="JOB-ID")
     class ExtendQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class ExtendBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        expiration_date: str = Field(alias="expirationDate")
+        expiration_date: str = Field("None", alias="expirationDate")
     def extend(self,
         path_params: ExtendPathParams,
         query_params: Optional[ExtendQueryParams],

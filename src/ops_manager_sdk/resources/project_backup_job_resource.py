@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ProjectBackupJobResource(BaseResource):
@@ -30,7 +31,7 @@ class ProjectBackupJobResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -54,7 +55,7 @@ class ProjectBackupJobResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -62,18 +63,12 @@ class ProjectBackupJobResource(BaseResource):
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         daemon_filter: Optional[list[dict]] = Field(alias="daemonFilter")
-        daemon_filter.head_root_directory: Optional[str] = Field(alias="daemonFilter.headRootDirectory")
-        daemon_filter.machine: Optional[str] = Field(alias="daemonFilter.machine")
-        id: Optional[str] = Field(alias="id")
-        kmip_client_cert_password: Optional[str] = Field(alias="kmipClientCertPassword")
-        kmip_client_cert_path: Optional[str] = Field(alias="kmipClientCertPath")
+        id: Optional[str] = Field("None", alias="id")
+        kmip_client_cert_password: Optional[str] = Field("None", alias="kmipClientCertPassword")
+        kmip_client_cert_path: Optional[str] = Field("None", alias="kmipClientCertPath")
         label_filter: Optional[list[str]] = Field(alias="labelFilter")
         oplog_store_filter: Optional[list[dict]] = Field(alias="oplogStoreFilter")
-        oplog_store_filter.id: Optional[str] = Field(alias="oplogStoreFilter.id")
-        oplog_store_filter.type: Optional[str] = Field(alias="oplogStoreFilter.type")
         snapshot_store_filter: Optional[list[dict]] = Field(alias="snapshotStoreFilter")
-        snapshot_store_filter.id: Optional[str] = Field(alias="snapshotStoreFilter.id")
-        snapshot_store_filter.type: Optional[str] = Field(alias="snapshotStoreFilter.type")
         sync_store_filter: Optional[list[str]] = Field(alias="syncStoreFilter")
     def update(self,
         path_params: UpdatePathParams,

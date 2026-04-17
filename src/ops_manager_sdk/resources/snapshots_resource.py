@@ -1,13 +1,14 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class SnapshotsResource(BaseResource):
     """Client for SnapshotsResource resource."""
     class ChangeExpiryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
-        snapshot_id: str = Field(alias="SNAPSHOT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
+        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
     class ChangeExpiryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -33,8 +34,8 @@ class SnapshotsResource(BaseResource):
         )
     class GetAllConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetAllConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -60,15 +61,15 @@ class SnapshotsResource(BaseResource):
         )
     class GetAllClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        completed: Optional[str] = Field(true, alias="completed")
+        completed: Optional[str] = Field("true", alias="completed")
     class GetAllClusterBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_cluster_(self,
@@ -88,9 +89,9 @@ class SnapshotsResource(BaseResource):
         )
     class GetOneConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
-        snapshot_id: str = Field(alias="SNAPSHOT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
+        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
     class GetOneConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -114,9 +115,9 @@ class SnapshotsResource(BaseResource):
         )
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
-        snapshot_id: str = Field(alias="SNAPSHOT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
+        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
     class GetOneClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -140,9 +141,9 @@ class SnapshotsResource(BaseResource):
         )
     class RemoveOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        cluster_id: str = Field(alias="clusterId")
-        snapshot_id: str = Field(alias="SNAPSHOT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        cluster_id: str = Field("None", alias="clusterId")
+        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
     class RemoveOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -166,8 +167,8 @@ class SnapshotsResource(BaseResource):
         )
     class CreateOneOnDemandClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="GROUP-ID")
-        cluster_id: str = Field(alias="clusterId")
+        group_id: str = Field("None", alias="GROUP-ID")
+        cluster_id: str = Field("None", alias="clusterId")
     class CreateOneOnDemandClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         retention_days: float = Field(15.0, alias="retentionDays")

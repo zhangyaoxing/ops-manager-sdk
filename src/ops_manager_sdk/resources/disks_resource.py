@@ -1,13 +1,14 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class DisksResource(BaseResource):
     """Client for DisksResource resource."""
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
-        partition_name: str = Field(alias="PARTITION-NAME")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
+        partition_name: str = Field("None", alias="PARTITION-NAME")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -31,8 +32,8 @@ class DisksResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")

@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ConfigurationResource(BaseResource):
     """Client for ConfigurationResource resource."""
     class GetTheAuditLogRotateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetTheAuditLogRotateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -29,7 +30,7 @@ class ConfigurationResource(BaseResource):
         )
     class GetTheAutomationConfigurationNoSecretsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetTheAutomationConfigurationNoSecretsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -53,7 +54,7 @@ class ConfigurationResource(BaseResource):
         )
     class GetTheAutomationConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetTheAutomationConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -77,7 +78,7 @@ class ConfigurationResource(BaseResource):
         )
     class GetBackupConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetBackupConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -101,7 +102,7 @@ class ConfigurationResource(BaseResource):
         )
     class GetMonitoringConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetMonitoringConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -125,7 +126,7 @@ class ConfigurationResource(BaseResource):
         )
     class GetTheSystemLogRotateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetTheSystemLogRotateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -149,16 +150,16 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateAgentVersionsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateAgentVersionsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class UpdateAgentVersionsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        automation_agent_version: Optional[str] = Field(alias="automationAgentVersion")
-        bi_connector_version: Optional[str] = Field(alias="biConnectorVersion")
-        mongo_db_tools_version: Optional[str] = Field(alias="mongoDbToolsVersion")
+        automation_agent_version: Optional[str] = Field("None", alias="automationAgentVersion")
+        bi_connector_version: Optional[str] = Field("None", alias="biConnectorVersion")
+        mongo_db_tools_version: Optional[str] = Field("None", alias="mongoDbToolsVersion")
     def update_agent_versions(self,
         path_params: UpdateAgentVersionsPathParams,
         query_params: Optional[UpdateAgentVersionsQueryParams],
@@ -176,7 +177,7 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheAuditLogRotateConfigPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateTheAuditLogRotateConfigQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -205,7 +206,7 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheAutomationConfigurationNoSecretsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateTheAutomationConfigurationNoSecretsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -229,7 +230,7 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheAutomationConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateTheAutomationConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -253,7 +254,7 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateBackupConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateBackupConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -261,11 +262,9 @@ class ConfigurationResource(BaseResource):
     class UpdateBackupConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         config_overrides: Optional[dict] = Field(alias="configOverrides")
-        log_path: Optional[str] = Field(alias="logPath")
+        log_path: Optional[str] = Field("None", alias="logPath")
         log_rotate: Optional[dict] = Field(alias="logRotate")
-        log_rotate.size_threshold_mb: Optional[int] = Field(alias="logRotate.sizeThresholdMB")
-        log_rotate.time_duration_hrs: Optional[int] = Field(alias="logRotate.timeDurationHrs")
-        username: Optional[str] = Field(alias="username")
+        username: Optional[str] = Field("None", alias="username")
     def update_backup_configuration_settings(self,
         path_params: UpdateBackupConfigurationSettingsPathParams,
         query_params: Optional[UpdateBackupConfigurationSettingsQueryParams],
@@ -283,7 +282,7 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateMonitoringConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateMonitoringConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -291,11 +290,9 @@ class ConfigurationResource(BaseResource):
     class UpdateMonitoringConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         config_overrides: Optional[dict] = Field(alias="configOverrides")
-        log_path: Optional[str] = Field(alias="logPath")
+        log_path: Optional[str] = Field("None", alias="logPath")
         log_rotate: Optional[dict] = Field(alias="logRotate")
-        log_rotate.size_threshold_mb: Optional[int] = Field(alias="logRotate.sizeThresholdMB")
-        log_rotate.time_duration_hrs: Optional[int] = Field(alias="logRotate.timeDurationHrs")
-        username: Optional[str] = Field(alias="username")
+        username: Optional[str] = Field("None", alias="username")
     def update_monitoring_configuration_settings(self,
         path_params: UpdateMonitoringConfigurationSettingsPathParams,
         query_params: Optional[UpdateMonitoringConfigurationSettingsQueryParams],
@@ -313,7 +310,7 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheSystemLogRotateConfigPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class UpdateTheSystemLogRotateConfigQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

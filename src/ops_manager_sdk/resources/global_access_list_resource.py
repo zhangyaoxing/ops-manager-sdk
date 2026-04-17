@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalAccessListResource(BaseResource):
@@ -11,8 +12,8 @@ class GlobalAccessListResource(BaseResource):
         envelope: Optional[bool] = Field(False, alias="envelope")
     class CreateEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        description: str = Field(alias="description")
-        cidr_block: str = Field(alias="cidrBlock")
+        description: str = Field("None", alias="description")
+        cidr_block: str = Field("None", alias="cidrBlock")
     def create_entry(self,
         path_params: Optional[CreateEntryPathParams],
         query_params: Optional[CreateEntryQueryParams],
@@ -30,7 +31,7 @@ class GlobalAccessListResource(BaseResource):
         )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        access_list_id: str = Field(alias="ACCESS-LIST-ID")
+        access_list_id: str = Field("None", alias="ACCESS-LIST-ID")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -79,7 +80,7 @@ class GlobalAccessListResource(BaseResource):
         )
     class GetOneEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        access_list_id: str = Field(alias="ACCESS-LIST-ID")
+        access_list_id: str = Field("None", alias="ACCESS-LIST-ID")
     class GetOneEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -103,7 +104,7 @@ class GlobalAccessListResource(BaseResource):
         )
     class UpdateEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        access_list_id: str = Field(alias="ACCESS-LIST-ID")
+        access_list_id: str = Field("None", alias="ACCESS-LIST-ID")
     class UpdateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

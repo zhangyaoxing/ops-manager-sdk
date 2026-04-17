@@ -1,11 +1,12 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class HostsResource(BaseResource):
     """Client for HostsResource resource."""
     class BeginMonitoringPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class BeginMonitoringQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -13,14 +14,14 @@ class HostsResource(BaseResource):
     class BeginMonitoringBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         alerts_enabled: Optional[bool] = Field(alias="alertsEnabled")
-        auth_mechanism_name: Optional[str] = Field(alias="authMechanismName")
-        hostname: str = Field(alias="hostname")
+        auth_mechanism_name: Optional[str] = Field("None", alias="authMechanismName")
+        hostname: str = Field("None", alias="hostname")
         logs_enabled: Optional[bool] = Field(alias="logsEnabled")
-        password: Optional[str] = Field(alias="password")
+        password: Optional[str] = Field("None", alias="password")
         port: float = Field(alias="port")
         profiler_enabled: Optional[bool] = Field(alias="profilerEnabled")
         ssl_enabled: Optional[bool] = Field(alias="sslEnabled")
-        username: Optional[str] = Field(alias="username")
+        username: Optional[str] = Field("None", alias="username")
     def begin_monitoring(self,
         path_params: BeginMonitoringPathParams,
         query_params: Optional[BeginMonitoringQueryParams],
@@ -38,8 +39,8 @@ class HostsResource(BaseResource):
         )
     class StopMonitoringPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class StopMonitoringQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -63,14 +64,14 @@ class HostsResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
-        cluster_id: str = Field(alias="clusterId")
+        cluster_id: str = Field("None", alias="clusterId")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -90,9 +91,9 @@ class HostsResource(BaseResource):
         )
     class GetByHostnamePortPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        hostname: str = Field(alias="HOSTNAME")
-        port: str = Field(alias="PORT")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        hostname: str = Field("None", alias="HOSTNAME")
+        port: str = Field("None", alias="PORT")
     class GetByHostnamePortQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -116,8 +117,8 @@ class HostsResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -141,8 +142,8 @@ class HostsResource(BaseResource):
         )
     class UpdateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field(alias="PROJECT-ID")
-        host_id: str = Field(alias="HOST-ID")
+        project_id: str = Field("None", alias="PROJECT-ID")
+        host_id: str = Field("None", alias="HOST-ID")
     class UpdateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -150,12 +151,12 @@ class HostsResource(BaseResource):
     class UpdateConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         alerts_enabled: Optional[bool] = Field(alias="alertsEnabled")
-        auth_mechanism_name: Optional[str] = Field(alias="authMechanismName")
+        auth_mechanism_name: Optional[str] = Field("None", alias="authMechanismName")
         logs_enabled: Optional[bool] = Field(alias="logsEnabled")
-        password: Optional[str] = Field(alias="password")
+        password: Optional[str] = Field("None", alias="password")
         profiler_enabled: Optional[bool] = Field(alias="profilerEnabled")
         ssl_enabled: Optional[bool] = Field(alias="sslEnabled")
-        username: Optional[str] = Field(alias="username")
+        username: Optional[str] = Field("None", alias="username")
     def update_configuration(self,
         path_params: UpdateConfigurationPathParams,
         query_params: Optional[UpdateConfigurationQueryParams],

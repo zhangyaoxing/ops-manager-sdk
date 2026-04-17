@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class EventsResource(BaseResource):
@@ -26,7 +27,7 @@ class EventsResource(BaseResource):
         )
     class GetAllProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="groupId")
+        group_id: str = Field("None", alias="groupId")
     class GetAllProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllProjectBodyParams(BaseModel):
@@ -48,8 +49,8 @@ class EventsResource(BaseResource):
         )
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
-        event_id: str = Field(alias="eventId")
+        org_id: str = Field("None", alias="orgId")
+        event_id: str = Field("None", alias="eventId")
     class GetOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(alias="pretty")
@@ -74,8 +75,8 @@ class EventsResource(BaseResource):
         )
     class GetOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field(alias="groupId")
-        event_id: str = Field(alias="eventId")
+        group_id: str = Field("None", alias="groupId")
+        event_id: str = Field("None", alias="eventId")
     class GetOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(alias="pretty")

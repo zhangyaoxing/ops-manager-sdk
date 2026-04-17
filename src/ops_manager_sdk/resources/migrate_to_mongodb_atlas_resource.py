@@ -1,18 +1,19 @@
 from typing import Any, Optional
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class MigrateToMongodbAtlasResource(BaseResource):
     """Client for MigrateToMongodbAtlasResource resource."""
     class ConnectWithAtlasOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
+        org_id: str = Field("None", alias="orgId")
     class ConnectWithAtlasOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
     class ConnectWithAtlasOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        link_token: str = Field(alias="linkToken")
+        link_token: str = Field("None", alias="linkToken")
     def connect_with_atlas_organization(self,
         path_params: ConnectWithAtlasOrganizationPathParams,
         query_params: Optional[ConnectWithAtlasOrganizationQueryParams],
@@ -30,7 +31,7 @@ class MigrateToMongodbAtlasResource(BaseResource):
         )
     class RemoveConnectionPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
+        org_id: str = Field("None", alias="orgId")
     class RemoveConnectionQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -54,7 +55,7 @@ class MigrateToMongodbAtlasResource(BaseResource):
         )
     class ReturnConnectionStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field(alias="orgId")
+        org_id: str = Field("None", alias="orgId")
     class ReturnConnectionStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
