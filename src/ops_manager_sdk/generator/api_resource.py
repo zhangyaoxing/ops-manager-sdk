@@ -89,6 +89,7 @@ class APIResource:
                 param_name = re.sub(
                     r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", original_name
                 ).lower()
+                param_name = re.sub(r"[^\w]+", "", param_name)
             param_type: str = type_mapping(param["type"])
             if is_required:
                 params_required = True

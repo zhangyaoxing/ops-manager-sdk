@@ -22,8 +22,8 @@ class IntegrationSettingsResource(BaseResource):
         hip_chat: Optional[Any] = Field(alias="HipChat")
         opsgenie: Optional[Any] = Field(alias="Opsgenie")
         victor_ops: Optional[Any] = Field(alias="VictorOps")
-        webhook _settings: Optional[Any] = Field(alias="Webhook Settings")
-        microsoft _teams: Optional[Any] = Field(alias="Microsoft Teams")
+        webhook_settings: Optional[Any] = Field(alias="Webhook Settings")
+        microsoft_teams: Optional[Any] = Field(alias="Microsoft Teams")
         prometheus: Optional[Any] = Field(alias="Prometheus")
     def create(self,
         path_params: CreatePathParams,
@@ -164,8 +164,8 @@ class IntegrationSettingsResource(BaseResource):
         hip_chat: Optional[Any] = Field(alias="HipChat")
         opsgenie: Optional[Any] = Field(alias="Opsgenie")
         victor_ops: Optional[Any] = Field(alias="VictorOps")
-        webhook _settings: Optional[Any] = Field(alias="Webhook Settings")
-        microsoft _teams: Optional[Any] = Field(alias="Microsoft Teams")
+        webhook_settings: Optional[Any] = Field(alias="Webhook Settings")
+        microsoft_teams: Optional[Any] = Field(alias="Microsoft Teams")
         prometheus: Optional[Any] = Field(alias="Prometheus")
     def update(self,
         path_params: UpdatePathParams,
