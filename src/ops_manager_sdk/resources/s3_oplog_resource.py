@@ -1,0 +1,167 @@
+from typing import Any, Optional
+from pydantic import BaseModel, ConfigDict, Field
+from .base_resource import BaseResource
+class S3OplogResource(BaseResource):
+    """Client for S3OplogResource resource."""
+    class CreatePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+    class CreateQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        pretty: Optional[bool] = Field(False, alias="pretty")
+        envelope: Optional[bool] = Field(False, alias="envelope")
+    class CreateBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        accepted_tos: bool = Field(alias="acceptedTos")
+        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
+        aws_access_key: Optional[str] = Field(alias="awsAccessKey")
+        aws_secret_key: Optional[str] = Field(alias="awsSecretKey")
+        custom_certificates: Optional[list[Any]] = Field(alias="customCertificates")
+        custom_certificates[n].filename: Optional[str] = Field(alias="customCertificates[n].filename")
+        custom_certificates[n].cert_string: Optional[str] = Field(alias="customCertificates[n].certString")
+        disable_proxy_s3: Optional[bool] = Field(alias="disableProxyS3")
+        encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
+        id: str = Field(alias="id")
+        labels: Optional[list[str]] = Field(alias="labels")
+        path_style_access_enabled: bool = Field(alias="pathStyleAccessEnabled")
+        s3_auth_method: Optional[str] = Field(alias="s3AuthMethod")
+        s3_bucket_endpoint: str = Field(alias="s3BucketEndpoint")
+        s3_bucket_name: str = Field(alias="s3BucketName")
+        s3_max_connections: float = Field(alias="s3MaxConnections")
+        s3_region_override: Optional[str] = Field(alias="s3RegionOverride")
+        sse_enabled: bool = Field(alias="sseEnabled")
+        ssl: Optional[bool] = Field(alias="ssl")
+        uri: str = Field(alias="uri")
+        write_concern: Optional[str] = Field(alias="writeConcern")
+    def create(self,
+        path_params: Optional[CreatePathParams],
+        query_params: Optional[CreateQueryParams],
+        body_params: CreateBodyParams,
+    ) -> dict[str, Any]:
+        """API: Create One S3 Oplog Configuration
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/create-one-s3-oplog-configuration/
+        Description: Configures one new s3 oplog store."""
+        return self._request(
+            "POST",
+            "/oplog/s3Configs",
+            path_params,
+            query_params,
+            body_params,
+        )
+    class DeletePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        s3_oplog_config_id: str = Field(alias="S3-OPLOG-CONFIG-ID")
+    class DeleteQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        pretty: Optional[bool] = Field(False, alias="pretty")
+        envelope: Optional[bool] = Field(False, alias="envelope")
+    class DeleteBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+    def delete(self,
+        path_params: DeletePathParams,
+        query_params: Optional[DeleteQueryParams],
+        body_params: Optional[DeleteBodyParams],
+    ) -> dict[str, Any]:
+        """API: Delete One S3-Compatible Oplog Configuration
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/delete-one-s3-oplog-configuration/
+        Description: Deletes the configuration of one S3-compatible oplog store."""
+        return self._request(
+            "DELETE",
+            "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
+            path_params,
+            query_params,
+            body_params,
+        )
+    class GetAllPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+    class GetAllQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        page_num: Optional[float] = Field(1.0, alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, alias="pretty")
+        envelope: Optional[bool] = Field(False, alias="envelope")
+        assignable_only: Optional[bool] = Field(alias="assignableOnly")
+    class GetAllBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+    def get_all(self,
+        path_params: Optional[GetAllPathParams],
+        query_params: Optional[GetAllQueryParams],
+        body_params: Optional[GetAllBodyParams],
+    ) -> dict[str, Any]:
+        """API: Get All S3 Oplog Configurations
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-all-s3-oplog-configurations/
+        Description: Retrieves the configurations of all s3 oplog stores."""
+        return self._request(
+            "GET",
+            "/oplog/s3Configs",
+            path_params,
+            query_params,
+            body_params,
+        )
+    class GetByIdPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        s3_oplog_config_id: str = Field(alias="S3-OPLOG-CONFIG-ID")
+    class GetByIdQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        pretty: Optional[bool] = Field(False, alias="pretty")
+        envelope: Optional[bool] = Field(False, alias="envelope")
+    class GetByIdBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+    def get_by_id(self,
+        path_params: GetByIdPathParams,
+        query_params: Optional[GetByIdQueryParams],
+        body_params: Optional[GetByIdBodyParams],
+    ) -> dict[str, Any]:
+        """API: Get One S3 Oplog Configuration by ID
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-one-s3-oplog-configuration-by-id/
+        Description: Retrieves the configuration of one s3 oplog store."""
+        return self._request(
+            "GET",
+            "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
+            path_params,
+            query_params,
+            body_params,
+        )
+    class UpdatePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        s3_oplog_config_id: str = Field(alias="S3-OPLOG-CONFIG-ID")
+    class UpdateQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        pretty: Optional[bool] = Field(False, alias="pretty")
+        envelope: Optional[bool] = Field(False, alias="envelope")
+    class UpdateBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        accepted_tos: bool = Field(alias="acceptedTos")
+        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
+        aws_access_key: Optional[str] = Field(alias="awsAccessKey")
+        aws_secret_key: Optional[str] = Field(alias="awsSecretKey")
+        custom_certificates: Optional[list[Any]] = Field(alias="customCertificates")
+        custom_certificates[n].filename: Optional[str] = Field(alias="customCertificates[n].filename")
+        custom_certificates[n].cert_string: Optional[str] = Field(alias="customCertificates[n].certString")
+        disable_proxy_s3: Optional[bool] = Field(alias="disableProxyS3")
+        encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
+        labels: Optional[list[str]] = Field(alias="labels")
+        path_style_access_enabled: bool = Field(alias="pathStyleAccessEnabled")
+        s3_auth_method: Optional[str] = Field(alias="s3AuthMethod")
+        s3_bucket_endpoint: str = Field(alias="s3BucketEndpoint")
+        s3_bucket_name: str = Field(alias="s3BucketName")
+        s3_max_connections: float = Field(alias="s3MaxConnections")
+        s3_region_override: Optional[str] = Field(alias="s3RegionOverride")
+        sse_enabled: bool = Field(alias="sseEnabled")
+        uri: str = Field(alias="uri")
+        ssl: Optional[bool] = Field(alias="ssl")
+        write_concern: Optional[str] = Field(alias="writeConcern")
+    def update(self,
+        path_params: UpdatePathParams,
+        query_params: Optional[UpdateQueryParams],
+        body_params: UpdateBodyParams,
+    ) -> dict[str, Any]:
+        """API: Update One S3 Oplog Configuration
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/update-one-s3-oplog-configuration/
+        Description: Updates the configuration of one s3 oplog store."""
+        return self._request(
+            "PUT",
+            "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
+            path_params,
+            query_params,
+            body_params,
+        )

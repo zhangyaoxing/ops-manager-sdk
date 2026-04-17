@@ -34,6 +34,13 @@ class {{ class_name }}(BaseResource):
         body_params: {% if snippet.body_params.required %}{{ snippet.params_class_name }}BodyParams{% else %}Optional[{{ snippet.params_class_name }}BodyParams]{% endif %},
     ) -> dict[str, Any]:
         \"\"\"{{ snippet.doc }}\"\"\"
+        return self._request(
+            "{{ snippet.verb }}",
+            "{{ snippet.path }}",
+            path_params,
+            query_params,
+            body_params,
+        )
     {% endfor %}
 
 """
