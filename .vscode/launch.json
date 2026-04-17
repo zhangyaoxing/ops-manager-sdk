@@ -18,8 +18,20 @@
             "program": "${workspaceFolder}/src/ops_manager_sdk/generator/__main__.py",
             "console": "integratedTerminal",
             "env": {
-                "LOG_LEVEL": "DEBUG"
+                "LOG_LEVEL": "INFO"
             }
+        },
+        {
+            "name": "Run All Tests (pytest)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-q"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }
