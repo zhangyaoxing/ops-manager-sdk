@@ -1,26 +1,34 @@
 from typing import Any, Optional
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
+
+
 class BackupEncryptionKeysResource(BaseResource):
     """Client for BackupEncryptionKeysResource resource."""
+
     class RetrieveKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {group_id}: str = Field(alias="{GROUP-ID}")
-        {cluster_id}: str = Field(alias="{CLUSTER-ID}")
+        group_id: str = Field(alias="GROUP-ID")
+        cluster_id: str = Field(alias="CLUSTER-ID")
+
     class RetrieveKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
+
     class RetrieveKmipMasterKeyIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-    def retrieve_kmip_master_key_id(self,
+
+    def retrieve_kmip_master_key_id(
+        self,
         path_params: RetrieveKmipMasterKeyIdPathParams,
         query_params: Optional[RetrieveKmipMasterKeyIdQueryParams],
         body_params: Optional[RetrieveKmipMasterKeyIdBodyParams],
     ) -> dict[str, Any]:
         """API: Retrieve the KMIP Master Key ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/
-        Description: Use the GET HTTP method with the same endpoint to retrieve the ID of the current KMIP master key."""
+        Description: Use the GET HTTP method with the same endpoint to retrieve the ID of the current KMIP master key.
+        """
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
@@ -28,24 +36,30 @@ class BackupEncryptionKeysResource(BaseResource):
             query_params,
             body_params,
         )
+
     class RotateKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {group_id}: str = Field(alias="{GROUP-ID}")
-        {cluster_id}: str = Field(alias="{CLUSTER-ID}")
+        group_id: str = Field(alias="GROUP-ID")
+        cluster_id: str = Field(alias="CLUSTER-ID")
+
     class RotateKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
         envelope: Optional[bool] = Field(False, alias="envelope")
+
     class RotateKmipMasterKeyIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-    def rotate_kmip_master_key_id(self,
+
+    def rotate_kmip_master_key_id(
+        self,
         path_params: RotateKmipMasterKeyIdPathParams,
         query_params: Optional[RotateKmipMasterKeyIdQueryParams],
         body_params: Optional[RotateKmipMasterKeyIdBodyParams],
     ) -> dict[str, Any]:
         """API: Rotate the KMIP Master Key ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/
-        Description: Use the PUT HTTP method with the following endpoint to rotate the KMIP master key. Issue one PUT request for each shard and another PUT request for the config server replica set."""
+        Description: Use the PUT HTTP method with the following endpoint to rotate the KMIP master key. Issue one PUT request for each shard and another PUT request for the config server replica set.
+        """
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",

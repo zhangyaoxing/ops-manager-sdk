@@ -34,7 +34,7 @@ class DeploymentRegionsResource(BaseResource):
         )
     class CreateByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {deployment_id}: str = Field(alias="{DEPLOYMENT-ID}")
+        deployment_id: str = Field(alias="DEPLOYMENT-ID")
     class CreateByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")

@@ -69,6 +69,8 @@ class APIResource:
             required_str: str = param.get("required", "").lower()
             is_required: bool = "required" in required_str and "required if" not in required_str
             original_name: str = param["name"]
+            if "{" in original_name and "}" in original_name:
+                original_name = original_name.strip("{}")
             # Sometimes the required is written in the parameter name.
             if "\nrequired" in original_name.lower():
                 original_name = original_name.split("\n")[0]
@@ -136,22 +138,25 @@ class APIResource:
         """Post-process the generated code to clean up extra blank lines."""
         return re.sub(r"\n\s*\n", "\n", code).strip()
 
-    def generate_code(self) -> None:
+    def generate_code(self) -> list[tuple[str, str]]:
         """
         Generate resource code based on the extracted API documentation.
 
         Args:
             api_docs: A dictionary containing the API documentation categorized by resource.
         """
+        resources: list[tuple[str, str]] = []
         code_gen_data = self._pre_process()
         for class_name, snippets in code_gen_data.items():
             template = Template(RESOURCE_TEMPLATE)
             code = template.render(class_name=class_name, code_data=snippets)
             code = self._post_code_process(code)
-            output_file = (
-                re.sub(r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", class_name).lower()
-                + ".py"
-            )
-            output_path = Path(__file__).parent.parent / "resources" / f"{output_file}"
+            package_name = re.sub(
+                r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", class_name
+            ).lower()
+            file_name = f"{package_name}.py"
+            output_path = Path(__file__).parent.parent / "resources" / f"{file_name}"
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(code)
+            resources.append((package_name, class_name))
+        return resources

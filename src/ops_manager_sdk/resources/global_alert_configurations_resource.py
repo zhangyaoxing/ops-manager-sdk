@@ -5,7 +5,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
     """Client for GlobalAlertConfigurationsResource resource."""
     class GetAllOpenAlertsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {global_alert_config_id}: str = Field(alias="{GLOBAL-ALERT-CONFIG-ID}")
+        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
     class GetAllOpenAlertsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, alias="pageNum")
@@ -91,7 +91,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {global_alert_config_id}: str = Field(alias="{GLOBAL-ALERT-CONFIG-ID}")
+        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -140,7 +140,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {global_alert_config_id}: str = Field(alias="{GLOBAL-ALERT-CONFIG-ID}")
+        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -187,7 +187,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class EnableOrDisablePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {global_alert_config_id}: str = Field(alias="{GLOBAL-ALERT-CONFIG-ID}")
+        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
     class EnableOrDisableQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
@@ -212,7 +212,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        {global_alert_config_id}: str = Field(alias="{GLOBAL-ALERT-CONFIG-ID}")
+        global_alert_config_id: str = Field(alias="GLOBAL-ALERT-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, alias="pretty")
