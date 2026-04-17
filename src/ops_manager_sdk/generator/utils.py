@@ -33,7 +33,7 @@ def get_sitemap_urls() -> list[str]:
         loc_node = url_node.find("ns:loc", namespaces=ns)
         if loc_node is not None and loc_node.text is not None:
             loc: str = loc_node.text
-            if loc.startswith(API_BASE_URL) and not "nav" in loc:
+            if loc.startswith(API_BASE_URL) and "nav" not in loc:
                 api_urls.append(loc)
                 logger.debug(f"Found API URL: {loc}")
     logger.info(f"Total API URLs found: {len(api_urls)}")
@@ -113,3 +113,40 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
         indent: Optional[int] = 4 if is_debug else None
         json.dump(api_docs, f, ensure_ascii=False, indent=indent)
     return api_docs
+
+
+def type_mapping(type_str: str) -> Any:
+    """Map the type string from documentation to a Python type hint."""
+    type_str = type_str.lower()
+    mapping = {
+        "string": "str",
+        "integer": "int",
+        "long": "int",
+        "number": "float",
+        "boolean": "bool",
+        "object": "dict",
+        "timestamp": "datetime",
+        "array of strings": "list[str]",
+        "string array": "list[str]",
+        "array of objects": "list[dict]",
+        "object array": "list[dict]",
+        "array": "list[Any]",
+        "date field": "datetime",
+    }
+    return mapping.get(type_str, "Any")
+
+
+def parse_value(value_str: str, type_str: str) -> Any:
+    """Parse the string value to the appropriate Python type."""
+    if value_str is None:
+        return None
+    if type_str == "int":
+        return int(value_str)
+    elif type_str == "float":
+        return float(value_str)
+    elif type_str == "bool":
+        return value_str.lower() == "true"
+    elif type_str == "str":
+        return value_str
+    else:
+        return value_str
