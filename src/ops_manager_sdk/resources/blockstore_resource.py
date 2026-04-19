@@ -8,19 +8,19 @@ class BlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
-        id: Optional[str] = Field("None", alias="id")
-        labels: Optional[list[str]] = Field(alias="labels")
-        load_factor: Optional[float] = Field(alias="loadFactor")
-        max_capacity_gb: Optional[float] = Field(alias="maxCapacityGB")
-        uri: Optional[str] = Field("None", alias="uri")
-        ssl: Optional[bool] = Field(alias="ssl")
-        write_concern: Optional[str] = Field("None", alias="writeConcern")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        encrypted_credentials: Optional[bool] = Field(serialization_alias="encryptedCredentials")
+        id: Optional[str] = Field("None", serialization_alias="id")
+        labels: Optional[list[str]] = Field(serialization_alias="labels")
+        load_factor: Optional[float] = Field(serialization_alias="loadFactor")
+        max_capacity_gb: Optional[float] = Field(serialization_alias="maxCapacityGB")
+        uri: Optional[str] = Field("None", serialization_alias="uri")
+        ssl: Optional[bool] = Field(serialization_alias="ssl")
+        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -38,11 +38,11 @@ class BlockstoreResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        blockstore_id: str = Field("None", alias="BLOCKSTORE-ID")
+        blockstore_id: str = Field("None", serialization_alias="BLOCKSTORE-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -64,11 +64,11 @@ class BlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        assignable_only: Optional[bool] = Field(alias="assignableOnly")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        assignable_only: Optional[bool] = Field(serialization_alias="assignableOnly")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -88,11 +88,11 @@ class BlockstoreResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        blockstore_id: str = Field("None", alias="BLOCKSTORE-ID")
+        blockstore_id: str = Field("None", serialization_alias="BLOCKSTORE-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
@@ -112,21 +112,21 @@ class BlockstoreResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        blockstore_id: str = Field("None", alias="BLOCKSTORE-ID")
+        blockstore_id: str = Field("None", serialization_alias="BLOCKSTORE-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        encrypted_credentials: Optional[bool] = Field(alias="encryptedCredentials")
-        labels: Optional[list[str]] = Field(alias="labels")
-        load_factor: Optional[float] = Field(alias="loadFactor")
-        max_capacity_gb: Optional[float] = Field(alias="maxCapacityGB")
-        uri: Optional[str] = Field("None", alias="uri")
-        ssl: Optional[bool] = Field(alias="ssl")
-        write_concern: Optional[str] = Field("None", alias="writeConcern")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        encrypted_credentials: Optional[bool] = Field(serialization_alias="encryptedCredentials")
+        labels: Optional[list[str]] = Field(serialization_alias="labels")
+        load_factor: Optional[float] = Field(serialization_alias="loadFactor")
+        max_capacity_gb: Optional[float] = Field(serialization_alias="maxCapacityGB")
+        uri: Optional[str] = Field("None", serialization_alias="uri")
+        ssl: Optional[bool] = Field(serialization_alias="ssl")
+        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

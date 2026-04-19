@@ -8,12 +8,12 @@ class GlobalAccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        description: str = Field("None", alias="description")
-        cidr_block: str = Field("None", alias="cidrBlock")
+        description: str = Field("None", serialization_alias="description")
+        cidr_block: str = Field("None", serialization_alias="cidrBlock")
     def create_entry(self,
         path_params: Optional[CreateEntryPathParams],
         query_params: Optional[CreateEntryQueryParams],
@@ -31,11 +31,11 @@ class GlobalAccessListResource(BaseResource):
         )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        access_list_id: str = Field("None", alias="ACCESS-LIST-ID")
+        access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete_entry(self,
@@ -57,10 +57,10 @@ class GlobalAccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_entries(self,
@@ -80,11 +80,11 @@ class GlobalAccessListResource(BaseResource):
         )
     class GetOneEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        access_list_id: str = Field("None", alias="ACCESS-LIST-ID")
+        access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
     class GetOneEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_entry(self,
@@ -104,11 +104,11 @@ class GlobalAccessListResource(BaseResource):
         )
     class UpdateEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        access_list_id: str = Field("None", alias="ACCESS-LIST-ID")
+        access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
     class UpdateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def update_entry(self,

@@ -6,25 +6,25 @@ class IntegrationSettingsResource(BaseResource):
     """Client for IntegrationSettingsResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pager_duty: Optional[Any] = Field(alias="PagerDuty")
-        slack: Optional[Any] = Field(alias="Slack")
-        datadog: Optional[Any] = Field(alias="Datadog")
-        hip_chat: Optional[Any] = Field(alias="HipChat")
-        opsgenie: Optional[Any] = Field(alias="Opsgenie")
-        victor_ops: Optional[Any] = Field(alias="VictorOps")
-        webhook_settings: Optional[Any] = Field(alias="Webhook Settings")
-        microsoft_teams: Optional[Any] = Field(alias="Microsoft Teams")
-        prometheus: Optional[Any] = Field(alias="Prometheus")
+        pager_duty: Optional[Any] = Field(serialization_alias="PagerDuty")
+        slack: Optional[Any] = Field(serialization_alias="Slack")
+        datadog: Optional[Any] = Field(serialization_alias="Datadog")
+        hip_chat: Optional[Any] = Field(serialization_alias="HipChat")
+        opsgenie: Optional[Any] = Field(serialization_alias="Opsgenie")
+        victor_ops: Optional[Any] = Field(serialization_alias="VictorOps")
+        webhook_settings: Optional[Any] = Field(serialization_alias="Webhook Settings")
+        microsoft_teams: Optional[Any] = Field(serialization_alias="Microsoft Teams")
+        prometheus: Optional[Any] = Field(serialization_alias="Prometheus")
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -42,14 +42,14 @@ class IntegrationSettingsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -69,13 +69,13 @@ class IntegrationSettingsResource(BaseResource):
         )
     class ReturnLatestPrometheusTargetsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class ReturnLatestPrometheusTargetsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class ReturnLatestPrometheusTargetsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def return_latest_prometheus_targets(self,
@@ -95,13 +95,13 @@ class IntegrationSettingsResource(BaseResource):
         )
     class GetAllConfigurationsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllConfigurationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllConfigurationsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_configurations(self,
@@ -121,14 +121,14 @@ class IntegrationSettingsResource(BaseResource):
         )
     class GetOneConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
     class GetOneConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_configuration(self,
@@ -148,25 +148,25 @@ class IntegrationSettingsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        integration_type: str = Field("None", alias="INTEGRATION-TYPE")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pager_duty: Optional[Any] = Field(alias="PagerDuty")
-        slack: Optional[Any] = Field(alias="Slack")
-        datadog: Optional[Any] = Field(alias="Datadog")
-        hip_chat: Optional[Any] = Field(alias="HipChat")
-        opsgenie: Optional[Any] = Field(alias="Opsgenie")
-        victor_ops: Optional[Any] = Field(alias="VictorOps")
-        webhook_settings: Optional[Any] = Field(alias="Webhook Settings")
-        microsoft_teams: Optional[Any] = Field(alias="Microsoft Teams")
-        prometheus: Optional[Any] = Field(alias="Prometheus")
+        pager_duty: Optional[Any] = Field(serialization_alias="PagerDuty")
+        slack: Optional[Any] = Field(serialization_alias="Slack")
+        datadog: Optional[Any] = Field(serialization_alias="Datadog")
+        hip_chat: Optional[Any] = Field(serialization_alias="HipChat")
+        opsgenie: Optional[Any] = Field(serialization_alias="Opsgenie")
+        victor_ops: Optional[Any] = Field(serialization_alias="VictorOps")
+        webhook_settings: Optional[Any] = Field(serialization_alias="Webhook Settings")
+        microsoft_teams: Optional[Any] = Field(serialization_alias="Microsoft Teams")
+        prometheus: Optional[Any] = Field(serialization_alias="Prometheus")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

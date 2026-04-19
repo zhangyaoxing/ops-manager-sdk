@@ -27,7 +27,7 @@ class EventsResource(BaseResource):
         )
     class GetAllProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="groupId")
+        group_id: str = Field("None", serialization_alias="groupId")
     class GetAllProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllProjectBodyParams(BaseModel):
@@ -49,13 +49,13 @@ class EventsResource(BaseResource):
         )
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
-        event_id: str = Field("None", alias="eventId")
+        org_id: str = Field("None", serialization_alias="orgId")
+        event_id: str = Field("None", serialization_alias="eventId")
     class GetOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
-        include_raw: Optional[bool] = Field(alias="includeRaw")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+        include_raw: Optional[bool] = Field(serialization_alias="includeRaw")
     class GetOneOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_organization_(self,
@@ -75,13 +75,13 @@ class EventsResource(BaseResource):
         )
     class GetOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="groupId")
-        event_id: str = Field("None", alias="eventId")
+        group_id: str = Field("None", serialization_alias="groupId")
+        event_id: str = Field("None", serialization_alias="eventId")
     class GetOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
-        include_raw: Optional[bool] = Field(alias="includeRaw")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+        include_raw: Optional[bool] = Field(serialization_alias="includeRaw")
     class GetOneProjectBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_project_(self,

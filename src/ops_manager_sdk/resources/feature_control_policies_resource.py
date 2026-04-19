@@ -8,10 +8,10 @@ class FeatureControlPoliciesResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class RetrieveAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class RetrieveAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retrieve_all(self,
@@ -31,13 +31,13 @@ class FeatureControlPoliciesResource(BaseResource):
         )
     class RetrieveForOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class RetrieveForOneProjectBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retrieve_for_one_project(self,
@@ -57,17 +57,17 @@ class FeatureControlPoliciesResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        external_management_system: Optional[dict] = Field(alias="externalManagementSystem")
-        policies: Optional[list[Any]] = Field(alias="policies")
+        external_management_system: Optional[dict] = Field(serialization_alias="externalManagementSystem")
+        policies: Optional[list[Any]] = Field(serialization_alias="policies")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

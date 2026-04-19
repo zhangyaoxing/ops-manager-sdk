@@ -8,7 +8,7 @@ class VersionManifestResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class RetrieveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(alias="pretty")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     class RetrieveBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retrieve(self,
@@ -30,7 +30,7 @@ class VersionManifestResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(alias="pretty")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def update(self,

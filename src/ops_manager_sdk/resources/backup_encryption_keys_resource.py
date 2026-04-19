@@ -6,12 +6,12 @@ class BackupEncryptionKeysResource(BaseResource):
     """Client for BackupEncryptionKeysResource resource."""
     class RetrieveKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        cluster_id: str = Field("None", alias="CLUSTER-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
     class RetrieveKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class RetrieveKmipMasterKeyIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retrieve_kmip_master_key_id(self,
@@ -31,12 +31,12 @@ class BackupEncryptionKeysResource(BaseResource):
         )
     class RotateKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        cluster_id: str = Field("None", alias="CLUSTER-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
     class RotateKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class RotateKmipMasterKeyIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def rotate_kmip_master_key_id(self,

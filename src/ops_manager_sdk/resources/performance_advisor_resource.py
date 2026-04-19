@@ -6,16 +6,16 @@ class PerformanceAdvisorResource(BaseResource):
     """Client for PerformanceAdvisorResource resource."""
     class GetSlowQueryLogsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class GetSlowQueryLogsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
-        since: Optional[int] = Field(alias="since")
-        duration: Optional[int] = Field(alias="duration")
-        namespaces: Optional[str] = Field("None", alias="namespaces")
-        n_logs: Optional[int] = Field(alias="nLogs")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+        since: Optional[int] = Field(serialization_alias="since")
+        duration: Optional[int] = Field(serialization_alias="duration")
+        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
+        n_logs: Optional[int] = Field(serialization_alias="nLogs")
     class GetSlowQueryLogsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_slow_query_logs(self,
@@ -35,17 +35,17 @@ class PerformanceAdvisorResource(BaseResource):
         )
     class GetSuggestedIndexesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class GetSuggestedIndexesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
-        since: Optional[int] = Field(alias="since")
-        duration: Optional[int] = Field(alias="duration")
-        namespaces: Optional[str] = Field("None", alias="namespaces")
-        n_indexes: Optional[int] = Field(alias="nIndexes")
-        n_examples: Optional[int] = Field(alias="nExamples")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+        since: Optional[int] = Field(serialization_alias="since")
+        duration: Optional[int] = Field(serialization_alias="duration")
+        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
+        n_indexes: Optional[int] = Field(serialization_alias="nIndexes")
+        n_examples: Optional[int] = Field(serialization_alias="nExamples")
     class GetSuggestedIndexesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_suggested_indexes(self,
@@ -65,14 +65,14 @@ class PerformanceAdvisorResource(BaseResource):
         )
     class GetNamespacesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class GetNamespacesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        since: Optional[int] = Field(alias="since")
-        duration: Optional[int] = Field(alias="duration")
-        envelope: Optional[bool] = Field(alias="envelope")
-        pretty: Optional[bool] = Field(alias="pretty")
+        since: Optional[int] = Field(serialization_alias="since")
+        duration: Optional[int] = Field(serialization_alias="duration")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     class GetNamespacesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_namespaces(self,

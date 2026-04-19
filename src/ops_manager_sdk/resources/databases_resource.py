@@ -6,13 +6,13 @@ class DatabasesResource(BaseResource):
     """Client for DatabasesResource resource."""
     class GetByNamePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
-        database_name: str = Field("None", alias="DATABASE-NAME")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
+        database_name: str = Field("None", serialization_alias="DATABASE-NAME")
     class GetByNameQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByNameBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_name(self,
@@ -32,14 +32,14 @@ class DatabasesResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,

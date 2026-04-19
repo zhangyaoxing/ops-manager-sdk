@@ -27,11 +27,11 @@ class GlobalEventsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        event_id: str = Field("None", alias="eventId")
+        event_id: str = Field("None", serialization_alias="eventId")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one(self,

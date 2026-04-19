@@ -6,17 +6,17 @@ class ApiKeysOnProjectsResource(BaseResource):
     """Client for ApiKeysOnProjectsResource resource."""
     class AssignPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class AssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class AssignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        roles: list[Any] = Field(alias="roles")
+        roles: list[Any] = Field(serialization_alias="roles")
     def assign(self,
         path_params: AssignPathParams,
         query_params: Optional[AssignQueryParams],
@@ -34,17 +34,17 @@ class ApiKeysOnProjectsResource(BaseResource):
         )
     class CreateAssignPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class CreateAssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class CreateAssignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field("None", alias="desc")
-        roles: Optional[list[str]] = Field(alias="roles")
+        desc: Optional[str] = Field("None", serialization_alias="desc")
+        roles: Optional[list[str]] = Field(serialization_alias="roles")
     def create_assign(self,
         path_params: CreateAssignPathParams,
         query_params: Optional[CreateAssignQueryParams],
@@ -62,14 +62,14 @@ class ApiKeysOnProjectsResource(BaseResource):
         )
     class UnassignPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class UnassignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class UnassignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def unassign(self,
@@ -89,13 +89,13 @@ class ApiKeysOnProjectsResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -115,17 +115,17 @@ class ApiKeysOnProjectsResource(BaseResource):
         )
     class ModifyRolesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class ModifyRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class ModifyRolesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        roles: list[str] = Field(alias="roles")
+        roles: list[str] = Field(serialization_alias="roles")
     def modify_roles(self,
         path_params: ModifyRolesPathParams,
         query_params: Optional[ModifyRolesQueryParams],

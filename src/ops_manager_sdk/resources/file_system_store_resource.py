@@ -8,17 +8,17 @@ class FileSystemStoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        id: str = Field("None", alias="id")
-        labels: Optional[list[str]] = Field(alias="labels")
-        load_factor: Optional[float] = Field(alias="loadFactor")
-        mmapv1_compression_setting: Optional[str] = Field("None", alias="mmapv1CompressionSetting")
-        store_path: str = Field("None", alias="storePath")
-        wt_compression_setting: Optional[str] = Field("None", alias="wtCompressionSetting")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        id: str = Field("None", serialization_alias="id")
+        labels: Optional[list[str]] = Field(serialization_alias="labels")
+        load_factor: Optional[float] = Field(serialization_alias="loadFactor")
+        mmapv1_compression_setting: Optional[str] = Field("None", serialization_alias="mmapv1CompressionSetting")
+        store_path: str = Field("None", serialization_alias="storePath")
+        wt_compression_setting: Optional[str] = Field("None", serialization_alias="wtCompressionSetting")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -36,11 +36,11 @@ class FileSystemStoreResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        file_system_config_id: str = Field("None", alias="FILE-SYSTEM-CONFIG-ID")
+        file_system_config_id: str = Field("None", serialization_alias="FILE-SYSTEM-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -62,11 +62,11 @@ class FileSystemStoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        assignable_only: Optional[bool] = Field(True, alias="assignableOnly")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        assignable_only: Optional[bool] = Field(True, serialization_alias="assignableOnly")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -86,11 +86,11 @@ class FileSystemStoreResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        file_system_config_id: str = Field("None", alias="FILE-SYSTEM-CONFIG-ID")
+        file_system_config_id: str = Field("None", serialization_alias="FILE-SYSTEM-CONFIG-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
@@ -110,19 +110,19 @@ class FileSystemStoreResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        file_system_config_id: str = Field("None", alias="FILE-SYSTEM-CONFIG-ID")
+        file_system_config_id: str = Field("None", serialization_alias="FILE-SYSTEM-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        labels: Optional[list[str]] = Field(alias="labels")
-        load_factor: Optional[float] = Field(alias="loadFactor")
-        mmapv1_compression_setting: Optional[str] = Field("None", alias="mmapv1CompressionSetting")
-        store_path: str = Field("None", alias="storePath")
-        wt_compression_setting: Optional[str] = Field("None", alias="wtCompressionSetting")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        labels: Optional[list[str]] = Field(serialization_alias="labels")
+        load_factor: Optional[float] = Field(serialization_alias="loadFactor")
+        mmapv1_compression_setting: Optional[str] = Field("None", serialization_alias="mmapv1CompressionSetting")
+        store_path: str = Field("None", serialization_alias="storePath")
+        wt_compression_setting: Optional[str] = Field("None", serialization_alias="wtCompressionSetting")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

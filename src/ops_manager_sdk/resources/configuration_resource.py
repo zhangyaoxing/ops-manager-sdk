@@ -6,11 +6,11 @@ class ConfigurationResource(BaseResource):
     """Client for ConfigurationResource resource."""
     class GetTheAuditLogRotateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheAuditLogRotateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetTheAuditLogRotateConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_the_audit_log_rotate_configuration(self,
@@ -30,11 +30,11 @@ class ConfigurationResource(BaseResource):
         )
     class GetTheAutomationConfigurationNoSecretsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheAutomationConfigurationNoSecretsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetTheAutomationConfigurationNoSecretsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_the_automation_configuration_no_secrets_(self,
@@ -54,11 +54,11 @@ class ConfigurationResource(BaseResource):
         )
     class GetTheAutomationConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheAutomationConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetTheAutomationConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_the_automation_configuration(self,
@@ -78,11 +78,11 @@ class ConfigurationResource(BaseResource):
         )
     class GetBackupConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetBackupConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetBackupConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_backup_configuration_settings(self,
@@ -102,11 +102,11 @@ class ConfigurationResource(BaseResource):
         )
     class GetMonitoringConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetMonitoringConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetMonitoringConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_monitoring_configuration_settings(self,
@@ -126,11 +126,11 @@ class ConfigurationResource(BaseResource):
         )
     class GetTheSystemLogRotateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheSystemLogRotateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetTheSystemLogRotateConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_the_system_log_rotate_configuration(self,
@@ -150,16 +150,16 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateAgentVersionsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateAgentVersionsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateAgentVersionsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        automation_agent_version: Optional[str] = Field("None", alias="automationAgentVersion")
-        bi_connector_version: Optional[str] = Field("None", alias="biConnectorVersion")
-        mongo_db_tools_version: Optional[str] = Field("None", alias="mongoDbToolsVersion")
+        automation_agent_version: Optional[str] = Field("None", serialization_alias="automationAgentVersion")
+        bi_connector_version: Optional[str] = Field("None", serialization_alias="biConnectorVersion")
+        mongo_db_tools_version: Optional[str] = Field("None", serialization_alias="mongoDbToolsVersion")
     def update_agent_versions(self,
         path_params: UpdateAgentVersionsPathParams,
         query_params: Optional[UpdateAgentVersionsQueryParams],
@@ -177,18 +177,18 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheAuditLogRotateConfigPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheAuditLogRotateConfigQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateTheAuditLogRotateConfigBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        size_threshold_mb: Optional[Any] = Field(alias="sizeThresholdMB")
-        time_threshold_hrs: Optional[Any] = Field(alias="timeThresholdHrs")
-        num_uncompressed: Optional[Any] = Field(alias="numUncompressed")
-        percent_of_diskspace: Optional[Any] = Field(alias="percentOfDiskspace")
-        num_total: Optional[Any] = Field(alias="numTotal")
+        size_threshold_mb: Optional[Any] = Field(serialization_alias="sizeThresholdMB")
+        time_threshold_hrs: Optional[Any] = Field(serialization_alias="timeThresholdHrs")
+        num_uncompressed: Optional[Any] = Field(serialization_alias="numUncompressed")
+        percent_of_diskspace: Optional[Any] = Field(serialization_alias="percentOfDiskspace")
+        num_total: Optional[Any] = Field(serialization_alias="numTotal")
     def update_the_audit_log_rotate_config(self,
         path_params: UpdateTheAuditLogRotateConfigPathParams,
         query_params: Optional[UpdateTheAuditLogRotateConfigQueryParams],
@@ -206,11 +206,11 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheAutomationConfigurationNoSecretsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheAutomationConfigurationNoSecretsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateTheAutomationConfigurationNoSecretsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def update_the_automation_configuration_no_secrets_(self,
@@ -230,11 +230,11 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheAutomationConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheAutomationConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateTheAutomationConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def update_the_automation_configuration(self,
@@ -254,17 +254,17 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateBackupConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateBackupConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBackupConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        config_overrides: Optional[dict] = Field(alias="configOverrides")
-        log_path: Optional[str] = Field("None", alias="logPath")
-        log_rotate: Optional[dict] = Field(alias="logRotate")
-        username: Optional[str] = Field("None", alias="username")
+        config_overrides: Optional[dict] = Field(serialization_alias="configOverrides")
+        log_path: Optional[str] = Field("None", serialization_alias="logPath")
+        log_rotate: Optional[dict] = Field(serialization_alias="logRotate")
+        username: Optional[str] = Field("None", serialization_alias="username")
     def update_backup_configuration_settings(self,
         path_params: UpdateBackupConfigurationSettingsPathParams,
         query_params: Optional[UpdateBackupConfigurationSettingsQueryParams],
@@ -282,17 +282,17 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateMonitoringConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateMonitoringConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateMonitoringConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        config_overrides: Optional[dict] = Field(alias="configOverrides")
-        log_path: Optional[str] = Field("None", alias="logPath")
-        log_rotate: Optional[dict] = Field(alias="logRotate")
-        username: Optional[str] = Field("None", alias="username")
+        config_overrides: Optional[dict] = Field(serialization_alias="configOverrides")
+        log_path: Optional[str] = Field("None", serialization_alias="logPath")
+        log_rotate: Optional[dict] = Field(serialization_alias="logRotate")
+        username: Optional[str] = Field("None", serialization_alias="username")
     def update_monitoring_configuration_settings(self,
         path_params: UpdateMonitoringConfigurationSettingsPathParams,
         query_params: Optional[UpdateMonitoringConfigurationSettingsQueryParams],
@@ -310,18 +310,18 @@ class ConfigurationResource(BaseResource):
         )
     class UpdateTheSystemLogRotateConfigPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheSystemLogRotateConfigQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateTheSystemLogRotateConfigBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        size_threshold_mb: Optional[Any] = Field(alias="sizeThresholdMB")
-        time_threshold_hrs: Optional[Any] = Field(alias="timeThresholdHrs")
-        num_uncompressed: Optional[Any] = Field(alias="numUncompressed")
-        percent_of_diskspace: Optional[Any] = Field(alias="percentOfDiskspace")
-        num_total: Optional[Any] = Field(alias="numTotal")
+        size_threshold_mb: Optional[Any] = Field(serialization_alias="sizeThresholdMB")
+        time_threshold_hrs: Optional[Any] = Field(serialization_alias="timeThresholdHrs")
+        num_uncompressed: Optional[Any] = Field(serialization_alias="numUncompressed")
+        percent_of_diskspace: Optional[Any] = Field(serialization_alias="percentOfDiskspace")
+        num_total: Optional[Any] = Field(serialization_alias="numTotal")
     def update_the_system_log_rotate_config(self,
         path_params: UpdateTheSystemLogRotateConfigPathParams,
         query_params: Optional[UpdateTheSystemLogRotateConfigQueryParams],

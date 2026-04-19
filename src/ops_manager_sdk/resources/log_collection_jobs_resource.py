@@ -6,12 +6,12 @@ class LogCollectionJobsResource(BaseResource):
     """Client for LogCollectionJobsResource resource."""
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        job_id: str = Field("None", alias="JOB-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        job_id: str = Field("None", serialization_alias="JOB-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -31,12 +31,12 @@ class LogCollectionJobsResource(BaseResource):
         )
     class DownloadLogsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        job_id: str = Field("None", alias="JOB-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        job_id: str = Field("None", serialization_alias="JOB-ID")
     class DownloadLogsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DownloadLogsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def download_logs(self,
@@ -56,14 +56,14 @@ class LogCollectionJobsResource(BaseResource):
         )
     class GetAllJobsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
     class GetAllJobsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        verbose: Optional[bool] = Field(False, alias="verbose")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        verbose: Optional[bool] = Field(False, serialization_alias="verbose")
     class GetAllJobsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_jobs(self,
@@ -83,15 +83,15 @@ class LogCollectionJobsResource(BaseResource):
         )
     class GetJobPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        job_id: str = Field("None", alias="JOB-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        job_id: str = Field("None", serialization_alias="JOB-ID")
     class GetJobQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
-        verbose: Optional[bool] = Field(alias="verbose")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+        verbose: Optional[bool] = Field(serialization_alias="verbose")
     class GetJobBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_job(self,
@@ -111,12 +111,12 @@ class LogCollectionJobsResource(BaseResource):
         )
     class RetryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        job_id: str = Field("None", alias="JOB-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        job_id: str = Field("None", serialization_alias="JOB-ID")
     class RetryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class RetryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retry(self,
@@ -136,18 +136,18 @@ class LogCollectionJobsResource(BaseResource):
         )
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        resource_type: str = Field("None", alias="resourceType")
-        resource_name: str = Field("None", alias="resourceName")
-        size_requested_per_file_bytes: float = Field(alias="sizeRequestedPerFileBytes")
-        log_types: list[Any] = Field(alias="logTypes")
-        redacted: bool = Field(alias="redacted")
+        resource_type: str = Field("None", serialization_alias="resourceType")
+        resource_name: str = Field("None", serialization_alias="resourceName")
+        size_requested_per_file_bytes: float = Field(serialization_alias="sizeRequestedPerFileBytes")
+        log_types: list[Any] = Field(serialization_alias="logTypes")
+        redacted: bool = Field(serialization_alias="redacted")
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -165,15 +165,15 @@ class LogCollectionJobsResource(BaseResource):
         )
     class ExtendPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        job_id: str = Field("None", alias="JOB-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        job_id: str = Field("None", serialization_alias="JOB-ID")
     class ExtendQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class ExtendBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        expiration_date: str = Field("None", alias="expirationDate")
+        expiration_date: str = Field("None", serialization_alias="expirationDate")
     def extend(self,
         path_params: ExtendPathParams,
         query_params: Optional[ExtendQueryParams],

@@ -18,17 +18,17 @@ class {{ class_name }}(BaseResource):
     class {{ snippet.params_class_name }}PathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.path_params.params %}
-        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}alias="{{ param.alias }}")
+        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
     class {{ snippet.params_class_name }}QueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.query_params.params %}
-        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}alias="{{ param.alias }}")
+        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
     class {{ snippet.params_class_name }}BodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.body_params.params %}
-        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}alias="{{ param.alias }}")
+        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
     def {{ snippet.method_name }}(self,
         path_params: {% if snippet.path_params.required %}{{ snippet.params_class_name }}PathParams{% else %}Optional[{{ snippet.params_class_name }}PathParams]{% endif %},

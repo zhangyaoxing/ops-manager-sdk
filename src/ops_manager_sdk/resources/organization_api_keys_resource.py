@@ -6,17 +6,17 @@ class OrganizationApiKeysResource(BaseResource):
     """Client for OrganizationApiKeysResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field("None", alias="desc")
-        roles: Optional[list[str]] = Field(alias="roles")
+        desc: Optional[str] = Field("None", serialization_alias="desc")
+        roles: Optional[list[str]] = Field(serialization_alias="roles")
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -34,14 +34,14 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -61,13 +61,13 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -87,14 +87,14 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class GetOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
@@ -114,18 +114,18 @@ class OrganizationApiKeysResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        desc: Optional[str] = Field("None", alias="desc")
-        roles: Optional[list[str]] = Field(alias="roles")
+        desc: Optional[str] = Field("None", serialization_alias="desc")
+        roles: Optional[list[str]] = Field(serialization_alias="roles")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

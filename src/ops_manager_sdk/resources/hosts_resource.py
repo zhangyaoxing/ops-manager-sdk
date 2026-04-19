@@ -6,22 +6,22 @@ class HostsResource(BaseResource):
     """Client for HostsResource resource."""
     class BeginMonitoringPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class BeginMonitoringQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class BeginMonitoringBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alerts_enabled: Optional[bool] = Field(alias="alertsEnabled")
-        auth_mechanism_name: Optional[str] = Field("None", alias="authMechanismName")
-        hostname: str = Field("None", alias="hostname")
-        logs_enabled: Optional[bool] = Field(alias="logsEnabled")
-        password: Optional[str] = Field("None", alias="password")
-        port: float = Field(alias="port")
-        profiler_enabled: Optional[bool] = Field(alias="profilerEnabled")
-        ssl_enabled: Optional[bool] = Field(alias="sslEnabled")
-        username: Optional[str] = Field("None", alias="username")
+        alerts_enabled: Optional[bool] = Field(serialization_alias="alertsEnabled")
+        auth_mechanism_name: Optional[str] = Field("None", serialization_alias="authMechanismName")
+        hostname: str = Field("None", serialization_alias="hostname")
+        logs_enabled: Optional[bool] = Field(serialization_alias="logsEnabled")
+        password: Optional[str] = Field("None", serialization_alias="password")
+        port: float = Field(serialization_alias="port")
+        profiler_enabled: Optional[bool] = Field(serialization_alias="profilerEnabled")
+        ssl_enabled: Optional[bool] = Field(serialization_alias="sslEnabled")
+        username: Optional[str] = Field("None", serialization_alias="username")
     def begin_monitoring(self,
         path_params: BeginMonitoringPathParams,
         query_params: Optional[BeginMonitoringQueryParams],
@@ -39,12 +39,12 @@ class HostsResource(BaseResource):
         )
     class StopMonitoringPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class StopMonitoringQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class StopMonitoringBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def stop_monitoring(self,
@@ -64,14 +64,14 @@ class HostsResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        cluster_id: str = Field("None", alias="clusterId")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -91,13 +91,13 @@ class HostsResource(BaseResource):
         )
     class GetByHostnamePortPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        hostname: str = Field("None", alias="HOSTNAME")
-        port: str = Field("None", alias="PORT")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        hostname: str = Field("None", serialization_alias="HOSTNAME")
+        port: str = Field("None", serialization_alias="PORT")
     class GetByHostnamePortQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByHostnamePortBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_hostname_port(self,
@@ -117,12 +117,12 @@ class HostsResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
@@ -142,21 +142,21 @@ class HostsResource(BaseResource):
         )
     class UpdateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class UpdateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateConfigurationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alerts_enabled: Optional[bool] = Field(alias="alertsEnabled")
-        auth_mechanism_name: Optional[str] = Field("None", alias="authMechanismName")
-        logs_enabled: Optional[bool] = Field(alias="logsEnabled")
-        password: Optional[str] = Field("None", alias="password")
-        profiler_enabled: Optional[bool] = Field(alias="profilerEnabled")
-        ssl_enabled: Optional[bool] = Field(alias="sslEnabled")
-        username: Optional[str] = Field("None", alias="username")
+        alerts_enabled: Optional[bool] = Field(serialization_alias="alertsEnabled")
+        auth_mechanism_name: Optional[str] = Field("None", serialization_alias="authMechanismName")
+        logs_enabled: Optional[bool] = Field(serialization_alias="logsEnabled")
+        password: Optional[str] = Field("None", serialization_alias="password")
+        profiler_enabled: Optional[bool] = Field(serialization_alias="profilerEnabled")
+        ssl_enabled: Optional[bool] = Field(serialization_alias="sslEnabled")
+        username: Optional[str] = Field("None", serialization_alias="username")
     def update_configuration(self,
         path_params: UpdateConfigurationPathParams,
         query_params: Optional[UpdateConfigurationQueryParams],

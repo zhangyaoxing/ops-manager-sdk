@@ -6,11 +6,11 @@ class AutomationResource(BaseResource):
     """Client for AutomationResource resource."""
     class GetStatusOfLast50PlansPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
     class GetStatusOfLast50PlansQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetStatusOfLast50PlansBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_status_of_last_50_plans(self,
@@ -30,11 +30,11 @@ class AutomationResource(BaseResource):
         )
     class GetStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetStatusBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_status(self,

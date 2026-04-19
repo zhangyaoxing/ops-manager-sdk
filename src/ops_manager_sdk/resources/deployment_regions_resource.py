@@ -6,16 +6,16 @@ class DeploymentRegionsResource(BaseResource):
     """Client for DeploymentRegionsResource resource."""
     class AssignPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
     class AssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class AssignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_configs: list[dict] = Field(alias="deploymentConfigs")
-        multi_region_backup_enabled: bool = Field(alias="multiRegionBackupEnabled")
+        deployment_configs: list[dict] = Field(serialization_alias="deploymentConfigs")
+        multi_region_backup_enabled: bool = Field(serialization_alias="multiRegionBackupEnabled")
     def assign(self,
         path_params: AssignPathParams,
         query_params: Optional[AssignQueryParams],
@@ -33,18 +33,18 @@ class DeploymentRegionsResource(BaseResource):
         )
     class CreateByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_id: str = Field("None", alias="DEPLOYMENT-ID")
+        deployment_id: str = Field("None", serialization_alias="DEPLOYMENT-ID")
     class CreateByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        bq_proxy_endpoint: str = Field("None", alias="bqProxyEndpoint")
-        deployment_description: str = Field("None", alias="deploymentDescription")
-        ingestion_endpoint: Optional[str] = Field("None", alias="ingestionEndpoint")
-        restore_endpoint: str = Field("None", alias="restoreEndpoint")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        bq_proxy_endpoint: str = Field("None", serialization_alias="bqProxyEndpoint")
+        deployment_description: str = Field("None", serialization_alias="deploymentDescription")
+        ingestion_endpoint: Optional[str] = Field("None", serialization_alias="ingestionEndpoint")
+        restore_endpoint: str = Field("None", serialization_alias="restoreEndpoint")
     def create_by_id(self,
         path_params: CreateByIdPathParams,
         query_params: Optional[CreateByIdQueryParams],
@@ -64,16 +64,16 @@ class DeploymentRegionsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        bq_proxy_endpoint: str = Field("None", alias="bqProxyEndpoint")
-        deployment_description: str = Field("None", alias="deploymentDescription")
-        id: Optional[str] = Field("None", alias="id")
-        ingestion_endpoint: Optional[str] = Field("None", alias="ingestionEndpoint")
-        restore_endpoint: str = Field("None", alias="restoreEndpoint")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        bq_proxy_endpoint: str = Field("None", serialization_alias="bqProxyEndpoint")
+        deployment_description: str = Field("None", serialization_alias="deploymentDescription")
+        id: Optional[str] = Field("None", serialization_alias="id")
+        ingestion_endpoint: Optional[str] = Field("None", serialization_alias="ingestionEndpoint")
+        restore_endpoint: str = Field("None", serialization_alias="restoreEndpoint")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -91,11 +91,11 @@ class DeploymentRegionsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_id: str = Field("None", alias="DEPLOYMENT-ID")
+        deployment_id: str = Field("None", serialization_alias="DEPLOYMENT-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -117,10 +117,10 @@ class DeploymentRegionsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -140,13 +140,13 @@ class DeploymentRegionsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_id: str = Field("None", alias="DEPLOYMENT-ID")
+        deployment_id: str = Field("None", serialization_alias="DEPLOYMENT-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one(self,

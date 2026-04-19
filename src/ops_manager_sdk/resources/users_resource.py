@@ -8,14 +8,14 @@ class UsersResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreateFirstUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        whitelist: Optional[str] = Field("None", alias="whitelist")
+        whitelist: Optional[str] = Field("None", serialization_alias="whitelist")
     class CreateFirstUserBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        username: str = Field("None", alias="username")
-        password: str = Field("None", alias="password")
-        email_address: Optional[str] = Field("None", alias="emailAddress")
-        first_name: str = Field("None", alias="firstName")
-        last_name: str = Field("None", alias="lastName")
+        username: str = Field("None", serialization_alias="username")
+        password: str = Field("None", serialization_alias="password")
+        email_address: Optional[str] = Field("None", serialization_alias="emailAddress")
+        first_name: str = Field("None", serialization_alias="firstName")
+        last_name: str = Field("None", serialization_alias="lastName")
     def create_first_user(self,
         path_params: Optional[CreateFirstUserPathParams],
         query_params: Optional[CreateFirstUserQueryParams],
@@ -35,17 +35,17 @@ class UsersResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        username: str = Field("None", alias="username")
-        password: Optional[str] = Field("None", alias="password")
-        email_address: Optional[str] = Field("None", alias="emailAddress")
-        mobile_number: Optional[str] = Field("None", alias="mobileNumber")
-        first_name: Optional[str] = Field("None", alias="firstName")
-        last_name: Optional[str] = Field("None", alias="lastName")
-        roles: Optional[list[dict]] = Field(alias="roles")
+        username: str = Field("None", serialization_alias="username")
+        password: Optional[str] = Field("None", serialization_alias="password")
+        email_address: Optional[str] = Field("None", serialization_alias="emailAddress")
+        mobile_number: Optional[str] = Field("None", serialization_alias="mobileNumber")
+        first_name: Optional[str] = Field("None", serialization_alias="firstName")
+        last_name: Optional[str] = Field("None", serialization_alias="lastName")
+        roles: Optional[list[dict]] = Field(serialization_alias="roles")
     def create(self,
         path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
@@ -63,11 +63,11 @@ class UsersResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field("None", alias="USER-ID")
+        user_id: str = Field("None", serialization_alias="USER-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
@@ -87,11 +87,11 @@ class UsersResource(BaseResource):
         )
     class GetByNamePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_name: str = Field("None", alias="USER-NAME")
+        user_name: str = Field("None", serialization_alias="USER-NAME")
     class GetByNameQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByNameBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_name(self,
@@ -111,14 +111,14 @@ class UsersResource(BaseResource):
         )
     class UpdateRolesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field("None", alias="USER-ID")
+        user_id: str = Field("None", serialization_alias="USER-ID")
     class UpdateRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateRolesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        roles: list[dict] = Field(alias="roles")
+        roles: list[dict] = Field(serialization_alias="roles")
     def update_roles(self,
         path_params: UpdateRolesPathParams,
         query_params: Optional[UpdateRolesQueryParams],
@@ -136,11 +136,11 @@ class UsersResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field("None", alias="USER-ID")
+        user_id: str = Field("None", serialization_alias="USER-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,

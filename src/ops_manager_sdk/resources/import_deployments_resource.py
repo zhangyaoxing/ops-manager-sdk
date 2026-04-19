@@ -6,12 +6,12 @@ class ImportDeploymentsResource(BaseResource):
     """Client for ImportDeploymentsResource resource."""
     class CancelImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        request_id: str = Field("None", alias="REQUEST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        request_id: str = Field("None", serialization_alias="REQUEST-ID")
     class CancelImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CancelImportDeploymentRequestBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def cancel_import_deployment_request(self,
@@ -31,28 +31,28 @@ class ImportDeploymentsResource(BaseResource):
         )
     class CreateImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class CreateImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateImportDeploymentRequestBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        seed_hostport: str = Field("None", alias="seedHostport")
-        required_processes: list[Any] = Field(alias="requiredProcesses")
-        timeouts: Optional[dict] = Field(alias="timeouts")
-        auth_mechanism: Optional[str] = Field("None", alias="authMechanism")
-        username: Optional[str] = Field("None", alias="username")
-        password: Optional[str] = Field("None", alias="password")
-        admin_db: Optional[str] = Field("None", alias="adminDb")
-        pem_key_file_path: Optional[str] = Field("None", alias="pemKeyFilePath")
-        pem_key_file_password: Optional[str] = Field("None", alias="pemKeyFilePassword")
-        admin_kerberos_keytab: Optional[str] = Field("None", alias="adminKerberosKeytab")
-        admin_ldap_group_dn: Optional[str] = Field("None", alias="adminLdapGroupDn")
-        sasl_service_name: Optional[str] = Field("None", alias="saslServiceName")
-        ca_file_path: Optional[str] = Field("None", alias="caFilePath")
-        cluster_ca_file_path: Optional[str] = Field("None", alias="clusterCaFilePath")
-        client_certificate_mode: Optional[str] = Field("None", alias="clientCertificateMode")
+        seed_hostport: str = Field("None", serialization_alias="seedHostport")
+        required_processes: list[Any] = Field(serialization_alias="requiredProcesses")
+        timeouts: Optional[dict] = Field(serialization_alias="timeouts")
+        auth_mechanism: Optional[str] = Field("None", serialization_alias="authMechanism")
+        username: Optional[str] = Field("None", serialization_alias="username")
+        password: Optional[str] = Field("None", serialization_alias="password")
+        admin_db: Optional[str] = Field("None", serialization_alias="adminDb")
+        pem_key_file_path: Optional[str] = Field("None", serialization_alias="pemKeyFilePath")
+        pem_key_file_password: Optional[str] = Field("None", serialization_alias="pemKeyFilePassword")
+        admin_kerberos_keytab: Optional[str] = Field("None", serialization_alias="adminKerberosKeytab")
+        admin_ldap_group_dn: Optional[str] = Field("None", serialization_alias="adminLdapGroupDn")
+        sasl_service_name: Optional[str] = Field("None", serialization_alias="saslServiceName")
+        ca_file_path: Optional[str] = Field("None", serialization_alias="caFilePath")
+        cluster_ca_file_path: Optional[str] = Field("None", serialization_alias="clusterCaFilePath")
+        client_certificate_mode: Optional[str] = Field("None", serialization_alias="clientCertificateMode")
     def create_import_deployment_request(self,
         path_params: CreateImportDeploymentRequestPathParams,
         query_params: Optional[CreateImportDeploymentRequestQueryParams],
@@ -70,12 +70,12 @@ class ImportDeploymentsResource(BaseResource):
         )
     class DeleteImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        request_id: str = Field("None", alias="REQUEST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        request_id: str = Field("None", serialization_alias="REQUEST-ID")
     class DeleteImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteImportDeploymentRequestBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete_import_deployment_request(self,
@@ -95,11 +95,11 @@ class ImportDeploymentsResource(BaseResource):
         )
     class GetImportDeploymentRequestsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetImportDeploymentRequestsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetImportDeploymentRequestsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_import_deployment_requests(self,
@@ -119,12 +119,12 @@ class ImportDeploymentsResource(BaseResource):
         )
     class GetImportDeploymentRequestStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        import_process_id: str = Field("None", alias="IMPORT-PROCESS-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        import_process_id: str = Field("None", serialization_alias="IMPORT-PROCESS-ID")
     class GetImportDeploymentRequestStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetImportDeploymentRequestStatusBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_import_deployment_request_status(self,

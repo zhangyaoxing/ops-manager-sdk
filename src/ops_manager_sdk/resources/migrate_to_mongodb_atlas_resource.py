@@ -6,14 +6,14 @@ class MigrateToMongodbAtlasResource(BaseResource):
     """Client for MigrateToMongodbAtlasResource resource."""
     class ConnectWithAtlasOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class ConnectWithAtlasOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class ConnectWithAtlasOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        link_token: str = Field("None", alias="linkToken")
+        link_token: str = Field("None", serialization_alias="linkToken")
     def connect_with_atlas_organization(self,
         path_params: ConnectWithAtlasOrganizationPathParams,
         query_params: Optional[ConnectWithAtlasOrganizationQueryParams],
@@ -31,11 +31,11 @@ class MigrateToMongodbAtlasResource(BaseResource):
         )
     class RemoveConnectionPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class RemoveConnectionQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class RemoveConnectionBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def remove_connection(self,
@@ -55,11 +55,11 @@ class MigrateToMongodbAtlasResource(BaseResource):
         )
     class ReturnConnectionStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class ReturnConnectionStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class ReturnConnectionStatusBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def return_connection_status(self,

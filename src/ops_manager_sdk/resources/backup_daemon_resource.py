@@ -6,23 +6,23 @@ class BackupDaemonResource(BaseResource):
     """Client for BackupDaemonResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", alias="MACHINE")
+        machine: str = Field("None", serialization_alias="MACHINE")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        backup_jobs_enabled: Optional[bool] = Field(alias="backupJobsEnabled")
-        configured: Optional[bool] = Field(alias="configured")
-        garbage_collection_enabled: Optional[bool] = Field(alias="garbageCollectionEnabled")
-        head_disk_type: Optional[str] = Field("None", alias="headDiskType")
-        labels: Optional[list[str]] = Field(alias="labels")
-        machine: dict = Field(alias="machine")
-        num_workers: Optional[float] = Field(alias="numWorkers")
-        resource_usage_enabled: Optional[bool] = Field(alias="resourceUsageEnabled")
-        restore_queryable_jobs_enabled: Optional[bool] = Field(alias="restoreQueryableJobsEnabled")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        backup_jobs_enabled: Optional[bool] = Field(serialization_alias="backupJobsEnabled")
+        configured: Optional[bool] = Field(serialization_alias="configured")
+        garbage_collection_enabled: Optional[bool] = Field(serialization_alias="garbageCollectionEnabled")
+        head_disk_type: Optional[str] = Field("None", serialization_alias="headDiskType")
+        labels: Optional[list[str]] = Field(serialization_alias="labels")
+        machine: dict = Field(serialization_alias="machine")
+        num_workers: Optional[float] = Field(serialization_alias="numWorkers")
+        resource_usage_enabled: Optional[bool] = Field(serialization_alias="resourceUsageEnabled")
+        restore_queryable_jobs_enabled: Optional[bool] = Field(serialization_alias="restoreQueryableJobsEnabled")
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -40,12 +40,12 @@ class BackupDaemonResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", alias="MACHINE")
-        head_root_directory: str = Field("None", alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", serialization_alias="MACHINE")
+        head_root_directory: str = Field("None", serialization_alias="HEAD-ROOT-DIRECTORY")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -67,11 +67,11 @@ class BackupDaemonResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        backup_jobs_enabled_only: Optional[bool] = Field(True, alias="backupJobsEnabledOnly")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        backup_jobs_enabled_only: Optional[bool] = Field(True, serialization_alias="backupJobsEnabledOnly")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -91,12 +91,12 @@ class BackupDaemonResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", alias="MACHINE")
-        head_root_directory: str = Field("None", alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", serialization_alias="MACHINE")
+        head_root_directory: str = Field("None", serialization_alias="HEAD-ROOT-DIRECTORY")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
@@ -116,24 +116,24 @@ class BackupDaemonResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", alias="MACHINE")
-        head_root_directory: str = Field("None", alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", serialization_alias="MACHINE")
+        head_root_directory: str = Field("None", serialization_alias="HEAD-ROOT-DIRECTORY")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        assignment_enabled: Optional[bool] = Field(alias="assignmentEnabled")
-        backup_jobs_enabled: Optional[bool] = Field(alias="backupJobsEnabled")
-        configured: Optional[bool] = Field(alias="configured")
-        garbage_collection_enabled: Optional[bool] = Field(alias="garbageCollectionEnabled")
-        head_disk_type: Optional[str] = Field("None", alias="headDiskType")
-        labels: Optional[list[str]] = Field(alias="labels")
-        machine: dict = Field(alias="machine")
-        num_workers: Optional[float] = Field(alias="numWorkers")
-        resource_usage_enabled: Optional[bool] = Field(alias="resourceUsageEnabled")
-        restore_queryable_jobs_enabled: Optional[bool] = Field(alias="restoreQueryableJobsEnabled")
+        assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        backup_jobs_enabled: Optional[bool] = Field(serialization_alias="backupJobsEnabled")
+        configured: Optional[bool] = Field(serialization_alias="configured")
+        garbage_collection_enabled: Optional[bool] = Field(serialization_alias="garbageCollectionEnabled")
+        head_disk_type: Optional[str] = Field("None", serialization_alias="headDiskType")
+        labels: Optional[list[str]] = Field(serialization_alias="labels")
+        machine: dict = Field(serialization_alias="machine")
+        num_workers: Optional[float] = Field(serialization_alias="numWorkers")
+        resource_usage_enabled: Optional[bool] = Field(serialization_alias="resourceUsageEnabled")
+        restore_queryable_jobs_enabled: Optional[bool] = Field(serialization_alias="restoreQueryableJobsEnabled")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

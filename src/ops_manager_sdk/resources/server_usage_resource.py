@@ -6,17 +6,17 @@ class ServerUsageResource(BaseResource):
     """Client for ServerUsageResource resource."""
     class GetDiagnosticArchivePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetDiagnosticArchiveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        age_limit: Optional[int] = Field(7, alias="ageLimit")
-        limit: Optional[int] = Field(1000, alias="limit")
-        minutes: Optional[int] = Field(1440, alias="minutes")
-        size_limit: Optional[int] = Field(50000000, alias="sizeLimit")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        age_limit: Optional[int] = Field(7, serialization_alias="ageLimit")
+        limit: Optional[int] = Field(1000, serialization_alias="limit")
+        minutes: Optional[int] = Field(1440, serialization_alias="minutes")
+        size_limit: Optional[int] = Field(50000000, serialization_alias="sizeLimit")
     class GetDiagnosticArchiveBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_diagnostic_archive(self,
@@ -38,15 +38,15 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class CreatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class CreatePhysicalHostBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        virtual_hosts: list[str] = Field(alias="virtualHosts")
-        name: str = Field("None", alias="name")
-        server_type: str = Field("None", alias="serverType")
+        virtual_hosts: list[str] = Field(serialization_alias="virtualHosts")
+        name: str = Field("None", serialization_alias="name")
+        server_type: str = Field("None", serialization_alias="serverType")
     def create_physical_host(self,
         path_params: Optional[CreatePhysicalHostPathParams],
         query_params: Optional[CreatePhysicalHostQueryParams],
@@ -66,12 +66,12 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetGlobalUsageReportArchiveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field("None", alias="startDate")
-        end_date: str = Field("None", alias="endDate")
-        file_format: str = Field("None", alias="fileFormat")
-        redact: Optional[bool] = Field(True, alias="redact")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        start_date: str = Field("None", serialization_alias="startDate")
+        end_date: str = Field("None", serialization_alias="endDate")
+        file_format: str = Field("None", serialization_alias="fileFormat")
+        redact: Optional[bool] = Field(True, serialization_alias="redact")
     class GetGlobalUsageReportArchiveBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_global_usage_report_archive(self,
@@ -93,10 +93,10 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GenerateUsageSnapshotQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class GenerateUsageSnapshotBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def generate_usage_snapshot(self,
@@ -118,10 +118,10 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class RetrieveAllPhysicalHostsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class RetrieveAllPhysicalHostsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retrieve_all_physical_hosts(self,
@@ -141,11 +141,11 @@ class ServerUsageResource(BaseResource):
         )
     class GetServerTypeInOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class GetServerTypeInOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetServerTypeInOneOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_server_type_in_one_organization(self,
@@ -165,11 +165,11 @@ class ServerUsageResource(BaseResource):
         )
     class GetDefaultServerTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="groupId")
+        group_id: str = Field("None", serialization_alias="groupId")
     class GetDefaultServerTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetDefaultServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_default_server_type(self,
@@ -189,13 +189,13 @@ class ServerUsageResource(BaseResource):
         )
     class RetreiveOnePhysicalHostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        physical_host_id: str = Field("None", alias="physicalHostId")
+        physical_host_id: str = Field("None", serialization_alias="physicalHostId")
     class RetreiveOnePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class RetreiveOnePhysicalHostBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def retreive_one_physical_host(self,
@@ -215,15 +215,15 @@ class ServerUsageResource(BaseResource):
         )
     class ListHostAssignmentsInOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class ListHostAssignmentsInOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field("None", alias="startDate")
-        end_date: str = Field("None", alias="endDate")
-        page_num: float = Field(alias="pageNum")
-        items_per_page: float = Field(100.0, alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        start_date: str = Field("None", serialization_alias="startDate")
+        end_date: str = Field("None", serialization_alias="endDate")
+        page_num: float = Field(serialization_alias="pageNum")
+        items_per_page: float = Field(100.0, serialization_alias="itemsPerPage")
     class ListHostAssignmentsInOneOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def list_host_assignments_in_one_organization(self,
@@ -243,15 +243,15 @@ class ServerUsageResource(BaseResource):
         )
     class ListHostAssignmentsInOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="groupId")
+        group_id: str = Field("None", serialization_alias="groupId")
     class ListHostAssignmentsInOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field("None", alias="startDate")
-        end_date: str = Field("None", alias="endDate")
-        page_num: float = Field(alias="pageNum")
-        items_per_page: float = Field(100.0, alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        start_date: str = Field("None", serialization_alias="startDate")
+        end_date: str = Field("None", serialization_alias="endDate")
+        page_num: float = Field(serialization_alias="pageNum")
+        items_per_page: float = Field(100.0, serialization_alias="itemsPerPage")
     class ListHostAssignmentsInOneProjectBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def list_host_assignments_in_one_project(self,
@@ -273,12 +273,12 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class ListHostAssignmentsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        start_date: str = Field("None", alias="startDate")
-        end_date: str = Field("None", alias="endDate")
-        page_num: float = Field(alias="pageNum")
-        items_per_page: float = Field(100.0, alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        start_date: str = Field("None", serialization_alias="startDate")
+        end_date: str = Field("None", serialization_alias="endDate")
+        page_num: float = Field(serialization_alias="pageNum")
+        items_per_page: float = Field(100.0, serialization_alias="itemsPerPage")
     class ListHostAssignmentsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def list_host_assignments(self,
@@ -298,13 +298,13 @@ class ServerUsageResource(BaseResource):
         )
     class RemovePhysicalHostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        physical_host_id: str = Field("None", alias="physicalHostId")
+        physical_host_id: str = Field("None", serialization_alias="physicalHostId")
     class RemovePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class RemovePhysicalHostBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def remove_physical_host(self,
@@ -324,14 +324,14 @@ class ServerUsageResource(BaseResource):
         )
     class UpdateServerTypeForOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="orgId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class UpdateServerTypeForOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateServerTypeForOneOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        server_type: dict = Field(alias="serverType")
+        server_type: dict = Field(serialization_alias="serverType")
     def update_server_type_for_one_organization(self,
         path_params: UpdateServerTypeForOneOrganizationPathParams,
         query_params: Optional[UpdateServerTypeForOneOrganizationQueryParams],
@@ -349,14 +349,14 @@ class ServerUsageResource(BaseResource):
         )
     class UpdateDefaultServerTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="groupId")
+        group_id: str = Field("None", serialization_alias="groupId")
     class UpdateDefaultServerTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateDefaultServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        server_type: dict = Field(alias="serverType")
+        server_type: dict = Field(serialization_alias="serverType")
     def update_default_server_type(self,
         path_params: UpdateDefaultServerTypePathParams,
         query_params: Optional[UpdateDefaultServerTypeQueryParams],
@@ -374,18 +374,18 @@ class ServerUsageResource(BaseResource):
         )
     class UpdatePhysicalHostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        physical_host_id: str = Field("None", alias="physicalHostId")
+        physical_host_id: str = Field("None", serialization_alias="physicalHostId")
     class UpdatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class UpdatePhysicalHostBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        virtual_hosts: list[str] = Field(alias="virtualHosts")
-        name: str = Field("None", alias="name")
-        server_type: str = Field("None", alias="serverType")
+        virtual_hosts: list[str] = Field(serialization_alias="virtualHosts")
+        name: str = Field("None", serialization_alias="name")
+        server_type: str = Field("None", serialization_alias="serverType")
     def update_physical_host(self,
         path_params: UpdatePhysicalHostPathParams,
         query_params: Optional[UpdatePhysicalHostQueryParams],
@@ -403,14 +403,14 @@ class ServerUsageResource(BaseResource):
         )
     class UpdateServerTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        host_id: str = Field("None", alias="hostId")
+        host_id: str = Field("None", serialization_alias="hostId")
     class UpdateServerTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        server_type: dict = Field(alias="serverType")
+        server_type: dict = Field(serialization_alias="serverType")
     def update_server_type(self,
         path_params: UpdateServerTypePathParams,
         query_params: Optional[UpdateServerTypeQueryParams],

@@ -6,17 +6,17 @@ class MaintenanceWindowsResource(BaseResource):
     """Client for MaintenanceWindowsResource resource."""
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alert_type_names: list[str] = Field(alias="alertTypeNames")
-        start_date: str = Field("None", alias="startDate")
-        end_date: str = Field("None", alias="endDate")
-        description: Optional[str] = Field("None", alias="description")
+        alert_type_names: list[str] = Field(serialization_alias="alertTypeNames")
+        start_date: str = Field("None", serialization_alias="startDate")
+        end_date: str = Field("None", serialization_alias="endDate")
+        description: Optional[str] = Field("None", serialization_alias="description")
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -34,12 +34,12 @@ class MaintenanceWindowsResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        mw_id: str = Field("None", alias="MW-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        mw_id: str = Field("None", serialization_alias="MW-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class DeleteBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete(self,
@@ -59,11 +59,11 @@ class MaintenanceWindowsResource(BaseResource):
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -83,12 +83,12 @@ class MaintenanceWindowsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        mw_id: str = Field("None", alias="MW-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        mw_id: str = Field("None", serialization_alias="MW-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
@@ -108,18 +108,18 @@ class MaintenanceWindowsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        mw_id: str = Field("None", alias="MW-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        mw_id: str = Field("None", serialization_alias="MW-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        alert_type_names: list[str] = Field(alias="alertTypeNames")
-        start_date: str = Field("None", alias="startDate")
-        end_date: str = Field("None", alias="endDate")
-        description: Optional[str] = Field("None", alias="description")
+        alert_type_names: list[str] = Field(serialization_alias="alertTypeNames")
+        start_date: str = Field("None", serialization_alias="startDate")
+        end_date: str = Field("None", serialization_alias="endDate")
+        description: Optional[str] = Field("None", serialization_alias="description")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

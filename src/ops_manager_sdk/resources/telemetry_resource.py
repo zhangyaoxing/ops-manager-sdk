@@ -31,7 +31,7 @@ class TelemetryResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class ToggleTelemetryStatusBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        enabled: bool = Field(alias="enabled")
+        enabled: bool = Field(serialization_alias="enabled")
     def toggle_telemetry_status(self,
         path_params: Optional[ToggleTelemetryStatusPathParams],
         query_params: Optional[ToggleTelemetryStatusQueryParams],

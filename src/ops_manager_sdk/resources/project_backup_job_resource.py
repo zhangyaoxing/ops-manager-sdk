@@ -8,10 +8,10 @@ class ProjectBackupJobResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
@@ -31,11 +31,11 @@ class ProjectBackupJobResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
@@ -55,21 +55,21 @@ class ProjectBackupJobResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        daemon_filter: Optional[list[dict]] = Field(alias="daemonFilter")
-        id: Optional[str] = Field("None", alias="id")
-        kmip_client_cert_password: Optional[str] = Field("None", alias="kmipClientCertPassword")
-        kmip_client_cert_path: Optional[str] = Field("None", alias="kmipClientCertPath")
-        label_filter: Optional[list[str]] = Field(alias="labelFilter")
-        oplog_store_filter: Optional[list[dict]] = Field(alias="oplogStoreFilter")
-        snapshot_store_filter: Optional[list[dict]] = Field(alias="snapshotStoreFilter")
-        sync_store_filter: Optional[list[str]] = Field(alias="syncStoreFilter")
+        daemon_filter: Optional[list[dict]] = Field(serialization_alias="daemonFilter")
+        id: Optional[str] = Field("None", serialization_alias="id")
+        kmip_client_cert_password: Optional[str] = Field("None", serialization_alias="kmipClientCertPassword")
+        kmip_client_cert_path: Optional[str] = Field("None", serialization_alias="kmipClientCertPath")
+        label_filter: Optional[list[str]] = Field(serialization_alias="labelFilter")
+        oplog_store_filter: Optional[list[dict]] = Field(serialization_alias="oplogStoreFilter")
+        snapshot_store_filter: Optional[list[dict]] = Field(serialization_alias="snapshotStoreFilter")
+        sync_store_filter: Optional[list[str]] = Field(serialization_alias="syncStoreFilter")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

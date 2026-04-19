@@ -6,14 +6,14 @@ class OrganizationAccessListsResource(BaseResource):
     """Client for OrganizationAccessListsResource resource."""
     class CreateEntriesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class CreateEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class CreateEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def create_entries(self,
@@ -33,15 +33,15 @@ class OrganizationAccessListsResource(BaseResource):
         )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
-        access_list_entry: str = Field("None", alias="ACCESS-LIST-ENTRY")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
+        access_list_entry: str = Field("None", serialization_alias="ACCESS-LIST-ENTRY")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class DeleteEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def delete_entry(self,
@@ -61,14 +61,14 @@ class OrganizationAccessListsResource(BaseResource):
         )
     class GetAllEntriesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class GetAllEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class GetAllEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_entries(self,
@@ -88,15 +88,15 @@ class OrganizationAccessListsResource(BaseResource):
         )
     class GetOneEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", alias="ORG-ID")
-        api_key_id: str = Field("None", alias="API-KEY-ID")
-        access_list_entry: str = Field("None", alias="ACCESS-LIST-ENTRY")
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
+        access_list_entry: str = Field("None", serialization_alias="ACCESS-LIST-ENTRY")
     class GetOneEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(alias="pageNum")
-        items_per_page: Optional[float] = Field(alias="itemsPerPage")
-        pretty: Optional[bool] = Field(alias="pretty")
-        envelope: Optional[bool] = Field(alias="envelope")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
     class GetOneEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_entry(self,

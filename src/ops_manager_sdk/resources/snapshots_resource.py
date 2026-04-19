@@ -6,17 +6,17 @@ class SnapshotsResource(BaseResource):
     """Client for SnapshotsResource resource."""
     class ChangeExpiryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
-        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
+        snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
     class ChangeExpiryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class ChangeExpiryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        do_not_delete: Optional[bool] = Field(alias="doNotDelete")
-        expires: Optional[datetime] = Field(alias="expires")
+        do_not_delete: Optional[bool] = Field(serialization_alias="doNotDelete")
+        expires: Optional[datetime] = Field(serialization_alias="expires")
     def change_expiry(self,
         path_params: ChangeExpiryPathParams,
         query_params: Optional[ChangeExpiryQueryParams],
@@ -34,14 +34,14 @@ class SnapshotsResource(BaseResource):
         )
     class GetAllConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        host_id: str = Field("None", alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
     class GetAllConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetAllConfigServerBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_config_server_(self,
@@ -61,15 +61,15 @@ class SnapshotsResource(BaseResource):
         )
     class GetAllClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
-        completed: Optional[str] = Field("true", alias="completed")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        completed: Optional[str] = Field("true", serialization_alias="completed")
     class GetAllClusterBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_all_cluster_(self,
@@ -89,13 +89,13 @@ class SnapshotsResource(BaseResource):
         )
     class GetOneConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
-        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
+        snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
     class GetOneConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneConfigServerBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_config_server_(self,
@@ -115,13 +115,13 @@ class SnapshotsResource(BaseResource):
         )
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
-        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
+        snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
     class GetOneClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetOneClusterBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_one_cluster_(self,
@@ -141,13 +141,13 @@ class SnapshotsResource(BaseResource):
         )
     class RemoveOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
-        snapshot_id: str = Field("None", alias="SNAPSHOT-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
+        snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
     class RemoveOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class RemoveOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def remove_one(self,
@@ -167,12 +167,12 @@ class SnapshotsResource(BaseResource):
         )
     class CreateOneOnDemandClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", alias="GROUP-ID")
-        cluster_id: str = Field("None", alias="clusterId")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
     class CreateOneOnDemandClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        retention_days: float = Field(15.0, alias="retentionDays")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        retention_days: float = Field(15.0, serialization_alias="retentionDays")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class CreateOneOnDemandClusterBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def create_one_on_demand_cluster_(self,

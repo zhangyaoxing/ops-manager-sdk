@@ -6,12 +6,12 @@ class SnapshotScheduleResource(BaseResource):
     """Client for SnapshotScheduleResource resource."""
     class GetSchedulePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetScheduleQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class GetScheduleBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
     def get_schedule(self,
@@ -31,28 +31,28 @@ class SnapshotScheduleResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", alias="PROJECT-ID")
-        cluster_id: str = Field("None", alias="clusterId")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        cluster_id: str = Field("None", serialization_alias="clusterId")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, alias="pretty")
-        envelope: Optional[bool] = Field(False, alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        cluster_checkpoint_interval_min: Optional[float] = Field(alias="clusterCheckpointIntervalMin")
-        cluster_id: Optional[str] = Field("None", alias="clusterId")
-        daily_snapshot_retention_days: Optional[float] = Field(alias="dailySnapshotRetentionDays")
-        full_incremental_day_of_week: Optional[str] = Field("None", alias="fullIncrementalDayOfWeek")
-        group_id: Optional[str] = Field("None", alias="groupId")
-        links: Optional[list[dict]] = Field(alias="links")
-        monthly_snapshot_retention_months: Optional[float] = Field(alias="monthlySnapshotRetentionMonths")
-        point_in_time_window_hours: Optional[float] = Field(alias="pointInTimeWindowHours")
-        reference_hour_of_day: Optional[float] = Field(alias="referenceHourOfDay")
-        reference_minute_of_hour: Optional[float] = Field(alias="referenceMinuteOfHour")
-        reference_time_zone_offset: Optional[str] = Field("None", alias="referenceTimeZoneOffset")
-        snapshot_interval_hours: Optional[float] = Field(alias="snapshotIntervalHours")
-        snapshot_retention_days: Optional[float] = Field(alias="snapshotRetentionDays")
-        weekly_snapshot_retention_weeks: Optional[float] = Field(alias="weeklySnapshotRetentionWeeks")
+        cluster_checkpoint_interval_min: Optional[float] = Field(serialization_alias="clusterCheckpointIntervalMin")
+        cluster_id: Optional[str] = Field("None", serialization_alias="clusterId")
+        daily_snapshot_retention_days: Optional[float] = Field(serialization_alias="dailySnapshotRetentionDays")
+        full_incremental_day_of_week: Optional[str] = Field("None", serialization_alias="fullIncrementalDayOfWeek")
+        group_id: Optional[str] = Field("None", serialization_alias="groupId")
+        links: Optional[list[dict]] = Field(serialization_alias="links")
+        monthly_snapshot_retention_months: Optional[float] = Field(serialization_alias="monthlySnapshotRetentionMonths")
+        point_in_time_window_hours: Optional[float] = Field(serialization_alias="pointInTimeWindowHours")
+        reference_hour_of_day: Optional[float] = Field(serialization_alias="referenceHourOfDay")
+        reference_minute_of_hour: Optional[float] = Field(serialization_alias="referenceMinuteOfHour")
+        reference_time_zone_offset: Optional[str] = Field("None", serialization_alias="referenceTimeZoneOffset")
+        snapshot_interval_hours: Optional[float] = Field(serialization_alias="snapshotIntervalHours")
+        snapshot_retention_days: Optional[float] = Field(serialization_alias="snapshotRetentionDays")
+        weekly_snapshot_retention_weeks: Optional[float] = Field(serialization_alias="weeklySnapshotRetentionWeeks")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],
