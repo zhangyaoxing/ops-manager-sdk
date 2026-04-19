@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pylint>=3.2,<4.0", "playwright>=1.58"]
+dev = ["pylint>=3.2,<4.0", "playwright>=1.58", "pytest>=9.0,<10.0"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }
