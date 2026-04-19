@@ -1,5 +1,7 @@
-from dataclasses import dataclass, field
 from importlib.metadata import PackageNotFoundError, version
+from typing import Optional
+import os
+from pydantic import BaseModel, Field
 
 
 def _default_user_agent() -> str:
@@ -11,13 +13,12 @@ def _default_user_agent() -> str:
     return f"ops-manager-sdk/{sdk_version}"
 
 
-@dataclass(slots=True)
-class ClientConfig:
+class ClientConfig(BaseModel):
     base_url: str
-    digest_username: str | None = None
-    digest_password: str | None = None
+    public_key: str
+    private_key: str
     timeout: float = 30.0
-    user_agent: str = field(default_factory=_default_user_agent)
+    user_agent: str = Field(default_factory=_default_user_agent)
 
     @property
     def headers(self) -> dict[str, str]:
