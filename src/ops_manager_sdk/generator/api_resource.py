@@ -8,7 +8,9 @@ from ops_manager_sdk.generator.utils import parse_value, type_mapping
 
 RESOURCE_TEMPLATE = """
 from typing import Any, Optional
+{% if need_datetime_import %}
 from datetime import datetime
+{% endif %}
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -134,6 +136,10 @@ class APIResource:
             path_needed = len(path_params) > 0
             query_needed = len(query_params) > 0
             body_needed = len(body_params) > 0
+            need_datetime = api.get("title", "") in [
+                "Change the Expiry of One Snapshot",
+                "Get All Global Alerts",
+            ]
             code_gen_data[class_name].append(
                 {
                     "method_name": re.sub(r"[^\w]+", "_", api["name"].lower()),
@@ -156,6 +162,7 @@ class APIResource:
                         "params": body_params,
                     },
                     "body_type": api.get("body_type", "object"),
+                    "need_datetime": need_datetime,
                     "doc": doc,
                 }
             )
@@ -176,7 +183,12 @@ class APIResource:
         code_gen_data = self._pre_process()
         for class_name, snippets in code_gen_data.items():
             template = Template(RESOURCE_TEMPLATE)
-            code = template.render(class_name=class_name, code_data=snippets)
+            need_datetime_import = any(snippet["need_datetime"] for snippet in snippets)
+            code = template.render(
+                class_name=class_name,
+                code_data=snippets,
+                need_datetime_import=need_datetime_import,
+            )
             code = self._post_code_process(code)
             package_name = re.sub(
                 r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", class_name
