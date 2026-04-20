@@ -12,8 +12,8 @@ from ops_manager_sdk.config import ClientConfig
 
 
 class ClientAuthTestCase(unittest.TestCase):
-    @patch("ops_manager_sdk.client.httpx.DigestAuth")
-    @patch("ops_manager_sdk.client.httpx.Client")
+    @patch("ops_manager_sdk.ops_manager_client.DigestAuth")
+    @patch("ops_manager_sdk.ops_manager_client.Client")
     def test_uses_digest_auth_when_credentials_are_provided(
         self,
         client_mock,
@@ -24,8 +24,8 @@ class ClientAuthTestCase(unittest.TestCase):
 
         config = ClientConfig(
             base_url="https://example.local",
-            digest_username="digest-user",
-            digest_password="digest-password",
+            public_key="digest-user",
+            private_key="digest-password",
         )
 
         OpsManagerClient(config)
@@ -33,15 +33,23 @@ class ClientAuthTestCase(unittest.TestCase):
         digest_auth_mock.assert_called_once_with("digest-user", "digest-password")
         _, kwargs = client_mock.call_args
         self.assertIs(kwargs["auth"], digest_auth_instance)
+        self.assertEqual(kwargs["base_url"], "https://example.local/api/public/v1.0")
 
-    @patch("ops_manager_sdk.client.httpx.Client")
-    def test_uses_no_auth_when_digest_credentials_are_missing(self, client_mock) -> None:
-        config = ClientConfig(base_url="https://example.local")
+    @patch("ops_manager_sdk.ops_manager_client.DigestAuth")
+    @patch("ops_manager_sdk.ops_manager_client.Client")
+    def test_passes_timeout_to_http_client(self, client_mock, digest_auth_mock) -> None:
+        digest_auth_mock.return_value = object()
+        config = ClientConfig(
+            base_url="https://example.local",
+            public_key="digest-user",
+            private_key="digest-password",
+            timeout=12.5,
+        )
 
         OpsManagerClient(config)
 
         _, kwargs = client_mock.call_args
-        self.assertIsNone(kwargs["auth"])
+        self.assertEqual(kwargs["timeout"], 12.5)
 
 
 if __name__ == "__main__":

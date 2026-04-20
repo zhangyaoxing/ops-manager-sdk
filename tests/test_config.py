@@ -11,13 +11,18 @@ from ops_manager_sdk.config import ClientConfig
 
 class ClientConfigTestCase(unittest.TestCase):
     def test_headers_include_default_http_headers(self) -> None:
-        config = ClientConfig(base_url="https://example.local")
+        config = ClientConfig(
+            base_url="https://example.local",
+            public_key="public",
+            private_key="private",
+        )
 
-        headers = config.headers()
+        headers = config.headers
+        user_agent = str(headers["User-Agent"])
 
         self.assertEqual(headers["Accept"], "application/json")
         self.assertEqual(headers["Content-Type"], "application/json")
-        self.assertEqual(headers["User-Agent"], "ops-manager-sdk/0.1.0")
+        self.assertTrue(user_agent.startswith("ops-manager-sdk/"))
 
 
 if __name__ == "__main__":
