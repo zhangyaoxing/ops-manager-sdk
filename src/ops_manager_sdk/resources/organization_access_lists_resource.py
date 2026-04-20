@@ -3,6 +3,35 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class OrganizationAccessListsResource(BaseResource):
     """Client for OrganizationAccessListsResource resource."""
+    class CreateEntriesPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
+    class CreateEntriesQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
+    class CreateEntriesBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        ip_address: Optional[str] = Field("None", serialization_alias="ipAddress")
+        cidr_block: Optional[str] = Field("None", serialization_alias="cidrBlock")
+    def create_entries(self,
+        path_params: CreateEntriesPathParams,
+        query_params: Optional[CreateEntriesQueryParams],
+        body_params: list[Optional[CreateEntriesBodyParams]],
+    ) -> dict[str, Any]:
+        """API: Create Access List Entries for One Organization API Key
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-org-api-key-access-list/
+        Description: No description."""
+        return self._request(
+            "POST",
+            "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
+            path_params,
+            query_params,
+            body_params,
+        )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
@@ -76,33 +105,4 @@ class OrganizationAccessListsResource(BaseResource):
             path_params,
             query_params,
             None,
-        )
-    class CreateEntriesPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", serialization_alias="ORG-ID")
-        api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
-    class CreateEntriesQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class CreateEntriesBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-        ip_address: Optional[str] = Field("None", serialization_alias="ipAddress")
-        cidr_block: Optional[str] = Field("None", serialization_alias="cidrBlock")
-    def create_entries(self,
-        path_params: CreateEntriesPathParams,
-        query_params: Optional[CreateEntriesQueryParams],
-        body_params: list[Optional[CreateEntriesBodyParams]],
-    ) -> dict[str, Any]:
-        """API: Create Access List Entries for One Organization API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-org-api-key-access-list/
-        Description: No description."""
-        return self._request(
-            "POST",
-            "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
-            path_params,
-            query_params,
-            body_params,
         )

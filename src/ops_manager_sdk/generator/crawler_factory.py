@@ -1,4 +1,5 @@
 import os
+import re
 from typing import Any, Optional
 from datetime import datetime, timezone
 import httpx
@@ -46,6 +47,7 @@ class StandardCrawler:
         locators: list = params_locator.all()
         for param in locators:
             param_name: str = param.locator("xpath=./td[1]").inner_text()
+            param_name = param_name.replace("[n]", "").strip()
             if type_override is not None:
                 param_type: str = type_override
             else:
@@ -102,7 +104,9 @@ class StandardCrawler:
     def get_resource_name(self, page: Page) -> str:
         resource_name_locator = page.locator(self.LOCATORS["resource"])
         if resource_name_locator.count() > 0:
-            resource_name: str = resource_name_locator.last.inner_text().title().replace(" ", "")
+            resource_name: str = re.sub(
+                r"[^a-zA-Z0-9]", "", resource_name_locator.last.inner_text().title()
+            )
             logger.debug(f"Extracted resource name: {resource_name} from {page.url}")
             return resource_name
         return "Root"
@@ -204,9 +208,7 @@ class StandardCrawler:
 
 
 class NoPathTitleCrawler(StandardCrawler):
-    LOCATORS = {
-        **StandardCrawler.LOCATORS,
-    }
+    LOCATORS = StandardCrawler.LOCATORS.copy()
 
     def __init__(self, context):
         super().__init__(context)

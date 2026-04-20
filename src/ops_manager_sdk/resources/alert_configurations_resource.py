@@ -3,35 +3,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class AlertConfigurationsResource(BaseResource):
     """Client for AlertConfigurationsResource resource."""
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-    class CreateQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class CreateBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-        enabled: Optional[bool] = Field(serialization_alias="enabled")
-        matchers: Optional[list[dict]] = Field(serialization_alias="matchers")
-        metric_threshold: Optional[dict] = Field(serialization_alias="metricThreshold")
-        notifications: list[dict] = Field(serialization_alias="notifications")
-        threshold: Optional[dict] = Field(serialization_alias="threshold")
-    def create(self,
-        path_params: CreatePathParams,
-        query_params: Optional[CreateQueryParams],
-        body_params: CreateBodyParams,
-    ) -> dict[str, Any]:
-        """API: Create an Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-create-config/
-        Description: No description."""
-        return self._request(
-            "POST",
-            "/groups/{PROJECT-ID}/alertConfigs",
-            path_params,
-            query_params,
-            body_params,
-        )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
@@ -185,6 +156,35 @@ class AlertConfigurationsResource(BaseResource):
             path_params,
             None,
             None,
+        )
+    class CreatePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+    class CreateQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+    class CreateBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+        enabled: Optional[bool] = Field(serialization_alias="enabled")
+        matchers: Optional[list[dict]] = Field(serialization_alias="matchers")
+        metric_threshold: Optional[dict] = Field(serialization_alias="metricThreshold")
+        notifications: list[dict] = Field(serialization_alias="notifications")
+        threshold: Optional[dict] = Field(serialization_alias="threshold")
+    def create(self,
+        path_params: CreatePathParams,
+        query_params: Optional[CreateQueryParams],
+        body_params: CreateBodyParams,
+    ) -> dict[str, Any]:
+        """API: Create an Alert Configuration
+        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-create-config/
+        Description: No description."""
+        return self._request(
+            "POST",
+            "/groups/{PROJECT-ID}/alertConfigs",
+            path_params,
+            query_params,
+            body_params,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
