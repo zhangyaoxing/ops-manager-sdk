@@ -136,10 +136,9 @@ class APIResource:
             path_needed = len(path_params) > 0
             query_needed = len(query_params) > 0
             body_needed = len(body_params) > 0
-            need_datetime = api.get("title", "") in [
-                "Change the Expiry of One Snapshot",
-                "Get All Global Alerts",
-            ]
+            need_datetime = any(
+                param["type"] == "datetime" for param in path_params + query_params + body_params
+            )
             code_gen_data[class_name].append(
                 {
                     "method_name": re.sub(r"[^\w]+", "_", api["name"].lower()),
