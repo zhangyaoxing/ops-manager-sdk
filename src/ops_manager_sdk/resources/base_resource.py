@@ -7,13 +7,15 @@ class BaseResource:
     def __init__(self, client: Client) -> None:
         self._client = client
 
-    def _param_to_dict(self, params: Optional[Any]) -> Optional[dict[str, Any]]:
+    def _param_to_dict(self, params):
         if params is None:
             return None
         if isinstance(params, dict):
             return params
         if hasattr(params, "model_dump"):
             return params.model_dump(by_alias=True)
+        if isinstance(params, list):
+            return [self._param_to_dict(param) for param in params]
         raise ValueError(f"Unsupported parameter type: {type(params)}")
 
     def _build_path(self, path_template: str, path_params: Optional[dict[str, Any]]) -> str:
@@ -31,7 +33,7 @@ class BaseResource:
         path_template: str,
         path_params: Optional[BaseModel],
         query_params: Optional[BaseModel],
-        body_params: Optional[BaseModel],
+        body_params: Optional[BaseModel | list],
     ) -> Any:
         path = self._build_path(path_template, self._param_to_dict(path_params))
         query = self._param_to_dict(query_params)
