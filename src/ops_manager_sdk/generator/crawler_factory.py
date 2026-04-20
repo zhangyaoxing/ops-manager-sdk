@@ -23,6 +23,7 @@ class StandardCrawler:
         "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
         "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table/tbody/tr",
         "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div/table[1]/tbody[1]/tr",
+        "body_desc": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::p[1]",
         "resource": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
     }
 
@@ -146,6 +147,15 @@ class StandardCrawler:
     def get_body_params(self, page: Page) -> list[dict[str, Any]]:
         return self._get_params(page.locator(self.LOCATORS["body_params"]))
 
+    def get_body_description(self, page: Page) -> str:
+        body_desc_locator = page.locator(self.LOCATORS["body_desc"])
+        if body_desc_locator.count() > 0:
+            body_desc: str = body_desc_locator.inner_text()
+            if "array of" in body_desc.lower():
+                return "array"
+
+        return "object"
+
     def crawl(self, url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
         try:
             page = self.context.new_page()
@@ -162,6 +172,7 @@ class StandardCrawler:
             path_params: list[dict[str, Any]] = self.get_path_params(page)
             query_params: list[dict[str, Any]] = self.get_query_params(page)
             body_params: list[dict[str, Any]] = self.get_body_params(page)
+            body_type: str = self.get_body_description(page)
             if len(endpoints) == 0:
                 logger.warning(
                     f"No endpoints found for URL: {url}. Skipping this API documentation."
@@ -175,6 +186,7 @@ class StandardCrawler:
                 "path_params": path_params,
                 "query_params": query_params,
                 "body_params": body_params,
+                "body_type": body_type,
                 "capture_time": datetime.now(timezone.utc).isoformat(),
                 "doc_url": url,
                 "status": status,
