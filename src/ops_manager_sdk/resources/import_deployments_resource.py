@@ -12,12 +12,9 @@ class ImportDeploymentsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class CancelImportDeploymentRequestBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def cancel_import_deployment_request(self,
         path_params: CancelImportDeploymentRequestPathParams,
         query_params: Optional[CancelImportDeploymentRequestQueryParams],
-        body_params: Optional[CancelImportDeploymentRequestBodyParams],
     ) -> dict[str, Any]:
         """API: Cancel Import Deployment Request
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/cancel/
@@ -27,7 +24,7 @@ class ImportDeploymentsResource(BaseResource):
             "/automation/importDeployment/{PROJECT-ID}/{REQUEST-ID}/cancel",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class CreateImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -76,12 +73,9 @@ class ImportDeploymentsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteImportDeploymentRequestBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete_import_deployment_request(self,
         path_params: DeleteImportDeploymentRequestPathParams,
         query_params: Optional[DeleteImportDeploymentRequestQueryParams],
-        body_params: Optional[DeleteImportDeploymentRequestBodyParams],
     ) -> dict[str, Any]:
         """API: Delete Import Deployment Request
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/delete/
@@ -91,7 +85,7 @@ class ImportDeploymentsResource(BaseResource):
             "/automation/importDeployment/{PROJECT-ID}/{REQUEST-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetImportDeploymentRequestsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -100,12 +94,9 @@ class ImportDeploymentsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetImportDeploymentRequestsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_import_deployment_requests(self,
         path_params: GetImportDeploymentRequestsPathParams,
         query_params: Optional[GetImportDeploymentRequestsQueryParams],
-        body_params: Optional[GetImportDeploymentRequestsBodyParams],
     ) -> dict[str, Any]:
         """API: Get Import Deployment Requests
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/get-all/
@@ -115,7 +106,7 @@ class ImportDeploymentsResource(BaseResource):
             "/automation/importDeployment/{PROJECT-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetImportDeploymentRequestStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -125,12 +116,9 @@ class ImportDeploymentsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetImportDeploymentRequestStatusBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_import_deployment_request_status(self,
         path_params: GetImportDeploymentRequestStatusPathParams,
         query_params: Optional[GetImportDeploymentRequestStatusQueryParams],
-        body_params: Optional[GetImportDeploymentRequestStatusBodyParams],
     ) -> dict[str, Any]:
         """API: Get Import Deployment Request Status
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/get-status/
@@ -140,5 +128,5 @@ class ImportDeploymentsResource(BaseResource):
             "/automation/importDeployment/{PROJECT-ID}/{IMPORT-PROCESS-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )

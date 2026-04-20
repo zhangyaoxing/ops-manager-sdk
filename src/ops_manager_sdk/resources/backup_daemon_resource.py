@@ -46,12 +46,9 @@ class BackupDaemonResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Backup Daemon Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/delete-one-backup-daemon-configuration/
@@ -61,10 +58,8 @@ class BackupDaemonResource(BaseResource):
             "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
@@ -72,12 +67,8 @@ class BackupDaemonResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         backup_jobs_enabled_only: Optional[bool] = Field(True, serialization_alias="backupJobsEnabledOnly")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Backup Daemon Configurations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-all-backup-daemon-configurations/
@@ -85,9 +76,9 @@ class BackupDaemonResource(BaseResource):
         return self._request(
             "GET",
             "/daemon/configs",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -97,12 +88,9 @@ class BackupDaemonResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Backup Daemon Configuration by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
@@ -112,7 +100,7 @@ class BackupDaemonResource(BaseResource):
             "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

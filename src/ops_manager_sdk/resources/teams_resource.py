@@ -18,11 +18,11 @@ class TeamsResource(BaseResource):
     def add_users(self,
         path_params: AddUsersPathParams,
         query_params: Optional[AddUsersQueryParams],
-        body_params: Optional[AddUsersBodyParams],
+        body_params: list[Optional[AddUsersBodyParams]],
     ) -> dict[str, Any]:
         """API: Add Users to Team
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-add-user/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
@@ -47,7 +47,7 @@ class TeamsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Create a Team
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-create-one/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/teams",
@@ -63,22 +63,19 @@ class TeamsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Team
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-delete-one/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllTeamUsersPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -90,22 +87,19 @@ class TeamsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllTeamUsersBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_team_users(self,
         path_params: GetAllTeamUsersPathParams,
         query_params: Optional[GetAllTeamUsersQueryParams],
-        body_params: Optional[GetAllTeamUsersBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Users Assigned to a Team
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all-users/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -116,22 +110,19 @@ class TeamsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Teams
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOneByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -141,22 +132,19 @@ class TeamsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_by_id(self,
         path_params: GetOneByIdPathParams,
         query_params: Optional[GetOneByIdQueryParams],
-        body_params: Optional[GetOneByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Team by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-id/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOneByNamePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -166,22 +154,19 @@ class TeamsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneByNameBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_by_name(self,
         path_params: GetOneByNamePathParams,
         query_params: Optional[GetOneByNameQueryParams],
-        body_params: Optional[GetOneByNameBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Team by Name
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-name/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams/byName/{TEAM-NAME}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class RemoveUserPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -192,22 +177,19 @@ class TeamsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class RemoveUserBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def remove_user(self,
         path_params: RemoveUserPathParams,
         query_params: Optional[RemoveUserQueryParams],
-        body_params: Optional[RemoveUserBodyParams],
     ) -> dict[str, Any]:
         """API: Remove a User from a Team
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-user/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}/users/{USER-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class RenamePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -227,7 +209,7 @@ class TeamsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Rename a Team
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-rename-one/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}",
@@ -249,11 +231,11 @@ class TeamsResource(BaseResource):
     def update_roles(self,
         path_params: UpdateRolesPathParams,
         query_params: Optional[UpdateRolesQueryParams],
-        body_params: UpdateRolesBodyParams,
+        body_params: list[UpdateRolesBodyParams],
     ) -> dict[str, Any]:
         """API: Update Team Roles in One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-update-roles/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/teams/{TEAM-ID}",

@@ -13,12 +13,9 @@ class DisksResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get a Disk Partition
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/disk-get-one/
@@ -28,7 +25,7 @@ class DisksResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -40,12 +37,9 @@ class DisksResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get all Disk Partitions
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/disks-get-all/
@@ -55,5 +49,5 @@ class DisksResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks",
             path_params,
             query_params,
-            body_params,
+            None,
         )

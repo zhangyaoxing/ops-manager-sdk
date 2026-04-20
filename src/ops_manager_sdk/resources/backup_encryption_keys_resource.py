@@ -12,12 +12,9 @@ class BackupEncryptionKeysResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class RetrieveKmipMasterKeyIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def retrieve_kmip_master_key_id(self,
         path_params: RetrieveKmipMasterKeyIdPathParams,
         query_params: Optional[RetrieveKmipMasterKeyIdQueryParams],
-        body_params: Optional[RetrieveKmipMasterKeyIdBodyParams],
     ) -> dict[str, Any]:
         """API: Retrieve the KMIP Master Key ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/
@@ -27,7 +24,7 @@ class BackupEncryptionKeysResource(BaseResource):
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class RotateKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -37,12 +34,9 @@ class BackupEncryptionKeysResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class RotateKmipMasterKeyIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def rotate_kmip_master_key_id(self,
         path_params: RotateKmipMasterKeyIdPathParams,
         query_params: Optional[RotateKmipMasterKeyIdQueryParams],
-        body_params: Optional[RotateKmipMasterKeyIdBodyParams],
     ) -> dict[str, Any]:
         """API: Rotate the KMIP Master Key ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/
@@ -52,5 +46,5 @@ class BackupEncryptionKeysResource(BaseResource):
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
             path_params,
             query_params,
-            body_params,
+            None,
         )

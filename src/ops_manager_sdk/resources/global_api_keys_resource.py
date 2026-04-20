@@ -4,8 +4,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalApiKeysResource(BaseResource):
     """Client for GlobalApiKeysResource resource."""
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -15,7 +13,6 @@ class GlobalApiKeysResource(BaseResource):
         desc: str = Field("None", serialization_alias="desc")
         roles: list[str] = Field(serialization_alias="roles")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
@@ -25,7 +22,7 @@ class GlobalApiKeysResource(BaseResource):
         return self._request(
             "POST",
             "/admin/apiKeys",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -36,12 +33,9 @@ class GlobalApiKeysResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Global API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-api-key/
@@ -51,22 +45,16 @@ class GlobalApiKeysResource(BaseResource):
             "/admin/apiKeys/{API-KEY-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllRolesPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(serialization_alias="pageNum")
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class GetAllRolesBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_roles(self,
-        path_params: Optional[GetAllRolesPathParams],
         query_params: Optional[GetAllRolesQueryParams],
-        body_params: Optional[GetAllRolesBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Roles for Global API Keys
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-key-roles/
@@ -74,24 +62,18 @@ class GlobalApiKeysResource(BaseResource):
         return self._request(
             "GET",
             "/admin/apiKeys/roles",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Global API Keys
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-keys/
@@ -99,9 +81,9 @@ class GlobalApiKeysResource(BaseResource):
         return self._request(
             "GET",
             "/admin/apiKeys",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -110,12 +92,9 @@ class GlobalApiKeysResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Global API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-api-key/
@@ -125,7 +104,7 @@ class GlobalApiKeysResource(BaseResource):
             "/admin/apiKeys/{API-KEY-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

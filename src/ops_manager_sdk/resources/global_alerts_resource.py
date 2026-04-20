@@ -30,8 +30,6 @@ class GlobalAlertsResource(BaseResource):
             query_params,
             body_params,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
@@ -41,12 +39,8 @@ class GlobalAlertsResource(BaseResource):
         status: Optional[str] = Field("None", serialization_alias="status")
         created_on_or_after: Optional[datetime] = Field(None, serialization_alias="createdOnOrAfter")
         created_on_or_before: Optional[datetime] = Field(None, serialization_alias="createdOnOrBefore")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Global Alerts
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/
@@ -54,9 +48,9 @@ class GlobalAlertsResource(BaseResource):
         return self._request(
             "GET",
             "/globalAlerts",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -65,12 +59,9 @@ class GlobalAlertsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Global Alert
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-one/
@@ -80,5 +71,5 @@ class GlobalAlertsResource(BaseResource):
             "/globalAlerts/{ALERT-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )

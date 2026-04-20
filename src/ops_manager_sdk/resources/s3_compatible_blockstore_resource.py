@@ -4,8 +4,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class S3CompatibleBlockstoreResource(BaseResource):
     """Client for S3CompatibleBlockstoreResource resource."""
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -34,7 +32,6 @@ class S3CompatibleBlockstoreResource(BaseResource):
         uri: str = Field("None", serialization_alias="uri")
         write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
@@ -44,7 +41,7 @@ class S3CompatibleBlockstoreResource(BaseResource):
         return self._request(
             "POST",
             "/snapshot/s3Configs",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -55,12 +52,9 @@ class S3CompatibleBlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One S3-Compatible Blockstore Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/delete-one-s3-blockstore-configuration/
@@ -70,10 +64,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
             "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
@@ -81,12 +73,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         assignable_only: Optional[bool] = Field(True, serialization_alias="assignableOnly")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All S3 Blockstore Configurations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/
@@ -94,9 +82,9 @@ class S3CompatibleBlockstoreResource(BaseResource):
         return self._request(
             "GET",
             "/snapshot/s3Configs",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -105,12 +93,9 @@ class S3CompatibleBlockstoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get One S3 Blockstore Configuration by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-one-s3-blockstore-configuration-by-id/
@@ -120,7 +105,7 @@ class S3CompatibleBlockstoreResource(BaseResource):
             "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

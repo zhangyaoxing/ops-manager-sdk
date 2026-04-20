@@ -4,20 +4,14 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ProjectBackupJobResource(BaseResource):
     """Client for ProjectBackupJobResource resource."""
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Project Backup Jobs Configurations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/groups/get-all-backup-group-configurations/
@@ -25,9 +19,9 @@ class ProjectBackupJobResource(BaseResource):
         return self._request(
             "GET",
             "/groups",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -36,12 +30,9 @@ class ProjectBackupJobResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Project Backup Jobs Configuration by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/groups/get-one-backup-group-configuration-by-id/
@@ -51,7 +42,7 @@ class ProjectBackupJobResource(BaseResource):
             "/groups/{PROJECT-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

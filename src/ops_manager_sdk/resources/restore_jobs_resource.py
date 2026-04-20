@@ -12,22 +12,19 @@ class RestoreJobsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class CreateClusterBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def create_cluster_(self,
         path_params: CreateClusterPathParams,
         query_params: Optional[CreateClusterQueryParams],
-        body_params: Optional[CreateClusterBodyParams],
     ) -> dict[str, Any]:
         """API: Create One Restore Job for One Cluster
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-cluster/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class CreateConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -52,7 +49,7 @@ class RestoreJobsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Create One Restore Job for One Legacy Mirrored Config Server
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-sccc-config-server/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
@@ -71,12 +68,9 @@ class RestoreJobsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         batch_id: Optional[str] = Field("None", serialization_alias="BATCH-ID")
-    class GetAllClusterBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_cluster_(self,
         path_params: GetAllClusterPathParams,
         query_params: Optional[GetAllClusterQueryParams],
-        body_params: Optional[GetAllClusterBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Restore Jobs for One Cluster
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/
@@ -86,7 +80,7 @@ class RestoreJobsResource(BaseResource):
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -98,22 +92,19 @@ class RestoreJobsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllConfigServerBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_config_server_(self,
         path_params: GetAllConfigServerPathParams,
         query_params: Optional[GetAllConfigServerQueryParams],
-        body_params: Optional[GetAllConfigServerBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Restore Jobs for One Legacy Mirrored Config Server
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-sccc-config-server/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -124,22 +115,19 @@ class RestoreJobsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneClusterBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_cluster_(self,
         path_params: GetOneClusterPathParams,
         query_params: Optional[GetOneClusterQueryParams],
-        body_params: Optional[GetOneClusterBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Restore Job for One Cluster
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-cluster/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs/{JOB-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOneConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -150,20 +138,17 @@ class RestoreJobsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneConfigServerBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_config_server_(self,
         path_params: GetOneConfigServerPathParams,
         query_params: Optional[GetOneConfigServerQueryParams],
-        body_params: Optional[GetOneConfigServerBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Restore Job for One Legacy Mirrored Config Server
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-sccc-config-server/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs/{JOB-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )

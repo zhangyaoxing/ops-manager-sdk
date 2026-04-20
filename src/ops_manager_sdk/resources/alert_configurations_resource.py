@@ -25,7 +25,7 @@ class AlertConfigurationsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Create an Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-create-config/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/alertConfigs",
@@ -41,22 +41,19 @@ class AlertConfigurationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete an Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-delete-config/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class EnableDisablePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -76,7 +73,7 @@ class AlertConfigurationsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Enable/Disable Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-enable-disable-config/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
@@ -93,22 +90,19 @@ class AlertConfigurationsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllForAProjectBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_for_a_project(self,
         path_params: GetAllForAProjectPathParams,
         query_params: Optional[GetAllForAProjectQueryParams],
-        body_params: Optional[GetAllForAProjectBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Alert Configurations for a Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-all-configs/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alertConfigs",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -120,45 +114,36 @@ class AlertConfigurationsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get an Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-config/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetMatchersFieldNamesPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetMatchersFieldNamesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetMatchersFieldNamesBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_matchers_field_names(self,
-        path_params: Optional[GetMatchersFieldNamesPathParams],
         query_params: Optional[GetMatchersFieldNamesQueryParams],
-        body_params: Optional[GetMatchersFieldNamesBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Alert Configuration Matchers Field Names
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-matchers-field-names/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/alertConfigs/matchers/fieldNames",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOpenAlertsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -170,36 +155,27 @@ class AlertConfigurationsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOpenAlertsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_open_alerts(self,
         path_params: GetOpenAlertsPathParams,
         query_params: Optional[GetOpenAlertsQueryParams],
-        body_params: Optional[GetOpenAlertsBodyParams],
     ) -> dict[str, Any]:
         """API: Get Open Alerts for Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-open-alerts/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class TestProjectAlertConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         group_id: str = Field("None", serialization_alias="GROUP-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
         notification_id: str = Field("None", serialization_alias="NOTIFICATION-ID")
-    class TestProjectAlertConfigurationQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-    class TestProjectAlertConfigurationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def test_project_alert_configuration(self,
         path_params: TestProjectAlertConfigurationPathParams,
-        query_params: Optional[TestProjectAlertConfigurationQueryParams],
-        body_params: Optional[TestProjectAlertConfigurationBodyParams],
     ) -> dict[str, Any]:
         """API: Test Project Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/
@@ -208,8 +184,8 @@ class AlertConfigurationsResource(BaseResource):
             "POST",
             "/api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test",
             path_params,
-            query_params,
-            body_params,
+            None,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -233,7 +209,7 @@ class AlertConfigurationsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Update an Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-update-config/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",

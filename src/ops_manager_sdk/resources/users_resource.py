@@ -4,8 +4,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class UsersResource(BaseResource):
     """Client for UsersResource resource."""
-    class CreateFirstUserPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateFirstUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         whitelist: Optional[str] = Field("None", serialization_alias="whitelist")
@@ -17,7 +15,6 @@ class UsersResource(BaseResource):
         first_name: str = Field("None", serialization_alias="firstName")
         last_name: str = Field("None", serialization_alias="lastName")
     def create_first_user(self,
-        path_params: Optional[CreateFirstUserPathParams],
         query_params: Optional[CreateFirstUserQueryParams],
         body_params: CreateFirstUserBodyParams,
     ) -> dict[str, Any]:
@@ -27,12 +24,10 @@ class UsersResource(BaseResource):
         return self._request(
             "POST",
             "/unauth/users",
-            path_params,
+            None,
             query_params,
             body_params,
         )
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -47,7 +42,6 @@ class UsersResource(BaseResource):
         last_name: Optional[str] = Field("None", serialization_alias="lastName")
         roles: Optional[list[dict]] = Field(serialization_alias="roles")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
@@ -57,7 +51,7 @@ class UsersResource(BaseResource):
         return self._request(
             "POST",
             "/users",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -68,12 +62,9 @@ class UsersResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get a User by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-id/
@@ -83,7 +74,7 @@ class UsersResource(BaseResource):
             "/users/{USER-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetByNamePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -92,12 +83,9 @@ class UsersResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByNameBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_name(self,
         path_params: GetByNamePathParams,
         query_params: Optional[GetByNameQueryParams],
-        body_params: Optional[GetByNameBodyParams],
     ) -> dict[str, Any]:
         """API: Get a User by Name
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-name/
@@ -107,7 +95,7 @@ class UsersResource(BaseResource):
             "/users/byName/{USER-NAME}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateRolesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -141,12 +129,9 @@ class UsersResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Remove One User
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/users/delete-one-user/
@@ -156,5 +141,5 @@ class UsersResource(BaseResource):
             "/users/{USER-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )

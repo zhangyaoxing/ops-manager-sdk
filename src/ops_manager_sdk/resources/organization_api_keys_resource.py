@@ -24,7 +24,7 @@ class OrganizationApiKeysResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Create an API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-one-org-api-key/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/apiKeys",
@@ -42,22 +42,19 @@ class OrganizationApiKeysResource(BaseResource):
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-api-key/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -68,22 +65,19 @@ class OrganizationApiKeysResource(BaseResource):
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All API Keys
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-keys/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/apiKeys",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -95,22 +89,19 @@ class OrganizationApiKeysResource(BaseResource):
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -133,7 +124,7 @@ class OrganizationApiKeysResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Update an API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/update-one-org-api-key/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",

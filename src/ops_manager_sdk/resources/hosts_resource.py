@@ -45,12 +45,9 @@ class HostsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class StopMonitoringBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def stop_monitoring(self,
         path_params: StopMonitoringPathParams,
         query_params: Optional[StopMonitoringQueryParams],
-        body_params: Optional[StopMonitoringBodyParams],
     ) -> dict[str, Any]:
         """API: Stop Monitoring One Host
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/delete-one-host/
@@ -60,7 +57,7 @@ class HostsResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -72,12 +69,9 @@ class HostsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         cluster_id: str = Field("None", serialization_alias="clusterId")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: GetAllQueryParams,
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Hosts in One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-all-hosts-in-group/
@@ -87,7 +81,7 @@ class HostsResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetByHostnamePortPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -98,12 +92,9 @@ class HostsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByHostnamePortBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_hostname_port(self,
         path_params: GetByHostnamePortPathParams,
         query_params: Optional[GetByHostnamePortQueryParams],
-        body_params: Optional[GetByHostnamePortBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Host by Hostname and Port
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-hostname-port/
@@ -113,7 +104,7 @@ class HostsResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/byName/{HOSTNAME}:{PORT}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -123,12 +114,9 @@ class HostsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get Host by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-id/
@@ -138,7 +126,7 @@ class HostsResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

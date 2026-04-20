@@ -4,8 +4,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class OplogStoreResource(BaseResource):
     """Client for OplogStoreResource resource."""
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -21,7 +19,6 @@ class OplogStoreResource(BaseResource):
         ssl: Optional[bool] = Field(serialization_alias="ssl")
         write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
@@ -31,7 +28,7 @@ class OplogStoreResource(BaseResource):
         return self._request(
             "POST",
             "/oplog/mongoConfigs",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -42,12 +39,9 @@ class OplogStoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Oplog Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/delete-one-oplog-configuration/
@@ -57,10 +51,8 @@ class OplogStoreResource(BaseResource):
             "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
@@ -68,12 +60,8 @@ class OplogStoreResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         assignable_only: Optional[bool] = Field(serialization_alias="assignableOnly")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Oplog Configurations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-all-oplog-configurations/
@@ -81,9 +69,9 @@ class OplogStoreResource(BaseResource):
         return self._request(
             "GET",
             "/oplog/mongoConfigs",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -92,12 +80,9 @@ class OplogStoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Oplog Configuration by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-one-oplog-configuration-by-id/
@@ -107,7 +92,7 @@ class OplogStoreResource(BaseResource):
             "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

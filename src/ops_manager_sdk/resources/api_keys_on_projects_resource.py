@@ -24,7 +24,7 @@ class ApiKeysOnProjectsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Assign One Organization API Key to One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/assign-one-org-apiKey-to-one-project/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
@@ -52,7 +52,7 @@ class ApiKeysOnProjectsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Create and Assign One Organization API Key to One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/create-one-apiKey-in-one-project/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/apiKeys",
@@ -70,22 +70,19 @@ class ApiKeysOnProjectsResource(BaseResource):
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class UnassignBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def unassign(self,
         path_params: UnassignPathParams,
         query_params: Optional[UnassignQueryParams],
-        body_params: Optional[UnassignBodyParams],
     ) -> dict[str, Any]:
         """API: Unassign One Organization API Key from One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/delete-one-apiKey-in-one-project/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -96,22 +93,19 @@ class ApiKeysOnProjectsResource(BaseResource):
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Organization API Keys Assigned to One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/get-all-apiKeys-in-one-project/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/apiKeys",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class ModifyRolesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -133,7 +127,7 @@ class ApiKeysOnProjectsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Modify Roles of One Organization API Key to One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/update-one-apiKey-in-one-project/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/apiKeys/{API-KEY-ID}",

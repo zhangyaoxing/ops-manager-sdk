@@ -19,11 +19,11 @@ class AccessListResource(BaseResource):
     def add_entries(self,
         path_params: AddEntriesPathParams,
         query_params: Optional[AddEntriesQueryParams],
-        body_params: AddEntriesBodyParams,
+        body_params: list[AddEntriesBodyParams],
     ) -> dict[str, Any]:
         """API: Add Entries to an Access List
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-add-entries/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/users/{USER-ID}/accessList",
@@ -39,22 +39,19 @@ class AccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteEntryBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete_entry(self,
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
-        body_params: Optional[DeleteEntryBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Entry from One Access List
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-delete-entry/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetForCurrentUserPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -65,22 +62,19 @@ class AccessListResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetForCurrentUserBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_for_current_user(self,
         path_params: GetForCurrentUserPathParams,
         query_params: Optional[GetForCurrentUserQueryParams],
-        body_params: Optional[GetForCurrentUserBodyParams],
     ) -> dict[str, Any]:
         """API: Get Access List for the Current User
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-current-user/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/users/{USER-ID}/accessList",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetForIpAddressPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -90,12 +84,9 @@ class AccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetForIpAddressBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_for_ip_address(self,
         path_params: GetForIpAddressPathParams,
         query_params: Optional[GetForIpAddressQueryParams],
-        body_params: Optional[GetForIpAddressBodyParams],
     ) -> dict[str, Any]:
         """API: Get Access List for an IP Address
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-ip-address/
@@ -105,5 +96,5 @@ class AccessListResource(BaseResource):
             "/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
             path_params,
             query_params,
-            body_params,
+            None,
         )

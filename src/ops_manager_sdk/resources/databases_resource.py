@@ -13,22 +13,19 @@ class DatabasesResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByNameBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_name(self,
         path_params: GetByNamePathParams,
         query_params: Optional[GetByNameQueryParams],
-        body_params: Optional[GetByNameBodyParams],
     ) -> dict[str, Any]:
         """API: Get a Database by Name
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/database-get-by-name/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -40,12 +37,9 @@ class DatabasesResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Databases on One Host
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/databases-get-all-on-host/
@@ -55,5 +49,5 @@ class DatabasesResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases",
             path_params,
             query_params,
-            body_params,
+            None,
         )

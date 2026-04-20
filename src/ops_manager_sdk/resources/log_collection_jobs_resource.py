@@ -12,12 +12,9 @@ class LogCollectionJobsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete a Log Collection Job
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-delete-one/
@@ -27,7 +24,7 @@ class LogCollectionJobsResource(BaseResource):
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class DownloadLogsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -37,12 +34,9 @@ class LogCollectionJobsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DownloadLogsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def download_logs(self,
         path_params: DownloadLogsPathParams,
         query_params: Optional[DownloadLogsQueryParams],
-        body_params: Optional[DownloadLogsBodyParams],
     ) -> dict[str, Any]:
         """API: Download Logs from a Log Collection Job
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-download-job/
@@ -52,7 +46,7 @@ class LogCollectionJobsResource(BaseResource):
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/download",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllJobsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -64,12 +58,9 @@ class LogCollectionJobsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         verbose: Optional[bool] = Field(False, serialization_alias="verbose")
-    class GetAllJobsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_jobs(self,
         path_params: GetAllJobsPathParams,
         query_params: Optional[GetAllJobsQueryParams],
-        body_params: Optional[GetAllJobsBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Log Collection Jobs for One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-all/
@@ -79,7 +70,7 @@ class LogCollectionJobsResource(BaseResource):
             "/groups/{GROUP-ID}/logCollectionJobs",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetJobPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -92,12 +83,9 @@ class LogCollectionJobsResource(BaseResource):
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         verbose: Optional[bool] = Field(serialization_alias="verbose")
-    class GetJobBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_job(self,
         path_params: GetJobPathParams,
         query_params: Optional[GetJobQueryParams],
-        body_params: Optional[GetJobBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Log Collection Job
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/
@@ -107,7 +95,7 @@ class LogCollectionJobsResource(BaseResource):
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class RetryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -117,12 +105,9 @@ class LogCollectionJobsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class RetryBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def retry(self,
         path_params: RetryPathParams,
         query_params: Optional[RetryQueryParams],
-        body_params: Optional[RetryBodyParams],
     ) -> dict[str, Any]:
         """API: Retry a Failed Log Collection Job
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-retry/
@@ -132,7 +117,7 @@ class LogCollectionJobsResource(BaseResource):
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/retry",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

@@ -23,7 +23,7 @@ class AlertsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Acknowledge One Alert
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-acknowledge-alert/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
@@ -39,22 +39,19 @@ class AlertsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Alert
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-alert/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -66,20 +63,17 @@ class AlertsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         status: Optional[str] = Field("None", serialization_alias="status")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Alerts
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-all-alerts/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alerts",
             path_params,
             query_params,
-            body_params,
+            None,
         )

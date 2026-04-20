@@ -11,12 +11,9 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetTheAuditLogRotateConfigurationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_the_audit_log_rotate_configuration(self,
         path_params: GetTheAuditLogRotateConfigurationPathParams,
         query_params: Optional[GetTheAuditLogRotateConfigurationQueryParams],
-        body_params: Optional[GetTheAuditLogRotateConfigurationBodyParams],
     ) -> dict[str, Any]:
         """API: Get the Audit Log Rotate Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-audit-log-rotate-config/
@@ -26,7 +23,7 @@ class ConfigurationResource(BaseResource):
             "/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetTheAutomationConfigurationNoSecretsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -35,12 +32,9 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetTheAutomationConfigurationNoSecretsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_the_automation_configuration_no_secrets_(self,
         path_params: GetTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[GetTheAutomationConfigurationNoSecretsQueryParams],
-        body_params: Optional[GetTheAutomationConfigurationNoSecretsBodyParams],
     ) -> dict[str, Any]:
         """API: Get the Automation Configuration (Redacted Secrets)
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config-no-secrets/
@@ -50,7 +44,7 @@ class ConfigurationResource(BaseResource):
             "/groups/{PROJECT-ID}/automationConfig/noSecrets",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetTheAutomationConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -59,12 +53,9 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetTheAutomationConfigurationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_the_automation_configuration(self,
         path_params: GetTheAutomationConfigurationPathParams,
         query_params: Optional[GetTheAutomationConfigurationQueryParams],
-        body_params: Optional[GetTheAutomationConfigurationBodyParams],
     ) -> dict[str, Any]:
         """API: Get the Automation Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config/
@@ -74,7 +65,7 @@ class ConfigurationResource(BaseResource):
             "/groups/{PROJECT-ID}/automationConfig",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetBackupConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -83,22 +74,19 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetBackupConfigurationSettingsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_backup_configuration_settings(self,
         path_params: GetBackupConfigurationSettingsPathParams,
         query_params: Optional[GetBackupConfigurationSettingsQueryParams],
-        body_params: Optional[GetBackupConfigurationSettingsBodyParams],
     ) -> dict[str, Any]:
         """API: Get Backup Configuration Settings
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-backup-log-attributes/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetMonitoringConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -107,22 +95,19 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetMonitoringConfigurationSettingsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_monitoring_configuration_settings(self,
         path_params: GetMonitoringConfigurationSettingsPathParams,
         query_params: Optional[GetMonitoringConfigurationSettingsQueryParams],
-        body_params: Optional[GetMonitoringConfigurationSettingsBodyParams],
     ) -> dict[str, Any]:
         """API: Get Monitoring Configuration Settings
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-monitoring-log-attributes/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetTheSystemLogRotateConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -131,12 +116,9 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetTheSystemLogRotateConfigurationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_the_system_log_rotate_configuration(self,
         path_params: GetTheSystemLogRotateConfigurationPathParams,
         query_params: Optional[GetTheSystemLogRotateConfigurationQueryParams],
-        body_params: Optional[GetTheSystemLogRotateConfigurationBodyParams],
     ) -> dict[str, Any]:
         """API: Get the System Log Rotate Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-system-log-rotate-config/
@@ -146,7 +128,7 @@ class ConfigurationResource(BaseResource):
             "/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateAgentVersionsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -211,12 +193,9 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class UpdateTheAutomationConfigurationNoSecretsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def update_the_automation_configuration_no_secrets_(self,
         path_params: UpdateTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationNoSecretsQueryParams],
-        body_params: Optional[UpdateTheAutomationConfigurationNoSecretsBodyParams],
     ) -> dict[str, Any]:
         """API: Update the Automation Configuration (Sensitive Information Ignored)
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/
@@ -226,7 +205,7 @@ class ConfigurationResource(BaseResource):
             "/groups/{PROJECT-ID}/automationConfig/noSecrets",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateTheAutomationConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -235,12 +214,9 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class UpdateTheAutomationConfigurationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def update_the_automation_configuration(self,
         path_params: UpdateTheAutomationConfigurationPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationQueryParams],
-        body_params: Optional[UpdateTheAutomationConfigurationBodyParams],
     ) -> dict[str, Any]:
         """API: Update the Automation Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/
@@ -250,7 +226,7 @@ class ConfigurationResource(BaseResource):
             "/groups/{PROJECT-ID}/automationConfig",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateBackupConfigurationSettingsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -272,7 +248,7 @@ class ConfigurationResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Update Backup Configuration Settings
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-backup-log-attributes/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
@@ -300,7 +276,7 @@ class ConfigurationResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Update Monitoring Configuration Settings
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-monitoring-log-attributes/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",

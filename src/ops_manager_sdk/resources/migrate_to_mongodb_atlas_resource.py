@@ -36,12 +36,9 @@ class MigrateToMongodbAtlasResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class RemoveConnectionBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def remove_connection(self,
         path_params: RemoveConnectionPathParams,
         query_params: Optional[RemoveConnectionQueryParams],
-        body_params: Optional[RemoveConnectionBodyParams],
     ) -> dict[str, Any]:
         """API: Remove the Connection between Organizations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/remove-the-link-between-organizations/
@@ -51,7 +48,7 @@ class MigrateToMongodbAtlasResource(BaseResource):
             "/orgs/{orgId}/liveExport/migrationLink",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class ReturnConnectionStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -60,12 +57,9 @@ class MigrateToMongodbAtlasResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class ReturnConnectionStatusBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def return_connection_status(self,
         path_params: ReturnConnectionStatusPathParams,
         query_params: Optional[ReturnConnectionStatusQueryParams],
-        body_params: Optional[ReturnConnectionStatusBodyParams],
     ) -> dict[str, Any]:
         """API: Return the Status of the Connection between Organizations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/return-the-status-of-the-organization-link/
@@ -75,5 +69,5 @@ class MigrateToMongodbAtlasResource(BaseResource):
             "/orgs/{orgId}/liveExport/migrationLink/status",
             path_params,
             query_params,
-            body_params,
+            None,
         )

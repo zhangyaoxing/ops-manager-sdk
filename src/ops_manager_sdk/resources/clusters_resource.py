@@ -4,18 +4,12 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class ClustersResource(BaseResource):
     """Client for ClustersResource resource."""
-    class GetAllFromAllProjectsPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllFromAllProjectsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllFromAllProjectsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_from_all_projects(self,
-        path_params: Optional[GetAllFromAllProjectsPathParams],
         query_params: Optional[GetAllFromAllProjectsQueryParams],
-        body_params: Optional[GetAllFromAllProjectsBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Clusters in All Projects
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all-key/
@@ -23,9 +17,9 @@ class ClustersResource(BaseResource):
         return self._request(
             "GET",
             "/api/public/v1.0/clusters",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetAllFromOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -36,12 +30,9 @@ class ClustersResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllFromOneProjectBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_from_one_project(self,
         path_params: GetAllFromOneProjectPathParams,
         query_params: Optional[GetAllFromOneProjectQueryParams],
-        body_params: Optional[GetAllFromOneProjectBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Clusters in One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all/
@@ -51,7 +42,7 @@ class ClustersResource(BaseResource):
             "/groups/{PROJECT-ID}/clusters",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -61,12 +52,9 @@ class ClustersResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Cluster in One Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-one/
@@ -76,7 +64,7 @@ class ClustersResource(BaseResource):
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

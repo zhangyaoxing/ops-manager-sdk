@@ -16,12 +16,9 @@ class PerformanceAdvisorResource(BaseResource):
         duration: Optional[int] = Field(serialization_alias="duration")
         namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
         n_logs: Optional[int] = Field(serialization_alias="nLogs")
-    class GetSlowQueryLogsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_slow_query_logs(self,
         path_params: GetSlowQueryLogsPathParams,
         query_params: Optional[GetSlowQueryLogsQueryParams],
-        body_params: Optional[GetSlowQueryLogsBodyParams],
     ) -> dict[str, Any]:
         """API: Get Slow Query Logs
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/
@@ -31,7 +28,7 @@ class PerformanceAdvisorResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/slowQueryLogs",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetSuggestedIndexesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -46,12 +43,9 @@ class PerformanceAdvisorResource(BaseResource):
         namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
         n_indexes: Optional[int] = Field(serialization_alias="nIndexes")
         n_examples: Optional[int] = Field(serialization_alias="nExamples")
-    class GetSuggestedIndexesBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_suggested_indexes(self,
         path_params: GetSuggestedIndexesPathParams,
         query_params: Optional[GetSuggestedIndexesQueryParams],
-        body_params: Optional[GetSuggestedIndexesBodyParams],
     ) -> dict[str, Any]:
         """API: Get Suggested Indexes
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/
@@ -61,7 +55,7 @@ class PerformanceAdvisorResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/suggestedIndexes",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetNamespacesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -73,12 +67,9 @@ class PerformanceAdvisorResource(BaseResource):
         duration: Optional[int] = Field(serialization_alias="duration")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
-    class GetNamespacesBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_namespaces(self,
         path_params: GetNamespacesPathParams,
         query_params: Optional[GetNamespacesQueryParams],
-        body_params: Optional[GetNamespacesBodyParams],
     ) -> dict[str, Any]:
         """API: Get Namespaces for a Project
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/pa-namespaces-get-all/
@@ -88,5 +79,5 @@ class PerformanceAdvisorResource(BaseResource):
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/namespaces",
             path_params,
             query_params,
-            body_params,
+            None,
         )

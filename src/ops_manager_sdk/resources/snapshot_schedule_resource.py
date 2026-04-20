@@ -12,22 +12,19 @@ class SnapshotScheduleResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetScheduleBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_schedule(self,
         path_params: GetSchedulePathParams,
         query_params: Optional[GetScheduleQueryParams],
-        body_params: Optional[GetScheduleBodyParams],
     ) -> dict[str, Any]:
         """API: Get the Snapshot Schedule
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -60,7 +57,7 @@ class SnapshotScheduleResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Update the Snapshot Schedule
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-one-snapshot-schedule-by-cluster-id/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule",

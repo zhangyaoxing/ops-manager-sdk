@@ -13,12 +13,9 @@ class GlobalAlertConfigurationsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllOpenAlertsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_open_alerts(self,
         path_params: GetAllOpenAlertsPathParams,
         query_params: Optional[GetAllOpenAlertsQueryParams],
-        body_params: Optional[GetAllOpenAlertsBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Open Alerts Triggered by One Global Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configuration-get-all-open-alerts-triggered/
@@ -28,10 +25,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}/alerts",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -49,7 +44,6 @@ class GlobalAlertConfigurationsResource(BaseResource):
         tags: Optional[list[str]] = Field(serialization_alias="tags")
         type_name: Optional[str] = Field("None", serialization_alias="typeName")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
@@ -59,7 +53,7 @@ class GlobalAlertConfigurationsResource(BaseResource):
         return self._request(
             "POST",
             "/globalAlertConfigs",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -70,12 +64,9 @@ class GlobalAlertConfigurationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Global Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-delete-one/
@@ -85,22 +76,16 @@ class GlobalAlertConfigurationsResource(BaseResource):
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Global Alert Configurations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-all/
@@ -108,9 +93,9 @@ class GlobalAlertConfigurationsResource(BaseResource):
         return self._request(
             "GET",
             "/globalAlertConfigs",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -119,12 +104,9 @@ class GlobalAlertConfigurationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Global Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-one/
@@ -134,20 +116,14 @@ class GlobalAlertConfigurationsResource(BaseResource):
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class TestGlobalAlertConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
         notification_id: str = Field("None", serialization_alias="NOTIFICATION-ID")
-    class TestGlobalAlertConfigurationQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-    class TestGlobalAlertConfigurationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def test_global_alert_configuration(self,
         path_params: TestGlobalAlertConfigurationPathParams,
-        query_params: Optional[TestGlobalAlertConfigurationQueryParams],
-        body_params: Optional[TestGlobalAlertConfigurationBodyParams],
     ) -> dict[str, Any]:
         """API: Test Global Alert Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/
@@ -156,8 +132,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
             "POST",
             "/api/public/v1.0/globalAlertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test",
             path_params,
-            query_params,
-            body_params,
+            None,
+            None,
         )
     class EnableOrDisablePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

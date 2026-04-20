@@ -23,7 +23,7 @@ class DeploymentRegionsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Assign Deployment Region to One Shard
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/assign-deployment-region/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
@@ -52,7 +52,7 @@ class DeploymentRegionsResource(BaseResource):
     ) -> dict[str, Any]:
         """API: Create One Deployment Region by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region-by-id/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "PUT",
             "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
@@ -60,8 +60,6 @@ class DeploymentRegionsResource(BaseResource):
             query_params,
             body_params,
         )
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -75,17 +73,16 @@ class DeploymentRegionsResource(BaseResource):
         ingestion_endpoint: Optional[str] = Field("None", serialization_alias="ingestionEndpoint")
         restore_endpoint: str = Field("None", serialization_alias="restoreEndpoint")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
         """API: Create One Deployment Region
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/admin/backup/backupDeployments",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -96,47 +93,38 @@ class DeploymentRegionsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Deployment Region by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/delete-one-deployment-region-by-id/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Deployment Regions
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-deployment-regions/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/admin/backup/backupDeployments",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -147,20 +135,17 @@ class DeploymentRegionsResource(BaseResource):
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
-        body_params: Optional[GetOneBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Deployment Region
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-deployment-region-by-id/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )

@@ -15,33 +15,45 @@ from .base_resource import BaseResource
 class {{ class_name }}(BaseResource):
     \"\"\"Client for {{ class_name }} resource.\"\"\"
     {% for snippet in code_data %}
+    {% if snippet.path_params.needed %}
     class {{ snippet.params_class_name }}PathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.path_params.params %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
+    {% endif %}
+    {% if snippet.query_params.needed %}
     class {{ snippet.params_class_name }}QueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.query_params.params %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
+    {% endif %}
+    {% if snippet.body_params.needed %}
     class {{ snippet.params_class_name }}BodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.body_params.params %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
+    {% endif %}
     def {{ snippet.method_name }}(self,
+        {% if snippet.path_params.needed %}
         path_params: {% if snippet.path_params.required %}{{ snippet.params_class_name }}PathParams{% else %}Optional[{{ snippet.params_class_name }}PathParams]{% endif %},
+        {% endif %}
+        {% if snippet.query_params.needed %}
         query_params: {% if snippet.query_params.required %}{{ snippet.params_class_name }}QueryParams{% else %}Optional[{{ snippet.params_class_name }}QueryParams]{% endif %},
-        body_params: {% if snippet.body_params.required %}{{ snippet.params_class_name }}BodyParams{% else %}Optional[{{ snippet.params_class_name }}BodyParams]{% endif %},
+        {% endif %}
+        {% if snippet.body_params.needed %}
+        body_params: {% if snippet.body_type == "array" %}list[{% endif %}{% if snippet.body_params.required %}{{ snippet.params_class_name }}BodyParams{% else %}Optional[{{ snippet.params_class_name }}BodyParams]{% endif %}{% if snippet.body_type == "array" %}]{% endif %},
+        {% endif %}
     ) -> dict[str, Any]:
         \"\"\"{{ snippet.doc }}\"\"\"
         return self._request(
             "{{ snippet.verb }}",
             "{{ snippet.path }}",
-            path_params,
-            query_params,
-            body_params,
+            {% if snippet.path_params.needed %}path_params{%else%}None{% endif %},
+            {% if snippet.query_params.needed %}query_params{%else%}None{% endif %},
+            {% if snippet.body_params.needed %}body_params{%else%}None{% endif %},
         )
     {% endfor %}
 
@@ -119,6 +131,9 @@ class APIResource:
             path_required, path_params = self._resolve_params(api.get("path_params", []))
             query_required, query_params = self._resolve_params(api.get("query_params", []))
             body_required, body_params = self._resolve_params(api.get("body_params", []))
+            path_needed = len(path_params) > 0
+            query_needed = len(query_params) > 0
+            body_needed = len(body_params) > 0
             code_gen_data[class_name].append(
                 {
                     "method_name": re.sub(r"[^\w]+", "_", api["name"].lower()),
@@ -127,16 +142,20 @@ class APIResource:
                     "path": path,
                     "path_params": {
                         "required": path_required,
+                        "needed": path_needed,
                         "params": path_params,
                     },
                     "query_params": {
                         "required": query_required,
+                        "needed": query_needed,
                         "params": query_params,
                     },
                     "body_params": {
                         "required": body_required,
+                        "needed": body_needed,
                         "params": body_params,
                     },
+                    "body_type": api.get("body_type", "object"),
                     "doc": doc,
                 }
             )

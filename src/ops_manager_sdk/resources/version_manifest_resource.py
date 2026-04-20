@@ -4,17 +4,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class VersionManifestResource(BaseResource):
     """Client for VersionManifestResource resource."""
-    class RetrievePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class RetrieveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(serialization_alias="pretty")
-    class RetrieveBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def retrieve(self,
-        path_params: Optional[RetrievePathParams],
         query_params: Optional[RetrieveQueryParams],
-        body_params: Optional[RetrieveBodyParams],
     ) -> dict[str, Any]:
         """API: Retrieve the Ops Manager Version Manifest
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/get-om-version-manifest/
@@ -22,21 +16,15 @@ class VersionManifestResource(BaseResource):
         return self._request(
             "GET",
             "/unauth/versionManifest",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
-    class UpdatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(serialization_alias="pretty")
-    class UpdateBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def update(self,
-        path_params: Optional[UpdatePathParams],
         query_params: Optional[UpdateQueryParams],
-        body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
         """API: Update the Version Manifest
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/update-version-manifest/
@@ -44,7 +32,7 @@ class VersionManifestResource(BaseResource):
         return self._request(
             "PUT",
             "/versionManifest",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )

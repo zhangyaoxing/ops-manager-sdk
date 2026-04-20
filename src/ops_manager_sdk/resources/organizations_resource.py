@@ -39,12 +39,9 @@ class OrganizationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteInvitationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete_invitation(self,
         path_params: DeleteInvitationPathParams,
         query_params: Optional[DeleteInvitationQueryParams],
-        body_params: Optional[DeleteInvitationBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Organization Invitation
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/delete-one-invitation/
@@ -54,7 +51,7 @@ class OrganizationsResource(BaseResource):
             "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllInvitationsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -64,12 +61,9 @@ class OrganizationsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         username: Optional[str] = Field("None", serialization_alias="username")
-    class GetAllInvitationsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_invitations(self,
         path_params: GetAllInvitationsPathParams,
         query_params: Optional[GetAllInvitationsQueryParams],
-        body_params: Optional[GetAllInvitationsBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Organization Invitations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-all-invitations/
@@ -79,7 +73,7 @@ class OrganizationsResource(BaseResource):
             "/orgs/{ORG-ID}/invites",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetOneInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -89,12 +83,9 @@ class OrganizationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneInvitationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_invitation(self,
         path_params: GetOneInvitationPathParams,
         query_params: Optional[GetOneInvitationQueryParams],
-        body_params: Optional[GetOneInvitationBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Organization Invitation
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-one-invitation/
@@ -104,7 +95,7 @@ class OrganizationsResource(BaseResource):
             "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateByInvitationIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -158,8 +149,6 @@ class OrganizationsResource(BaseResource):
             query_params,
             body_params,
         )
-    class CreateOrganizationPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
@@ -171,17 +160,16 @@ class OrganizationsResource(BaseResource):
         ldap_group_mappings: Optional[list[Any]] = Field(serialization_alias="ldapGroupMappings")
         name: str = Field("None", serialization_alias="name")
     def create_organization(self,
-        path_params: Optional[CreateOrganizationPathParams],
         query_params: Optional[CreateOrganizationQueryParams],
         body_params: CreateOrganizationBodyParams,
     ) -> dict[str, Any]:
         """API: Create One Organization
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-create-one/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "POST",
             "/orgs",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -192,22 +180,19 @@ class OrganizationsResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteOrganizationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete_organization(self,
         path_params: DeleteOrganizationPathParams,
         query_params: Optional[DeleteOrganizationQueryParams],
-        body_params: Optional[DeleteOrganizationBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Organization
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-delete-one/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllProjectsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -219,22 +204,19 @@ class OrganizationsResource(BaseResource):
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         name: Optional[str] = Field("None", serialization_alias="name")
-    class GetAllProjectsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_projects(self,
         path_params: GetAllProjectsPathParams,
         query_params: Optional[GetAllProjectsQueryParams],
-        body_params: Optional[GetAllProjectsBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Projects in an Organization
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-projects/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/groups",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class GetAllUsersPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -245,25 +227,20 @@ class OrganizationsResource(BaseResource):
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
-    class GetAllUsersBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_users(self,
         path_params: GetAllUsersPathParams,
         query_params: Optional[GetAllUsersQueryParams],
-        body_params: Optional[GetAllUsersBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Organization Users
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-users/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/users",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllOrganizationsPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllOrganizationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(serialization_alias="pageNum")
@@ -272,22 +249,18 @@ class OrganizationsResource(BaseResource):
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         name: Optional[str] = Field("None", serialization_alias="name")
         include_deleted_orgs: Optional[bool] = Field(serialization_alias="includeDeletedOrgs")
-    class GetAllOrganizationsBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_organizations(self,
-        path_params: Optional[GetAllOrganizationsPathParams],
         query_params: Optional[GetAllOrganizationsQueryParams],
-        body_params: Optional[GetAllOrganizationsBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Organizations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -297,22 +270,19 @@ class OrganizationsResource(BaseResource):
         pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         include_deleted_orgs: Optional[bool] = Field(serialization_alias="includeDeletedOrgs")
-    class GetOneOrganizationBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_organization(self,
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
-        body_params: Optional[GetOneOrganizationBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Organization
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-one/
-        Description: No description found."""
+        Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class RenameOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

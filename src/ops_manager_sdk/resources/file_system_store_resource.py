@@ -4,8 +4,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class FileSystemStoreResource(BaseResource):
     """Client for FileSystemStoreResource resource."""
-    class CreatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -20,7 +18,6 @@ class FileSystemStoreResource(BaseResource):
         store_path: str = Field("None", serialization_alias="storePath")
         wt_compression_setting: Optional[str] = Field("None", serialization_alias="wtCompressionSetting")
     def create(self,
-        path_params: Optional[CreatePathParams],
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
@@ -30,7 +27,7 @@ class FileSystemStoreResource(BaseResource):
         return self._request(
             "POST",
             "/snapshot/fileSystemConfigs",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -41,12 +38,9 @@ class FileSystemStoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
-        body_params: Optional[DeleteBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One File System Store Configuration
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/delete-one-file-system-store-configuration/
@@ -56,10 +50,8 @@ class FileSystemStoreResource(BaseResource):
             "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
@@ -67,12 +59,8 @@ class FileSystemStoreResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         assignable_only: Optional[bool] = Field(True, serialization_alias="assignableOnly")
-    class GetAllBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all(self,
-        path_params: Optional[GetAllPathParams],
         query_params: Optional[GetAllQueryParams],
-        body_params: Optional[GetAllBodyParams],
     ) -> dict[str, Any]:
         """API: Get All File System Store Configurations
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-all-file-system-store-configurations/
@@ -80,9 +68,9 @@ class FileSystemStoreResource(BaseResource):
         return self._request(
             "GET",
             "/snapshot/fileSystemConfigs",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -91,12 +79,9 @@ class FileSystemStoreResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetByIdBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
-        body_params: Optional[GetByIdBodyParams],
     ) -> dict[str, Any]:
         """API: Get One File System Store Configuration by ID
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-one-file-system-store-configuration-by-id/
@@ -106,7 +91,7 @@ class FileSystemStoreResource(BaseResource):
             "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)

@@ -4,8 +4,6 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 class GlobalAccessListResource(BaseResource):
     """Client for GlobalAccessListResource resource."""
-    class CreateEntryPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class CreateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
@@ -15,7 +13,6 @@ class GlobalAccessListResource(BaseResource):
         description: str = Field("None", serialization_alias="description")
         cidr_block: str = Field("None", serialization_alias="cidrBlock")
     def create_entry(self,
-        path_params: Optional[CreateEntryPathParams],
         query_params: Optional[CreateEntryQueryParams],
         body_params: CreateEntryBodyParams,
     ) -> dict[str, Any]:
@@ -25,7 +22,7 @@ class GlobalAccessListResource(BaseResource):
         return self._request(
             "POST",
             "/admin/accessList",
-            path_params,
+            None,
             query_params,
             body_params,
         )
@@ -36,12 +33,9 @@ class GlobalAccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class DeleteEntryBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def delete_entry(self,
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
-        body_params: Optional[DeleteEntryBodyParams],
     ) -> dict[str, Any]:
         """API: Delete One Access List Entry for a Global API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-access-list/
@@ -51,22 +45,16 @@ class GlobalAccessListResource(BaseResource):
             "/admin/accessList/{ACCESS-LIST-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
-    class GetAllEntriesPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     class GetAllEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetAllEntriesBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_all_entries(self,
-        path_params: Optional[GetAllEntriesPathParams],
         query_params: Optional[GetAllEntriesQueryParams],
-        body_params: Optional[GetAllEntriesBodyParams],
     ) -> dict[str, Any]:
         """API: Get All Access List Entries for a Global API Key
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-access-list/
@@ -74,9 +62,9 @@ class GlobalAccessListResource(BaseResource):
         return self._request(
             "GET",
             "/admin/accessList",
-            path_params,
+            None,
             query_params,
-            body_params,
+            None,
         )
     class GetOneEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -85,12 +73,9 @@ class GlobalAccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class GetOneEntryBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def get_one_entry(self,
         path_params: GetOneEntryPathParams,
         query_params: Optional[GetOneEntryQueryParams],
-        body_params: Optional[GetOneEntryBodyParams],
     ) -> dict[str, Any]:
         """API: Get One Global Access List Entry
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-access-list/
@@ -100,7 +85,7 @@ class GlobalAccessListResource(BaseResource):
             "/admin/accessList/{ACCESS-LIST-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
     class UpdateEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
@@ -109,12 +94,9 @@ class GlobalAccessListResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-    class UpdateEntryBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
     def update_entry(self,
         path_params: UpdateEntryPathParams,
         query_params: Optional[UpdateEntryQueryParams],
-        body_params: Optional[UpdateEntryBodyParams],
     ) -> dict[str, Any]:
         """API: Update One Global Access List Entry
         Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-access-list/
@@ -124,5 +106,5 @@ class GlobalAccessListResource(BaseResource):
             "/admin/accessList/{ACCESS-LIST-ID}",
             path_params,
             query_params,
-            body_params,
+            None,
         )
