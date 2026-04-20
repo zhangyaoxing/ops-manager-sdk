@@ -217,6 +217,14 @@ class NoPathTitleCrawler(StandardCrawler):
         )
 
 
+class OrganizationAccessListsCrawler(StandardCrawler):
+    def get_body_params(self, page: Page) -> list[dict[str, Any]]:
+        params = super().get_body_params(page)
+        for param in params:
+            param["name"] = param["name"].replace("[i].", "")
+        return params
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -231,6 +239,9 @@ class CrawlerFactory:
         context.set_default_timeout(10000)
         CrawlerFactory.crawlers["standard"] = StandardCrawler(context)
         CrawlerFactory.crawlers["no_path_title"] = NoPathTitleCrawler(context)
+        CrawlerFactory.crawlers["organization_access_lists"] = OrganizationAccessListsCrawler(
+            context
+        )
 
     @staticmethod
     def close() -> None:
@@ -239,10 +250,10 @@ class CrawlerFactory:
 
     @staticmethod
     def crawl(url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
-        if url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/"
-        ]:
+        if "get-one-backup-daemon-configuration-by-host" in url:
             crawler = CrawlerFactory.crawlers["no_path_title"]
+        elif "create-org-api-key-access-list" in url:
+            crawler = CrawlerFactory.crawlers["organization_access_lists"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)
