@@ -13,7 +13,7 @@ class BaseResource:
         if isinstance(params, dict):
             return params
         if hasattr(params, "model_dump"):
-            return params.model_dump(by_alias=True)
+            return params.model_dump(by_alias=True, exclude_none=True)
         if isinstance(params, list):
             return [self._param_to_dict(param) for param in params]
         raise ValueError(f"Unsupported parameter type: {type(params)}")
