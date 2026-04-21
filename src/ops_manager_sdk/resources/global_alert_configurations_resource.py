@@ -8,10 +8,10 @@ class GlobalAlertConfigurationsResource(BaseResource):
         global_alert_config_id: str = Field("None", serialization_alias="GLOBAL-ALERT-CONFIG-ID")
     class GetAllOpenAlertsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_open_alerts(self,
         path_params: GetAllOpenAlertsPathParams,
         query_params: Optional[GetAllOpenAlertsQueryParams],
@@ -28,8 +28,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(serialization_alias="enabled")
@@ -39,8 +39,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         matchers: Optional[list[dict]] = Field(serialization_alias="matchers")
         metric_threshold: Optional[dict] = Field(serialization_alias="metricThreshold")
         notifications: list[dict] = Field(serialization_alias="notifications")
-        threshold: Optional[dict] = Field(serialization_alias="threshold")
         tags: Optional[list[str]] = Field(serialization_alias="tags")
+        threshold: Optional[dict] = Field(serialization_alias="threshold")
         type_name: Optional[str] = Field("None", serialization_alias="typeName")
     def create(self,
         query_params: Optional[CreateQueryParams],
@@ -61,8 +61,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         global_alert_config_id: str = Field("None", serialization_alias="GLOBAL-ALERT-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -79,10 +79,10 @@ class GlobalAlertConfigurationsResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -101,8 +101,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         global_alert_config_id: str = Field("None", serialization_alias="GLOBAL-ALERT-CONFIG-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -139,8 +139,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         global_alert_config_id: str = Field("None", serialization_alias="GLOBAL-ALERT-CONFIG-ID")
     class EnableOrDisableQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class EnableOrDisableBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: bool = Field(serialization_alias="enabled")
@@ -164,8 +164,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         global_alert_config_id: str = Field("None", serialization_alias="GLOBAL-ALERT-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(serialization_alias="enabled")
@@ -175,8 +175,8 @@ class GlobalAlertConfigurationsResource(BaseResource):
         matchers: Optional[list[dict]] = Field(serialization_alias="matchers")
         metric_threshold: Optional[dict] = Field(serialization_alias="metricThreshold")
         notifications: list[dict] = Field(serialization_alias="notifications")
-        threshold: Optional[dict] = Field(serialization_alias="threshold")
         tags: Optional[list[str]] = Field(serialization_alias="tags")
+        threshold: Optional[dict] = Field(serialization_alias="threshold")
         type_name: Optional[str] = Field("None", serialization_alias="typeName")
     def update(self,
         path_params: UpdatePathParams,

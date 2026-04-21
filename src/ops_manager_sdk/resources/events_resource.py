@@ -33,13 +33,13 @@ class EventsResource(BaseResource):
         )
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        org_id: str = Field("None", serialization_alias="orgId")
         event_id: str = Field("None", serialization_alias="eventId")
+        org_id: str = Field("None", serialization_alias="orgId")
     class GetOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         include_raw: Optional[bool] = Field(serialization_alias="includeRaw")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     def get_one_organization_(self,
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
@@ -56,13 +56,13 @@ class EventsResource(BaseResource):
         )
     class GetOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", serialization_alias="groupId")
         event_id: str = Field("None", serialization_alias="eventId")
+        group_id: str = Field("None", serialization_alias="groupId")
     class GetOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         include_raw: Optional[bool] = Field(serialization_alias="includeRaw")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     def get_one_project_(self,
         path_params: GetOneProjectPathParams,
         query_params: Optional[GetOneProjectQueryParams],

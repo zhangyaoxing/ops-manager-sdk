@@ -8,8 +8,8 @@ class AutomationResource(BaseResource):
         group_id: str = Field("None", serialization_alias="GROUP-ID")
     class GetStatusOfLast50PlansQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_status_of_last_50_plans(self,
         path_params: GetStatusOfLast50PlansPathParams,
         query_params: Optional[GetStatusOfLast50PlansQueryParams],
@@ -29,8 +29,8 @@ class AutomationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_status(self,
         path_params: GetStatusPathParams,
         query_params: Optional[GetStatusQueryParams],

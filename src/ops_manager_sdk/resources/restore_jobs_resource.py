@@ -9,8 +9,8 @@ class RestoreJobsResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class CreateClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def create_cluster_(self,
         path_params: CreateClusterPathParams,
         query_params: Optional[CreateClusterQueryParams],
@@ -27,18 +27,18 @@ class RestoreJobsResource(BaseResource):
         )
     class CreateConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class CreateConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateConfigServerBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         checkpoint_id: Optional[str] = Field("None", serialization_alias="checkpointId")
         delivery: dict = Field(serialization_alias="delivery")
-        oplog_ts: Optional[str] = Field("None", serialization_alias="oplogTs")
         oplog_inc: Optional[str] = Field("None", serialization_alias="oplogInc")
+        oplog_ts: Optional[str] = Field("None", serialization_alias="oplogTs")
         point_in_time_utc_millis: Optional[int] = Field(serialization_alias="pointInTimeUTCMillis")
         snapshot_id: Optional[str] = Field("None", serialization_alias="snapshotId")
     def create_config_server_(self,
@@ -62,11 +62,11 @@ class RestoreJobsResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         batch_id: Optional[str] = Field("None", serialization_alias="BATCH-ID")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_cluster_(self,
         path_params: GetAllClusterPathParams,
         query_params: Optional[GetAllClusterQueryParams],
@@ -83,14 +83,14 @@ class RestoreJobsResource(BaseResource):
         )
     class GetAllConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_config_server_(self,
         path_params: GetAllConfigServerPathParams,
         query_params: Optional[GetAllConfigServerQueryParams],
@@ -107,13 +107,13 @@ class RestoreJobsResource(BaseResource):
         )
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
+        job_id: str = Field("None", serialization_alias="JOB-ID")
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
         cluster_id: str = Field("None", serialization_alias="clusterId")
-        job_id: str = Field("None", serialization_alias="JOB-ID")
     class GetOneClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one_cluster_(self,
         path_params: GetOneClusterPathParams,
         query_params: Optional[GetOneClusterQueryParams],
@@ -130,13 +130,13 @@ class RestoreJobsResource(BaseResource):
         )
     class GetOneConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
         job_id: str = Field("None", serialization_alias="JOB-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetOneConfigServerQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one_config_server_(self,
         path_params: GetOneConfigServerPathParams,
         query_params: Optional[GetOneConfigServerQueryParams],

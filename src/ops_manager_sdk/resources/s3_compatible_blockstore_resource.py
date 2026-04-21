@@ -5,8 +5,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
     """Client for S3CompatibleBlockstoreResource resource."""
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         accepted_tos: bool = Field(serialization_alias="acceptedTos")
@@ -49,8 +49,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
         s3_blockstore_config_id: str = Field("None", serialization_alias="S3-BLOCKSTORE-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -67,11 +67,11 @@ class S3CompatibleBlockstoreResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         assignable_only: Optional[bool] = Field(True, serialization_alias="assignableOnly")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -90,8 +90,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
         s3_blockstore_config_id: str = Field("None", serialization_alias="S3-BLOCKSTORE-CONFIG-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
@@ -111,8 +111,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
         s3_blockstore_config_id: str = Field("None", serialization_alias="S3-BLOCKSTORE-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         accepted_tos: bool = Field(serialization_alias="acceptedTos")
@@ -132,8 +132,8 @@ class S3CompatibleBlockstoreResource(BaseResource):
         s3_max_connections: float = Field(serialization_alias="s3MaxConnections")
         s3_region_override: Optional[str] = Field("None", serialization_alias="s3RegionOverride")
         sse_enabled: bool = Field(serialization_alias="sseEnabled")
-        uri: str = Field("None", serialization_alias="uri")
         ssl: Optional[bool] = Field(serialization_alias="ssl")
+        uri: str = Field("None", serialization_alias="uri")
         write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
     def update(self,
         path_params: UpdatePathParams,

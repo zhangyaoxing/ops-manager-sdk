@@ -5,10 +5,10 @@ class FeatureControlPoliciesResource(BaseResource):
     """Client for FeatureControlPoliciesResource resource."""
     class RetrieveAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     def retrieve_all(self,
         query_params: Optional[RetrieveAllQueryParams],
     ) -> dict[str, Any]:
@@ -27,10 +27,10 @@ class FeatureControlPoliciesResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     def retrieve_for_one_project(self,
         path_params: RetrieveForOneProjectPathParams,
         query_params: Optional[RetrieveForOneProjectQueryParams],
@@ -50,10 +50,10 @@ class FeatureControlPoliciesResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         external_management_system: Optional[dict] = Field(serialization_alias="externalManagementSystem")

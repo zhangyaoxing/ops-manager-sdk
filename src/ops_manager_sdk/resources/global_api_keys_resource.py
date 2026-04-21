@@ -5,8 +5,8 @@ class GlobalApiKeysResource(BaseResource):
     """Client for GlobalApiKeysResource resource."""
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         desc: str = Field("None", serialization_alias="desc")
@@ -30,8 +30,8 @@ class GlobalApiKeysResource(BaseResource):
         api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -48,10 +48,10 @@ class GlobalApiKeysResource(BaseResource):
         )
     class GetAllRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
     def get_all_roles(self,
         query_params: Optional[GetAllRolesQueryParams],
     ) -> dict[str, Any]:
@@ -67,10 +67,10 @@ class GlobalApiKeysResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -89,8 +89,8 @@ class GlobalApiKeysResource(BaseResource):
         api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -110,8 +110,8 @@ class GlobalApiKeysResource(BaseResource):
         api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         desc: Optional[str] = Field("None", serialization_alias="desc")

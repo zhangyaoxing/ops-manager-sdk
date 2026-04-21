@@ -8,8 +8,8 @@ class BackupDaemonResource(BaseResource):
         machine: str = Field("None", serialization_alias="MACHINE")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
@@ -39,12 +39,12 @@ class BackupDaemonResource(BaseResource):
         )
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", serialization_alias="MACHINE")
         head_root_directory: str = Field("None", serialization_alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", serialization_alias="MACHINE")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -61,11 +61,11 @@ class BackupDaemonResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         backup_jobs_enabled_only: Optional[bool] = Field(True, serialization_alias="backupJobsEnabledOnly")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -81,12 +81,12 @@ class BackupDaemonResource(BaseResource):
         )
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", serialization_alias="MACHINE")
         head_root_directory: str = Field("None", serialization_alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", serialization_alias="MACHINE")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
@@ -103,12 +103,12 @@ class BackupDaemonResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        machine: str = Field("None", serialization_alias="MACHINE")
         head_root_directory: str = Field("None", serialization_alias="HEAD-ROOT-DIRECTORY")
+        machine: str = Field("None", serialization_alias="MACHINE")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")

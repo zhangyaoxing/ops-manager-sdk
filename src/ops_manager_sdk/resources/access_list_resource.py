@@ -8,10 +8,10 @@ class AccessListResource(BaseResource):
         user_id: str = Field("None", serialization_alias="USER-ID")
     class AddEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class AddEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         ip_address: str = Field("None", serialization_alias="ipAddress")
@@ -32,12 +32,12 @@ class AccessListResource(BaseResource):
         )
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field("None", serialization_alias="USER-ID")
         access_list_entry: str = Field("None", serialization_alias="ACCESS-LIST-ENTRY")
+        user_id: str = Field("None", serialization_alias="USER-ID")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete_entry(self,
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
@@ -57,10 +57,10 @@ class AccessListResource(BaseResource):
         user_id: str = Field("None", serialization_alias="USER-ID")
     class GetForCurrentUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_for_current_user(self,
         path_params: GetForCurrentUserPathParams,
         query_params: Optional[GetForCurrentUserQueryParams],
@@ -77,12 +77,12 @@ class AccessListResource(BaseResource):
         )
     class GetForIpAddressPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        user_id: str = Field("None", serialization_alias="USER-ID")
         access_list_entry: str = Field("None", serialization_alias="ACCESS-LIST-ENTRY")
+        user_id: str = Field("None", serialization_alias="USER-ID")
     class GetForIpAddressQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_for_ip_address(self,
         path_params: GetForIpAddressPathParams,
         query_params: Optional[GetForIpAddressQueryParams],

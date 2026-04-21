@@ -9,8 +9,8 @@ class DeploymentRegionsResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class AssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class AssignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         deployment_configs: list[dict] = Field(serialization_alias="deploymentConfigs")
@@ -35,8 +35,8 @@ class DeploymentRegionsResource(BaseResource):
         deployment_id: str = Field("None", serialization_alias="DEPLOYMENT-ID")
     class CreateByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateByIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
@@ -61,8 +61,8 @@ class DeploymentRegionsResource(BaseResource):
         )
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
@@ -90,8 +90,8 @@ class DeploymentRegionsResource(BaseResource):
         deployment_id: str = Field("None", serialization_alias="DEPLOYMENT-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -108,10 +108,10 @@ class DeploymentRegionsResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -130,10 +130,10 @@ class DeploymentRegionsResource(BaseResource):
         deployment_id: str = Field("None", serialization_alias="DEPLOYMENT-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],

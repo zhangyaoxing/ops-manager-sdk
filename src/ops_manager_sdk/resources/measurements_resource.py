@@ -5,9 +5,9 @@ class MeasurementsResource(BaseResource):
     """Client for MeasurementsResource resource."""
     class DatabasePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        host_id: str = Field("None", serialization_alias="HOST-ID")
         database_name: str = Field("None", serialization_alias="DATABASE-NAME")
+        host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     def database(self,
         path_params: DatabasePathParams,
     ) -> dict[str, Any]:
@@ -23,9 +23,9 @@ class MeasurementsResource(BaseResource):
         )
     class DiskPartitionPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
         partition_name: str = Field("None", serialization_alias="PARTITION-NAME")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     def disk_partition(self,
         path_params: DiskPartitionPathParams,
     ) -> dict[str, Any]:
@@ -41,8 +41,8 @@ class MeasurementsResource(BaseResource):
         )
     class HostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     def host(self,
         path_params: HostPathParams,
     ) -> dict[str, Any]:
@@ -58,8 +58,8 @@ class MeasurementsResource(BaseResource):
         )
     class GetTypesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     def get_types(self,
         path_params: GetTypesPathParams,
     ) -> dict[str, Any]:

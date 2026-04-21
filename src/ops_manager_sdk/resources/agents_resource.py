@@ -8,8 +8,8 @@ class AgentsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class CreateApiKeyQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateApiKeyBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         desc: Optional[str] = Field("None", serialization_alias="desc")
@@ -30,12 +30,12 @@ class AgentsResource(BaseResource):
         )
     class RemoveApiKeyPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         api_agent_key_id: str = Field("None", serialization_alias="API-AGENT-KEY-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class RemoveApiKeyQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def remove_api_key(self,
         path_params: RemoveApiKeyPathParams,
         query_params: Optional[RemoveApiKeyQueryParams],
@@ -55,8 +55,8 @@ class AgentsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllApiKeysQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_api_keys(self,
         path_params: GetAllApiKeysPathParams,
         query_params: Optional[GetAllApiKeysQueryParams],
@@ -73,8 +73,8 @@ class AgentsResource(BaseResource):
         )
     class RetrieveAllVersionsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def retrieve_all_versions(self,
         query_params: Optional[RetrieveAllVersionsQueryParams],
     ) -> dict[str, Any]:
@@ -93,8 +93,8 @@ class AgentsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def retrieve_for_one_project(self,
         path_params: RetrieveForOneProjectPathParams,
         query_params: Optional[RetrieveForOneProjectQueryParams],
@@ -114,10 +114,10 @@ class AgentsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
@@ -138,10 +138,10 @@ class AgentsResource(BaseResource):
         type: str = Field("None", serialization_alias="TYPE")
     class GetByTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_by_type(self,
         path_params: GetByTypePathParams,
         query_params: Optional[GetByTypeQueryParams],

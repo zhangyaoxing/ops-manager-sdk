@@ -9,8 +9,8 @@ class SnapshotScheduleResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetScheduleQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_schedule(self,
         path_params: GetSchedulePathParams,
         query_params: Optional[GetScheduleQueryParams],
@@ -31,8 +31,8 @@ class SnapshotScheduleResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         cluster_checkpoint_interval_min: Optional[float] = Field(serialization_alias="clusterCheckpointIntervalMin")

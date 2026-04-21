@@ -5,8 +5,8 @@ class ClustersResource(BaseResource):
     """Client for ClustersResource resource."""
     class GetAllFromAllProjectsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_from_all_projects(self,
         query_params: Optional[GetAllFromAllProjectsQueryParams],
     ) -> dict[str, Any]:
@@ -25,10 +25,10 @@ class ClustersResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllFromOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_from_one_project(self,
         path_params: GetAllFromOneProjectPathParams,
         query_params: Optional[GetAllFromOneProjectQueryParams],
@@ -49,8 +49,8 @@ class ClustersResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -71,8 +71,8 @@ class ClustersResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         cluster_name: str = Field("None", serialization_alias="clusterName")

@@ -5,8 +5,8 @@ class FileSystemStoreResource(BaseResource):
     """Client for FileSystemStoreResource resource."""
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
@@ -35,8 +35,8 @@ class FileSystemStoreResource(BaseResource):
         file_system_config_id: str = Field("None", serialization_alias="FILE-SYSTEM-CONFIG-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -53,11 +53,11 @@ class FileSystemStoreResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
         assignable_only: Optional[bool] = Field(True, serialization_alias="assignableOnly")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -76,8 +76,8 @@ class FileSystemStoreResource(BaseResource):
         file_system_config_id: str = Field("None", serialization_alias="FILE-SYSTEM-CONFIG-ID")
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
@@ -97,8 +97,8 @@ class FileSystemStoreResource(BaseResource):
         file_system_config_id: str = Field("None", serialization_alias="FILE-SYSTEM-CONFIG-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")

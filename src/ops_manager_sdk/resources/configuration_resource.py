@@ -8,8 +8,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheAuditLogRotateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_the_audit_log_rotate_configuration(self,
         path_params: GetTheAuditLogRotateConfigurationPathParams,
         query_params: Optional[GetTheAuditLogRotateConfigurationQueryParams],
@@ -29,8 +29,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheAutomationConfigurationNoSecretsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_the_automation_configuration_no_secrets_(self,
         path_params: GetTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[GetTheAutomationConfigurationNoSecretsQueryParams],
@@ -50,8 +50,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheAutomationConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_the_automation_configuration(self,
         path_params: GetTheAutomationConfigurationPathParams,
         query_params: Optional[GetTheAutomationConfigurationQueryParams],
@@ -71,8 +71,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetBackupConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_backup_configuration_settings(self,
         path_params: GetBackupConfigurationSettingsPathParams,
         query_params: Optional[GetBackupConfigurationSettingsQueryParams],
@@ -92,8 +92,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetMonitoringConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_monitoring_configuration_settings(self,
         path_params: GetMonitoringConfigurationSettingsPathParams,
         query_params: Optional[GetMonitoringConfigurationSettingsQueryParams],
@@ -113,8 +113,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetTheSystemLogRotateConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_the_system_log_rotate_configuration(self,
         path_params: GetTheSystemLogRotateConfigurationPathParams,
         query_params: Optional[GetTheSystemLogRotateConfigurationQueryParams],
@@ -134,8 +134,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateAgentVersionsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateAgentVersionsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         automation_agent_version: Optional[str] = Field("None", serialization_alias="automationAgentVersion")
@@ -161,15 +161,15 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheAuditLogRotateConfigQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateTheAuditLogRotateConfigBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        size_threshold_mb: Optional[Any] = Field(serialization_alias="sizeThresholdMB")
-        time_threshold_hrs: Optional[Any] = Field(serialization_alias="timeThresholdHrs")
+        num_total: Optional[Any] = Field(serialization_alias="numTotal")
         num_uncompressed: Optional[Any] = Field(serialization_alias="numUncompressed")
         percent_of_diskspace: Optional[Any] = Field(serialization_alias="percentOfDiskspace")
-        num_total: Optional[Any] = Field(serialization_alias="numTotal")
+        size_threshold_mb: Optional[Any] = Field(serialization_alias="sizeThresholdMB")
+        time_threshold_hrs: Optional[Any] = Field(serialization_alias="timeThresholdHrs")
     def update_the_audit_log_rotate_config(self,
         path_params: UpdateTheAuditLogRotateConfigPathParams,
         query_params: Optional[UpdateTheAuditLogRotateConfigQueryParams],
@@ -190,8 +190,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheAutomationConfigurationNoSecretsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def update_the_automation_configuration_no_secrets_(self,
         path_params: UpdateTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationNoSecretsQueryParams],
@@ -211,8 +211,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheAutomationConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def update_the_automation_configuration(self,
         path_params: UpdateTheAutomationConfigurationPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationQueryParams],
@@ -232,8 +232,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateBackupConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBackupConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         config_overrides: Optional[dict] = Field(serialization_alias="configOverrides")
@@ -260,8 +260,8 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateMonitoringConfigurationSettingsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateMonitoringConfigurationSettingsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         config_overrides: Optional[dict] = Field(serialization_alias="configOverrides")
@@ -288,15 +288,15 @@ class ConfigurationResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateTheSystemLogRotateConfigQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateTheSystemLogRotateConfigBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        size_threshold_mb: Optional[Any] = Field(serialization_alias="sizeThresholdMB")
-        time_threshold_hrs: Optional[Any] = Field(serialization_alias="timeThresholdHrs")
+        num_total: Optional[Any] = Field(serialization_alias="numTotal")
         num_uncompressed: Optional[Any] = Field(serialization_alias="numUncompressed")
         percent_of_diskspace: Optional[Any] = Field(serialization_alias="percentOfDiskspace")
-        num_total: Optional[Any] = Field(serialization_alias="numTotal")
+        size_threshold_mb: Optional[Any] = Field(serialization_alias="sizeThresholdMB")
+        time_threshold_hrs: Optional[Any] = Field(serialization_alias="timeThresholdHrs")
     def update_the_system_log_rotate_config(self,
         path_params: UpdateTheSystemLogRotateConfigPathParams,
         query_params: Optional[UpdateTheSystemLogRotateConfigQueryParams],

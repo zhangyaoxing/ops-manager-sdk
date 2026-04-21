@@ -5,12 +5,12 @@ class GlobalAccessListResource(BaseResource):
     """Client for GlobalAccessListResource resource."""
     class CreateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        description: str = Field("None", serialization_alias="description")
         cidr_block: str = Field("None", serialization_alias="cidrBlock")
+        description: str = Field("None", serialization_alias="description")
     def create_entry(self,
         query_params: Optional[CreateEntryQueryParams],
         body_params: CreateEntryBodyParams,
@@ -30,8 +30,8 @@ class GlobalAccessListResource(BaseResource):
         access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete_entry(self,
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
@@ -48,10 +48,10 @@ class GlobalAccessListResource(BaseResource):
         )
     class GetAllEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_entries(self,
         query_params: Optional[GetAllEntriesQueryParams],
     ) -> dict[str, Any]:
@@ -70,8 +70,8 @@ class GlobalAccessListResource(BaseResource):
         access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
     class GetOneEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one_entry(self,
         path_params: GetOneEntryPathParams,
         query_params: Optional[GetOneEntryQueryParams],
@@ -91,8 +91,8 @@ class GlobalAccessListResource(BaseResource):
         access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
     class UpdateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def update_entry(self,
         path_params: UpdateEntryPathParams,
         query_params: Optional[UpdateEntryQueryParams],

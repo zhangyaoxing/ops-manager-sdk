@@ -9,8 +9,8 @@ class GlobalAlertsResource(BaseResource):
         alert_id: str = Field("None", serialization_alias="ALERT-ID")
     class AcknowledgeOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class AcknowledgeOneBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         acknowledged_until: str = Field("None", serialization_alias="acknowledgedUntil")
@@ -32,13 +32,13 @@ class GlobalAlertsResource(BaseResource):
         )
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        status: Optional[str] = Field("None", serialization_alias="status")
         created_on_or_after: Optional[datetime] = Field(None, serialization_alias="createdOnOrAfter")
         created_on_or_before: Optional[datetime] = Field(None, serialization_alias="createdOnOrBefore")
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        status: Optional[str] = Field("None", serialization_alias="status")
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -57,8 +57,8 @@ class GlobalAlertsResource(BaseResource):
         alert_id: str = Field("None", serialization_alias="ALERT-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],

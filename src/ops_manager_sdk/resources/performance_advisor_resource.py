@@ -5,16 +5,16 @@ class PerformanceAdvisorResource(BaseResource):
     """Client for PerformanceAdvisorResource resource."""
     class GetSlowQueryLogsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetSlowQueryLogsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        since: Optional[int] = Field(serialization_alias="since")
         duration: Optional[int] = Field(serialization_alias="duration")
-        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         n_logs: Optional[int] = Field(serialization_alias="nLogs")
+        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        since: Optional[int] = Field(serialization_alias="since")
     def get_slow_query_logs(self,
         path_params: GetSlowQueryLogsPathParams,
         query_params: Optional[GetSlowQueryLogsQueryParams],
@@ -31,17 +31,17 @@ class PerformanceAdvisorResource(BaseResource):
         )
     class GetSuggestedIndexesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetSuggestedIndexesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        since: Optional[int] = Field(serialization_alias="since")
         duration: Optional[int] = Field(serialization_alias="duration")
-        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
-        n_indexes: Optional[int] = Field(serialization_alias="nIndexes")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         n_examples: Optional[int] = Field(serialization_alias="nExamples")
+        n_indexes: Optional[int] = Field(serialization_alias="nIndexes")
+        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
+        pretty: Optional[bool] = Field(serialization_alias="pretty")
+        since: Optional[int] = Field(serialization_alias="since")
     def get_suggested_indexes(self,
         path_params: GetSuggestedIndexesPathParams,
         query_params: Optional[GetSuggestedIndexesQueryParams],
@@ -58,14 +58,14 @@ class PerformanceAdvisorResource(BaseResource):
         )
     class GetNamespacesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetNamespacesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        since: Optional[int] = Field(serialization_alias="since")
         duration: Optional[int] = Field(serialization_alias="duration")
         envelope: Optional[bool] = Field(serialization_alias="envelope")
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        since: Optional[int] = Field(serialization_alias="since")
     def get_namespaces(self,
         path_params: GetNamespacesPathParams,
         query_params: Optional[GetNamespacesQueryParams],

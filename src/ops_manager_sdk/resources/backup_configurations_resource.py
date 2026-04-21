@@ -8,10 +8,10 @@ class BackupConfigurationsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
@@ -32,8 +32,8 @@ class BackupConfigurationsResource(BaseResource):
         cluster_id: str = Field("None", serialization_alias="clusterId")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -50,12 +50,12 @@ class BackupConfigurationsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="projectId")
         cluster_id: str = Field("None", serialization_alias="clusterId")
+        project_id: str = Field("None", serialization_alias="projectId")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         auth_mechanism_name: Optional[str] = Field("None", serialization_alias="authMechanismName")
@@ -65,12 +65,12 @@ class BackupConfigurationsResource(BaseResource):
         password: Optional[str] = Field("None", serialization_alias="password")
         preferred_member: Optional[str] = Field("None", serialization_alias="preferredMember")
         provisioned: Optional[bool] = Field(serialization_alias="provisioned")
+        snapshot_store: Optional[dict] = Field(serialization_alias="snapshotStore")
         ssl_enabled: Optional[bool] = Field(serialization_alias="sslEnabled")
         status_name: Optional[str] = Field("None", serialization_alias="statusName")
         storage_engine_name: Optional[str] = Field("None", serialization_alias="storageEngineName")
         sync_source: Optional[str] = Field("None", serialization_alias="syncSource")
         username: Optional[str] = Field("None", serialization_alias="username")
-        snapshot_store: Optional[dict] = Field(serialization_alias="snapshotStore")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

@@ -5,12 +5,12 @@ class AlertConfigurationsResource(BaseResource):
     """Client for AlertConfigurationsResource resource."""
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -27,12 +27,12 @@ class AlertConfigurationsResource(BaseResource):
         )
     class EnableDisablePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class EnableDisableQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class EnableDisableBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(serialization_alias="enabled")
@@ -56,10 +56,10 @@ class AlertConfigurationsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetAllForAProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_all_for_a_project(self,
         path_params: GetAllForAProjectPathParams,
         query_params: Optional[GetAllForAProjectQueryParams],
@@ -76,14 +76,14 @@ class AlertConfigurationsResource(BaseResource):
         )
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -100,8 +100,8 @@ class AlertConfigurationsResource(BaseResource):
         )
     class GetMatchersFieldNamesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_matchers_field_names(self,
         query_params: Optional[GetMatchersFieldNamesQueryParams],
     ) -> dict[str, Any]:
@@ -117,14 +117,14 @@ class AlertConfigurationsResource(BaseResource):
         )
     class GetOpenAlertsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class GetOpenAlertsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def get_open_alerts(self,
         path_params: GetOpenAlertsPathParams,
         query_params: Optional[GetOpenAlertsQueryParams],
@@ -141,8 +141,8 @@ class AlertConfigurationsResource(BaseResource):
         )
     class TestProjectAlertConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", serialization_alias="GROUP-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
         notification_id: str = Field("None", serialization_alias="NOTIFICATION-ID")
     def test_project_alert_configuration(self,
         path_params: TestProjectAlertConfigurationPathParams,
@@ -162,8 +162,8 @@ class AlertConfigurationsResource(BaseResource):
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(serialization_alias="enabled")
@@ -188,12 +188,12 @@ class AlertConfigurationsResource(BaseResource):
         )
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
         alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: Optional[bool] = Field(serialization_alias="enabled")

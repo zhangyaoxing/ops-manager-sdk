@@ -8,8 +8,8 @@ class MigrateToMongodbAtlasResource(BaseResource):
         org_id: str = Field("None", serialization_alias="orgId")
     class ConnectWithAtlasOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class ConnectWithAtlasOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         link_token: str = Field("None", serialization_alias="linkToken")
@@ -33,8 +33,8 @@ class MigrateToMongodbAtlasResource(BaseResource):
         org_id: str = Field("None", serialization_alias="orgId")
     class RemoveConnectionQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def remove_connection(self,
         path_params: RemoveConnectionPathParams,
         query_params: Optional[RemoveConnectionQueryParams],
@@ -54,8 +54,8 @@ class MigrateToMongodbAtlasResource(BaseResource):
         org_id: str = Field("None", serialization_alias="orgId")
     class ReturnConnectionStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def return_connection_status(self,
         path_params: ReturnConnectionStatusPathParams,
         query_params: Optional[ReturnConnectionStatusQueryParams],

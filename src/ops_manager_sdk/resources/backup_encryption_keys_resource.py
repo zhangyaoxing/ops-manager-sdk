@@ -5,12 +5,12 @@ class BackupEncryptionKeysResource(BaseResource):
     """Client for BackupEncryptionKeysResource resource."""
     class RetrieveKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", serialization_alias="GROUP-ID")
         cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
     class RetrieveKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def retrieve_kmip_master_key_id(self,
         path_params: RetrieveKmipMasterKeyIdPathParams,
         query_params: Optional[RetrieveKmipMasterKeyIdQueryParams],
@@ -27,12 +27,12 @@ class BackupEncryptionKeysResource(BaseResource):
         )
     class RotateKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        group_id: str = Field("None", serialization_alias="GROUP-ID")
         cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
     class RotateKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     def rotate_kmip_master_key_id(self,
         path_params: RotateKmipMasterKeyIdPathParams,
         query_params: Optional[RotateKmipMasterKeyIdQueryParams],
