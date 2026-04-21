@@ -88,6 +88,7 @@ class APIResource:
             raise ValueError(f"Invalid endpoint format: {endpoint}")
         verb: str = parts[0].upper()
         path: str = parts[1]
+        logger.debug(f"Resolved endpoint: verb={verb}, path={path}")
         return verb, path
 
     def _resolve_params(self, params: list[dict[str, Any]]) -> tuple[bool, list[dict[str, Any]]]:
@@ -106,18 +107,26 @@ class APIResource:
 
             if "{" in original_name or "}" in original_name:
                 original_name = original_name.strip("{}")
+                logger.debug(f"Stripped curly braces from parameter name: {original_name}")
             # Sometimes the required is written in the parameter name.
             if "\nrequired" in original_name.lower():
                 original_name = original_name.split("\n")[0]
                 is_required = True
+                logger.debug(
+                    f"Extracted required status from parameter name: {original_name} is required"
+                )
             original_name = original_name.replace("\n", "").strip()
             if "-" in original_name:
                 param_name: str = original_name.replace("-", "_").lower()
+                logger.debug(
+                    f"Malformed parameter name: {original_name}. Converted to: {param_name}"
+                )
             else:
                 param_name = re.sub(
                     r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", original_name
                 ).lower()
                 param_name = re.sub(r"[^\w\.]+", "", param_name)
+                logger.debug(f"Converted parameter name: {original_name} to {param_name}")
             param_type: str = type_mapping(param["type"])
             if is_required:
                 params_required = True
@@ -129,6 +138,9 @@ class APIResource:
                     # Because params are sorted by name,
                     # The last element in the result must be the parent parameter.
                     parent_param = result[-1]
+                    logger.debug(
+                        f"Processing nested parameter: {original_name} with parent {parent_param['name']}"
+                    )
                 if "nested_params" not in parent_param:
                     parent_param["nested_params"] = []
                     parent_param["has_nested_params"] = True
@@ -136,8 +148,14 @@ class APIResource:
                         parent_param["type"] = f"list[{parent_param['class_name']}]"
                     else:
                         parent_param["type"] = parent_param["class_name"]
+                    logger.debug(
+                        f"Updated parent parameter: {parent_param['name']} type to {parent_param['type']}"
+                    )
                 param_name = param_name.split(".")[-1]
                 original_name = original_name.split(".")[-1]
+                logger.debug(
+                    f"Adding nested parameter: {param_name} to parent {parent_param['name']}"
+                )
                 parent_param["nested_params"].append(
                     {
                         "name": param_name,
