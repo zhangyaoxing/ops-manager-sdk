@@ -15,14 +15,16 @@ from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
 class {{ class_name }}(BaseResource):
-    \"\"\"Client for {{ class_name }} resource.\"\"\"
+    \"\"\"Client for {{ class_name }} resource.
+    \"\"\"
     {% for snippet in code_data %}
     {% if snippet.path_params.needed %}
     class {{ snippet.params_class_name }}PathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.path_params.params %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
-        \"\"\"{{ param.description }}\"\"\"
+        \"\"\"{{ param.description }}
+        \"\"\"
         {% endfor %}
     {% endif %}
     {% if snippet.query_params.needed %}
@@ -34,11 +36,13 @@ class {{ class_name }}(BaseResource):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
             {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
-            \"\"\"{{ nested_param.description }}\"\"\"
+            \"\"\"{{ nested_param.description }}
+            \"\"\"
             {% endfor %}
         {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
-        \"\"\"{{ param.description }}\"\"\"
+        \"\"\"{{ param.description }}
+        \"\"\"
         {% endfor %}
     {% endif %}
     {% if snippet.body_params.needed %}
@@ -50,11 +54,13 @@ class {{ class_name }}(BaseResource):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
             {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
-            \"\"\"{{ nested_param.description }}\"\"\"
+            \"\"\"{{ nested_param.description }}
+            \"\"\"
             {% endfor %}
         {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
-        \"\"\"{{ param.description }}\"\"\"
+        \"\"\"{{ param.description }}
+        \"\"\"
         {% endfor %}
     {% endif %}
     def {{ snippet.method_name }}(self,
@@ -68,7 +74,8 @@ class {{ class_name }}(BaseResource):
         body_params: {% if snippet.body_type == "array" %}list[{% endif %}{% if snippet.body_params.required %}{{ snippet.params_class_name }}BodyParams{% else %}Optional[{{ snippet.params_class_name }}BodyParams]{% endif %}{% if snippet.body_type == "array" %}]{% endif %},
         {% endif %}
     ) -> dict[str, Any]:
-        \"\"\"{{ snippet.doc }}\"\"\"
+        \"\"\"{{ snippet.doc }}
+        \"\"\"
         return self._request(
             "{{ snippet.verb }}",
             "{{ snippet.path }}",
@@ -239,7 +246,8 @@ class APIResource:
 
     def _post_code_process(self, code: str) -> str:
         """Post-process the generated code to clean up extra blank lines."""
-        return re.sub(r"\n\s*\n", "\n", code).strip()
+        # return re.sub(r"\n\s*\n", "\n", code).strip()
+        return code.strip()
 
     def generate_code(self) -> list[tuple[str, str]]:
         """
