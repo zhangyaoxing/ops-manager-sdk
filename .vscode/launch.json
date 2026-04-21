@@ -17,9 +17,10 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/ops_manager_sdk/generator/__main__.py",
             "console": "integratedTerminal",
+            "postDebugTask": "format-resources",
             "env": {
                 "LOG_LEVEL": "DEBUG"
-            }
+            },
         },
         {
             "name": "Run All Tests (pytest)",
