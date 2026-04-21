@@ -112,7 +112,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def get_the_automation_configuration_no_secrets_(
+    def get_the_automation_configuration_no_secrets(
         self,
         path_params: GetTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[GetTheAutomationConfigurationNoSecretsQueryParams],
@@ -596,7 +596,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def update_the_automation_configuration_no_secrets_(
+    def update_the_automation_configuration_no_secrets(
         self,
         path_params: UpdateTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationNoSecretsQueryParams],

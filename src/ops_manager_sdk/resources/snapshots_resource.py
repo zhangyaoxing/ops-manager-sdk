@@ -135,7 +135,7 @@ For endpoints that return a list of results, the content object is an envelope. 
         """Flag that indicates whether the response body should be in a prettyprint format.
         """
 
-    def get_all_config_server_(
+    def get_all_config_server(
         self,
         path_params: GetAllConfigServerPathParams,
         query_params: Optional[GetAllConfigServerQueryParams],
@@ -200,7 +200,7 @@ For endpoints that return a list of results, the results object is an envelope. 
         """Flag that indicates whether the response body should be in a prettyprint format.
         """
 
-    def get_all_cluster_(
+    def get_all_cluster(
         self,
         path_params: GetAllClusterPathParams,
         query_params: Optional[GetAllClusterQueryParams],
@@ -270,7 +270,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def get_one_config_server_(
+    def get_one_config_server(
         self,
         path_params: GetOneConfigServerPathParams,
         query_params: Optional[GetOneConfigServerQueryParams],
@@ -340,7 +340,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def get_one_cluster_(
+    def get_one_cluster(
         self,
         path_params: GetOneClusterPathParams,
         query_params: Optional[GetOneClusterQueryParams],
@@ -455,7 +455,7 @@ For endpoints that return a list of results, the results object is an envelope. 
         """Integer that indicates the number of days the on-demand snapshot will be retained. Must be greater than 0.
         """
 
-    def create_one_on_demand_cluster_(
+    def create_one_on_demand_cluster(
         self,
         path_params: CreateOneOnDemandClusterPathParams,
         query_params: CreateOneOnDemandClusterQueryParams,

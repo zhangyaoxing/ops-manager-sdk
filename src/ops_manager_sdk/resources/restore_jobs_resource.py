@@ -54,7 +54,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def create_cluster_(
+    def create_cluster(
         self,
         path_params: CreateClusterPathParams,
         query_params: Optional[CreateClusterQueryParams],
@@ -244,7 +244,7 @@ If you set pointInTimeUTCMillis, you cannot set oplogInc, oplogTs, or checkpoint
         """Unique identifier of the snapshot to restore.
         """
 
-    def create_config_server_(
+    def create_config_server(
         self,
         path_params: CreateConfigServerPathParams,
         query_params: Optional[CreateConfigServerQueryParams],
@@ -304,7 +304,7 @@ For endpoints that return a list of results, the content object is an envelope. 
         """Flag that indicates whether the response body should be in a prettyprint format.
         """
 
-    def get_all_cluster_(
+    def get_all_cluster(
         self,
         path_params: GetAllClusterPathParams,
         query_params: Optional[GetAllClusterQueryParams],
@@ -359,7 +359,7 @@ For endpoints that return a list of results, the content object is an envelope. 
         """Flag that indicates whether the response body should be in a prettyprint format.
         """
 
-    def get_all_config_server_(
+    def get_all_config_server(
         self,
         path_params: GetAllConfigServerPathParams,
         query_params: Optional[GetAllConfigServerQueryParams],
@@ -429,7 +429,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def get_one_cluster_(
+    def get_one_cluster(
         self,
         path_params: GetOneClusterPathParams,
         query_params: Optional[GetOneClusterQueryParams],
@@ -499,7 +499,7 @@ Expected response body
         """Flag indicating whether the response body should be in a prettyprint format.
         """
 
-    def get_one_config_server_(
+    def get_one_config_server(
         self,
         path_params: GetOneConfigServerPathParams,
         query_params: Optional[GetOneConfigServerQueryParams],

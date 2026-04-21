@@ -218,7 +218,9 @@ class APIResource:
             )
             code_gen_data[class_name].append(
                 {
-                    "method_name": re.sub(r"[^\w]+", "_", api["name"].lower()),
+                    "method_name": re.sub(
+                        r"^[^a-z0-9]+|[^a-z0-9]+$", "", re.sub(r"[^\w]+", "_", api["name"].lower())
+                    ),
                     "params_class_name": re.sub(r"[^\w]+", "", api["name"].title()),
                     "verb": verb,
                     "path": path,

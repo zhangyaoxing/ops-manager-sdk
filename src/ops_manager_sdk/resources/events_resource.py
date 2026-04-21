@@ -33,7 +33,7 @@ class EventsResource(BaseResource):
         """false
         """
 
-    def get_one_organization_(
+    def get_one_organization(
         self,
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
@@ -78,7 +78,7 @@ class EventsResource(BaseResource):
         """false
         """
 
-    def get_one_project_(
+    def get_one_project(
         self,
         path_params: GetOneProjectPathParams,
         query_params: Optional[GetOneProjectQueryParams],
@@ -174,7 +174,7 @@ IMPORTANT: The values in the raw document differ depending on the resource that 
         """Indicates whether the response body should be in a prettyprint format.
         """
 
-    def get_all_project_(
+    def get_all_project(
         self,
         path_params: GetAllProjectPathParams,
         query_params: Optional[GetAllProjectQueryParams],
@@ -270,7 +270,7 @@ IMPORTANT: The values in the raw document differ depending on the resource that 
         """Indicates whether the response body should be in a prettyprint format.
         """
 
-    def get_all_organization_(
+    def get_all_organization(
         self,
         path_params: GetAllOrganizationPathParams,
         query_params: Optional[GetAllOrganizationQueryParams],
