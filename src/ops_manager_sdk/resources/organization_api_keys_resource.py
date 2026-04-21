@@ -21,9 +21,11 @@ class OrganizationApiKeysResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
-        """API: Create an API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-one-org-api-key/
-        Description: No description."""
+        """
+        ## Create an API Key
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-one-org-api-key/)
+        - Resource: `POST /orgs/{ORG-ID}/apiKeys`
+        - Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/apiKeys",
@@ -45,9 +47,11 @@ class OrganizationApiKeysResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-api-key/
-        Description: No description."""
+        """
+        ## Delete One API Key
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-api-key/)
+        - Resource: `DELETE /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
@@ -68,9 +72,11 @@ class OrganizationApiKeysResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All API Keys
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-keys/
-        Description: No description."""
+        """
+        ## Get All API Keys
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-keys/)
+        - Resource: `GET /orgs/{ORG-ID}/apiKeys`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/apiKeys",
@@ -92,9 +98,11 @@ class OrganizationApiKeysResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key/
-        Description: No description."""
+        """
+        ## Get One API Key
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key/)
+        - Resource: `GET /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
@@ -121,9 +129,11 @@ class OrganizationApiKeysResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update an API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/update-one-org-api-key/
-        Description: No description."""
+        """
+        ## Update an API Key
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/update-one-org-api-key/)
+        - Resource: `PATCH /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",

@@ -16,9 +16,11 @@ class BackupConfigurationsResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Backup Configurations for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-backup-configs-for-group/
-        Description: No description."""
+        """
+        ## Get All Backup Configurations for One Project
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-backup-configs-for-group/)
+        - Resource: `GET /groups/{PROJECT-ID}/backupConfigs`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/backupConfigs",
@@ -38,9 +40,11 @@ class BackupConfigurationsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Backup Configuration from One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-backup-config-by-cluster-id/
-        Description: No description."""
+        """
+        ## Get One Backup Configuration from One Project
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-backup-config-by-cluster-id/)
+        - Resource: `GET /groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
@@ -80,9 +84,11 @@ class BackupConfigurationsResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Backup Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-backup-config/
-        Description: No description."""
+        """
+        ## Update One Backup Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-backup-config/)
+        - Resource: `PATCH /groups/{projectId}/backupConfigs/{clusterId}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{projectId}/backupConfigs/{clusterId}",

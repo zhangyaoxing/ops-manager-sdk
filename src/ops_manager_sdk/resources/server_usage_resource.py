@@ -20,9 +20,11 @@ class ServerUsageResource(BaseResource):
         path_params: GetDiagnosticArchivePathParams,
         query_params: Optional[GetDiagnosticArchiveQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Project Diagnostic Archive
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/diagnostics/get-project-diagnostic-archive/
-        Description: MongoDB engineers may request that Ops Manager administrators provide diagnostic archives for one project for debugging and troubleshooting. Project diagnostic archives also contain global system information about Ops Manager."""
+        """
+        ## Get One Project Diagnostic Archive
+        - Document: [Get Diagnostic Archive](https://www.mongodb.com/docs/ops-manager/current/reference/api/diagnostics/get-project-diagnostic-archive/)
+        - Resource: `GET /groups/{PROJECT-ID}/diagnostics`
+        - Description: MongoDB engineers may request that Ops Manager administrators provide diagnostic archives for one project for debugging and troubleshooting. Project diagnostic archives also contain global system information about Ops Manager."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/diagnostics",
@@ -49,9 +51,11 @@ class ServerUsageResource(BaseResource):
         query_params: Optional[CreatePhysicalHostQueryParams],
         body_params: CreatePhysicalHostBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Physical Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-physical-host/
-        Description: No description."""
+        """
+        ## Create One Physical Host
+        - Document: [Create Physical Host](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-physical-host/)
+        - Resource: `POST /usage/groups`
+        - Description: No description."""
         return self._request(
             "POST",
             "/usage/groups",
@@ -70,9 +74,11 @@ class ServerUsageResource(BaseResource):
     def get_global_usage_report_archive(self,
         query_params: GetGlobalUsageReportArchiveQueryParams,
     ) -> dict[str, Any]:
-        """API: Get One Global Usage Report Archive
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-report/
-        Description: Retrieve a compressed report, in zip or .tar.gz format, of server usage in a given timeframe."""
+        """
+        ## Get One Global Usage Report Archive
+        - Document: [Get Global Usage Report Archive](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-report/)
+        - Resource: `GET /usage/report`
+        - Description: Retrieve a compressed report, in zip or .tar.gz format, of server usage in a given timeframe."""
         return self._request(
             "GET",
             "/usage/report",
@@ -89,9 +95,11 @@ class ServerUsageResource(BaseResource):
     def generate_usage_snapshot(self,
         query_params: Optional[GenerateUsageSnapshotQueryParams],
     ) -> dict[str, Any]:
-        """API: Generate Daily Usage Snapshot
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/generate-daily-usage-snapshot/
-        Description: If MongoDB Usage UI is set to On, you can trigger this endpoint which tells Ops Manager to:"""
+        """
+        ## Generate Daily Usage Snapshot
+        - Document: [Generate Usage Snapshot](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/generate-daily-usage-snapshot/)
+        - Resource: `POST /usage/dailyCapture`
+        - Description: If MongoDB Usage UI is set to On, you can trigger this endpoint which tells Ops Manager to:"""
         return self._request(
             "POST",
             "/usage/dailyCapture",
@@ -108,9 +116,11 @@ class ServerUsageResource(BaseResource):
     def retrieve_all_physical_hosts(self,
         query_params: Optional[RetrieveAllPhysicalHostsQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve All Physical Hosts
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-all-physical-hosts/
-        Description: No description."""
+        """
+        ## Retrieve All Physical Hosts
+        - Document: [Retrieve All Physical Hosts](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-all-physical-hosts/)
+        - Resource: `GET /usage/groups`
+        - Description: No description."""
         return self._request(
             "GET",
             "/usage/groups",
@@ -129,9 +139,11 @@ class ServerUsageResource(BaseResource):
         path_params: GetServerTypeInOneOrganizationPathParams,
         query_params: Optional[GetServerTypeInOneOrganizationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Default Server Type For One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-default-server-type-for-one-organization/
-        Description: Retrieve the default server type for one organization."""
+        """
+        ## Get Default Server Type For One Organization
+        - Document: [Get Server Type in One Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-default-server-type-for-one-organization/)
+        - Resource: `GET /usage/organizations/{orgId}/defaultServerType`
+        - Description: Retrieve the default server type for one organization."""
         return self._request(
             "GET",
             "/usage/organizations/{orgId}/defaultServerType",
@@ -150,9 +162,11 @@ class ServerUsageResource(BaseResource):
         path_params: GetDefaultServerTypePathParams,
         query_params: Optional[GetDefaultServerTypeQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Default Server Type For One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-default-server-type-for-one-project/
-        Description: Retrieve the default server type for one project."""
+        """
+        ## Get Default Server Type For One Project
+        - Document: [Get Default Server Type](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-default-server-type-for-one-project/)
+        - Resource: `GET /usage/groups/{groupId}/defaultServerType`
+        - Description: Retrieve the default server type for one project."""
         return self._request(
             "GET",
             "/usage/groups/{groupId}/defaultServerType",
@@ -173,9 +187,11 @@ class ServerUsageResource(BaseResource):
         path_params: RetreiveOnePhysicalHostPathParams,
         query_params: Optional[RetreiveOnePhysicalHostQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve One Physical Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-one-physical-host-by-host-id/
-        Description: No description."""
+        """
+        ## Retrieve One Physical Host
+        - Document: [Retreive One Physical Host](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-one-physical-host-by-host-id/)
+        - Resource: `GET /usage/groups/{physicalHostId}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/usage/groups/{physicalHostId}",
@@ -198,9 +214,11 @@ class ServerUsageResource(BaseResource):
         path_params: ListHostAssignmentsInOneOrganizationPathParams,
         query_params: ListHostAssignmentsInOneOrganizationQueryParams,
     ) -> dict[str, Any]:
-        """API: List All Host Assignments In One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments-in-one-organization/
-        Description: Retrieves all host assignments for one organization."""
+        """
+        ## List All Host Assignments In One Organization
+        - Document: [List Host Assignments in One Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments-in-one-organization/)
+        - Resource: `GET /usage/organizations/{orgId}/hosts`
+        - Description: Retrieves all host assignments for one organization."""
         return self._request(
             "GET",
             "/usage/organizations/{orgId}/hosts",
@@ -223,9 +241,11 @@ class ServerUsageResource(BaseResource):
         path_params: ListHostAssignmentsInOneProjectPathParams,
         query_params: ListHostAssignmentsInOneProjectQueryParams,
     ) -> dict[str, Any]:
-        """API: List All Host Assignments In One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments-in-one-project/
-        Description: Retrieves all host assignments for one project."""
+        """
+        ## List All Host Assignments In One Project
+        - Document: [List Host Assignments in One Project](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments-in-one-project/)
+        - Resource: `GET /usage/groups/{groupId}/hosts`
+        - Description: Retrieves all host assignments for one project."""
         return self._request(
             "GET",
             "/usage/groups/{groupId}/hosts",
@@ -244,9 +264,11 @@ class ServerUsageResource(BaseResource):
     def list_host_assignments(self,
         query_params: ListHostAssignmentsQueryParams,
     ) -> dict[str, Any]:
-        """API: List All Host Assignments
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments/
-        Description: Retrieves all host assignments."""
+        """
+        ## List All Host Assignments
+        - Document: [List Host Assignments](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments/)
+        - Resource: `GET /usage/assignments`
+        - Description: Retrieves all host assignments."""
         return self._request(
             "GET",
             "/usage/assignments",
@@ -267,9 +289,11 @@ class ServerUsageResource(BaseResource):
         path_params: RemovePhysicalHostPathParams,
         query_params: Optional[RemovePhysicalHostQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove One Physical Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/remove-one-physical-host/
-        Description: No description."""
+        """
+        ## Remove One Physical Host
+        - Document: [Remove Physical Host](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/remove-one-physical-host/)
+        - Resource: `DELETE /usage/groups/{physicalHostId}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/usage/groups/{physicalHostId}",
@@ -296,9 +320,11 @@ class ServerUsageResource(BaseResource):
         query_params: Optional[UpdateServerTypeForOneOrganizationQueryParams],
         body_params: UpdateServerTypeForOneOrganizationBodyParams,
     ) -> dict[str, Any]:
-        """API: Update Default Server Type For One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-default-server-type-for-one-organization/
-        Description: Update the default server type for one organization."""
+        """
+        ## Update Default Server Type For One Organization
+        - Document: [Update Server Type for One Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-default-server-type-for-one-organization/)
+        - Resource: `PUT /usage/organizations/{orgId}/defaultServerType`
+        - Description: Update the default server type for one organization."""
         return self._request(
             "PUT",
             "/usage/organizations/{orgId}/defaultServerType",
@@ -325,9 +351,11 @@ class ServerUsageResource(BaseResource):
         query_params: Optional[UpdateDefaultServerTypeQueryParams],
         body_params: UpdateDefaultServerTypeBodyParams,
     ) -> dict[str, Any]:
-        """API: Update Default Server Type For One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-default-server-type-for-one-project/
-        Description: Update the default server type for one project."""
+        """
+        ## Update Default Server Type For One Project
+        - Document: [Update Default Server Type](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-default-server-type-for-one-project/)
+        - Resource: `PUT /usage/groups/{groupId}/defaultServerType`
+        - Description: Update the default server type for one project."""
         return self._request(
             "PUT",
             "/usage/groups/{groupId}/defaultServerType",
@@ -358,9 +386,11 @@ class ServerUsageResource(BaseResource):
         query_params: Optional[UpdatePhysicalHostQueryParams],
         body_params: UpdatePhysicalHostBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Physical Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-one-physical-host/
-        Description: No description."""
+        """
+        ## Update One Physical Host
+        - Document: [Update Physical Host](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-one-physical-host/)
+        - Resource: `PUT /usage/groups/{physicalHostId}`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/usage/groups/{physicalHostId}",
@@ -387,9 +417,11 @@ class ServerUsageResource(BaseResource):
         query_params: Optional[UpdateServerTypeQueryParams],
         body_params: UpdateServerTypeBodyParams,
     ) -> dict[str, Any]:
-        """API: Update Server Type for One Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-server-type-for-one-host/
-        Description: Update one default server type for one host."""
+        """
+        ## Update Server Type for One Host
+        - Document: [Update Server Type](https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-server-type-for-one-host/)
+        - Resource: `PUT /usage/hosts/{hostId}`
+        - Description: Update one default server type for one host."""
         return self._request(
             "PUT",
             "/usage/hosts/{hostId}",

@@ -21,9 +21,11 @@ class MaintenanceWindowsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Maintenance Window
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-create-one/
-        Description: Create one maintenance window. Ops Manager turns off alert notifications for certain alert types for a period of time you specify to allow maintenance to occur."""
+        """
+        ## Create One Maintenance Window
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-create-one/)
+        - Resource: `POST /groups/{PROJECT-ID}/maintenanceWindows/`
+        - Description: Create one maintenance window. Ops Manager turns off alert notifications for certain alert types for a period of time you specify to allow maintenance to occur."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/maintenanceWindows/",
@@ -43,9 +45,11 @@ class MaintenanceWindowsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Maintenance Window
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-delete-one/
-        Description: Delete one maintenance window with an end date in the future."""
+        """
+        ## Delete One Maintenance Window
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-delete-one/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}`
+        - Description: Delete one maintenance window with an end date in the future."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
@@ -64,9 +68,11 @@ class MaintenanceWindowsResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Maintenance Windows
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-get-all/
-        Description: Retrieve all maintenance windows with end dates in the future."""
+        """
+        ## Get All Maintenance Windows
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-get-all/)
+        - Resource: `GET /groups/{PROJECT-ID}/maintenanceWindows/`
+        - Description: Retrieve all maintenance windows with end dates in the future."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/maintenanceWindows/",
@@ -86,9 +92,11 @@ class MaintenanceWindowsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Maintenance Window
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-get-one/
-        Description: Retrieve one maintenance window with an end date in the future."""
+        """
+        ## Get One Maintenance Window
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-get-one/)
+        - Resource: `GET /groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}`
+        - Description: Retrieve one maintenance window with an end date in the future."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
@@ -115,9 +123,11 @@ class MaintenanceWindowsResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Maintenance Window
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-update-one/
-        Description: Update one maintenance window with an end date in the future."""
+        """
+        ## Update One Maintenance Window
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-update-one/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}`
+        - Description: Update one maintenance window with an end date in the future."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",

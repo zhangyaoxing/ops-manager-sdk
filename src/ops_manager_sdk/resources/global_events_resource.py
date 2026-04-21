@@ -5,9 +5,11 @@ class GlobalEventsResource(BaseResource):
     """Client for GlobalEventsResource resource."""
     def get_all(self,
     ) -> dict[str, Any]:
-        """API: Get All Global Events
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-global/
-        Description: No description."""
+        """
+        ## Get All Global Events
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-global/)
+        - Resource: `GET /globalEvents`
+        - Description: No description."""
         return self._request(
             "GET",
             "/globalEvents",
@@ -26,9 +28,11 @@ class GlobalEventsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Global Event
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-global/
-        Description: No description."""
+        """
+        ## Get One Global Event
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-global/)
+        - Resource: `GET /globalEvents/{eventId}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/globalEvents/{eventId}",

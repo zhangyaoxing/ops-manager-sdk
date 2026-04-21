@@ -15,9 +15,11 @@ class GlobalAccessListResource(BaseResource):
         query_params: Optional[CreateEntryQueryParams],
         body_params: CreateEntryBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Global Access List Entry
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-access-list/
-        Description: Create one Global Access List Entry for Ops Manager."""
+        """
+        ## Create One Global Access List Entry
+        - Document: [Create Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-access-list/)
+        - Resource: `POST /admin/accessList`
+        - Description: Create one Global Access List Entry for Ops Manager."""
         return self._request(
             "POST",
             "/admin/accessList",
@@ -36,9 +38,11 @@ class GlobalAccessListResource(BaseResource):
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Access List Entry for a Global API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-access-list/
-        Description: Delete one Global Access List Entry from Ops Manager using the unique identifier for the desired IP address."""
+        """
+        ## Delete One Access List Entry for a Global API Key
+        - Document: [Delete Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-access-list/)
+        - Resource: `DELETE /admin/accessList/{ACCESS-LIST-ID}`
+        - Description: Delete one Global Access List Entry from Ops Manager using the unique identifier for the desired IP address."""
         return self._request(
             "DELETE",
             "/admin/accessList/{ACCESS-LIST-ID}",
@@ -55,9 +59,11 @@ class GlobalAccessListResource(BaseResource):
     def get_all_entries(self,
         query_params: Optional[GetAllEntriesQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Access List Entries for a Global API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-access-list/
-        Description: Return all Global Access List Entries for Ops Manager."""
+        """
+        ## Get All Access List Entries for a Global API Key
+        - Document: [Get All Entries](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-access-list/)
+        - Resource: `GET /admin/accessList`
+        - Description: Return all Global Access List Entries for Ops Manager."""
         return self._request(
             "GET",
             "/admin/accessList",
@@ -76,9 +82,11 @@ class GlobalAccessListResource(BaseResource):
         path_params: GetOneEntryPathParams,
         query_params: Optional[GetOneEntryQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Global Access List Entry
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-access-list/
-        Description: Return one Global Access List Entry using the unique identifier for the desired IP address."""
+        """
+        ## Get One Global Access List Entry
+        - Document: [Get One Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-access-list/)
+        - Resource: `GET /admin/accessList/{ACCESS-LIST-ID}`
+        - Description: Return one Global Access List Entry using the unique identifier for the desired IP address."""
         return self._request(
             "GET",
             "/admin/accessList/{ACCESS-LIST-ID}",
@@ -97,9 +105,11 @@ class GlobalAccessListResource(BaseResource):
         path_params: UpdateEntryPathParams,
         query_params: Optional[UpdateEntryQueryParams],
     ) -> dict[str, Any]:
-        """API: Update One Global Access List Entry
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-access-list/
-        Description: Update the values of one Global Access List Entry using the unique identifier for the desired IP address."""
+        """
+        ## Update One Global Access List Entry
+        - Document: [Update Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-access-list/)
+        - Resource: `PATCH /admin/accessList/{ACCESS-LIST-ID}`
+        - Description: Update the values of one Global Access List Entry using the unique identifier for the desired IP address."""
         return self._request(
             "PATCH",
             "/admin/accessList/{ACCESS-LIST-ID}",

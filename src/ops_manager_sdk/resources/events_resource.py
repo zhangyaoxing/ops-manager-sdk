@@ -5,9 +5,11 @@ class EventsResource(BaseResource):
     """Client for EventsResource resource."""
     def get_all_organization_(self,
     ) -> dict[str, Any]:
-        """API: Get All Organization Events
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-org/
-        Description: No description."""
+        """
+        ## Get All Organization Events
+        - Document: [Get All (Organization)](https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-org/)
+        - Resource: `GET /orgs/{orgId}/events`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{orgId}/events",
@@ -21,9 +23,11 @@ class EventsResource(BaseResource):
     def get_all_project_(self,
         path_params: GetAllProjectPathParams,
     ) -> dict[str, Any]:
-        """API: Get All Project Events
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-project/
-        Description: No description."""
+        """
+        ## Get All Project Events
+        - Document: [Get All (Project)](https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-project/)
+        - Resource: `GET /groups/{groupId}/events`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{groupId}/events",
@@ -44,9 +48,11 @@ class EventsResource(BaseResource):
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Organization Event
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-for-org/
-        Description: No description."""
+        """
+        ## Get One Organization Event
+        - Document: [Get One (Organization)](https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-for-org/)
+        - Resource: `GET /orgs/{orgId}/events/{eventId}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{orgId}/events/{eventId}",
@@ -67,9 +73,11 @@ class EventsResource(BaseResource):
         path_params: GetOneProjectPathParams,
         query_params: Optional[GetOneProjectQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Project Event
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-for-project/
-        Description: No description."""
+        """
+        ## Get One Project Event
+        - Document: [Get One (Project)](https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-for-project/)
+        - Resource: `GET /groups/{groupId}/events/{eventId}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{groupId}/events/{eventId}",

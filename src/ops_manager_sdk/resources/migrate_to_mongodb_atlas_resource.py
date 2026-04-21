@@ -18,9 +18,11 @@ class MigrateToMongodbAtlasResource(BaseResource):
         query_params: Optional[ConnectWithAtlasOrganizationQueryParams],
         body_params: ConnectWithAtlasOrganizationBodyParams,
     ) -> dict[str, Any]:
-        """API: Connect One Organization with One Atlas Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/link-the-organization-with-atlas/
-        Description: Connect the source Ops Manager organization with a target MongoDB Atlas organization."""
+        """
+        ## Connect One Organization with One Atlas Organization
+        - Document: [Connect with Atlas Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/link-the-organization-with-atlas/)
+        - Resource: `POST /orgs/{orgId}/liveExport/migrationLink`
+        - Description: Connect the source Ops Manager organization with a target MongoDB Atlas organization."""
         return self._request(
             "POST",
             "/orgs/{orgId}/liveExport/migrationLink",
@@ -39,9 +41,11 @@ class MigrateToMongodbAtlasResource(BaseResource):
         path_params: RemoveConnectionPathParams,
         query_params: Optional[RemoveConnectionQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove the Connection between Organizations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/remove-the-link-between-organizations/
-        Description: Remove the connection between the source Ops Manager organization and the target MongoDB Atlas organization. This stops the source organization from synchronizing data with the target organization."""
+        """
+        ## Remove the Connection between Organizations
+        - Document: [Remove Connection](https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/remove-the-link-between-organizations/)
+        - Resource: `DELETE /orgs/{orgId}/liveExport/migrationLink`
+        - Description: Remove the connection between the source Ops Manager organization and the target MongoDB Atlas organization. This stops the source organization from synchronizing data with the target organization."""
         return self._request(
             "DELETE",
             "/orgs/{orgId}/liveExport/migrationLink",
@@ -60,9 +64,11 @@ class MigrateToMongodbAtlasResource(BaseResource):
         path_params: ReturnConnectionStatusPathParams,
         query_params: Optional[ReturnConnectionStatusQueryParams],
     ) -> dict[str, Any]:
-        """API: Return the Status of the Connection between Organizations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/return-the-status-of-the-organization-link/
-        Description: Return the status of the connection between the specified source Ops Manager organization and the target MongoDB Atlas organization."""
+        """
+        ## Return the Status of the Connection between Organizations
+        - Document: [Return Connection Status](https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/return-the-status-of-the-organization-link/)
+        - Resource: `GET /orgs/{orgId}/liveExport/migrationLink/status`
+        - Description: Return the status of the connection between the specified source Ops Manager organization and the target MongoDB Atlas organization."""
         return self._request(
             "GET",
             "/orgs/{orgId}/liveExport/migrationLink/status",

@@ -26,9 +26,11 @@ class HostsResource(BaseResource):
         query_params: Optional[BeginMonitoringQueryParams],
         body_params: BeginMonitoringBodyParams,
     ) -> dict[str, Any]:
-        """API: Begin Monitoring One Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/create-one-host/
-        Description: Start monitoring a new MongoDB process. The Monitoring starts monitoring the MongoDB process on the hostname and port you specify. Ops Manager knows only the information that you provide. The response document includes blank values until Ops Manager completes discovery of the MongoDB processes configuration."""
+        """
+        ## Begin Monitoring One Host
+        - Document: [Begin Monitoring](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/create-one-host/)
+        - Resource: `POST /groups/{PROJECT-ID}/hosts`
+        - Description: Start monitoring a new MongoDB process. The Monitoring starts monitoring the MongoDB process on the hostname and port you specify. Ops Manager knows only the information that you provide. The response document includes blank values until Ops Manager completes discovery of the MongoDB processes configuration."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/hosts",
@@ -48,9 +50,11 @@ class HostsResource(BaseResource):
         path_params: StopMonitoringPathParams,
         query_params: Optional[StopMonitoringQueryParams],
     ) -> dict[str, Any]:
-        """API: Stop Monitoring One Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/delete-one-host/
-        Description: Stops the Monitoring from monitoring the MongoDB process on the hostname and port you specify."""
+        """
+        ## Stop Monitoring One Host
+        - Document: [Stop Monitoring](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/delete-one-host/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/hosts/{HOST-ID}`
+        - Description: Stops the Monitoring from monitoring the MongoDB process on the hostname and port you specify."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
@@ -72,9 +76,11 @@ class HostsResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: GetAllQueryParams,
     ) -> dict[str, Any]:
-        """API: Get All Hosts in One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-all-hosts-in-group/
-        Description: Get all MongoDB hosts in a project. Use the CLUSTER-ID query parameter to only get the hosts that belong to the specified cluster. The response sorts the hosts alphabetically by HOSTNAME:PORT."""
+        """
+        ## Get All Hosts in One Project
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-all-hosts-in-group/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts`
+        - Description: Get all MongoDB hosts in a project. Use the CLUSTER-ID query parameter to only get the hosts that belong to the specified cluster. The response sorts the hosts alphabetically by HOSTNAME:PORT."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts",
@@ -95,9 +101,11 @@ class HostsResource(BaseResource):
         path_params: GetByHostnamePortPathParams,
         query_params: Optional[GetByHostnamePortQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Host by Hostname and Port
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-hostname-port/
-        Description: Get a single MongoDB process by its hostname and port combination. You can specify either the primary hostname or an alias."""
+        """
+        ## Get One Host by Hostname and Port
+        - Document: [Get by Hostname & Port](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-hostname-port/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/byName/{HOSTNAME}:{PORT}`
+        - Description: Get a single MongoDB process by its hostname and port combination. You can specify either the primary hostname or an alias."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/byName/{HOSTNAME}:{PORT}",
@@ -117,9 +125,11 @@ class HostsResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Host by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-id/
-        Description: Get the MongoDB process with the specified host ID."""
+        """
+        ## Get Host by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-id/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}`
+        - Description: Get the MongoDB process with the specified host ID."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
@@ -149,9 +159,11 @@ class HostsResource(BaseResource):
         query_params: Optional[UpdateConfigurationQueryParams],
         body_params: Optional[UpdateConfigurationBodyParams],
     ) -> dict[str, Any]:
-        """API: Update Configuration of One Monitored Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/update-one-host/
-        Description: Update the configuration of a monitored MongoDB process."""
+        """
+        ## Update Configuration of One Monitored Host
+        - Document: [Update Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/update-one-host/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/hosts/{HOST-ID}`
+        - Description: Update the configuration of a monitored MongoDB process."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}",

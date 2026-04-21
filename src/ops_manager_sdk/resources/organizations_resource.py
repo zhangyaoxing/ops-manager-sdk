@@ -20,9 +20,11 @@ class OrganizationsResource(BaseResource):
         query_params: Optional[InviteUserQueryParams],
         body_params: InviteUserBodyParams,
     ) -> dict[str, Any]:
-        """API: Invite One User to an Ops Manager Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/create-one-invitation/
-        Description: Invites one user to the Ops Manager organization that you specify."""
+        """
+        ## Invite One User to an Ops Manager Organization
+        - Document: [Invite User](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/create-one-invitation/)
+        - Resource: `POST /orgs/{ORG-ID}/invites`
+        - Description: Invites one user to the Ops Manager organization that you specify."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/invites",
@@ -42,9 +44,11 @@ class OrganizationsResource(BaseResource):
         path_params: DeleteInvitationPathParams,
         query_params: Optional[DeleteInvitationQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Organization Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/delete-one-invitation/
-        Description: Deletes one pending invitation to the specified Ops Manager organization. You can't delete an invitation that a user has accepted."""
+        """
+        ## Delete One Organization Invitation
+        - Document: [Delete Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/delete-one-invitation/)
+        - Resource: `DELETE /orgs/{ORG-ID}/invites/{INVITATION-ID}`
+        - Description: Deletes one pending invitation to the specified Ops Manager organization. You can't delete an invitation that a user has accepted."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
@@ -64,9 +68,11 @@ class OrganizationsResource(BaseResource):
         path_params: GetAllInvitationsPathParams,
         query_params: Optional[GetAllInvitationsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Organization Invitations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-all-invitations/
-        Description: Retrieves all pending invitations to the specified Ops Manager organization."""
+        """
+        ## Get All Organization Invitations
+        - Document: [Get All Invitations](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-all-invitations/)
+        - Resource: `GET /orgs/{ORG-ID}/invites`
+        - Description: Retrieves all pending invitations to the specified Ops Manager organization."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/invites",
@@ -86,9 +92,11 @@ class OrganizationsResource(BaseResource):
         path_params: GetOneInvitationPathParams,
         query_params: Optional[GetOneInvitationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Organization Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-one-invitation/
-        Description: Retrieve details for one pending invitation to the specified Ops Manager organization."""
+        """
+        ## Get One Organization Invitation
+        - Document: [Get One Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-one-invitation/)
+        - Resource: `GET /orgs/{ORG-ID}/invites/{INVITATION-ID}`
+        - Description: Retrieve details for one pending invitation to the specified Ops Manager organization."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
@@ -112,9 +120,11 @@ class OrganizationsResource(BaseResource):
         query_params: Optional[UpdateByInvitationIdQueryParams],
         body_params: UpdateByInvitationIdBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Organization Invitation by Invitation ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation-by-id/
-        Description: Updates one pending invitation by {INVITATION-ID} to the Ops Manager organization that you specify."""
+        """
+        ## Update One Organization Invitation by Invitation ID
+        - Document: [Update by Invitation ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation-by-id/)
+        - Resource: `PATCH /orgs/{ORG-ID}/invites/{INVITATION-ID}`
+        - Description: Updates one pending invitation by {INVITATION-ID} to the Ops Manager organization that you specify."""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
@@ -138,9 +148,11 @@ class OrganizationsResource(BaseResource):
         query_params: Optional[UpdateInvitationQueryParams],
         body_params: UpdateInvitationBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Organization Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation/
-        Description: Updates one pending invitation to the Ops Manager organization that you specify."""
+        """
+        ## Update One Organization Invitation
+        - Document: [Update Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation/)
+        - Resource: `PATCH /orgs/{ORG-ID}/invites`
+        - Description: Updates one pending invitation to the Ops Manager organization that you specify."""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}/invites",
@@ -166,9 +178,11 @@ class OrganizationsResource(BaseResource):
         query_params: Optional[CreateOrganizationQueryParams],
         body_params: CreateOrganizationBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-create-one/
-        Description: No description."""
+        """
+        ## Create One Organization
+        - Document: [Create Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-create-one/)
+        - Resource: `POST /orgs`
+        - Description: No description."""
         return self._request(
             "POST",
             "/orgs",
@@ -187,9 +201,11 @@ class OrganizationsResource(BaseResource):
         path_params: DeleteOrganizationPathParams,
         query_params: Optional[DeleteOrganizationQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-delete-one/
-        Description: No description."""
+        """
+        ## Delete One Organization
+        - Document: [Delete Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-delete-one/)
+        - Resource: `DELETE /orgs/{ORG-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}",
@@ -211,9 +227,11 @@ class OrganizationsResource(BaseResource):
         path_params: GetAllProjectsPathParams,
         query_params: Optional[GetAllProjectsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Projects in an Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-projects/
-        Description: No description."""
+        """
+        ## Get All Projects in an Organization
+        - Document: [Get All Projects](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-projects/)
+        - Resource: `GET /orgs/{ORG-ID}/groups`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/groups",
@@ -234,9 +252,11 @@ class OrganizationsResource(BaseResource):
         path_params: GetAllUsersPathParams,
         query_params: Optional[GetAllUsersQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Organization Users
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-users/
-        Description: No description."""
+        """
+        ## Get All Organization Users
+        - Document: [Get All Users](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-users/)
+        - Resource: `GET /orgs/{ORG-ID}/users`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/users",
@@ -255,9 +275,11 @@ class OrganizationsResource(BaseResource):
     def get_all_organizations(self,
         query_params: Optional[GetAllOrganizationsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Organizations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all/
-        Description: No description."""
+        """
+        ## Get All Organizations
+        - Document: [Get All Organizations](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all/)
+        - Resource: `GET /orgs`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs",
@@ -277,9 +299,11 @@ class OrganizationsResource(BaseResource):
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-one/
-        Description: No description."""
+        """
+        ## Get One Organization
+        - Document: [Get One Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-one/)
+        - Resource: `GET /orgs/{ORG-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}",
@@ -303,9 +327,11 @@ class OrganizationsResource(BaseResource):
         query_params: Optional[RenameOrganizationQueryParams],
         body_params: Optional[RenameOrganizationBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Organization
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-rename/
-        Description: Use this endpoint to make any of the following changes to one organization:"""
+        """
+        ## Update One Organization
+        - Document: [Rename Organization](https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-rename/)
+        - Resource: `PATCH /orgs/{ORG-ID}`
+        - Description: Use this endpoint to make any of the following changes to one organization:"""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}",

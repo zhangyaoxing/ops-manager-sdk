@@ -9,9 +9,11 @@ class VersionManifestResource(BaseResource):
     def retrieve(self,
         query_params: Optional[RetrieveQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve the Ops Manager Version Manifest
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/get-om-version-manifest/
-        Description: Use this resource to retrieve the version manifest that Ops Manager is configured to use."""
+        """
+        ## Retrieve the Ops Manager Version Manifest
+        - Document: [Retrieve](https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/get-om-version-manifest/)
+        - Resource: `GET /unauth/versionManifest`
+        - Description: Use this resource to retrieve the version manifest that Ops Manager is configured to use."""
         return self._request(
             "GET",
             "/unauth/versionManifest",
@@ -25,9 +27,11 @@ class VersionManifestResource(BaseResource):
     def update(self,
         query_params: Optional[UpdateQueryParams],
     ) -> dict[str, Any]:
-        """API: Update the Version Manifest
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/update-version-manifest/
-        Description: Use this resource to upload the latest version manifest from MongoDB, Inc."""
+        """
+        ## Update the Version Manifest
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/update-version-manifest/)
+        - Resource: `PUT /versionManifest`
+        - Description: Use this resource to upload the latest version manifest from MongoDB, Inc."""
         return self._request(
             "PUT",
             "/versionManifest",

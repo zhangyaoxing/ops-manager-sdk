@@ -14,9 +14,11 @@ class AutomationResource(BaseResource):
         path_params: GetStatusOfLast50PlansPathParams,
         query_params: Optional[GetStatusOfLast50PlansQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Automation Status of Last 50 Plans
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status-full/
-        Description: No description."""
+        """
+        ## Get Automation Status of Last 50 Plans
+        - Document: [Get Status of Last 50 Plans](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status-full/)
+        - Resource: `GET /groups/GROUP-ID/automationStatus/full`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/GROUP-ID/automationStatus/full",
@@ -35,9 +37,11 @@ class AutomationResource(BaseResource):
         path_params: GetStatusPathParams,
         query_params: Optional[GetStatusQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Automation Status of Latest Plan
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status/
-        Description: No description."""
+        """
+        ## Get Automation Status of Latest Plan
+        - Document: [Get Status](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationStatus`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationStatus",

@@ -14,9 +14,11 @@ class ConfigurationResource(BaseResource):
         path_params: GetTheAuditLogRotateConfigurationPathParams,
         query_params: Optional[GetTheAuditLogRotateConfigurationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get the Audit Log Rotate Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-audit-log-rotate-config/
-        Description: This endpoint returns the current audit log rotation configuration."""
+        """
+        ## Get the Audit Log Rotate Configuration
+        - Document: [Get the Audit Log Rotate Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-audit-log-rotate-config/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig`
+        - Description: This endpoint returns the current audit log rotation configuration."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
@@ -35,9 +37,11 @@ class ConfigurationResource(BaseResource):
         path_params: GetTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[GetTheAutomationConfigurationNoSecretsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get the Automation Configuration (Redacted Secrets)
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config-no-secrets/
-        Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
+        """
+        ## Get the Automation Configuration (Redacted Secrets)
+        - Document: [Get the Automation Configuration (No Secrets)](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config-no-secrets/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationConfig/noSecrets`
+        - Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/noSecrets",
@@ -56,9 +60,11 @@ class ConfigurationResource(BaseResource):
         path_params: GetTheAutomationConfigurationPathParams,
         query_params: Optional[GetTheAutomationConfigurationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get the Automation Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config/
-        Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
+        """
+        ## Get the Automation Configuration
+        - Document: [Get the Automation Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationConfig`
+        - Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig",
@@ -77,9 +83,11 @@ class ConfigurationResource(BaseResource):
         path_params: GetBackupConfigurationSettingsPathParams,
         query_params: Optional[GetBackupConfigurationSettingsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Backup Configuration Settings
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-backup-log-attributes/
-        Description: No description."""
+        """
+        ## Get Backup Configuration Settings
+        - Document: [Get Backup Configuration Settings](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-backup-log-attributes/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationConfig/backupAgentConfig`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
@@ -98,9 +106,11 @@ class ConfigurationResource(BaseResource):
         path_params: GetMonitoringConfigurationSettingsPathParams,
         query_params: Optional[GetMonitoringConfigurationSettingsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Monitoring Configuration Settings
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-monitoring-log-attributes/
-        Description: No description."""
+        """
+        ## Get Monitoring Configuration Settings
+        - Document: [Get Monitoring Configuration Settings](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-monitoring-log-attributes/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
@@ -119,9 +129,11 @@ class ConfigurationResource(BaseResource):
         path_params: GetTheSystemLogRotateConfigurationPathParams,
         query_params: Optional[GetTheSystemLogRotateConfigurationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get the System Log Rotate Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-system-log-rotate-config/
-        Description: This endpoint returns the current system log rotation configuration."""
+        """
+        ## Get the System Log Rotate Configuration
+        - Document: [Get the System Log Rotate Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-system-log-rotate-config/)
+        - Resource: `GET /groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig`
+        - Description: This endpoint returns the current system log rotation configuration."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",
@@ -146,9 +158,11 @@ class ConfigurationResource(BaseResource):
         query_params: Optional[UpdateAgentVersionsQueryParams],
         body_params: Optional[UpdateAgentVersionsBodyParams],
     ) -> dict[str, Any]:
-        """API: Update Agent Versions
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-agent-versions/
-        Description: This endpoint updates the MongoDB Agent and tools to the latest versions available at the time of the request:"""
+        """
+        ## Update Agent Versions
+        - Document: [Update Agent Versions](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-agent-versions/)
+        - Resource: `POST /groups/{PROJECT-ID}/automationConfig/updateAgentVersions`
+        - Description: This endpoint updates the MongoDB Agent and tools to the latest versions available at the time of the request:"""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/automationConfig/updateAgentVersions",
@@ -175,9 +189,11 @@ class ConfigurationResource(BaseResource):
         query_params: Optional[UpdateTheAuditLogRotateConfigQueryParams],
         body_params: Optional[UpdateTheAuditLogRotateConfigBodyParams],
     ) -> dict[str, Any]:
-        """API: Update the Audit Log Rotate Config
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-audit-log-rotate-config/
-        Description: This endpoint updates the MongoDB Agent audit log rotation configuration. After this request completes, Ops Manager modifies the agent configuration and saves the updated version."""
+        """
+        ## Update the Audit Log Rotate Config
+        - Document: [Update the Audit Log Rotate Config](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-audit-log-rotate-config/)
+        - Resource: `PUT /groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig`
+        - Description: This endpoint updates the MongoDB Agent audit log rotation configuration. After this request completes, Ops Manager modifies the agent configuration and saves the updated version."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
@@ -196,9 +212,11 @@ class ConfigurationResource(BaseResource):
         path_params: UpdateTheAutomationConfigurationNoSecretsPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationNoSecretsQueryParams],
     ) -> dict[str, Any]:
-        """API: Update the Automation Configuration (Sensitive Information Ignored)
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/
-        Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
+        """
+        ## Update the Automation Configuration (Sensitive Information Ignored)
+        - Document: [Update the Automation Configuration (No Secrets)](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/)
+        - Resource: `PUT /groups/{PROJECT-ID}/automationConfig/noSecrets`
+        - Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/noSecrets",
@@ -217,9 +235,11 @@ class ConfigurationResource(BaseResource):
         path_params: UpdateTheAutomationConfigurationPathParams,
         query_params: Optional[UpdateTheAutomationConfigurationQueryParams],
     ) -> dict[str, Any]:
-        """API: Update the Automation Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/
-        Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
+        """
+        ## Update the Automation Configuration
+        - Document: [Update the Automation Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/)
+        - Resource: `PUT /groups/{PROJECT-ID}/automationConfig`
+        - Description: A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig",
@@ -249,9 +269,11 @@ class ConfigurationResource(BaseResource):
         query_params: Optional[UpdateBackupConfigurationSettingsQueryParams],
         body_params: Optional[UpdateBackupConfigurationSettingsBodyParams],
     ) -> dict[str, Any]:
-        """API: Update Backup Configuration Settings
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-backup-log-attributes/
-        Description: No description."""
+        """
+        ## Update Backup Configuration Settings
+        - Document: [Update Backup Configuration Settings](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-backup-log-attributes/)
+        - Resource: `PUT /groups/{PROJECT-ID}/automationConfig/backupAgentConfig`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
@@ -281,9 +303,11 @@ class ConfigurationResource(BaseResource):
         query_params: Optional[UpdateMonitoringConfigurationSettingsQueryParams],
         body_params: Optional[UpdateMonitoringConfigurationSettingsBodyParams],
     ) -> dict[str, Any]:
-        """API: Update Monitoring Configuration Settings
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-monitoring-log-attributes/
-        Description: No description."""
+        """
+        ## Update Monitoring Configuration Settings
+        - Document: [Update Monitoring Configuration Settings](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-monitoring-log-attributes/)
+        - Resource: `PUT /groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
@@ -310,9 +334,11 @@ class ConfigurationResource(BaseResource):
         query_params: Optional[UpdateTheSystemLogRotateConfigQueryParams],
         body_params: Optional[UpdateTheSystemLogRotateConfigBodyParams],
     ) -> dict[str, Any]:
-        """API: Update the System Log Rotate Config
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-system-log-rotate-config/
-        Description: This endpoint updates the MongoDB Agent system log rotation configuration. After this request completes, Ops Manager modifies the agent configuration and saves the updated version."""
+        """
+        ## Update the System Log Rotate Config
+        - Document: [Update the System Log Rotate Config](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-system-log-rotate-config/)
+        - Resource: `PUT /groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig`
+        - Description: This endpoint updates the MongoDB Agent system log rotation configuration. After this request completes, Ops Manager modifies the agent configuration and saves the updated version."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",

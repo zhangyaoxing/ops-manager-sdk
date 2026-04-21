@@ -15,9 +15,11 @@ class AlertConfigurationsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete an Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-delete-config/
-        Description: No description."""
+        """
+        ## Delete an Alert Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-delete-config/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
@@ -41,9 +43,11 @@ class AlertConfigurationsResource(BaseResource):
         query_params: Optional[EnableDisableQueryParams],
         body_params: Optional[EnableDisableBodyParams],
     ) -> dict[str, Any]:
-        """API: Enable/Disable Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-enable-disable-config/
-        Description: No description."""
+        """
+        ## Enable/Disable Alert Configuration
+        - Document: [Enable/Disable](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-enable-disable-config/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
@@ -64,9 +68,11 @@ class AlertConfigurationsResource(BaseResource):
         path_params: GetAllForAProjectPathParams,
         query_params: Optional[GetAllForAProjectQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Alert Configurations for a Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-all-configs/
-        Description: No description."""
+        """
+        ## Get All Alert Configurations for a Project
+        - Document: [Get All for a Project](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-all-configs/)
+        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alertConfigs",
@@ -88,9 +94,11 @@ class AlertConfigurationsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get an Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-config/
-        Description: No description."""
+        """
+        ## Get an Alert Configuration
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-config/)
+        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
@@ -105,9 +113,11 @@ class AlertConfigurationsResource(BaseResource):
     def get_matchers_field_names(self,
         query_params: Optional[GetMatchersFieldNamesQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Alert Configuration Matchers Field Names
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-matchers-field-names/
-        Description: No description."""
+        """
+        ## Get All Alert Configuration Matchers Field Names
+        - Document: [Get Matchers Field Names](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-matchers-field-names/)
+        - Resource: `GET /alertConfigs/matchers/fieldNames`
+        - Description: No description."""
         return self._request(
             "GET",
             "/alertConfigs/matchers/fieldNames",
@@ -129,9 +139,11 @@ class AlertConfigurationsResource(BaseResource):
         path_params: GetOpenAlertsPathParams,
         query_params: Optional[GetOpenAlertsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Open Alerts for Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-open-alerts/
-        Description: No description."""
+        """
+        ## Get Open Alerts for Alert Configuration
+        - Document: [Get Open Alerts](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-open-alerts/)
+        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts",
@@ -147,9 +159,11 @@ class AlertConfigurationsResource(BaseResource):
     def test_project_alert_configuration(self,
         path_params: TestProjectAlertConfigurationPathParams,
     ) -> dict[str, Any]:
-        """API: Test Project Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/
-        Description: Triggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."""
+        """
+        ## Test Project Alert Configuration
+        - Document: [Test Project Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/)
+        - Resource: `POST /api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`
+        - Description: Triggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."""
         return self._request(
             "POST",
             "/api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test",
@@ -216,9 +230,11 @@ class AlertConfigurationsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create an Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-create-config/
-        Description: No description."""
+        """
+        ## Create an Alert Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-create-config/)
+        - Resource: `POST /groups/{PROJECT-ID}/alertConfigs`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/alertConfigs",
@@ -286,9 +302,11 @@ class AlertConfigurationsResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update an Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-update-config/
-        Description: No description."""
+        """
+        ## Update an Alert Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-update-config/)
+        - Resource: `PUT /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",

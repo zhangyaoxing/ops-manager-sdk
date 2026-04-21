@@ -18,9 +18,11 @@ class AgentsResource(BaseResource):
         query_params: Optional[CreateApiKeyQueryParams],
         body_params: Optional[CreateApiKeyBodyParams],
     ) -> dict[str, Any]:
-        """API: Create One Agent API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/create-one-agent-api-key/
-        Description: No description."""
+        """
+        ## Create One Agent API Key
+        - Document: [Create API Key](https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/create-one-agent-api-key/)
+        - Resource: `POST /groups/{PROJECT-ID}/agentapikeys`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/agentapikeys",
@@ -40,9 +42,11 @@ class AgentsResource(BaseResource):
         path_params: RemoveApiKeyPathParams,
         query_params: Optional[RemoveApiKeyQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove One Agent API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/delete-one-agent-api-key/
-        Description: No description."""
+        """
+        ## Remove One Agent API Key
+        - Document: [Remove API Key](https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/delete-one-agent-api-key/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/agentapikeys/{API-AGENT-KEY-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/agentapikeys/{API-AGENT-KEY-ID}",
@@ -61,9 +65,11 @@ class AgentsResource(BaseResource):
         path_params: GetAllApiKeysPathParams,
         query_params: Optional[GetAllApiKeysQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Agent API Keys for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/get-all-agent-api-keys-for-project/
-        Description: No description."""
+        """
+        ## Get All Agent API Keys for One Project
+        - Document: [Get All API Keys](https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/get-all-agent-api-keys-for-project/)
+        - Resource: `GET /groups/{PROJECT-ID}/agentapikeys`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/agentapikeys",
@@ -78,9 +84,11 @@ class AgentsResource(BaseResource):
     def retrieve_all_versions(self,
         query_params: Optional[RetrieveAllVersionsQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve All Agent Versions
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agents/get-agent-versions-global/
-        Description: No description."""
+        """
+        ## Retrieve All Agent Versions
+        - Document: [Retrieve All Versions](https://www.mongodb.com/docs/ops-manager/current/reference/api/agents/get-agent-versions-global/)
+        - Resource: `GET /softwareComponents/versions/`
+        - Description: No description."""
         return self._request(
             "GET",
             "/softwareComponents/versions/",
@@ -99,9 +107,11 @@ class AgentsResource(BaseResource):
         path_params: RetrieveForOneProjectPathParams,
         query_params: Optional[RetrieveForOneProjectQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve All Agent Versions for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agents/get-agent-versions-per-project/
-        Description: No description."""
+        """
+        ## Retrieve All Agent Versions for One Project
+        - Document: [Retrieve for One Project](https://www.mongodb.com/docs/ops-manager/current/reference/api/agents/get-agent-versions-per-project/)
+        - Resource: `GET /groups/{PROJECT-ID}/agents/versions`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/agents/versions",
@@ -122,9 +132,11 @@ class AgentsResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Links to Agent Resources for a Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-all/
-        Description: Get links to Monitoring, Backup, and Automation Agent resources for a project."""
+        """
+        ## Get Links to Agent Resources for a Project
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-all/)
+        - Resource: `GET /groups/{PROJECT-ID}/agents`
+        - Description: Get links to Monitoring, Backup, and Automation Agent resources for a project."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/agents",
@@ -146,9 +158,11 @@ class AgentsResource(BaseResource):
         path_params: GetByTypePathParams,
         query_params: Optional[GetByTypeQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Agents by Type for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-by-type/
-        Description: Get all agents of a specified type (i.e. Monitoring, Backup, or Automation) for a project."""
+        """
+        ## Get Agents by Type for One Project
+        - Document: [Get by Type](https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-by-type/)
+        - Resource: `GET /groups/{PROJECT-ID}/agents/{TYPE}`
+        - Description: Get all agents of a specified type (i.e. Monitoring, Backup, or Automation) for a project."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/agents/{TYPE}",

@@ -29,9 +29,11 @@ class IntegrationSettingsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
-        """API: Create a Configuration for a Third-Party Service Integration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/
-        Description: No description."""
+        """
+        ## Create a Configuration for a Third-Party Service Integration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/)
+        - Resource: `POST /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
@@ -53,9 +55,11 @@ class IntegrationSettingsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete a Configuration for a Third-Party Service Integration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/
-        Description: No description."""
+        """
+        ## Delete a Configuration for a Third-Party Service Integration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/)
+        - Resource: `DELETE /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
@@ -76,9 +80,11 @@ class IntegrationSettingsResource(BaseResource):
         path_params: ReturnLatestPrometheusTargetsPathParams,
         query_params: Optional[ReturnLatestPrometheusTargetsQueryParams],
     ) -> dict[str, Any]:
-        """API: Return the Latest Targets for Prometheus
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/
-        Description: No description."""
+        """
+        ## Return the Latest Targets for Prometheus
+        - Document: [Return Latest Prometheus Targets](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/)
+        - Resource: `GET /groups/{GROUP-ID}/discovery`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/discovery",
@@ -99,9 +105,11 @@ class IntegrationSettingsResource(BaseResource):
         path_params: GetAllConfigurationsPathParams,
         query_params: Optional[GetAllConfigurationsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Configurations for Third-Party Service Integrations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/
-        Description: No description."""
+        """
+        ## Get All Configurations for Third-Party Service Integrations
+        - Document: [Get All Configurations](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/)
+        - Resource: `GET /api/public/v1.0/groups/{GROUP-ID}/integrations`
+        - Description: No description."""
         return self._request(
             "GET",
             "/api/public/v1.0/groups/{GROUP-ID}/integrations",
@@ -123,9 +131,11 @@ class IntegrationSettingsResource(BaseResource):
         path_params: GetOneConfigurationPathParams,
         query_params: Optional[GetOneConfigurationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get the Configuration of a Third-Party Service Integration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/
-        Description: No description."""
+        """
+        ## Get the Configuration of a Third-Party Service Integration
+        - Document: [Get One Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/)
+        - Resource: `GET /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
@@ -159,9 +169,11 @@ class IntegrationSettingsResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update a Configuration for a Third-Party Service Integration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/
-        Description: No description."""
+        """
+        ## Update a Configuration for a Third-Party Service Integration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/)
+        - Resource: `PUT /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",

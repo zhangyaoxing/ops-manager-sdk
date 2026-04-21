@@ -21,9 +21,11 @@ class OplogStoreResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
-        """API: Create One Oplog Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/create-one-oplog-configuration/
-        Description: Configures one new oplog store."""
+        """
+        ## Create One Oplog Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/create-one-oplog-configuration/)
+        - Resource: `POST /oplog/mongoConfigs`
+        - Description: Configures one new oplog store."""
         return self._request(
             "POST",
             "/oplog/mongoConfigs",
@@ -42,9 +44,11 @@ class OplogStoreResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Oplog Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/delete-one-oplog-configuration/
-        Description: Deletes the configuration of one oplog store."""
+        """
+        ## Delete One Oplog Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/delete-one-oplog-configuration/)
+        - Resource: `DELETE /oplog/mongoConfigs/{OPLOG-CONFIG-ID}`
+        - Description: Deletes the configuration of one oplog store."""
         return self._request(
             "DELETE",
             "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
@@ -62,9 +66,11 @@ class OplogStoreResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Oplog Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-all-oplog-configurations/
-        Description: Retrieves the configurations of all oplog stores."""
+        """
+        ## Get All Oplog Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-all-oplog-configurations/)
+        - Resource: `GET /oplog/mongoConfigs`
+        - Description: Retrieves the configurations of all oplog stores."""
         return self._request(
             "GET",
             "/oplog/mongoConfigs",
@@ -83,9 +89,11 @@ class OplogStoreResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Oplog Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-one-oplog-configuration-by-id/
-        Description: Retrieves the configuration of one oplog store."""
+        """
+        ## Get One Oplog Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-one-oplog-configuration-by-id/)
+        - Resource: `GET /oplog/mongoConfigs/{OPLOG-CONFIG-ID}`
+        - Description: Retrieves the configuration of one oplog store."""
         return self._request(
             "GET",
             "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
@@ -114,9 +122,11 @@ class OplogStoreResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Oplog Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/update-one-oplog-configuration/
-        Description: Updates the configuration of one oplog store."""
+        """
+        ## Update One Oplog Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/update-one-oplog-configuration/)
+        - Resource: `PUT /oplog/mongoConfigs/{OPLOG-CONFIG-ID}`
+        - Description: Updates the configuration of one oplog store."""
         return self._request(
             "PUT",
             "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",

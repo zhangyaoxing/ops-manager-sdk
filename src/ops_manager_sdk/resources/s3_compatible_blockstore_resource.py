@@ -38,9 +38,11 @@ class S3CompatibleBlockstoreResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One S3 Blockstore Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/create-one-s3-blockstore-configuration/
-        Description: Configures one new s3 blockstore."""
+        """
+        ## Create One S3 Blockstore Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/create-one-s3-blockstore-configuration/)
+        - Resource: `POST /snapshot/s3Configs`
+        - Description: Configures one new s3 blockstore."""
         return self._request(
             "POST",
             "/snapshot/s3Configs",
@@ -59,9 +61,11 @@ class S3CompatibleBlockstoreResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One S3-Compatible Blockstore Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/delete-one-s3-blockstore-configuration/
-        Description: Deletes the configuration of one s3 blockstore."""
+        """
+        ## Delete One S3-Compatible Blockstore Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/delete-one-s3-blockstore-configuration/)
+        - Resource: `DELETE /snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}`
+        - Description: Deletes the configuration of one s3 blockstore."""
         return self._request(
             "DELETE",
             "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
@@ -79,9 +83,11 @@ class S3CompatibleBlockstoreResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All S3 Blockstore Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/
-        Description: Retrieves the configurations of all S3 blockstores."""
+        """
+        ## Get All S3 Blockstore Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/)
+        - Resource: `GET /snapshot/s3Configs`
+        - Description: Retrieves the configurations of all S3 blockstores."""
         return self._request(
             "GET",
             "/snapshot/s3Configs",
@@ -100,9 +106,11 @@ class S3CompatibleBlockstoreResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One S3 Blockstore Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-one-s3-blockstore-configuration-by-id/
-        Description: Retrieves the configuration of one S3 blockstore."""
+        """
+        ## Get One S3 Blockstore Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-one-s3-blockstore-configuration-by-id/)
+        - Resource: `GET /snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}`
+        - Description: Retrieves the configuration of one S3 blockstore."""
         return self._request(
             "GET",
             "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
@@ -148,9 +156,11 @@ class S3CompatibleBlockstoreResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One S3 Blockstore Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/update-one-s3-blockstore-configuration/
-        Description: Updates the configuration of one s3 blockstore."""
+        """
+        ## Update One S3 Blockstore Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/update-one-s3-blockstore-configuration/)
+        - Resource: `PUT /snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}`
+        - Description: Updates the configuration of one s3 blockstore."""
         return self._request(
             "PUT",
             "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",

@@ -15,9 +15,11 @@ class SnapshotScheduleResource(BaseResource):
         path_params: GetSchedulePathParams,
         query_params: Optional[GetScheduleQueryParams],
     ) -> dict[str, Any]:
-        """API: Get the Snapshot Schedule
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/
-        Description: No description."""
+        """
+        ## Get the Snapshot Schedule
+        - Document: [Get Schedule](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/)
+        - Resource: `GET /groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule",
@@ -54,9 +56,11 @@ class SnapshotScheduleResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update the Snapshot Schedule
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-one-snapshot-schedule-by-cluster-id/
-        Description: No description."""
+        """
+        ## Update the Snapshot Schedule
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-one-snapshot-schedule-by-cluster-id/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule",

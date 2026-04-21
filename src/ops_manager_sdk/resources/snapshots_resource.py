@@ -22,9 +22,11 @@ class SnapshotsResource(BaseResource):
         query_params: Optional[ChangeExpiryQueryParams],
         body_params: Optional[ChangeExpiryBodyParams],
     ) -> dict[str, Any]:
-        """API: Change the Expiry of One Snapshot
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/change-expiry-for-one-snapshot/
-        Description: No description."""
+        """
+        ## Change the Expiry of One Snapshot
+        - Document: [Change Expiry](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/change-expiry-for-one-snapshot/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
@@ -46,9 +48,11 @@ class SnapshotsResource(BaseResource):
         path_params: GetAllConfigServerPathParams,
         query_params: Optional[GetAllConfigServerQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Snapshots for One Config Server
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-config-server/
-        Description: No description."""
+        """
+        ## Get All Snapshots for One Config Server
+        - Document: [Get All (Config Server)](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-config-server/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots",
@@ -71,9 +75,11 @@ class SnapshotsResource(BaseResource):
         path_params: GetAllClusterPathParams,
         query_params: Optional[GetAllClusterQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Snapshots for One Cluster
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-one-cluster/
-        Description: No description."""
+        """
+        ## Get All Snapshots for One Cluster
+        - Document: [Get All (Cluster)](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-one-cluster/)
+        - Resource: `GET /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots",
@@ -94,9 +100,11 @@ class SnapshotsResource(BaseResource):
         path_params: GetOneConfigServerPathParams,
         query_params: Optional[GetOneConfigServerQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Snapshot for One Config Server
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-one-snapshot-for-config-server/
-        Description: No description."""
+        """
+        ## Get One Snapshot for One Config Server
+        - Document: [Get One (Config Server)](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-one-snapshot-for-config-server/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots/{SNAPSHOT-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots/{SNAPSHOT-ID}",
@@ -117,9 +125,11 @@ class SnapshotsResource(BaseResource):
         path_params: GetOneClusterPathParams,
         query_params: Optional[GetOneClusterQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Snapshot for One Cluster
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-one-snapshot-for-one-cluster/
-        Description: No description."""
+        """
+        ## Get One Snapshot for One Cluster
+        - Document: [Get One (Cluster)](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-one-snapshot-for-one-cluster/)
+        - Resource: `GET /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
@@ -140,9 +150,11 @@ class SnapshotsResource(BaseResource):
         path_params: RemoveOnePathParams,
         query_params: Optional[RemoveOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove One Snapshot from a Cluster
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/remove-one-snapshot-from-one-cluster/
-        Description: No description."""
+        """
+        ## Remove One Snapshot from a Cluster
+        - Document: [Remove One](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/remove-one-snapshot-from-one-cluster/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
@@ -162,9 +174,11 @@ class SnapshotsResource(BaseResource):
         path_params: CreateOneOnDemandClusterPathParams,
         query_params: CreateOneOnDemandClusterQueryParams,
     ) -> dict[str, Any]:
-        """API: Create an On-Demand Snapshot
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/take-an-on-demand-snapshot/
-        Description: No description."""
+        """
+        ## Create an On-Demand Snapshot
+        - Document: [Create One On-Demand (Cluster)](https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/take-an-on-demand-snapshot/)
+        - Resource: `POST /groups/{groupId}/clusters/{clusterId}/snapshots/onDemandSnapshot`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{groupId}/clusters/{clusterId}/snapshots/onDemandSnapshot",

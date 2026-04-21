@@ -12,9 +12,11 @@ class FeatureControlPoliciesResource(BaseResource):
     def retrieve_all(self,
         query_params: Optional[RetrieveAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve All Feature Policies
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/get-all-feature-control-policies/
-        Description: No description."""
+        """
+        ## Retrieve All Feature Policies
+        - Document: [Retrieve All](https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/get-all-feature-control-policies/)
+        - Resource: `GET /groups/availablePolicies`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/availablePolicies",
@@ -35,9 +37,11 @@ class FeatureControlPoliciesResource(BaseResource):
         path_params: RetrieveForOneProjectPathParams,
         query_params: Optional[RetrieveForOneProjectQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve Feature Policies for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/get-controlled-features-for-one-project/
-        Description: No description."""
+        """
+        ## Retrieve Feature Policies for One Project
+        - Document: [Retrieve for One Project](https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/get-controlled-features-for-one-project/)
+        - Resource: `GET /groups/{PROJECT-ID}/controlledFeature`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/controlledFeature",
@@ -72,9 +76,11 @@ class FeatureControlPoliciesResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update Feature Policies for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/update-controlled-features-for-one-project/
-        Description: No description."""
+        """
+        ## Update Feature Policies for One Project
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/update-controlled-features-for-one-project/)
+        - Resource: `PUT /groups/{PROJECT-ID}/controlledFeature`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/controlledFeature",

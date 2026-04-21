@@ -19,9 +19,11 @@ class TeamsResource(BaseResource):
         query_params: Optional[AddUsersQueryParams],
         body_params: list[Optional[AddUsersBodyParams]],
     ) -> dict[str, Any]:
-        """API: Add Users to Team
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-add-user/
-        Description: No description."""
+        """
+        ## Add Users to Team
+        - Document: [Add Users](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-add-user/)
+        - Resource: `POST /orgs/{ORG-ID}/teams/{TEAM-ID}/users`
+        - Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
@@ -44,9 +46,11 @@ class TeamsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
-        """API: Create a Team
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-create-one/
-        Description: No description."""
+        """
+        ## Create a Team
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-create-one/)
+        - Resource: `POST /orgs/{ORG-ID}/teams`
+        - Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/teams",
@@ -66,9 +70,11 @@ class TeamsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Team
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-delete-one/
-        Description: No description."""
+        """
+        ## Delete One Team
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-delete-one/)
+        - Resource: `DELETE /orgs/{ORG-ID}/teams/{TEAM-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}",
@@ -90,9 +96,11 @@ class TeamsResource(BaseResource):
         path_params: GetAllTeamUsersPathParams,
         query_params: Optional[GetAllTeamUsersQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Users Assigned to a Team
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all-users/
-        Description: No description."""
+        """
+        ## Get All Users Assigned to a Team
+        - Document: [Get All Team Users](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all-users/)
+        - Resource: `GET /orgs/{ORG-ID}/teams/{TEAM-ID}/users`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
@@ -113,9 +121,11 @@ class TeamsResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Teams
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all/
-        Description: No description."""
+        """
+        ## Get All Teams
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all/)
+        - Resource: `GET /orgs/{ORG-ID}/teams`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams",
@@ -135,9 +145,11 @@ class TeamsResource(BaseResource):
         path_params: GetOneByIdPathParams,
         query_params: Optional[GetOneByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Team by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-id/
-        Description: No description."""
+        """
+        ## Get One Team by ID
+        - Document: [Get One by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-id/)
+        - Resource: `GET /orgs/{ORG-ID}/teams/{TEAM-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}",
@@ -157,9 +169,11 @@ class TeamsResource(BaseResource):
         path_params: GetOneByNamePathParams,
         query_params: Optional[GetOneByNameQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Team by Name
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-name/
-        Description: No description."""
+        """
+        ## Get One Team by Name
+        - Document: [Get One by Name](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-name/)
+        - Resource: `GET /orgs/{ORG-ID}/teams/byName/{TEAM-NAME}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/teams/byName/{TEAM-NAME}",
@@ -180,9 +194,11 @@ class TeamsResource(BaseResource):
         path_params: RemoveUserPathParams,
         query_params: Optional[RemoveUserQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove a User from a Team
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-user/
-        Description: No description."""
+        """
+        ## Remove a User from a Team
+        - Document: [Remove User](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-user/)
+        - Resource: `DELETE /orgs/{ORG-ID}/teams/{TEAM-ID}/users/{USER-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}/users/{USER-ID}",
@@ -206,9 +222,11 @@ class TeamsResource(BaseResource):
         query_params: Optional[RenameQueryParams],
         body_params: Optional[RenameBodyParams],
     ) -> dict[str, Any]:
-        """API: Rename a Team
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-rename-one/
-        Description: No description."""
+        """
+        ## Rename a Team
+        - Document: [Rename](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-rename-one/)
+        - Resource: `PATCH /orgs/{ORG-ID}/teams/{TEAM-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/orgs/{ORG-ID}/teams/{TEAM-ID}",
@@ -232,9 +250,11 @@ class TeamsResource(BaseResource):
         query_params: Optional[UpdateRolesQueryParams],
         body_params: list[UpdateRolesBodyParams],
     ) -> dict[str, Any]:
-        """API: Update Team Roles in One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-update-roles/
-        Description: No description."""
+        """
+        ## Update Team Roles in One Project
+        - Document: [Update Roles](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-update-roles/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/teams/{TEAM-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/teams/{TEAM-ID}",

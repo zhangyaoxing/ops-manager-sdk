@@ -15,9 +15,11 @@ class GlobalApiKeysResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Global API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-api-key/
-        Description: Create one Global API Key for Ops Manager."""
+        """
+        ## Create One Global API Key
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-api-key/)
+        - Resource: `POST /admin/apiKeys`
+        - Description: Create one Global API Key for Ops Manager."""
         return self._request(
             "POST",
             "/admin/apiKeys",
@@ -36,9 +38,11 @@ class GlobalApiKeysResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Global API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-api-key/
-        Description: Delete one Global API Key from Ops Manager using the unique identifier for that Key."""
+        """
+        ## Delete One Global API Key
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-api-key/)
+        - Resource: `DELETE /admin/apiKeys/{API-KEY-ID}`
+        - Description: Delete one Global API Key from Ops Manager using the unique identifier for that Key."""
         return self._request(
             "DELETE",
             "/admin/apiKeys/{API-KEY-ID}",
@@ -55,9 +59,11 @@ class GlobalApiKeysResource(BaseResource):
     def get_all_roles(self,
         query_params: Optional[GetAllRolesQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Roles for Global API Keys
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-key-roles/
-        Description: Return a list of acceptable Global Roles for Global API Keys."""
+        """
+        ## Get All Roles for Global API Keys
+        - Document: [Get All Roles](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-key-roles/)
+        - Resource: `GET /admin/apiKeys/roles`
+        - Description: Return a list of acceptable Global Roles for Global API Keys."""
         return self._request(
             "GET",
             "/admin/apiKeys/roles",
@@ -74,9 +80,11 @@ class GlobalApiKeysResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Global API Keys
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-keys/
-        Description: Return all Global API Keys for Ops Manager."""
+        """
+        ## Get All Global API Keys
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-keys/)
+        - Resource: `GET /admin/apiKeys`
+        - Description: Return all Global API Keys for Ops Manager."""
         return self._request(
             "GET",
             "/admin/apiKeys",
@@ -95,9 +103,11 @@ class GlobalApiKeysResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Global API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-api-key/
-        Description: Return one Global API Key for Ops Manager using the unique identifier for that Key."""
+        """
+        ## Get One Global API Key
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-api-key/)
+        - Resource: `GET /admin/apiKeys/{API-KEY-ID}`
+        - Description: Return one Global API Key for Ops Manager using the unique identifier for that Key."""
         return self._request(
             "GET",
             "/admin/apiKeys/{API-KEY-ID}",
@@ -121,9 +131,11 @@ class GlobalApiKeysResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Global API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-api-key/
-        Description: Update values of one Global API Key from Ops Manager using the unique identifier for that Key."""
+        """
+        ## Update One Global API Key
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-api-key/)
+        - Resource: `PATCH /admin/apiKeys/{API-KEY-ID}`
+        - Description: Update values of one Global API Key from Ops Manager using the unique identifier for that Key."""
         return self._request(
             "PATCH",
             "/admin/apiKeys/{API-KEY-ID}",

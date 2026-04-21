@@ -20,9 +20,11 @@ class AccessListResource(BaseResource):
         query_params: Optional[AddEntriesQueryParams],
         body_params: list[AddEntriesBodyParams],
     ) -> dict[str, Any]:
-        """API: Add Entries to an Access List
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-add-entries/
-        Description: No description."""
+        """
+        ## Add Entries to an Access List
+        - Document: [Add Entries](https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-add-entries/)
+        - Resource: `POST /users/{USER-ID}/accessList`
+        - Description: No description."""
         return self._request(
             "POST",
             "/users/{USER-ID}/accessList",
@@ -42,9 +44,11 @@ class AccessListResource(BaseResource):
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Entry from One Access List
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-delete-entry/
-        Description: No description."""
+        """
+        ## Delete One Entry from One Access List
+        - Document: [Delete Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-delete-entry/)
+        - Resource: `DELETE /users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
@@ -65,9 +69,11 @@ class AccessListResource(BaseResource):
         path_params: GetForCurrentUserPathParams,
         query_params: Optional[GetForCurrentUserQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Access List for the Current User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-current-user/
-        Description: No description."""
+        """
+        ## Get Access List for the Current User
+        - Document: [Get for Current User](https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-current-user/)
+        - Resource: `GET /users/{USER-ID}/accessList`
+        - Description: No description."""
         return self._request(
             "GET",
             "/users/{USER-ID}/accessList",
@@ -87,9 +93,11 @@ class AccessListResource(BaseResource):
         path_params: GetForIpAddressPathParams,
         query_params: Optional[GetForIpAddressQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Access List for an IP Address
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-ip-address/
-        Description: Retrieves an access list entity if the value of IP-ADDRESS equals the value of the entity's ipAddress field. This does not retrieve an object where the value of IP-ADDRESS is contained within the values allowed by the cidrBlock field."""
+        """
+        ## Get Access List for an IP Address
+        - Document: [Get for IP Address](https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-ip-address/)
+        - Resource: `GET /users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}`
+        - Description: Retrieves an access list entity if the value of IP-ADDRESS equals the value of the entity's ipAddress field. This does not retrieve an object where the value of IP-ADDRESS is contained within the values allowed by the cidrBlock field."""
         return self._request(
             "GET",
             "/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",

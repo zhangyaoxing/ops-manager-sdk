@@ -12,9 +12,11 @@ class RootResource(BaseResource):
     def root(self,
         query_params: Optional[RootQueryParams],
     ) -> dict[str, Any]:
-        """API: Root
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/root/
-        Description: The root resource is the starting point for the Ops Manager API. From here, you can traverse the links to reach all other API resources."""
+        """
+        ## Root
+        - Document: [Root](https://www.mongodb.com/docs/ops-manager/current/reference/api/root/)
+        - Resource: `GET /`
+        - Description: The root resource is the starting point for the Ops Manager API. From here, you can traverse the links to reach all other API resources."""
         return self._request(
             "GET",
             "/",

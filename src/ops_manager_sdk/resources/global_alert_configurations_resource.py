@@ -16,9 +16,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
         path_params: GetAllOpenAlertsPathParams,
         query_params: Optional[GetAllOpenAlertsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Open Alerts Triggered by One Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configuration-get-all-open-alerts-triggered/
-        Description: Retrieve all open alerts triggered by a global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID."""
+        """
+        ## Get All Open Alerts Triggered by One Global Alert Configuration
+        - Document: [Get All Open Alerts](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configuration-get-all-open-alerts-triggered/)
+        - Resource: `GET /globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}/alerts`
+        - Description: Retrieve all open alerts triggered by a global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID."""
         return self._request(
             "GET",
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}/alerts",
@@ -81,9 +83,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-create-one/
-        Description: Create one global alert configuration."""
+        """
+        ## Create One Global Alert Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-create-one/)
+        - Resource: `POST /globalAlertConfigs`
+        - Description: Create one global alert configuration."""
         return self._request(
             "POST",
             "/globalAlertConfigs",
@@ -102,9 +106,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-delete-one/
-        Description: Delete one global alert configuration."""
+        """
+        ## Delete One Global Alert Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-delete-one/)
+        - Resource: `DELETE /globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}`
+        - Description: Delete one global alert configuration."""
         return self._request(
             "DELETE",
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
@@ -121,9 +127,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Global Alert Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-all/
-        Description: Retrieve all global alert configurations."""
+        """
+        ## Get All Global Alert Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-all/)
+        - Resource: `GET /globalAlertConfigs`
+        - Description: Retrieve all global alert configurations."""
         return self._request(
             "GET",
             "/globalAlertConfigs",
@@ -142,9 +150,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-one/
-        Description: Retrieve one global alert configuration by its GLOBAL-ALERT-CONFIG-ID."""
+        """
+        ## Get One Global Alert Configuration
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-one/)
+        - Resource: `GET /globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}`
+        - Description: Retrieve one global alert configuration by its GLOBAL-ALERT-CONFIG-ID."""
         return self._request(
             "GET",
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
@@ -159,9 +169,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
     def test_global_alert_configuration(self,
         path_params: TestGlobalAlertConfigurationPathParams,
     ) -> dict[str, Any]:
-        """API: Test Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/
-        Description: Triggers a test notification for a specific notification method in a global alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."""
+        """
+        ## Test Global Alert Configuration
+        - Document: [Test Global Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/)
+        - Resource: `POST /api/public/v1.0/globalAlertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`
+        - Description: Triggers a test notification for a specific notification method in a global alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."""
         return self._request(
             "POST",
             "/api/public/v1.0/globalAlertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test",
@@ -184,9 +196,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
         query_params: Optional[EnableOrDisableQueryParams],
         body_params: EnableOrDisableBodyParams,
     ) -> dict[str, Any]:
-        """API: Enable or Disable One Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-toggle-one/
-        Description: Enable or disable one global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID."""
+        """
+        ## Enable or Disable One Global Alert Configuration
+        - Document: [Enable or Disable](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-toggle-one/)
+        - Resource: `PATCH /globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}`
+        - Description: Enable or disable one global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID."""
         return self._request(
             "PATCH",
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
@@ -253,9 +267,11 @@ class GlobalAlertConfigurationsResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Global Alert Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-update-one/
-        Description: Update one global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID."""
+        """
+        ## Update One Global Alert Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-update-one/)
+        - Resource: `PUT /globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}`
+        - Description: Update one global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID."""
         return self._request(
             "PUT",
             "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",

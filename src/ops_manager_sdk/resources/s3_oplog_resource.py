@@ -36,9 +36,11 @@ class S3OplogResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One S3 Oplog Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/create-one-s3-oplog-configuration/
-        Description: Configures one new s3 oplog store."""
+        """
+        ## Create One S3 Oplog Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/create-one-s3-oplog-configuration/)
+        - Resource: `POST /oplog/s3Configs`
+        - Description: Configures one new s3 oplog store."""
         return self._request(
             "POST",
             "/oplog/s3Configs",
@@ -57,9 +59,11 @@ class S3OplogResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One S3-Compatible Oplog Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/delete-one-s3-oplog-configuration/
-        Description: Deletes the configuration of one S3-compatible oplog store."""
+        """
+        ## Delete One S3-Compatible Oplog Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/delete-one-s3-oplog-configuration/)
+        - Resource: `DELETE /oplog/s3Configs/{S3-OPLOG-CONFIG-ID}`
+        - Description: Deletes the configuration of one S3-compatible oplog store."""
         return self._request(
             "DELETE",
             "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
@@ -77,9 +81,11 @@ class S3OplogResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All S3 Oplog Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-all-s3-oplog-configurations/
-        Description: Retrieves the configurations of all s3 oplog stores."""
+        """
+        ## Get All S3 Oplog Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-all-s3-oplog-configurations/)
+        - Resource: `GET /oplog/s3Configs`
+        - Description: Retrieves the configurations of all s3 oplog stores."""
         return self._request(
             "GET",
             "/oplog/s3Configs",
@@ -98,9 +104,11 @@ class S3OplogResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One S3 Oplog Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-one-s3-oplog-configuration-by-id/
-        Description: Retrieves the configuration of one s3 oplog store."""
+        """
+        ## Get One S3 Oplog Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-one-s3-oplog-configuration-by-id/)
+        - Resource: `GET /oplog/s3Configs/{S3-OPLOG-CONFIG-ID}`
+        - Description: Retrieves the configuration of one s3 oplog store."""
         return self._request(
             "GET",
             "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
@@ -144,9 +152,11 @@ class S3OplogResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One S3 Oplog Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/update-one-s3-oplog-configuration/
-        Description: Updates the configuration of one s3 oplog store."""
+        """
+        ## Update One S3 Oplog Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/update-one-s3-oplog-configuration/)
+        - Resource: `PUT /oplog/s3Configs/{S3-OPLOG-CONFIG-ID}`
+        - Description: Updates the configuration of one s3 oplog store."""
         return self._request(
             "PUT",
             "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",

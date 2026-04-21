@@ -20,9 +20,11 @@ class GlobalAlertsResource(BaseResource):
         query_params: Optional[AcknowledgeOneQueryParams],
         body_params: AcknowledgeOneBodyParams,
     ) -> dict[str, Any]:
-        """API: Acknowledge One Global Alert
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-ack-one/
-        Description: You can acknowledge one alert until the time and date you specify. You can also un-acknowledge an alert by specifying a date and time in the past."""
+        """
+        ## Acknowledge One Global Alert
+        - Document: [Acknowledge One](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-ack-one/)
+        - Resource: `PATCH /globalAlerts/{ALERT-ID}`
+        - Description: You can acknowledge one alert until the time and date you specify. You can also un-acknowledge an alert by specifying a date and time in the past."""
         return self._request(
             "PATCH",
             "/globalAlerts/{ALERT-ID}",
@@ -42,9 +44,11 @@ class GlobalAlertsResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Global Alerts
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/
-        Description: Retrieve all global alerts."""
+        """
+        ## Get All Global Alerts
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/)
+        - Resource: `GET /globalAlerts`
+        - Description: Retrieve all global alerts."""
         return self._request(
             "GET",
             "/globalAlerts",
@@ -63,9 +67,11 @@ class GlobalAlertsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Global Alert
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-one/
-        Description: Retrieve one alert by its ALERT-ID."""
+        """
+        ## Get One Global Alert
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-one/)
+        - Resource: `GET /globalAlerts/{ALERT-ID}`
+        - Description: Retrieve one alert by its ALERT-ID."""
         return self._request(
             "GET",
             "/globalAlerts/{ALERT-ID}",

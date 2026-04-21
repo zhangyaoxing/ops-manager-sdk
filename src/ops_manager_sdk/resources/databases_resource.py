@@ -16,9 +16,11 @@ class DatabasesResource(BaseResource):
         path_params: GetByNamePathParams,
         query_params: Optional[GetByNameQueryParams],
     ) -> dict[str, Any]:
-        """API: Get a Database by Name
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/database-get-by-name/
-        Description: No description."""
+        """
+        ## Get a Database by Name
+        - Document: [Get by Name](https://www.mongodb.com/docs/ops-manager/current/reference/api/database-get-by-name/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}",
@@ -40,9 +42,11 @@ class DatabasesResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Databases on One Host
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/databases-get-all-on-host/
-        Description: Retrieve all databases running on the specified host."""
+        """
+        ## Get All Databases on One Host
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/databases-get-all-on-host/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/databases`
+        - Description: Retrieve all databases running on the specified host."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases",

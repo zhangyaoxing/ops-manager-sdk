@@ -16,9 +16,11 @@ class DisksResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get a Disk Partition
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/disk-get-one/
-        Description: Retrieves a disk partition."""
+        """
+        ## Get a Disk Partition
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/disk-get-one/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}`
+        - Description: Retrieves a disk partition."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}",
@@ -40,9 +42,11 @@ class DisksResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get all Disk Partitions
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/disks-get-all/
-        Description: Retrieves all disk partitions on the specified host."""
+        """
+        ## Get all Disk Partitions
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/disks-get-all/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/disks`
+        - Description: Retrieves all disk partitions on the specified host."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks",

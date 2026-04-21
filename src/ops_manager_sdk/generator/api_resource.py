@@ -187,9 +187,11 @@ class APIResource:
         code_gen_data[class_name] = []
         for api in self.apis:
             verb, path = self._resolve_endpoint(api["endpoints"][0])
-            doc = f"""API: {api['title']}
-        Document: {api['doc_url']}
-        Description: {api.get('description', '')}"""
+            doc = f"""
+        ## {api['title']}
+        - Document: [{api['name']}]({api['doc_url']})
+        - Resource: `{api["endpoints"][0]}`
+        - Description: {api.get('description', '')}"""
             path_required, path_params = self._resolve_params(api.get("path_params", []))
             query_required, query_params = self._resolve_params(api.get("query_params", []))
             body_required, body_params = self._resolve_params(api.get("body_params", []))

@@ -21,9 +21,11 @@ class SyncStoreResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
-        """API: Create One Sync Store Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/create-one-sync-store-configuration/
-        Description: Configures one new sync store."""
+        """
+        ## Create One Sync Store Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/create-one-sync-store-configuration/)
+        - Resource: `POST /sync/mongoConfigs`
+        - Description: Configures one new sync store."""
         return self._request(
             "POST",
             "/sync/mongoConfigs",
@@ -42,9 +44,11 @@ class SyncStoreResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Sync Store Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/delete-one-sync-store-configuration/
-        Description: Deletes the configuration of one sync store."""
+        """
+        ## Delete One Sync Store Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/delete-one-sync-store-configuration/)
+        - Resource: `DELETE /sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}`
+        - Description: Deletes the configuration of one sync store."""
         return self._request(
             "DELETE",
             "/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
@@ -62,9 +66,11 @@ class SyncStoreResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Sync Store Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-all-sync-store-configurations/
-        Description: Retrieves the configurations of all sync stores."""
+        """
+        ## Get All Sync Store Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-all-sync-store-configurations/)
+        - Resource: `GET /sync/mongoConfigs`
+        - Description: Retrieves the configurations of all sync stores."""
         return self._request(
             "GET",
             "/sync/mongoConfigs",
@@ -83,9 +89,11 @@ class SyncStoreResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Sync Store Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-one-sync-store-configuration-by-id/
-        Description: Retrieves the configuration of one sync store."""
+        """
+        ## Get One Sync Store Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-one-sync-store-configuration-by-id/)
+        - Resource: `GET /sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}`
+        - Description: Retrieves the configuration of one sync store."""
         return self._request(
             "GET",
             "/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
@@ -114,9 +122,11 @@ class SyncStoreResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Sync Store Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/update-one-sync-store-configuration/
-        Description: Updates the configuration of one sync store."""
+        """
+        ## Update One Sync Store Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/update-one-sync-store-configuration/)
+        - Resource: `PUT /sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}`
+        - Description: Updates the configuration of one sync store."""
         return self._request(
             "PUT",
             "/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",

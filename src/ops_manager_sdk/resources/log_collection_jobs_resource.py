@@ -15,9 +15,11 @@ class LogCollectionJobsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete a Log Collection Job
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-delete-one/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to delete a specified log collection job. You can delete both in-progress jobs and completed jobs."""
+        """
+        ## Delete a Log Collection Job
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-delete-one/)
+        - Resource: `DELETE /groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to delete a specified log collection job. You can delete both in-progress jobs and completed jobs."""
         return self._request(
             "DELETE",
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
@@ -37,9 +39,11 @@ class LogCollectionJobsResource(BaseResource):
         path_params: DownloadLogsPathParams,
         query_params: Optional[DownloadLogsQueryParams],
     ) -> dict[str, Any]:
-        """API: Download Logs from a Log Collection Job
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-download-job/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to download a .tar.gz file stream for all logs associated with the specified job."""
+        """
+        ## Download Logs from a Log Collection Job
+        - Document: [Download Logs](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-download-job/)
+        - Resource: `GET /groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/download`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to download a .tar.gz file stream for all logs associated with the specified job."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/download",
@@ -61,9 +65,11 @@ class LogCollectionJobsResource(BaseResource):
         path_params: GetAllJobsPathParams,
         query_params: Optional[GetAllJobsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Log Collection Jobs for One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-all/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retrieve all log collection jobs for a specified Ops Manager project."""
+        """
+        ## Get All Log Collection Jobs for One Project
+        - Document: [Get All Jobs](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-all/)
+        - Resource: `GET /groups/{GROUP-ID}/logCollectionJobs`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retrieve all log collection jobs for a specified Ops Manager project."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/logCollectionJobs",
@@ -86,9 +92,11 @@ class LogCollectionJobsResource(BaseResource):
         path_params: GetJobPathParams,
         query_params: Optional[GetJobQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Log Collection Job
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retrieve a single log collection job by its unique identifier."""
+        """
+        ## Get One Log Collection Job
+        - Document: [Get Job](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/)
+        - Resource: `GET /groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retrieve a single log collection job by its unique identifier."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
@@ -108,9 +116,11 @@ class LogCollectionJobsResource(BaseResource):
         path_params: RetryPathParams,
         query_params: Optional[RetryQueryParams],
     ) -> dict[str, Any]:
-        """API: Retry a Failed Log Collection Job
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-retry/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retry a single failed log collection job."""
+        """
+        ## Retry a Failed Log Collection Job
+        - Document: [Retry](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-retry/)
+        - Resource: `PUT /groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/retry`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retry a single failed log collection job."""
         return self._request(
             "PUT",
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/retry",
@@ -137,9 +147,11 @@ class LogCollectionJobsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create a Log Collection Job
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-submit/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to create a new log collection job."""
+        """
+        ## Create a Log Collection Job
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-submit/)
+        - Resource: `POST /groups/{GROUP-ID}/logCollectionJobs`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to create a new log collection job."""
         return self._request(
             "POST",
             "/groups/{GROUP-ID}/logCollectionJobs",
@@ -163,9 +175,11 @@ class LogCollectionJobsResource(BaseResource):
         query_params: Optional[ExtendQueryParams],
         body_params: ExtendBodyParams,
     ) -> dict[str, Any]:
-        """API: Extend a Log Collection Job
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-update-one/
-        Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Each job is created with a specified expiration date. Use this endpoint to extend the expiration date of an existing log collection job."""
+        """
+        ## Extend a Log Collection Job
+        - Document: [Extend](https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-update-one/)
+        - Resource: `PATCH /groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}`
+        - Description: When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Each job is created with a specified expiration date. Use this endpoint to extend the expiration date of an existing log collection job."""
         return self._request(
             "PATCH",
             "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",

@@ -23,9 +23,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[AddExistingUsersQueryParams],
         body_params: Optional[AddExistingUsersBodyParams],
     ) -> dict[str, Any]:
-        """API: Add Existing Users to One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/add-users-to-one-group/
-        Description: This resource adds users who exist in Ops Manager to another project. It does not create new users and add them to a project. By default, users first receive an invitation to the project. You can add users directly to a project only if you set the mms.user.bypassInviteForExistingUsers setting to true."""
+        """
+        ## Add Existing Users to One Project
+        - Document: [Add Existing Users](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/add-users-to-one-group/)
+        - Resource: `POST /groups/{PROJECT-ID}/users`
+        - Description: This resource adds users who exist in Ops Manager to another project. It does not create new users and add them to a project. By default, users first receive an invitation to the project. You can add users directly to a project only if you set the mms.user.bypassInviteForExistingUsers setting to true."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/users",
@@ -50,9 +52,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/change-one-group-name/
-        Description: Use this endpoint to make any of the following changes to one project:"""
+        """
+        ## Update One Project
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/change-one-group-name/)
+        - Resource: `PATCH /groups/{PROJECT-ID}`
+        - Description: Use this endpoint to make any of the following changes to one project:"""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}",
@@ -72,9 +76,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/create-one-group/
-        Description: No description."""
+        """
+        ## Create One Project
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/create-one-group/)
+        - Resource: `POST /groups`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups",
@@ -93,9 +99,11 @@ class ProjectsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/delete-one-group/
-        Description: No description."""
+        """
+        ## Delete One Project
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/delete-one-group/)
+        - Resource: `DELETE /groups/{PROJECT-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}",
@@ -112,9 +120,11 @@ class ProjectsResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Projects for the Current User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-groups-for-current-user/
-        Description: No description."""
+        """
+        ## Get All Projects for the Current User
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-groups-for-current-user/)
+        - Resource: `GET /groups`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups",
@@ -128,9 +138,11 @@ class ProjectsResource(BaseResource):
     def get_by_specific_tags_for_the_current_user(self,
         query_params: Optional[GetBySpecificTagsForTheCurrentUserQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Projects with Specific Tags for the Current User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-groups-with-specific-tags-for-current-user/
-        Description: No description."""
+        """
+        ## Get All Projects with Specific Tags for the Current User
+        - Document: [Get by Specific Tags for the Current User](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-groups-with-specific-tags-for-current-user/)
+        - Resource: `GET /groups`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups",
@@ -149,9 +161,11 @@ class ProjectsResource(BaseResource):
         path_params: GetAllUsersPathParams,
         query_params: Optional[GetAllUsersQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Users in One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-users-in-one-group/
-        Description: No description."""
+        """
+        ## Get All Users in One Project
+        - Document: [Get All Users](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-users-in-one-group/)
+        - Resource: `GET /groups/{PROJECT-ID}/users`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/users",
@@ -170,9 +184,11 @@ class ProjectsResource(BaseResource):
         path_params: GetByAgentApiKeyPathParams,
         query_params: Optional[GetByAgentApiKeyQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Project by Agent API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-agent-api-key/
-        Description: No description."""
+        """
+        ## Get One Project by Agent API Key
+        - Document: [Get by Agent API Key](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-agent-api-key/)
+        - Resource: `GET /groups/byAgentApiKey/{AGENT-API-KEY}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/byAgentApiKey/{AGENT-API-KEY}",
@@ -191,9 +207,11 @@ class ProjectsResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Project by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-id/
-        Description: No description."""
+        """
+        ## Get One Project by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-id/)
+        - Resource: `GET /groups/{PROJECT-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}",
@@ -212,9 +230,11 @@ class ProjectsResource(BaseResource):
         path_params: GetByNamePathParams,
         query_params: Optional[GetByNameQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Project by Name
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-name/
-        Description: No description."""
+        """
+        ## Get One Project by Name
+        - Document: [Get by Name](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-name/)
+        - Resource: `GET /groups/byName/{GROUP-NAME}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/byName/{GROUP-NAME}",
@@ -240,9 +260,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[AddTeamsQueryParams],
         body_params: list[Optional[AddTeamsBodyParams]],
     ) -> dict[str, Any]:
-        """API: Add Teams to a Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-add-team/
-        Description: No description."""
+        """
+        ## Add Teams to a Project
+        - Document: [Add Teams](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-add-team/)
+        - Resource: `POST /groups/{PROJECT-ID}/teams`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/teams",
@@ -263,9 +285,11 @@ class ProjectsResource(BaseResource):
         path_params: GetAllTeamsPathParams,
         query_params: Optional[GetAllTeamsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Teams in One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-get-teams/
-        Description: No description."""
+        """
+        ## Get All Teams in One Project
+        - Document: [Get All Teams](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-get-teams/)
+        - Resource: `GET /groups/{PROJECT-ID}/teams`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/teams",
@@ -285,9 +309,11 @@ class ProjectsResource(BaseResource):
         path_params: RemoveUserPathParams,
         query_params: Optional[RemoveUserQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove One User from One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/remove-one-user-from-one-group/
-        Description: No description."""
+        """
+        ## Remove One User from One Project
+        - Document: [Remove User](https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/remove-one-user-from-one-group/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/users/{USER-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/users/{USER-ID}",
@@ -311,9 +337,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[CreateInvitationQueryParams],
         body_params: Optional[CreateInvitationBodyParams],
     ) -> dict[str, Any]:
-        """API: Create One Project Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/create-one-invitation/
-        Description: Retrieve details for one pending invitation to the specified Ops Manager project."""
+        """
+        ## Create One Project Invitation
+        - Document: [Create Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/create-one-invitation/)
+        - Resource: `POST /groups/{GROUP-ID}/invites/`
+        - Description: Retrieve details for one pending invitation to the specified Ops Manager project."""
         return self._request(
             "POST",
             "/groups/{GROUP-ID}/invites/",
@@ -333,9 +361,11 @@ class ProjectsResource(BaseResource):
         path_params: DeleteInvitationPathParams,
         query_params: Optional[DeleteInvitationQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Project Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/delete-one-invitation/
-        Description: Deletes one pending invitation to the Ops Manager project that you specify. You can't delete an invitation that a user has accepted."""
+        """
+        ## Delete One Project Invitation
+        - Document: [Delete Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/delete-one-invitation/)
+        - Resource: `DELETE /groups/{GROUP-ID}/invites/{INVITATION-ID}`
+        - Description: Deletes one pending invitation to the Ops Manager project that you specify. You can't delete an invitation that a user has accepted."""
         return self._request(
             "DELETE",
             "/groups/{GROUP-ID}/invites/{INVITATION-ID}",
@@ -355,9 +385,11 @@ class ProjectsResource(BaseResource):
         path_params: GetAllInvitationsPathParams,
         query_params: Optional[GetAllInvitationsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Project Invitations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-all-invitations/
-        Description: Retrieves all pending invitations to the specified Ops Manager project."""
+        """
+        ## Get All Project Invitations
+        - Document: [Get All Invitations](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-all-invitations/)
+        - Resource: `GET /groups/{GROUP-ID}/invites`
+        - Description: Retrieves all pending invitations to the specified Ops Manager project."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/invites",
@@ -377,9 +409,11 @@ class ProjectsResource(BaseResource):
         path_params: GetOneInvitationPathParams,
         query_params: Optional[GetOneInvitationQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Project Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-one-invitation/
-        Description: Retrieve details for one pending invitation to the specified Ops Manager project."""
+        """
+        ## Get One Project Invitation
+        - Document: [Get One Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-one-invitation/)
+        - Resource: `GET /groups/{GROUP-ID}/invites/{INVITATION-ID}`
+        - Description: Retrieve details for one pending invitation to the specified Ops Manager project."""
         return self._request(
             "GET",
             "/groups/{GROUP-ID}/invites/{INVITATION-ID}",
@@ -403,9 +437,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[UpdateInvitationByInvitationIdQueryParams],
         body_params: UpdateInvitationByInvitationIdBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Project Invitation by Invitation ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation-by-id/
-        Description: Updates one pending invitation by {INVITATION-ID} to the Ops Manager project that you specify."""
+        """
+        ## Update One Project Invitation by Invitation ID
+        - Document: [Update Invitation by Invitation ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation-by-id/)
+        - Resource: `PATCH /groups/{GROUP-ID}/invites/{INVITATION-ID}`
+        - Description: Updates one pending invitation by {INVITATION-ID} to the Ops Manager project that you specify."""
         return self._request(
             "PATCH",
             "/groups/{GROUP-ID}/invites/{INVITATION-ID}",
@@ -429,9 +465,11 @@ class ProjectsResource(BaseResource):
         query_params: Optional[UpdateInvitationQueryParams],
         body_params: UpdateInvitationBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Project Invitation
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation/
-        Description: Updates one pending invitation to the Ops Manager project that you specify."""
+        """
+        ## Update One Project Invitation
+        - Document: [Update Invitation](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation/)
+        - Resource: `PATCH /groups/{GROUP-ID}/invites`
+        - Description: Updates one pending invitation to the Ops Manager project that you specify."""
         return self._request(
             "PATCH",
             "/groups/{GROUP-ID}/invites",
@@ -453,9 +491,11 @@ class ProjectsResource(BaseResource):
         path_params: RemoveTeamPathParams,
         query_params: Optional[RemoveTeamQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove One Team From One Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-from-project/
-        Description: No description."""
+        """
+        ## Remove One Team From One Project
+        - Document: [Remove Team](https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-from-project/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/teams/{TEAM-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/teams/{TEAM-ID}",

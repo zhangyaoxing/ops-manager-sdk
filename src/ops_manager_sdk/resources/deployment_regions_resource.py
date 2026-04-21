@@ -24,9 +24,11 @@ class DeploymentRegionsResource(BaseResource):
         query_params: Optional[AssignQueryParams],
         body_params: AssignBodyParams,
     ) -> dict[str, Any]:
-        """API: Assign Deployment Region to One Shard
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/assign-deployment-region/
-        Description: No description."""
+        """
+        ## Assign Deployment Region to One Shard
+        - Document: [Assign](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/assign-deployment-region/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
@@ -53,9 +55,11 @@ class DeploymentRegionsResource(BaseResource):
         query_params: Optional[CreateByIdQueryParams],
         body_params: CreateByIdBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Deployment Region by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region-by-id/
-        Description: No description."""
+        """
+        ## Create One Deployment Region by ID
+        - Document: [Create by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region-by-id/)
+        - Resource: `PUT /admin/backup/backupDeployments/{DEPLOYMENT-ID}`
+        - Description: No description."""
         return self._request(
             "PUT",
             "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
@@ -79,9 +83,11 @@ class DeploymentRegionsResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Deployment Region
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region/
-        Description: No description."""
+        """
+        ## Create One Deployment Region
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region/)
+        - Resource: `POST /admin/backup/backupDeployments`
+        - Description: No description."""
         return self._request(
             "POST",
             "/admin/backup/backupDeployments",
@@ -100,9 +106,11 @@ class DeploymentRegionsResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Deployment Region by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/delete-one-deployment-region-by-id/
-        Description: No description."""
+        """
+        ## Delete One Deployment Region by ID
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/delete-one-deployment-region-by-id/)
+        - Resource: `DELETE /admin/backup/backupDeployments/{DEPLOYMENT-ID}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
@@ -119,9 +127,11 @@ class DeploymentRegionsResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Deployment Regions
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-deployment-regions/
-        Description: No description."""
+        """
+        ## Get All Deployment Regions
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-deployment-regions/)
+        - Resource: `GET /admin/backup/backupDeployments`
+        - Description: No description."""
         return self._request(
             "GET",
             "/admin/backup/backupDeployments",
@@ -142,9 +152,11 @@ class DeploymentRegionsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Deployment Region
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-deployment-region-by-id/
-        Description: No description."""
+        """
+        ## Get One Deployment Region
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-deployment-region-by-id/)
+        - Resource: `GET /admin/backup/backupDeployments/{DEPLOYMENT-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",

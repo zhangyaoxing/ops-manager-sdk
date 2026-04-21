@@ -31,9 +31,11 @@ class BackupDaemonResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Backup Daemon Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/create-one-backup-daemon-configuration/
-        Description: Configures a new Backup Daemon."""
+        """
+        ## Create One Backup Daemon Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/create-one-backup-daemon-configuration/)
+        - Resource: `PUT /daemon/configs/{MACHINE}`
+        - Description: Configures a new Backup Daemon."""
         return self._request(
             "PUT",
             "/daemon/configs/{MACHINE}",
@@ -53,9 +55,11 @@ class BackupDaemonResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Backup Daemon Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/delete-one-backup-daemon-configuration/
-        Description: Deletes the configuration of one backup daemon."""
+        """
+        ## Delete One Backup Daemon Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/delete-one-backup-daemon-configuration/)
+        - Resource: `DELETE /daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}`
+        - Description: Deletes the configuration of one backup daemon."""
         return self._request(
             "DELETE",
             "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
@@ -73,9 +77,11 @@ class BackupDaemonResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Backup Daemon Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-all-backup-daemon-configurations/
-        Description: Retrieves the configurations of all backup daemons."""
+        """
+        ## Get All Backup Daemon Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-all-backup-daemon-configurations/)
+        - Resource: `GET /daemon/configs`
+        - Description: Retrieves the configurations of all backup daemons."""
         return self._request(
             "GET",
             "/daemon/configs",
@@ -95,9 +101,11 @@ class BackupDaemonResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Backup Daemon Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
-        Description: Retrieves the configuration of one backup daemon."""
+        """
+        ## Get One Backup Daemon Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/)
+        - Resource: `GET /daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}`
+        - Description: Retrieves the configuration of one backup daemon."""
         return self._request(
             "GET",
             "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
@@ -134,9 +142,11 @@ class BackupDaemonResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One Backup Daemon Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/update-one-backup-daemon-configuration/
-        Description: Updates the configuration of one Backup Daemon."""
+        """
+        ## Update One Backup Daemon Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/update-one-backup-daemon-configuration/)
+        - Resource: `PUT /daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}`
+        - Description: Updates the configuration of one Backup Daemon."""
         return self._request(
             "PUT",
             "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",

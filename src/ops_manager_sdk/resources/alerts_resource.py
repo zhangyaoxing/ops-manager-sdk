@@ -20,9 +20,11 @@ class AlertsResource(BaseResource):
         query_params: Optional[AcknowledgeOneQueryParams],
         body_params: Optional[AcknowledgeOneBodyParams],
     ) -> dict[str, Any]:
-        """API: Acknowledge One Alert
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-acknowledge-alert/
-        Description: No description."""
+        """
+        ## Acknowledge One Alert
+        - Document: [Acknowledge One](https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-acknowledge-alert/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/alerts/{ALERT-ID}`
+        - Description: No description."""
         return self._request(
             "PATCH",
             "/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
@@ -42,9 +44,11 @@ class AlertsResource(BaseResource):
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Alert
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-alert/
-        Description: No description."""
+        """
+        ## Get One Alert
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-alert/)
+        - Resource: `GET /groups/{PROJECT-ID}/alerts/{ALERT-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
@@ -66,9 +70,11 @@ class AlertsResource(BaseResource):
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Alerts
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-all-alerts/
-        Description: No description."""
+        """
+        ## Get All Alerts
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-all-alerts/)
+        - Resource: `GET /groups/{PROJECT-ID}/alerts`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/alerts",

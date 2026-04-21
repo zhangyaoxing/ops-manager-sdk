@@ -22,9 +22,11 @@ class OrganizationAccessListsResource(BaseResource):
         query_params: Optional[CreateEntriesQueryParams],
         body_params: list[Optional[CreateEntriesBodyParams]],
     ) -> dict[str, Any]:
-        """API: Create Access List Entries for One Organization API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-org-api-key-access-list/
-        Description: No description."""
+        """
+        ## Create Access List Entries for One Organization API Key
+        - Document: [Create Entries](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-org-api-key-access-list/)
+        - Resource: `POST /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList`
+        - Description: No description."""
         return self._request(
             "POST",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
@@ -47,9 +49,11 @@ class OrganizationAccessListsResource(BaseResource):
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Access List Entry for an API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-org-api-key-access-list/
-        Description: No description."""
+        """
+        ## Delete One Access List Entry for an API Key
+        - Document: [Delete Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-org-api-key-access-list/)
+        - Resource: `DELETE /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}`
+        - Description: No description."""
         return self._request(
             "DELETE",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}",
@@ -71,9 +75,11 @@ class OrganizationAccessListsResource(BaseResource):
         path_params: GetAllEntriesPathParams,
         query_params: Optional[GetAllEntriesQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Access List Entries for One Organization API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-key-access-list/
-        Description: No description."""
+        """
+        ## Get All Access List Entries for One Organization API Key
+        - Document: [Get All Entries](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-key-access-list/)
+        - Resource: `GET /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
@@ -96,9 +102,11 @@ class OrganizationAccessListsResource(BaseResource):
         path_params: GetOneEntryPathParams,
         query_params: Optional[GetOneEntryQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Access List Entry for One Organization API Key
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key-access-list/
-        Description: No description."""
+        """
+        ## Get One Access List Entry for One Organization API Key
+        - Document: [Get One Entry](https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key-access-list/)
+        - Resource: `GET /orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}",

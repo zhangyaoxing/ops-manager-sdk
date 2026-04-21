@@ -15,9 +15,11 @@ class RestoreJobsResource(BaseResource):
         path_params: CreateClusterPathParams,
         query_params: Optional[CreateClusterQueryParams],
     ) -> dict[str, Any]:
-        """API: Create One Restore Job for One Cluster
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-cluster/
-        Description: No description."""
+        """
+        ## Create One Restore Job for One Cluster
+        - Document: [Create (Cluster)](https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-cluster/)
+        - Resource: `POST /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
@@ -54,9 +56,11 @@ class RestoreJobsResource(BaseResource):
         query_params: Optional[CreateConfigServerQueryParams],
         body_params: CreateConfigServerBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One Restore Job for One Legacy Mirrored Config Server
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-sccc-config-server/
-        Description: No description."""
+        """
+        ## Create One Restore Job for One Legacy Mirrored Config Server
+        - Document: [Create (Config Server)](https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-sccc-config-server/)
+        - Resource: `POST /groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs`
+        - Description: No description."""
         return self._request(
             "POST",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
@@ -79,9 +83,11 @@ class RestoreJobsResource(BaseResource):
         path_params: GetAllClusterPathParams,
         query_params: Optional[GetAllClusterQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Restore Jobs for One Cluster
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/
-        Description: Get all restore jobs for a cluster. CLUSTER-ID must be the ID of either a replica set or a sharded cluster."""
+        """
+        ## Get All Restore Jobs for One Cluster
+        - Document: [Get All (Cluster)](https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/)
+        - Resource: `GET /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs`
+        - Description: Get all restore jobs for a cluster. CLUSTER-ID must be the ID of either a replica set or a sharded cluster."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
@@ -103,9 +109,11 @@ class RestoreJobsResource(BaseResource):
         path_params: GetAllConfigServerPathParams,
         query_params: Optional[GetAllConfigServerQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Restore Jobs for One Legacy Mirrored Config Server
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-sccc-config-server/
-        Description: No description."""
+        """
+        ## Get All Restore Jobs for One Legacy Mirrored Config Server
+        - Document: [Get All (Config Server)](https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-sccc-config-server/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
@@ -126,9 +134,11 @@ class RestoreJobsResource(BaseResource):
         path_params: GetOneClusterPathParams,
         query_params: Optional[GetOneClusterQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Restore Job for One Cluster
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-cluster/
-        Description: No description."""
+        """
+        ## Get One Restore Job for One Cluster
+        - Document: [Get One (Cluster)](https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-cluster/)
+        - Resource: `GET /groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs/{JOB-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs/{JOB-ID}",
@@ -149,9 +159,11 @@ class RestoreJobsResource(BaseResource):
         path_params: GetOneConfigServerPathParams,
         query_params: Optional[GetOneConfigServerQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Restore Job for One Legacy Mirrored Config Server
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-sccc-config-server/
-        Description: No description."""
+        """
+        ## Get One Restore Job for One Legacy Mirrored Config Server
+        - Document: [Get One (Config Server)](https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-sccc-config-server/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs/{JOB-ID}`
+        - Description: No description."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs/{JOB-ID}",

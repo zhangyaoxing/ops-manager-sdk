@@ -20,9 +20,11 @@ class FileSystemStoreResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One File System Store Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/create-one-file-system-store-configuration/
-        Description: Configures one new file system store."""
+        """
+        ## Create One File System Store Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/create-one-file-system-store-configuration/)
+        - Resource: `POST /snapshot/fileSystemConfigs`
+        - Description: Configures one new file system store."""
         return self._request(
             "POST",
             "/snapshot/fileSystemConfigs",
@@ -41,9 +43,11 @@ class FileSystemStoreResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One File System Store Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/delete-one-file-system-store-configuration/
-        Description: Deletes the configuration of one file system store."""
+        """
+        ## Delete One File System Store Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/delete-one-file-system-store-configuration/)
+        - Resource: `DELETE /snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}`
+        - Description: Deletes the configuration of one file system store."""
         return self._request(
             "DELETE",
             "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
@@ -61,9 +65,11 @@ class FileSystemStoreResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All File System Store Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-all-file-system-store-configurations/
-        Description: Retrieves the configurations of all file system stores."""
+        """
+        ## Get All File System Store Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-all-file-system-store-configurations/)
+        - Resource: `GET /snapshot/fileSystemConfigs`
+        - Description: Retrieves the configurations of all file system stores."""
         return self._request(
             "GET",
             "/snapshot/fileSystemConfigs",
@@ -82,9 +88,11 @@ class FileSystemStoreResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One File System Store Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-one-file-system-store-configuration-by-id/
-        Description: Retrieves the configuration of one file system store."""
+        """
+        ## Get One File System Store Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-one-file-system-store-configuration-by-id/)
+        - Resource: `GET /snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}`
+        - Description: Retrieves the configuration of one file system store."""
         return self._request(
             "GET",
             "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
@@ -112,9 +120,11 @@ class FileSystemStoreResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: UpdateBodyParams,
     ) -> dict[str, Any]:
-        """API: Update One File System Store Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/update-one-file-system-store-configuration/
-        Description: Updates the configuration of one file system store."""
+        """
+        ## Update One File System Store Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/update-one-file-system-store-configuration/)
+        - Resource: `PUT /snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}`
+        - Description: Updates the configuration of one file system store."""
         return self._request(
             "PUT",
             "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",

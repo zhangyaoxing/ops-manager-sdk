@@ -22,9 +22,11 @@ class BlockstoreResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
     ) -> dict[str, Any]:
-        """API: Create One Blockstore Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/create-one-blockstore-configuration/
-        Description: Configures one new blockstore."""
+        """
+        ## Create One Blockstore Configuration
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/create-one-blockstore-configuration/)
+        - Resource: `POST /snapshot/mongoConfigs`
+        - Description: Configures one new blockstore."""
         return self._request(
             "POST",
             "/snapshot/mongoConfigs",
@@ -43,9 +45,11 @@ class BlockstoreResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Delete One Blockstore Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/delete-one-blockstore-configuration/
-        Description: Deletes the configuration of one blockstore."""
+        """
+        ## Delete One Blockstore Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/delete-one-blockstore-configuration/)
+        - Resource: `DELETE /snapshot/mongoConfigs/{BLOCKSTORE-ID}`
+        - Description: Deletes the configuration of one blockstore."""
         return self._request(
             "DELETE",
             "/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
@@ -63,9 +67,11 @@ class BlockstoreResource(BaseResource):
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
-        """API: Get All Blockstore Configurations
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-all-blockstore-configurations/
-        Description: Retrieves the configurations of all blockstores."""
+        """
+        ## Get All Blockstore Configurations
+        - Document: [Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-all-blockstore-configurations/)
+        - Resource: `GET /snapshot/mongoConfigs`
+        - Description: Retrieves the configurations of all blockstores."""
         return self._request(
             "GET",
             "/snapshot/mongoConfigs",
@@ -84,9 +90,11 @@ class BlockstoreResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get One Blockstore Configuration by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-one-blockstore-configuration-by-id/
-        Description: Retrieves the configuration of one blockstore."""
+        """
+        ## Get One Blockstore Configuration by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-one-blockstore-configuration-by-id/)
+        - Resource: `GET /snapshot/mongoConfigs/{BLOCKSTORE-ID}`
+        - Description: Retrieves the configuration of one blockstore."""
         return self._request(
             "GET",
             "/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
@@ -116,9 +124,11 @@ class BlockstoreResource(BaseResource):
         query_params: Optional[UpdateQueryParams],
         body_params: Optional[UpdateBodyParams],
     ) -> dict[str, Any]:
-        """API: Update One Blockstore Configuration
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/update-one-blockstore-configuration/
-        Description: Updates the configuration of one blockstore."""
+        """
+        ## Update One Blockstore Configuration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/update-one-blockstore-configuration/)
+        - Resource: `PUT /snapshot/mongoConfigs/{BLOCKSTORE-ID}`
+        - Description: Updates the configuration of one blockstore."""
         return self._request(
             "PUT",
             "/snapshot/mongoConfigs/{BLOCKSTORE-ID}",

@@ -17,9 +17,11 @@ class UsersResource(BaseResource):
         query_params: Optional[CreateFirstUserQueryParams],
         body_params: CreateFirstUserBodyParams,
     ) -> dict[str, Any]:
-        """API: Create the First User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create-first/
-        Description: Create the first Ops Manager user. You can call this endpoint without having an API key."""
+        """
+        ## Create the First User
+        - Document: [Create First User](https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create-first/)
+        - Resource: `POST /unauth/users`
+        - Description: Create the first Ops Manager user. You can call this endpoint without having an API key."""
         return self._request(
             "POST",
             "/unauth/users",
@@ -49,9 +51,11 @@ class UsersResource(BaseResource):
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
     ) -> dict[str, Any]:
-        """API: Create One User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create/
-        Description: Create a new user. By default, any non-global organization and project roles in the payload send users an invitation to the organization or project first."""
+        """
+        ## Create One User
+        - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create/)
+        - Resource: `POST /users`
+        - Description: Create a new user. By default, any non-global organization and project roles in the payload send users an invitation to the organization or project first."""
         return self._request(
             "POST",
             "/users",
@@ -70,9 +74,11 @@ class UsersResource(BaseResource):
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Get a User by ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-id/
-        Description: You can always retrieve your own user account. Otherwise, you must be a global user or you must have the Project User Admin role in at least one project that is common between you and the user you are retrieving."""
+        """
+        ## Get a User by ID
+        - Document: [Get by ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-id/)
+        - Resource: `GET /users/{USER-ID}`
+        - Description: You can always retrieve your own user account. Otherwise, you must be a global user or you must have the Project User Admin role in at least one project that is common between you and the user you are retrieving."""
         return self._request(
             "GET",
             "/users/{USER-ID}",
@@ -91,9 +97,11 @@ class UsersResource(BaseResource):
         path_params: GetByNamePathParams,
         query_params: Optional[GetByNameQueryParams],
     ) -> dict[str, Any]:
-        """API: Get a User by Name
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-name/
-        Description: You can always retrieve your own user account. Otherwise, you must be a global user or you must have the Project User Admin role in at least one project that is common between you and the user you are retrieving."""
+        """
+        ## Get a User by Name
+        - Document: [Get by Name](https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-name/)
+        - Resource: `GET /users/byName/{USER-NAME}`
+        - Description: You can always retrieve your own user account. Otherwise, you must be a global user or you must have the Project User Admin role in at least one project that is common between you and the user you are retrieving."""
         return self._request(
             "GET",
             "/users/byName/{USER-NAME}",
@@ -121,9 +129,11 @@ class UsersResource(BaseResource):
         query_params: Optional[UpdateRolesQueryParams],
         body_params: UpdateRolesBodyParams,
     ) -> dict[str, Any]:
-        """API: Update Roles for One User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/user-update/
-        Description: Add, update, or remove a user's roles within an organization or project. By default, any new non-global organization and project roles in the payload send users an invitation to the organization or project first. You can add users directly to an organization or project only if you set the mms.user.bypassInviteForExistingUsers setting to true."""
+        """
+        ## Update Roles for One User
+        - Document: [Update Roles](https://www.mongodb.com/docs/ops-manager/current/reference/api/user-update/)
+        - Resource: `PATCH /users/{USER-ID}`
+        - Description: Add, update, or remove a user's roles within an organization or project. By default, any new non-global organization and project roles in the payload send users an invitation to the organization or project first. You can add users directly to an organization or project only if you set the mms.user.bypassInviteForExistingUsers setting to true."""
         return self._request(
             "PATCH",
             "/users/{USER-ID}",
@@ -142,9 +152,11 @@ class UsersResource(BaseResource):
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
     ) -> dict[str, Any]:
-        """API: Remove One User
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/users/delete-one-user/
-        Description: Removes one user from Ops Manager by user ID."""
+        """
+        ## Remove One User
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/users/delete-one-user/)
+        - Resource: `DELETE /users/{USER-ID}`
+        - Description: Removes one user from Ops Manager by user ID."""
         return self._request(
             "DELETE",
             "/users/{USER-ID}",

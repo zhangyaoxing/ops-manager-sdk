@@ -15,9 +15,11 @@ class BackupEncryptionKeysResource(BaseResource):
         path_params: RetrieveKmipMasterKeyIdPathParams,
         query_params: Optional[RetrieveKmipMasterKeyIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Retrieve the KMIP Master Key ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/
-        Description: Use the GET HTTP method with the same endpoint to retrieve the ID of the current KMIP master key."""
+        """
+        ## Retrieve the KMIP Master Key ID
+        - Document: [Retrieve KMIP Master Key ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/)
+        - Resource: `GET /groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey`
+        - Description: Use the GET HTTP method with the same endpoint to retrieve the ID of the current KMIP master key."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
@@ -37,9 +39,11 @@ class BackupEncryptionKeysResource(BaseResource):
         path_params: RotateKmipMasterKeyIdPathParams,
         query_params: Optional[RotateKmipMasterKeyIdQueryParams],
     ) -> dict[str, Any]:
-        """API: Rotate the KMIP Master Key ID
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/
-        Description: Use the PUT HTTP method with the following endpoint to rotate the KMIP master key. Issue one PUT request for each shard and another PUT request for the config server replica set."""
+        """
+        ## Rotate the KMIP Master Key ID
+        - Document: [Rotate KMIP Master Key ID](https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/)
+        - Resource: `PUT /groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey`
+        - Description: Use the PUT HTTP method with the following endpoint to rotate the KMIP master key. Issue one PUT request for each shard and another PUT request for the config server replica set."""
         return self._request(
             "PUT",
             "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",

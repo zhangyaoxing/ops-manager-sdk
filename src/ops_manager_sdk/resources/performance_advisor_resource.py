@@ -19,9 +19,11 @@ class PerformanceAdvisorResource(BaseResource):
         path_params: GetSlowQueryLogsPathParams,
         query_params: Optional[GetSlowQueryLogsQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Slow Query Logs
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/
-        Description: Retrieves log lines for slow queries as determined by the Performance Advisor."""
+        """
+        ## Get Slow Query Logs
+        - Document: [Get Slow Query Logs](https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/slowQueryLogs`
+        - Description: Retrieves log lines for slow queries as determined by the Performance Advisor."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/slowQueryLogs",
@@ -46,9 +48,11 @@ class PerformanceAdvisorResource(BaseResource):
         path_params: GetSuggestedIndexesPathParams,
         query_params: Optional[GetSuggestedIndexesQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Suggested Indexes
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/
-        Description: Retrieves suggested indexes as determined by the Performance Advisor."""
+        """
+        ## Get Suggested Indexes
+        - Document: [Get Suggested Indexes](https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/suggestedIndexes`
+        - Description: Retrieves suggested indexes as determined by the Performance Advisor."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/suggestedIndexes",
@@ -70,9 +74,11 @@ class PerformanceAdvisorResource(BaseResource):
         path_params: GetNamespacesPathParams,
         query_params: Optional[GetNamespacesQueryParams],
     ) -> dict[str, Any]:
-        """API: Get Namespaces for a Project
-        Document: https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/pa-namespaces-get-all/
-        Description: Retrieve namespaces for collections experiencing slow queries on a specified host. Namespaces appear in the following format: {database}.{collection}."""
+        """
+        ## Get Namespaces for a Project
+        - Document: [Get Namespaces](https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/pa-namespaces-get-all/)
+        - Resource: `GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/namespaces`
+        - Description: Retrieve namespaces for collections experiencing slow queries on a specified host. Namespaces appear in the following format: {database}.{collection}."""
         return self._request(
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/namespaces",
