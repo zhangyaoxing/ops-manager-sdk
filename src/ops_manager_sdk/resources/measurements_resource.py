@@ -6,8 +6,11 @@ class MeasurementsResource(BaseResource):
     class DatabasePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         database_name: str = Field("None", serialization_alias="DATABASE-NAME")
+        """Unique identifier of the database on which the MongoDB process is stored."""
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        """Unique identifier of the host that serves the MongoDB process."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the host."""
     def database(self,
         path_params: DatabasePathParams,
     ) -> dict[str, Any]:
@@ -26,8 +29,11 @@ class MeasurementsResource(BaseResource):
     class DiskPartitionPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        """Unique identifier of the host that serves the MongoDB process."""
         partition_name: str = Field("None", serialization_alias="PARTITION-NAME")
+        """Name of the disk partition on which the MongoDB process is stored."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the host."""
     def disk_partition(self,
         path_params: DiskPartitionPathParams,
     ) -> dict[str, Any]:
@@ -46,7 +52,9 @@ class MeasurementsResource(BaseResource):
     class HostPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        """Unique identifier of the host that serves the MongoDB process."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the host."""
     def host(self,
         path_params: HostPathParams,
     ) -> dict[str, Any]:
@@ -65,7 +73,9 @@ class MeasurementsResource(BaseResource):
     class GetTypesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         host_id: str = Field("None", serialization_alias="HOST-ID")
+        """Unique identifier of the host that serves the MongoDB process."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the host."""
     def get_types(self,
         path_params: GetTypesPathParams,
     ) -> dict[str, Any]:

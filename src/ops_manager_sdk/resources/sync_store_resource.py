@@ -6,17 +6,42 @@ class SyncStoreResource(BaseResource):
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        """Optional. Flag indicating whether this sync store can be assigned backup jobs."""
         encrypted_credentials: Optional[bool] = Field(serialization_alias="encryptedCredentials")
+        """Optional. Flag indicating whether the username and password for this sync store were encrypted using the credentialstool."""
         id: Optional[str] = Field("None", serialization_alias="id")
+        """The unique name that labels this sync store."""
         labels: Optional[list[str]] = Field(serialization_alias="labels")
+        """Optional. Array of tags to manage which backup jobs Ops Manager can assign to which sync stores.
+Setting these tags limits which backup jobs this sync store can process. If omitted, this sync store can only process backup jobs for projects that do not use labels to filter their jobs."""
         max_capacity_gb: Optional[float] = Field(serialization_alias="maxCapacityGB")
+        """Optional. The sync store’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."""
         ssl: Optional[bool] = Field(serialization_alias="ssl")
+        """Optional. Flag indicating whether this sync store only accepts connections encrypted using TLS."""
         uri: Optional[str] = Field("None", serialization_alias="uri")
+        """A comma-separated list of hosts in the <hostname:port> format that can be used to access this sync store."""
         write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        """Optional. The write concern used for this sync store.
+The accepted values for this option are:
+ACKNOWLEDGED
+W2
+JOURNALED
+MAJORITY
+To learn about write acknowledgement levels in MongoDB, see Write Concern."""
     def create(self,
         query_params: Optional[CreateQueryParams],
         body_params: Optional[CreateBodyParams],
@@ -36,10 +61,21 @@ class SyncStoreResource(BaseResource):
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         sync_store_config_id: str = Field("None", serialization_alias="SYNC-STORE-CONFIG-ID")
+        """Unique identifier of this Sync Store configuration."""
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -59,10 +95,17 @@ class SyncStoreResource(BaseResource):
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignable_only: Optional[bool] = Field(serialization_alias="assignableOnly")
+        """true"""
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -81,10 +124,21 @@ class SyncStoreResource(BaseResource):
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         sync_store_config_id: str = Field("None", serialization_alias="SYNC-STORE-CONFIG-ID")
+        """The unique identifier that represents this Oplog configuration."""
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
@@ -104,19 +158,44 @@ class SyncStoreResource(BaseResource):
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         sync_store_config_id: str = Field("None", serialization_alias="SYNC-STORE-CONFIG-ID")
+        """Unique identifier for this Sync Store configuration."""
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         assignment_enabled: Optional[bool] = Field(serialization_alias="assignmentEnabled")
+        """Optional. Flag indicating whether this sync store can be assigned backup jobs."""
         encrypted_credentials: Optional[bool] = Field(serialization_alias="encryptedCredentials")
+        """Optional. Flag indicating whether the username and password for this sync store were encrypted using the credentialstool."""
         labels: Optional[list[str]] = Field(serialization_alias="labels")
+        """Optional. Array of tags to manage which backup jobs Ops Manager can assign to which sync stores.
+Setting these tags limits which backup jobs this sync store can process. If omitted, this sync store can only process backup jobs for projects that do not use labels to filter their jobs."""
         max_capacity_gb: Optional[float] = Field(serialization_alias="maxCapacityGB")
+        """Optional. The sync store’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."""
         ssl: Optional[bool] = Field(serialization_alias="ssl")
+        """Optional. Flag indicating whether this sync store only accepts connections encrypted using TLS."""
         uri: Optional[str] = Field("None", serialization_alias="uri")
+        """A comma-separated list of hosts in the <hostname:port> format that can be used to access this sync store."""
         write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        """Optional. The write concern used for this sync store.
+The accepted values for this option are:
+ACKNOWLEDGED
+W2
+JOURNALED
+MAJORITY
+To learn about write acknowledgement levels in MongoDB, see Write Concern."""
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

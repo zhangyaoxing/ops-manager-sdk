@@ -6,16 +6,31 @@ class MaintenanceWindowsResource(BaseResource):
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         alert_type_names: list[str] = Field(serialization_alias="alertTypeNames")
+        """Alert types to silence during maintenance window. For example: HOST, REPLICA_SET, CLUSTER, AGENT, BACKUP"""
         description: Optional[str] = Field("None", serialization_alias="description")
+        """Description of the maintenance window."""
         end_date: str = Field("None", serialization_alias="endDate")
+        """Timestamp in ISO 8601 date and time format in UTC when the maintenance window ends."""
         start_date: str = Field("None", serialization_alias="startDate")
+        """Timestamp in ISO 8601 date and time format in UTC when the maintenance window starts."""
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -36,11 +51,23 @@ class MaintenanceWindowsResource(BaseResource):
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         mw_id: str = Field("None", serialization_alias="MW-ID")
+        """Unique identifier of the maintenance window you want to delete."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -60,10 +87,21 @@ class MaintenanceWindowsResource(BaseResource):
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
@@ -83,11 +121,23 @@ class MaintenanceWindowsResource(BaseResource):
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         mw_id: str = Field("None", serialization_alias="MW-ID")
+        """Unique identifier of the maintenance window you want to retrieve."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -107,17 +157,33 @@ class MaintenanceWindowsResource(BaseResource):
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         mw_id: str = Field("None", serialization_alias="MW-ID")
+        """Unique identifier of the maintenance window you want to update."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         alert_type_names: list[str] = Field(serialization_alias="alertTypeNames")
+        """Alert types to silence during maintenance window. For example: HOST, REPLICA_SET, CLUSTER, AGENT, BACKUP"""
         description: Optional[str] = Field("None", serialization_alias="description")
+        """Description of the maintenance window."""
         end_date: str = Field("None", serialization_alias="endDate")
+        """Timestamp in ISO 8601 date and time format in UTC when the maintenance window ends."""
         start_date: str = Field("None", serialization_alias="startDate")
+        """Timestamp in ISO 8601 date and time format in UTC when the maintenance window starts."""
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

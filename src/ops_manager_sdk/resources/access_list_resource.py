@@ -6,15 +6,23 @@ class AccessListResource(BaseResource):
     class AddEntriesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """(Required.) Unique identifier of the current user. To retrieve the ID of the current user, see Get All Users in One Project."""
     class AddEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     class AddEntriesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         ip_address: str = Field("None", serialization_alias="ipAddress")
+        """(Required.) The IP address or CIDR block that you want to add to the specified user's access list."""
     def add_entries(self,
         path_params: AddEntriesPathParams,
         query_params: Optional[AddEntriesQueryParams],
@@ -35,11 +43,23 @@ class AccessListResource(BaseResource):
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         access_list_entry: str = Field("None", serialization_alias="ACCESS-LIST-ENTRY")
+        """The IP or CIDR address. If the entry includes a subnet mask, such as 192.0.2.0/24, use the URL-encoded value %2F for the forward slash /."""
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """(Required.) Unique identifier of the current user. To retrieve the ID of the current user, see Get All Users in One Project."""
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete_entry(self,
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
@@ -59,12 +79,19 @@ class AccessListResource(BaseResource):
     class GetForCurrentUserPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """(Required.) User Unique identifier of the current user. To retrieve the ID of the current user, see Get All Users in One Project."""
     class GetForCurrentUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_for_current_user(self,
         path_params: GetForCurrentUserPathParams,
         query_params: Optional[GetForCurrentUserQueryParams],
@@ -84,11 +111,23 @@ class AccessListResource(BaseResource):
     class GetForIpAddressPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         access_list_entry: str = Field("None", serialization_alias="ACCESS-LIST-ENTRY")
+        """The IP or CIDR address. If the entry includes a subnet mask, such as 192.0.2.0/24, use the URL-encoded value %2F for the forward slash /."""
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """(Required.) Unique identifier of the current user. To retrieve the ID of the current user, see Get All Users in One Project."""
     class GetForIpAddressQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_for_ip_address(self,
         path_params: GetForIpAddressPathParams,
         query_params: Optional[GetForIpAddressQueryParams],

@@ -76,7 +76,11 @@ class StandardCrawler:
                     required = required_locator.inner_text()
                 else:
                     required = "Optional"
-            default_locator = param.locator("xpath=./td[5]")
+            desc_locator: Locator = param.locator("xpath=./td[4]")
+            if desc_locator.count() == 0:
+                desc_locator = param.locator("xpath=./td[3]")
+            desc: str = desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
+            default_locator: Locator = param.locator("xpath=./td[5]")
             if default_locator.count() > 0:
                 inner_text = default_locator.inner_text()
                 default_value: Optional[str] = inner_text if inner_text else None
@@ -87,6 +91,7 @@ class StandardCrawler:
                     "name": param_name,
                     "type": param_type,
                     "required": required,
+                    "description": desc,
                     "default": default_value,
                 }
             )

@@ -6,13 +6,25 @@ class AgentsResource(BaseResource):
     class CreateApiKeyPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the Agent API Key."""
     class CreateApiKeyQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateApiKeyBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         desc: Optional[str] = Field("None", serialization_alias="desc")
+        """Label for this Agent API Key."""
     def create_api_key(self,
         path_params: CreateApiKeyPathParams,
         query_params: Optional[CreateApiKeyQueryParams],
@@ -33,11 +45,23 @@ class AgentsResource(BaseResource):
     class RemoveApiKeyPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         api_agent_key_id: str = Field("None", serialization_alias="API-AGENT-KEY-ID")
+        """Unique identifier of Agent API Key."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the Agent API Key."""
     class RemoveApiKeyQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def remove_api_key(self,
         path_params: RemoveApiKeyPathParams,
         query_params: Optional[RemoveApiKeyQueryParams],
@@ -57,10 +81,21 @@ class AgentsResource(BaseResource):
     class GetAllApiKeysPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the Agent API Key."""
     class GetAllApiKeysQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_all_api_keys(self,
         path_params: GetAllApiKeysPathParams,
         query_params: Optional[GetAllApiKeysQueryParams],
@@ -80,7 +115,17 @@ class AgentsResource(BaseResource):
     class RetrieveAllVersionsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def retrieve_all_versions(self,
         query_params: Optional[RetrieveAllVersionsQueryParams],
     ) -> dict[str, Any]:
@@ -99,10 +144,21 @@ class AgentsResource(BaseResource):
     class RetrieveForOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def retrieve_for_one_project(self,
         path_params: RetrieveForOneProjectPathParams,
         query_params: Optional[RetrieveForOneProjectQueryParams],
@@ -122,12 +178,19 @@ class AgentsResource(BaseResource):
     class GetAllPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the Agent API Key."""
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_all(self,
         path_params: GetAllPathParams,
         query_params: Optional[GetAllQueryParams],
@@ -147,13 +210,24 @@ class AgentsResource(BaseResource):
     class GetByTypePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the Agent API Key."""
         type: str = Field("None", serialization_alias="TYPE")
+        """The agent type to retrieve. TYPE can be one of the following values:
+MONITORING
+BACKUP
+AUTOMATION"""
     class GetByTypeQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_by_type(self,
         path_params: GetByTypePathParams,
         query_params: Optional[GetByTypeQueryParams],

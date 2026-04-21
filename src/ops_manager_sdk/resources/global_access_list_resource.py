@@ -6,11 +6,23 @@ class GlobalAccessListResource(BaseResource):
     class CreateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateEntryBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         cidr_block: str = Field("None", serialization_alias="cidrBlock")
+        """Access list entry in IPv4 or IPv6 CIDR notation to be added."""
         description: str = Field("None", serialization_alias="description")
+        """Description of the Global Access List Entry. Must be between 1 and 250 characters in length."""
     def create_entry(self,
         query_params: Optional[CreateEntryQueryParams],
         body_params: CreateEntryBodyParams,
@@ -30,10 +42,21 @@ class GlobalAccessListResource(BaseResource):
     class DeleteEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
+        """Unique identifier for the access list entry you want to delete."""
     class DeleteEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete_entry(self,
         path_params: DeleteEntryPathParams,
         query_params: Optional[DeleteEntryQueryParams],
@@ -53,9 +76,15 @@ class GlobalAccessListResource(BaseResource):
     class GetAllEntriesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_all_entries(self,
         query_params: Optional[GetAllEntriesQueryParams],
     ) -> dict[str, Any]:
@@ -74,10 +103,21 @@ class GlobalAccessListResource(BaseResource):
     class GetOneEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
+        """Unique identifier for the Global Access List Entry."""
     class GetOneEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_one_entry(self,
         path_params: GetOneEntryPathParams,
         query_params: Optional[GetOneEntryQueryParams],
@@ -97,10 +137,21 @@ class GlobalAccessListResource(BaseResource):
     class UpdateEntryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         access_list_id: str = Field("None", serialization_alias="ACCESS-LIST-ID")
+        """Unique identifier for the Global Access List Entry."""
     class UpdateEntryQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def update_entry(self,
         path_params: UpdateEntryPathParams,
         query_params: Optional[UpdateEntryQueryParams],

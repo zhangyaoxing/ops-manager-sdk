@@ -6,15 +6,31 @@ class OrganizationsResource(BaseResource):
     class InviteUserPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization."""
     class InviteUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class InviteUserBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         roles: list[str] = Field(serialization_alias="roles")
+        """Ops Manager roles to assign to the invited user.
+If the user accepts the invitation, Ops Manager assigns these roles to them."""
         team_ids: Optional[list[str]] = Field(serialization_alias="teamIds")
+        """Unique 24-hexadecimal digit strings that identify the teams that you invite the user to join."""
         username: str = Field("None", serialization_alias="username")
+        """Email address of the invited user. This is the address to which Ops Manager sends the invite.
+If the user accepts the invitation, they log in to Ops Manager with this username."""
     def invite_user(self,
         path_params: InviteUserPathParams,
         query_params: Optional[InviteUserQueryParams],
@@ -35,11 +51,23 @@ class OrganizationsResource(BaseResource):
     class DeleteInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         invitation_id: str = Field("None", serialization_alias="INVITATION-ID")
+        """Unique 24-hexadecimal digit string that identifies the invitation."""
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization."""
     class DeleteInvitationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete_invitation(self,
         path_params: DeleteInvitationPathParams,
         query_params: Optional[DeleteInvitationQueryParams],
@@ -59,11 +87,24 @@ class OrganizationsResource(BaseResource):
     class GetAllInvitationsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization."""
     class GetAllInvitationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
         username: Optional[str] = Field("None", serialization_alias="username")
+        """Email address of the invited user. This is the address to which Ops Manager sent the invite.
+If omitted, Ops Manager returns all pending invitations."""
     def get_all_invitations(self,
         path_params: GetAllInvitationsPathParams,
         query_params: Optional[GetAllInvitationsQueryParams],
@@ -83,11 +124,23 @@ class OrganizationsResource(BaseResource):
     class GetOneInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         invitation_id: str = Field("None", serialization_alias="INVITATION-ID")
+        """Unique 24-hexadecimal digit string that identifies the invitation."""
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization."""
     class GetOneInvitationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_one_invitation(self,
         path_params: GetOneInvitationPathParams,
         query_params: Optional[GetOneInvitationQueryParams],
@@ -107,14 +160,29 @@ class OrganizationsResource(BaseResource):
     class UpdateByInvitationIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         invitation_id: str = Field("None", serialization_alias="INVITATION-ID")
+        """Unique 24-hexadecimal digit string that identifies the invitation."""
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization."""
     class UpdateByInvitationIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class UpdateByInvitationIdBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         roles: list[str] = Field(serialization_alias="roles")
+        """Ops Manager roles to assign to the invited user.
+If the user accepts the invitation, Ops Manager assigns these roles to them.
+IMPORTANT: Ops Manager replaces the roles in the invitation with the roles that you provide in this request. Ensure that you include all roles that you want to assign the user in this request."""
     def update_by_invitation_id(self,
         path_params: UpdateByInvitationIdPathParams,
         query_params: Optional[UpdateByInvitationIdQueryParams],
@@ -135,14 +203,29 @@ class OrganizationsResource(BaseResource):
     class UpdateInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization."""
     class UpdateInvitationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class UpdateInvitationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         roles: list[str] = Field(serialization_alias="roles")
+        """Ops Manager roles to assign to the invited user.
+If the user accepts the invitation, Ops Manager assigns these roles to them.
+IMPORTANT: Ops Manager replaces the roles in the invitation with the roles that you provide in this request. Ensure that you include all roles that you want to assign the user in this request."""
         username: str = Field("None", serialization_alias="username")
+        """Username of the user whose invitation you want to update. In Ops Manager, an invited user's username is the email address to which Ops Manager sent the invitation."""
     def update_invitation(self,
         path_params: UpdateInvitationPathParams,
         query_params: Optional[UpdateInvitationQueryParams],
@@ -163,17 +246,33 @@ class OrganizationsResource(BaseResource):
     class CreateOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     class CreateOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         class LdapgroupmappingsParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
             ldap_groups: Optional[list[Any]] = Field(serialization_alias="ldapGroups")
+            """LDAP group(s) that map to associate to the roleName."""
             role_name: Optional[str] = Field("None", serialization_alias="roleName")
+            """Ops Manager organization role to map. Can specify from the following list:
+ORG_READ_ONLY
+ORG_MEMBER
+ORG_OWNER
+You cannot specify a global role, project role, or an organization billing admin role."""
         ldap_group_mappings: Optional[list[LdapgroupmappingsParams]] = Field(serialization_alias="ldapGroupMappings")
+        """Requires LDAP integration for Ops Manager.
+Array of documents that specify the mapping between the Ops Manager Organization Roles and the LDAP groups.
+If specifying ldapGroupMappings, mapping for ORG_OWNER role is required."""
         name: str = Field("None", serialization_alias="name")
+        """Name of the organization you want to create."""
     def create_organization(self,
         query_params: Optional[CreateOrganizationQueryParams],
         body_params: CreateOrganizationBodyParams,
@@ -193,10 +292,21 @@ class OrganizationsResource(BaseResource):
     class DeleteOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """The unique identifier for the organization to delete."""
     class DeleteOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete_organization(self,
         path_params: DeleteOrganizationPathParams,
         query_params: Optional[DeleteOrganizationQueryParams],
@@ -216,13 +326,19 @@ class OrganizationsResource(BaseResource):
     class GetAllProjectsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """The unique identifier for the organization whose information you want to retrieve."""
     class GetAllProjectsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """false"""
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        """100"""
         name: Optional[str] = Field("None", serialization_alias="name")
+        """None"""
         page_num: Optional[float] = Field(serialization_alias="pageNum")
+        """1"""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def get_all_projects(self,
         path_params: GetAllProjectsPathParams,
         query_params: Optional[GetAllProjectsQueryParams],
@@ -242,12 +358,21 @@ class OrganizationsResource(BaseResource):
     class GetAllUsersPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """The unique identifier for the organization whose user information you want to retrieve."""
     class GetAllUsersQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """A boolean that specifies whether or not to wrap the response in an envelope.
+Defaults to false."""
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500.
+Defaults to 100."""
         page_num: Optional[float] = Field(serialization_alias="pageNum")
+        """The page to return.
+Defaults to 1."""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """A boolean that specifies whether or not to return a "pretty-printed" JSON document.
+Defaults to false."""
     def get_all_users(self,
         path_params: GetAllUsersPathParams,
         query_params: Optional[GetAllUsersQueryParams],
@@ -267,11 +392,17 @@ class OrganizationsResource(BaseResource):
     class GetAllOrganizationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """false"""
         include_deleted_orgs: Optional[bool] = Field(serialization_alias="includeDeletedOrgs")
+        """true"""
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        """100"""
         name: Optional[str] = Field("None", serialization_alias="name")
+        """None"""
         page_num: Optional[float] = Field(serialization_alias="pageNum")
+        """1"""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def get_all_organizations(self,
         query_params: Optional[GetAllOrganizationsQueryParams],
     ) -> dict[str, Any]:
@@ -290,11 +421,15 @@ class OrganizationsResource(BaseResource):
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """(Required.) The unique identifier for the organization whose information you want to retrieve."""
     class GetOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """false"""
         include_deleted_orgs: Optional[bool] = Field(serialization_alias="includeDeletedOrgs")
+        """true"""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def get_one_organization(self,
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
@@ -314,14 +449,27 @@ class OrganizationsResource(BaseResource):
     class RenameOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="ORG-ID")
+        """The unique identifier of the organization."""
     class RenameOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class RenameOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         ldap_group_mappings: Optional[list[dict]] = Field(serialization_alias="ldapGroupMappings")
+        """For LDAP-backed Ops Manager, the mappings of LDAP groups to Ops Manager organization roles. Only accepted for LDAP-backed Ops Manager."""
         name: Optional[str] = Field("None", serialization_alias="name")
+        """The new name for the organization."""
     def rename_organization(self,
         path_params: RenameOrganizationPathParams,
         query_params: Optional[RenameOrganizationQueryParams],

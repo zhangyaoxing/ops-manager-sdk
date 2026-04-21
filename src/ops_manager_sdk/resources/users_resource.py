@@ -6,13 +6,30 @@ class UsersResource(BaseResource):
     class CreateFirstUserQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         whitelist: Optional[str] = Field("None", serialization_alias="whitelist")
+        """IP address that you want to add to the whitelist for the first Ops Manager user.
+You can add more than one whitelist parameter and value."""
     class CreateFirstUserBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         email_address: Optional[str] = Field("None", serialization_alias="emailAddress")
+        """Email address of the first Ops Manager user."""
         first_name: str = Field("None", serialization_alias="firstName")
+        """First name of the first Ops Manager user."""
         last_name: str = Field("None", serialization_alias="lastName")
+        """Last name of the first Ops Manager user."""
         password: str = Field("None", serialization_alias="password")
+        """Password of the first Ops Manager user. This field is not included in the HTTP response body. Ops Manager sends this in the HTTP request only when creating the first Ops Manager user."""
         username: str = Field("None", serialization_alias="username")
+        """Username of the first Ops Manager user. Validated depending on the value of the mms.email.validation property:
+Value
+Description
+false
+(Default) Username is not required to be an email address.
+loose
+Username must contain an @ symbol followed by a period.
+strict
+Username must adhere to a strict email address validation regular expression.
+See mms.email.validation for details.
+The username is usually an email address. If you set this value to an email address, you do not need to set the emailAddress value explicitly."""
     def create_first_user(self,
         query_params: Optional[CreateFirstUserQueryParams],
         body_params: CreateFirstUserBodyParams,
@@ -32,21 +49,92 @@ class UsersResource(BaseResource):
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         email_address: Optional[str] = Field("None", serialization_alias="emailAddress")
+        """Email address of the Ops Manager user."""
         first_name: Optional[str] = Field("None", serialization_alias="firstName")
+        """First name of the Ops Manager user."""
         last_name: Optional[str] = Field("None", serialization_alias="lastName")
+        """Last name of the Ops Manager user."""
         mobile_number: Optional[str] = Field("None", serialization_alias="mobileNumber")
+        """Mobile telephone number of the Ops Manager user."""
         password: Optional[str] = Field("None", serialization_alias="password")
+        """Password of the Ops Manager user.
+This field is not included in the entity returned from the server. It can be sent only in the entity body when you create a new user."""
         class RolesParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
             group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            """Unique identifier of the group in which the Ops Manager user has the specified role.
+For the "global" roles (those whose name starts with GLOBAL_) there is no groupId since these roles are not tied to a group."""
             org_id: Optional[str] = Field("None", serialization_alias="orgId")
+            """Unique identifier of the organization in which the Ops Manager user has the specified role."""
             role_name: Optional[str] = Field("None", serialization_alias="roleName")
+            """Name of the role. Accepted values are:
+Value
+Description
+ORG_MEMBER
+Organization Member
+ORG_READ_ONLY
+Organization Read Only
+ORG_GROUP_CREATOR
+Organization Project Creator
+ORG_OWNER
+Organization Owner
+GROUP_AUTOMATION_ADMIN
+Project Automation Admin
+GROUP_BACKUP_ADMIN
+Project Backup Admin
+GROUP_MONITORING_ADMIN
+Project Monitoring Admin
+GROUP_OWNER
+Project Owner
+GROUP_READ_ONLY
+Project Read Only
+GROUP_USER_ADMIN
+Project User Admin
+GROUP_DATA_ACCESS_ADMIN
+Project Data Access Admin
+GROUP_DATA_ACCESS_READ_ONLY
+Project Data Access Read Only
+GROUP_DATA_ACCESS_READ_WRITE
+Project Data Access Read/Write
+GLOBAL_AUTOMATION_ADMIN
+Global Automation Admin
+GLOBAL_BACKUP_ADMIN
+Global Backup Admin
+GLOBAL_MONITORING_ADMIN
+Global Monitoring Admin
+GLOBAL_OWNER
+Global Owner
+GLOBAL_READ_ONLY
+Global Read Only
+GLOBAL_USER_ADMIN
+Global User Admin"""
         roles: Optional[list[RolesParams]] = Field(serialization_alias="roles")
+        """Role assignments of the Ops Manager user."""
         username: str = Field("None", serialization_alias="username")
+        """Username of the Ops Manager user. Validated depending on the value of the mms.email.validation property:
+Value
+Description
+false
+(Default) Username is not required to be an email address.
+loose
+Username must contain an @ symbol followed by a period.
+strict
+Username must adhere to a strict email address validation regular expression.
+See mms.email.validation for details."""
     def create(self,
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
@@ -66,10 +154,21 @@ class UsersResource(BaseResource):
     class GetByIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """(Required.) Unique identifier of the user that you want to retrieve. To retrieve the USER-ID for a user, see Get All Users in One Project."""
     class GetByIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_by_id(self,
         path_params: GetByIdPathParams,
         query_params: Optional[GetByIdQueryParams],
@@ -89,10 +188,21 @@ class UsersResource(BaseResource):
     class GetByNamePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         user_name: str = Field("None", serialization_alias="USER-NAME")
+        """(Required.) Username of the MongoDB user that you want to retrieve."""
     class GetByNameQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_by_name(self,
         path_params: GetByNamePathParams,
         query_params: Optional[GetByNameQueryParams],
@@ -112,18 +222,74 @@ class UsersResource(BaseResource):
     class UpdateRolesPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """Unique identifier of the user that you want to retrieve. To retrieve the USER-ID for a user, see Get All Users in One Project."""
     class UpdateRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class UpdateRolesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         class RolesParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
             group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            """Unique identifier of the project in which the Ops Manager user has the specified role.
+Roles that start with GLOBAL_ don't require a groupId. These roles aren't tied to a project."""
             org_id: Optional[str] = Field("None", serialization_alias="orgId")
+            """Unique identifier of the organization in which the Ops Manager user has the specified role."""
             role_name: Optional[str] = Field("None", serialization_alias="roleName")
+            """Name of the role. Accepted values are:
+Value
+Description
+ORG_MEMBER
+Organization Member
+ORG_READ_ONLY
+Organization Read Only
+ORG_GROUP_CREATOR
+Organization Project Creator
+ORG_OWNER
+Organization Owner
+GROUP_AUTOMATION_ADMIN
+Project Automation Admin
+GROUP_BACKUP_ADMIN
+Project Backup Admin
+GROUP_MONITORING_ADMIN
+Project Monitoring Admin
+GROUP_OWNER
+Project Owner
+GROUP_READ_ONLY
+Project Read Only
+GROUP_USER_ADMIN
+Project User Admin
+GROUP_DATA_ACCESS_ADMIN
+Project Data Access Admin
+GROUP_DATA_ACCESS_READ_ONLY
+Project Data Access Read Only
+GROUP_DATA_ACCESS_READ_WRITE
+Project Data Access Read/Write
+GLOBAL_AUTOMATION_ADMIN
+Global Automation Admin
+GLOBAL_BACKUP_ADMIN
+Global Backup Admin
+GLOBAL_MONITORING_ADMIN
+Global Monitoring Admin
+GLOBAL_OWNER
+Global Owner
+GLOBAL_READ_ONLY
+Global Read Only
+GLOBAL_USER_ADMIN
+Global User Admin"""
         roles: list[RolesParams] = Field(serialization_alias="roles")
+        """Role assigned to the Ops Manager user."""
     def update_roles(self,
         path_params: UpdateRolesPathParams,
         query_params: Optional[UpdateRolesQueryParams],
@@ -144,10 +310,21 @@ class UsersResource(BaseResource):
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         user_id: str = Field("None", serialization_alias="USER-ID")
+        """Unique identifier of the user."""
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],

@@ -20,6 +20,7 @@ class TelemetryResource(BaseResource):
     class ToggleTelemetryStatusBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         enabled: bool = Field(serialization_alias="enabled")
+        """Set to true to enable telemetry, or false to disable telemetry."""
     def toggle_telemetry_status(self,
         body_params: ToggleTelemetryStatusBodyParams,
     ) -> dict[str, Any]:

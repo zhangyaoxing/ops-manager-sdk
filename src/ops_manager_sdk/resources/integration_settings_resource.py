@@ -6,24 +6,49 @@ class IntegrationSettingsResource(BaseResource):
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        """Third-party service identifier. Accepted values are:
+DATADOG
+HIP_CHAT
+PAGER_DUTY
+SLACK
+NEW_RELIC
+OPS_GENIE
+VICTOR_OPS
+WEBHOOK"""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Project identifier."""
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         datadog: Optional[Any] = Field(serialization_alias="Datadog")
+        """No description."""
         hip_chat: Optional[Any] = Field(serialization_alias="HipChat")
+        """No description."""
         microsoft_teams: Optional[Any] = Field(serialization_alias="Microsoft Teams")
+        """No description."""
         opsgenie: Optional[Any] = Field(serialization_alias="Opsgenie")
+        """No description."""
         pager_duty: Optional[Any] = Field(serialization_alias="PagerDuty")
+        """No description."""
         prometheus: Optional[Any] = Field(serialization_alias="Prometheus")
+        """No description."""
         slack: Optional[Any] = Field(serialization_alias="Slack")
+        """No description."""
         victor_ops: Optional[Any] = Field(serialization_alias="VictorOps")
+        """No description."""
         webhook_settings: Optional[Any] = Field(serialization_alias="Webhook Settings")
+        """No description."""
     def create(self,
         path_params: CreatePathParams,
         query_params: Optional[CreateQueryParams],
@@ -44,13 +69,29 @@ class IntegrationSettingsResource(BaseResource):
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        """Third-party service identifier. Accepted values are:
+DATADOG
+HIP_CHAT
+PAGER_DUTY
+SLACK
+NEW_RELIC
+OPS_GENIE
+VICTOR_OPS
+WEBHOOK"""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Project identifier."""
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -70,12 +111,19 @@ class IntegrationSettingsResource(BaseResource):
     class ReturnLatestPrometheusTargetsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique 24-hexadecimal digit string that identifies your project."""
     class ReturnLatestPrometheusTargetsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def return_latest_prometheus_targets(self,
         path_params: ReturnLatestPrometheusTargetsPathParams,
         query_params: Optional[ReturnLatestPrometheusTargetsQueryParams],
@@ -95,12 +143,19 @@ class IntegrationSettingsResource(BaseResource):
     class GetAllConfigurationsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Project identifier."""
     class GetAllConfigurationsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_all_configurations(self,
         path_params: GetAllConfigurationsPathParams,
         query_params: Optional[GetAllConfigurationsQueryParams],
@@ -120,13 +175,29 @@ class IntegrationSettingsResource(BaseResource):
     class GetOneConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        """Third-party service identifier. Accepted values are:
+DATADOG
+HIP_CHAT
+PAGER_DUTY
+SLACK
+NEW_RELIC
+OPS_GENIE
+VICTOR_OPS
+WEBHOOK"""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Project identifier."""
     class GetOneConfigurationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_one_configuration(self,
         path_params: GetOneConfigurationPathParams,
         query_params: Optional[GetOneConfigurationQueryParams],
@@ -146,24 +217,49 @@ class IntegrationSettingsResource(BaseResource):
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        """Third-party service identifier. Accepted values are:
+DATADOG
+HIP_CHAT
+PAGER_DUTY
+SLACK
+NEW_RELIC
+OPS_GENIE
+VICTOR_OPS
+WEBHOOK"""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Project identifier."""
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         datadog: Optional[Any] = Field(serialization_alias="Datadog")
+        """No description."""
         hip_chat: Optional[Any] = Field(serialization_alias="HipChat")
+        """No description."""
         microsoft_teams: Optional[Any] = Field(serialization_alias="Microsoft Teams")
+        """No description."""
         opsgenie: Optional[Any] = Field(serialization_alias="Opsgenie")
+        """No description."""
         pager_duty: Optional[Any] = Field(serialization_alias="PagerDuty")
+        """No description."""
         prometheus: Optional[Any] = Field(serialization_alias="Prometheus")
+        """No description."""
         slack: Optional[Any] = Field(serialization_alias="Slack")
+        """No description."""
         victor_ops: Optional[Any] = Field(serialization_alias="VictorOps")
+        """No description."""
         webhook_settings: Optional[Any] = Field(serialization_alias="Webhook Settings")
+        """No description."""
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

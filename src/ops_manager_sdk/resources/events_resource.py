@@ -20,6 +20,7 @@ class EventsResource(BaseResource):
     class GetAllProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         group_id: str = Field("None", serialization_alias="groupId")
+        """Unique identifier of the project associated with the desired event."""
     def get_all_project_(self,
         path_params: GetAllProjectPathParams,
     ) -> dict[str, Any]:
@@ -38,12 +39,17 @@ class EventsResource(BaseResource):
     class GetOneOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         event_id: str = Field("None", serialization_alias="eventId")
+        """Unique identifier of the desired event."""
         org_id: str = Field("None", serialization_alias="orgId")
+        """Unique identifier of the organization associated with the desired event."""
     class GetOneOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """false"""
         include_raw: Optional[bool] = Field(serialization_alias="includeRaw")
+        """false"""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def get_one_organization_(self,
         path_params: GetOneOrganizationPathParams,
         query_params: Optional[GetOneOrganizationQueryParams],
@@ -63,12 +69,17 @@ class EventsResource(BaseResource):
     class GetOneProjectPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         event_id: str = Field("None", serialization_alias="eventId")
+        """Unique identifier of the desired event."""
         group_id: str = Field("None", serialization_alias="groupId")
+        """Unique identifier of the project associated with the desired event."""
     class GetOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """false"""
         include_raw: Optional[bool] = Field(serialization_alias="includeRaw")
+        """false"""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def get_one_project_(self,
         path_params: GetOneProjectPathParams,
         query_params: Optional[GetOneProjectQueryParams],

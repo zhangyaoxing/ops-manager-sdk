@@ -6,11 +6,40 @@ class GlobalApiKeysResource(BaseResource):
     class CreateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         desc: str = Field("None", serialization_alias="desc")
+        """Description of the Global API Key. Must be between 1 and 250 characters in length."""
         roles: list[str] = Field(serialization_alias="roles")
+        """List of roles that the Global API Key needs to have. If the roles array is provided:
+Provide at least one role
+Make sure all roles are valid.
+Global roles accepted by default include:
+Role Value in API
+Role
+GLOBAL_AUTOMATION_ADMIN
+Global Automation Admin
+GLOBAL_BACKUP_ADMIN
+Global Backup Admin
+GLOBAL_MONITORING_ADMIN
+Global Monitoring Admin
+GLOBAL_OWNER
+Global Owner
+GLOBAL_READ_ONLY
+Global Read Only
+GLOBAL_USER_ADMIN
+Global User Admin"""
     def create(self,
         query_params: Optional[CreateQueryParams],
         body_params: CreateBodyParams,
@@ -30,10 +59,21 @@ class GlobalApiKeysResource(BaseResource):
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
+        """Unique identifier for the API key you want to delete. Use the /admin/apiKeys endpoint to retrieve all API keys to which the authenticated user has access."""
     class DeleteQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete(self,
         path_params: DeletePathParams,
         query_params: Optional[DeleteQueryParams],
@@ -53,9 +93,13 @@ class GlobalApiKeysResource(BaseResource):
     class GetAllRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(serialization_alias="envelope")
+        """None"""
         items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
+        """100"""
         page_num: Optional[float] = Field(serialization_alias="pageNum")
+        """1"""
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def get_all_roles(self,
         query_params: Optional[GetAllRolesQueryParams],
     ) -> dict[str, Any]:
@@ -74,9 +118,15 @@ class GlobalApiKeysResource(BaseResource):
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body."""
         items_per_page: Optional[float] = Field(100.0, serialization_alias="itemsPerPage")
+        """Number of items to return per page, up to a maximum of 500."""
         page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results."""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format."""
     def get_all(self,
         query_params: Optional[GetAllQueryParams],
     ) -> dict[str, Any]:
@@ -95,10 +145,21 @@ class GlobalApiKeysResource(BaseResource):
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
+        """Unique identifier for the Global API Key you want to retrieve."""
     class GetOneQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_one(self,
         path_params: GetOnePathParams,
         query_params: Optional[GetOneQueryParams],
@@ -118,14 +179,44 @@ class GlobalApiKeysResource(BaseResource):
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         api_key_id: str = Field("None", serialization_alias="API-KEY-ID")
+        """Unique identifier for the Global API key you want to update."""
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         desc: Optional[str] = Field("None", serialization_alias="desc")
+        """Description of the key. This parameter is optional; however, the request must contain either a desc parameter or a roles parameter. If desc is provided, it must be between 1 and 250 characters long."""
         roles: Optional[list[str]] = Field(serialization_alias="roles")
+        """List of roles that the Global API Key needs to have. If the roles array is provided:
+Provide at least one role
+Make sure all roles are valid.
+Global roles accepted by default include:
+Role Value in API
+Role
+GLOBAL_AUTOMATION_ADMIN
+Global Automation Admin
+GLOBAL_BACKUP_ADMIN
+Global Backup Admin
+GLOBAL_MONITORING_ADMIN
+Global Monitoring Admin
+GLOBAL_OWNER
+Global Owner
+GLOBAL_READ_ONLY
+Global Read Only
+GLOBAL_USER_ADMIN
+Global User Admin"""
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],

@@ -6,11 +6,23 @@ class ImportDeploymentsResource(BaseResource):
     class CancelImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
         request_id: str = Field("None", serialization_alias="REQUEST-ID")
+        """Unique identifier of the import deployment request to cancel."""
     class CancelImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def cancel_import_deployment_request(self,
         path_params: CancelImportDeploymentRequestPathParams,
         query_params: Optional[CancelImportDeploymentRequestQueryParams],
@@ -30,33 +42,70 @@ class ImportDeploymentsResource(BaseResource):
     class CreateImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that will own the imported deployments."""
     class CreateImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class CreateImportDeploymentRequestBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         admin_db: Optional[str] = Field("None", serialization_alias="adminDb")
+        """Database to authenticate against. Default: admin."""
         admin_kerberos_keytab: Optional[str] = Field("None", serialization_alias="adminKerberosKeytab")
+        """Path to the Kerberos keytab file for GSSAPI authentication."""
         admin_ldap_group_dn: Optional[str] = Field("None", serialization_alias="adminLdapGroupDn")
+        """LDAP group distinguished name for PLAIN authentication."""
         auth_mechanism: Optional[str] = Field("None", serialization_alias="authMechanism")
+        """Authentication mechanism for connecting to the MongoDB processes. Possible values are:
+MONGODB_CR (This covers SCRAM-SHA-1, SCRAM-SHA-256, and MONGODB-CR.)
+GSSAPI
+PLAIN
+MONGODB_X509
+NONE"""
         ca_file_path: Optional[str] = Field("None", serialization_alias="caFilePath")
+        """Path to the Certificate Authority file for TLS connections."""
         client_certificate_mode: Optional[str] = Field("None", serialization_alias="clientCertificateMode")
+        """Client certificate mode for TLS connections."""
         cluster_ca_file_path: Optional[str] = Field("None", serialization_alias="clusterCaFilePath")
+        """Path to the cluster Certificate Authority file for TLS connections."""
         password: Optional[str] = Field("None", serialization_alias="password")
+        """Password for authenticating to the MongoDB processes. Required if authMechanism is MONGODB_CR.
+Ops Manager doesn't include this parameter in response documents."""
         pem_key_file_password: Optional[str] = Field("None", serialization_alias="pemKeyFilePassword")
+        """Password for the PEM key file.
+Ops Manager doesn't include this parameter in response documents."""
         pem_key_file_path: Optional[str] = Field("None", serialization_alias="pemKeyFilePath")
+        """Path to the PEM key file for TLS client authentication."""
         required_processes: list[Any] = Field(serialization_alias="requiredProcesses")
+        """Array of hostname:port strings representing MongoDB processes that must be discovered before the import can proceed."""
         sasl_service_name: Optional[str] = Field("None", serialization_alias="saslServiceName")
+        """SASL service name for GSSAPI authentication."""
         seed_hostport: str = Field("None", serialization_alias="seedHostport")
+        """Hostname and port of the seed MongoDB process to connect to for discovery (e.g., mongodb1.example.com:27017)."""
         class TimeoutsParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
             automation_imported: Optional[float] = Field(serialization_alias="automationImported")
+            """Timeout in seconds for completing the automation import. Range: 60-86400 seconds. Default uses system settings."""
             goal_state_sec: Optional[float] = Field(serialization_alias="goalStateSec")
+            """Timeout in seconds for reaching automation goal state. Range: 60-86400 seconds. Default uses system settings."""
             processes_discovery_sec: Optional[float] = Field(serialization_alias="processesDiscoverySec")
+            """Timeout in seconds for discovering all required processes. Range: 60-86400 seconds. Default uses system settings."""
             seed_host_connection_sec: Optional[float] = Field(serialization_alias="seedHostConnectionSec")
+            """Timeout in seconds for connecting to the seed host. Range: 60-86400 seconds. Default uses system settings."""
         timeouts: Optional[TimeoutsParams] = Field(serialization_alias="timeouts")
+        """Timeout settings for various import phases."""
         username: Optional[str] = Field("None", serialization_alias="username")
+        """Username for authenticating to the MongoDB processes. Required if authMechanism is specified."""
     def create_import_deployment_request(self,
         path_params: CreateImportDeploymentRequestPathParams,
         query_params: Optional[CreateImportDeploymentRequestQueryParams],
@@ -77,11 +126,23 @@ class ImportDeploymentsResource(BaseResource):
     class DeleteImportDeploymentRequestPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
         request_id: str = Field("None", serialization_alias="REQUEST-ID")
+        """Unique identifier of the import deployment request to delete."""
     class DeleteImportDeploymentRequestQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def delete_import_deployment_request(self,
         path_params: DeleteImportDeploymentRequestPathParams,
         query_params: Optional[DeleteImportDeploymentRequestQueryParams],
@@ -101,10 +162,21 @@ class ImportDeploymentsResource(BaseResource):
     class GetImportDeploymentRequestsPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class GetImportDeploymentRequestsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_import_deployment_requests(self,
         path_params: GetImportDeploymentRequestsPathParams,
         query_params: Optional[GetImportDeploymentRequestsQueryParams],
@@ -124,11 +196,23 @@ class ImportDeploymentsResource(BaseResource):
     class GetImportDeploymentRequestStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         import_process_id: str = Field("None", serialization_alias="IMPORT-PROCESS-ID")
+        """Unique identifier of the import deployment request."""
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project."""
     class GetImportDeploymentRequestStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def get_import_deployment_request_status(self,
         path_params: GetImportDeploymentRequestStatusPathParams,
         query_params: Optional[GetImportDeploymentRequestStatusQueryParams],

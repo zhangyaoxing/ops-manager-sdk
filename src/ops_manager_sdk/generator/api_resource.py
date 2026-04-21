@@ -22,6 +22,7 @@ class {{ class_name }}(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.path_params.params %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
+        \"\"\"{{ param.description }}\"\"\"
         {% endfor %}
     {% endif %}
     {% if snippet.query_params.needed %}
@@ -33,9 +34,11 @@ class {{ class_name }}(BaseResource):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
             {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
+            \"\"\"{{ nested_param.description }}\"\"\"
             {% endfor %}
         {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
+        \"\"\"{{ param.description }}\"\"\"
         {% endfor %}
     {% endif %}
     {% if snippet.body_params.needed %}
@@ -47,9 +50,11 @@ class {{ class_name }}(BaseResource):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
             {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
+            \"\"\"{{ nested_param.description }}\"\"\"
             {% endfor %}
         {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
+        \"\"\"{{ param.description }}\"\"\"
         {% endfor %}
     {% endif %}
     def {{ snippet.method_name }}(self,
@@ -132,6 +137,7 @@ class APIResource:
                 params_required = True
             default_value: Any = parse_value(param["default"], param_type)
             class_name: str = re.sub(r"[^\w]+", "", f"{original_name.title()}Params")
+            desc: str = param.get("description", "No description.")
             # Handle nested params
             if "." in original_name:
                 if parent_param is None:
@@ -163,6 +169,7 @@ class APIResource:
                         "type": param_type,
                         "required": is_required,
                         "default": default_value if param_type != "str" else f'"{default_value}"',
+                        "description": desc,
                     }
                 )
             else:
@@ -175,6 +182,7 @@ class APIResource:
                         "type": param_type,
                         "required": is_required,
                         "default": default_value if param_type != "str" else f'"{default_value}"',
+                        "description": desc,
                     }
                 )
         return params_required, result

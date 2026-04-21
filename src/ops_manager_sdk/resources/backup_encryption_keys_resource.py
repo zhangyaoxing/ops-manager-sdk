@@ -6,11 +6,23 @@ class BackupEncryptionKeysResource(BaseResource):
     class RetrieveKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster to which the encryption keys belongs."""
         group_id: str = Field("None", serialization_alias="GROUP-ID")
+        """Unique identifier of the project to which the encryption key belongs."""
     class RetrieveKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def retrieve_kmip_master_key_id(self,
         path_params: RetrieveKmipMasterKeyIdPathParams,
         query_params: Optional[RetrieveKmipMasterKeyIdQueryParams],
@@ -30,11 +42,23 @@ class BackupEncryptionKeysResource(BaseResource):
     class RotateKmipMasterKeyIdPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster to which the encryption keys belongs."""
         group_id: str = Field("None", serialization_alias="GROUP-ID")
+        """Unique identifier of the project to which the encryption key belongs."""
     class RotateKmipMasterKeyIdQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def rotate_kmip_master_key_id(self,
         path_params: RotateKmipMasterKeyIdPathParams,
         query_params: Optional[RotateKmipMasterKeyIdQueryParams],

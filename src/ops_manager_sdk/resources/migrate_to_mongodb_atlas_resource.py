@@ -6,13 +6,29 @@ class MigrateToMongodbAtlasResource(BaseResource):
     class ConnectWithAtlasOrganizationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="orgId")
+        """Unique 24-hexadecimal digit string that identifies the source organization that contains your projects."""
     class ConnectWithAtlasOrganizationQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     class ConnectWithAtlasOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         link_token: str = Field("None", serialization_alias="linkToken")
+        """String that contains the information necessary to connect from MongoDB Cloud Manager or Ops Manager to MongoDB Atlas during a Live Migration from a MongoDB Cloud Manager or Ops Manager deployment to a cluster in MongoDB Atlas.
+When you migrate data from a MongoDB Cloud Manager or Ops Manager deployment, you need to do the following:
+Generate a link-token in MongoDB Atlas
+Enter it in your MongoDB Cloud Manager or Ops Manager organization’s settings.
+You use the same link-token to migrate each deployment in your MongoDB Cloud Manager or Ops Manager organization sequentially, one at a time. You can generate multiple link-tokens in MongoDB Atlas. Use one unique link-token for each MongoDB Cloud Manager or Ops Manager organization."""
     def connect_with_atlas_organization(self,
         path_params: ConnectWithAtlasOrganizationPathParams,
         query_params: Optional[ConnectWithAtlasOrganizationQueryParams],
@@ -33,10 +49,21 @@ class MigrateToMongodbAtlasResource(BaseResource):
     class RemoveConnectionPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="orgId")
+        """Unique 24-hexadecimal digit string that identifies the source organization that contains your projects."""
     class RemoveConnectionQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def remove_connection(self,
         path_params: RemoveConnectionPathParams,
         query_params: Optional[RemoveConnectionQueryParams],
@@ -56,10 +83,21 @@ class MigrateToMongodbAtlasResource(BaseResource):
     class ReturnConnectionStatusPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         org_id: str = Field("None", serialization_alias="orgId")
+        """Unique 24-hexadecimal digit string that identifies the source organization that contains the projects to be migrated to MongoDB Atlas."""
     class ReturnConnectionStatusQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+For endpoints that return one result, the response body includes:
+Name
+Description
+status
+HTTP response code
+content
+Expected response body"""
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format."""
     def return_connection_status(self,
         path_params: ReturnConnectionStatusPathParams,
         query_params: Optional[ReturnConnectionStatusQueryParams],

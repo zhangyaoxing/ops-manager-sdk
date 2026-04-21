@@ -6,6 +6,7 @@ class VersionManifestResource(BaseResource):
     class RetrieveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def retrieve(self,
         query_params: Optional[RetrieveQueryParams],
     ) -> dict[str, Any]:
@@ -24,6 +25,7 @@ class VersionManifestResource(BaseResource):
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         pretty: Optional[bool] = Field(serialization_alias="pretty")
+        """false"""
     def update(self,
         query_params: Optional[UpdateQueryParams],
     ) -> dict[str, Any]:
