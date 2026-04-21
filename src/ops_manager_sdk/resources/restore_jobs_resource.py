@@ -36,7 +36,15 @@ class RestoreJobsResource(BaseResource):
     class CreateConfigServerBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         checkpoint_id: Optional[str] = Field("None", serialization_alias="checkpointId")
-        delivery: dict = Field(serialization_alias="delivery")
+        class DeliveryParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            expiration_hours: Optional[float] = Field(serialization_alias="expirationHours")
+            expires: Optional[str] = Field("None", serialization_alias="expires")
+            max_downloads: Optional[float] = Field(serialization_alias="maxDownloads")
+            method_name: str = Field("None", serialization_alias="methodName")
+            target_cluster_id: Optional[str] = Field("None", serialization_alias="targetClusterId")
+            target_group_id: Optional[str] = Field("None", serialization_alias="targetGroupId")
+        delivery: DeliveryParams = Field(serialization_alias="delivery")
         oplog_inc: Optional[str] = Field("None", serialization_alias="oplogInc")
         oplog_ts: Optional[str] = Field("None", serialization_alias="oplogTs")
         point_in_time_utc_millis: Optional[int] = Field(serialization_alias="pointInTimeUTCMillis")

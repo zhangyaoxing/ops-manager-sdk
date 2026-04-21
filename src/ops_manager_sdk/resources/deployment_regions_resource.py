@@ -13,7 +13,11 @@ class DeploymentRegionsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class AssignBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        deployment_configs: list[dict] = Field(serialization_alias="deploymentConfigs")
+        class DeploymentconfigsParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            deployment_id: str = Field("None", serialization_alias="deploymentId")
+            rs_id: str = Field("None", serialization_alias="rsId")
+        deployment_configs: list[DeploymentconfigsParams] = Field(serialization_alias="deploymentConfigs")
         multi_region_backup_enabled: bool = Field(serialization_alias="multiRegionBackupEnabled")
     def assign(self,
         path_params: AssignPathParams,

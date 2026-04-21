@@ -156,7 +156,11 @@ class OrganizationsResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class CreateOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        ldap_group_mappings: Optional[list[Any]] = Field(serialization_alias="ldapGroupMappings")
+        class LdapgroupmappingsParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            ldap_groups: Optional[list[Any]] = Field(serialization_alias="ldapGroups")
+            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+        ldap_group_mappings: Optional[list[LdapgroupmappingsParams]] = Field(serialization_alias="ldapGroupMappings")
         name: str = Field("None", serialization_alias="name")
     def create_organization(self,
         query_params: Optional[CreateOrganizationQueryParams],

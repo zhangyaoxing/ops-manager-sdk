@@ -52,13 +52,25 @@ class ProjectBackupJobResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        daemon_filter: Optional[list[dict]] = Field(serialization_alias="daemonFilter")
+        class DaemonfilterParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            head_root_directory: Optional[str] = Field("None", serialization_alias="headRootDirectory")
+            machine: Optional[str] = Field("None", serialization_alias="machine")
+        daemon_filter: Optional[list[DaemonfilterParams]] = Field(serialization_alias="daemonFilter")
         id: Optional[str] = Field("None", serialization_alias="id")
         kmip_client_cert_password: Optional[str] = Field("None", serialization_alias="kmipClientCertPassword")
         kmip_client_cert_path: Optional[str] = Field("None", serialization_alias="kmipClientCertPath")
         label_filter: Optional[list[str]] = Field(serialization_alias="labelFilter")
-        oplog_store_filter: Optional[list[dict]] = Field(serialization_alias="oplogStoreFilter")
-        snapshot_store_filter: Optional[list[dict]] = Field(serialization_alias="snapshotStoreFilter")
+        class OplogstorefilterParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            id: Optional[str] = Field("None", serialization_alias="id")
+            type: Optional[str] = Field("None", serialization_alias="type")
+        oplog_store_filter: Optional[list[OplogstorefilterParams]] = Field(serialization_alias="oplogStoreFilter")
+        class SnapshotstorefilterParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            id: Optional[str] = Field("None", serialization_alias="id")
+            type: Optional[str] = Field("None", serialization_alias="type")
+        snapshot_store_filter: Optional[list[SnapshotstorefilterParams]] = Field(serialization_alias="snapshotStoreFilter")
         sync_store_filter: Optional[list[str]] = Field(serialization_alias="syncStoreFilter")
     def update(self,
         path_params: UpdatePathParams,

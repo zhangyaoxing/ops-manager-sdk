@@ -13,7 +13,11 @@ class ProjectsResource(BaseResource):
     class AddExistingUsersBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         id: Optional[str] = Field("None", serialization_alias="id")
-        roles: Optional[list[dict]] = Field(serialization_alias="roles")
+        class RolesParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+        roles: Optional[list[RolesParams]] = Field(serialization_alias="roles")
     def add_existing_users(self,
         path_params: AddExistingUsersPathParams,
         query_params: Optional[AddExistingUsersQueryParams],

@@ -47,7 +47,13 @@ class ImportDeploymentsResource(BaseResource):
         required_processes: list[Any] = Field(serialization_alias="requiredProcesses")
         sasl_service_name: Optional[str] = Field("None", serialization_alias="saslServiceName")
         seed_hostport: str = Field("None", serialization_alias="seedHostport")
-        timeouts: Optional[dict] = Field(serialization_alias="timeouts")
+        class TimeoutsParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            automation_imported: Optional[float] = Field(serialization_alias="automationImported")
+            goal_state_sec: Optional[float] = Field(serialization_alias="goalStateSec")
+            processes_discovery_sec: Optional[float] = Field(serialization_alias="processesDiscoverySec")
+            seed_host_connection_sec: Optional[float] = Field(serialization_alias="seedHostConnectionSec")
+        timeouts: Optional[TimeoutsParams] = Field(serialization_alias="timeouts")
         username: Optional[str] = Field("None", serialization_alias="username")
     def create_import_deployment_request(self,
         path_params: CreateImportDeploymentRequestPathParams,

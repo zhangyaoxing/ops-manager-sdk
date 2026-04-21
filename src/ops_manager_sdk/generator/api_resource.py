@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 import re
 from pathlib import Path
 from jinja2 import Template
@@ -28,6 +28,13 @@ class {{ class_name }}(BaseResource):
     class {{ snippet.params_class_name }}QueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.query_params.params %}
+        {% if param.has_nested_params %}
+        class {{ param.class_name }}(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            {% for nested_param in param.nested_params %}
+            {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
+            {% endfor %}
+        {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
     {% endif %}
@@ -35,6 +42,13 @@ class {{ class_name }}(BaseResource):
     class {{ snippet.params_class_name }}BodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.body_params.params %}
+        {% if param.has_nested_params %}
+        class {{ param.class_name }}(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            {% for nested_param in param.nested_params %}
+            {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
+            {% endfor %}
+        {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         {% endfor %}
     {% endif %}
@@ -81,15 +95,15 @@ class APIResource:
         and default value from the parameter dictionaries."""
         result: list[dict[str, Any]] = []
         params_required: bool = False
-        for param in params:
+        # Must sort the parameters by name to ensure the parent parameters are always before the nested parameters.
+        # Because the nested parameters will be moved into the parent parameters.
+        params_sorted = sorted(params, key=lambda x: x["name"])
+        parent_param: Optional[dict[str, Any]] = None
+        for param in params_sorted:
             required_str: str = param.get("required", "").lower()
             is_required: bool = "required" in required_str and "required if" not in required_str
             original_name: str = param["name"]
-            if "." in original_name:
-                logger.warning(
-                    f"Parameter name '{original_name}' is a nested parameter. Which is not supported in the current version. Skipping..."
-                )
-                continue
+
             if "{" in original_name or "}" in original_name:
                 original_name = original_name.strip("{}")
             # Sometimes the required is written in the parameter name.
@@ -103,20 +117,48 @@ class APIResource:
                 param_name = re.sub(
                     r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", original_name
                 ).lower()
-                param_name = re.sub(r"[^\w]+", "", param_name)
+                param_name = re.sub(r"[^\w\.]+", "", param_name)
             param_type: str = type_mapping(param["type"])
             if is_required:
                 params_required = True
             default_value: Any = parse_value(param["default"], param_type)
-            result.append(
-                {
-                    "name": param_name,
-                    "alias": original_name,
-                    "type": param_type,
-                    "required": is_required,
-                    "default": default_value if param_type != "str" else f'"{default_value}"',
-                }
-            )
+            class_name: str = re.sub(r"[^\w]+", "", f"{original_name.title()}Params")
+            # Handle nested params
+            if "." in original_name:
+                if parent_param is None:
+                    # Because params are sorted by name,
+                    # The last element in the result must be the parent parameter.
+                    parent_param = result[-1]
+                if "nested_params" not in parent_param:
+                    parent_param["nested_params"] = []
+                    parent_param["has_nested_params"] = True
+                    if "list" in parent_param["type"]:
+                        parent_param["type"] = f"list[{parent_param['class_name']}]"
+                    else:
+                        parent_param["type"] = parent_param["class_name"]
+                param_name = param_name.split(".")[-1]
+                original_name = original_name.split(".")[-1]
+                parent_param["nested_params"].append(
+                    {
+                        "name": param_name,
+                        "alias": original_name,
+                        "type": param_type,
+                        "required": is_required,
+                        "default": default_value if param_type != "str" else f'"{default_value}"',
+                    }
+                )
+            else:
+                parent_param = None
+                result.append(
+                    {
+                        "name": param_name,
+                        "class_name": class_name,
+                        "alias": original_name,
+                        "type": param_type,
+                        "required": is_required,
+                        "default": default_value if param_type != "str" else f'"{default_value}"',
+                    }
+                )
         return params_required, result
 
     def _pre_process(self) -> dict[str, Any]:

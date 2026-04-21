@@ -238,7 +238,11 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         config_overrides: Optional[dict] = Field(serialization_alias="configOverrides")
         log_path: Optional[str] = Field("None", serialization_alias="logPath")
-        log_rotate: Optional[dict] = Field(serialization_alias="logRotate")
+        class LogrotateParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            size_threshold_mb: Optional[int] = Field(serialization_alias="sizeThresholdMB")
+            time_duration_hrs: Optional[int] = Field(serialization_alias="timeDurationHrs")
+        log_rotate: Optional[LogrotateParams] = Field(serialization_alias="logRotate")
         username: Optional[str] = Field("None", serialization_alias="username")
     def update_backup_configuration_settings(self,
         path_params: UpdateBackupConfigurationSettingsPathParams,
@@ -266,7 +270,11 @@ class ConfigurationResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         config_overrides: Optional[dict] = Field(serialization_alias="configOverrides")
         log_path: Optional[str] = Field("None", serialization_alias="logPath")
-        log_rotate: Optional[dict] = Field(serialization_alias="logRotate")
+        class LogrotateParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            size_threshold_mb: Optional[int] = Field(serialization_alias="sizeThresholdMB")
+            time_duration_hrs: Optional[int] = Field(serialization_alias="timeDurationHrs")
+        log_rotate: Optional[LogrotateParams] = Field(serialization_alias="logRotate")
         username: Optional[str] = Field("None", serialization_alias="username")
     def update_monitoring_configuration_settings(self,
         path_params: UpdateMonitoringConfigurationSettingsPathParams,

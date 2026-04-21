@@ -40,7 +40,11 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         name: str = Field("None", serialization_alias="name")
         server_type: str = Field("None", serialization_alias="serverType")
-        virtual_hosts: list[str] = Field(serialization_alias="virtualHosts")
+        class VirtualhostsParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            hostname: Optional[str] = Field("None", serialization_alias="hostname")
+        virtual_hosts: list[VirtualhostsParams] = Field(serialization_alias="virtualHosts")
     def create_physical_host(self,
         query_params: Optional[CreatePhysicalHostQueryParams],
         body_params: CreatePhysicalHostBodyParams,
@@ -282,7 +286,11 @@ class ServerUsageResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateServerTypeForOneOrganizationBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        server_type: dict = Field(serialization_alias="serverType")
+        class ServertypeParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            label: Optional[dict] = Field(serialization_alias="label")
+            name: dict = Field(serialization_alias="name")
+        server_type: ServertypeParams = Field(serialization_alias="serverType")
     def update_server_type_for_one_organization(self,
         path_params: UpdateServerTypeForOneOrganizationPathParams,
         query_params: Optional[UpdateServerTypeForOneOrganizationQueryParams],
@@ -307,7 +315,11 @@ class ServerUsageResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateDefaultServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        server_type: dict = Field(serialization_alias="serverType")
+        class ServertypeParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            label: Optional[dict] = Field(serialization_alias="label")
+            name: dict = Field(serialization_alias="name")
+        server_type: ServertypeParams = Field(serialization_alias="serverType")
     def update_default_server_type(self,
         path_params: UpdateDefaultServerTypePathParams,
         query_params: Optional[UpdateDefaultServerTypeQueryParams],
@@ -336,7 +348,11 @@ class ServerUsageResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         name: str = Field("None", serialization_alias="name")
         server_type: str = Field("None", serialization_alias="serverType")
-        virtual_hosts: list[str] = Field(serialization_alias="virtualHosts")
+        class VirtualhostsParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            hostname: Optional[str] = Field("None", serialization_alias="hostname")
+        virtual_hosts: list[VirtualhostsParams] = Field(serialization_alias="virtualHosts")
     def update_physical_host(self,
         path_params: UpdatePhysicalHostPathParams,
         query_params: Optional[UpdatePhysicalHostQueryParams],
@@ -361,7 +377,11 @@ class ServerUsageResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateServerTypeBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        server_type: dict = Field(serialization_alias="serverType")
+        class ServertypeParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            label: Optional[dict] = Field(serialization_alias="label")
+            name: dict = Field(serialization_alias="name")
+        server_type: ServertypeParams = Field(serialization_alias="serverType")
     def update_server_type(self,
         path_params: UpdateServerTypePathParams,
         query_params: Optional[UpdateServerTypeQueryParams],

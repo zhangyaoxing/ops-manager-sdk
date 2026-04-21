@@ -65,7 +65,11 @@ class BackupConfigurationsResource(BaseResource):
         password: Optional[str] = Field("None", serialization_alias="password")
         preferred_member: Optional[str] = Field("None", serialization_alias="preferredMember")
         provisioned: Optional[bool] = Field(serialization_alias="provisioned")
-        snapshot_store: Optional[dict] = Field(serialization_alias="snapshotStore")
+        class SnapshotstoreParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            snapshot_store_id: Optional[str] = Field("None", serialization_alias="snapshotStoreId")
+            snapshot_store_type: Optional[str] = Field("None", serialization_alias="snapshotStoreType")
+        snapshot_store: Optional[SnapshotstoreParams] = Field(serialization_alias="snapshotStore")
         ssl_enabled: Optional[bool] = Field(serialization_alias="sslEnabled")
         status_name: Optional[str] = Field("None", serialization_alias="statusName")
         storage_engine_name: Optional[str] = Field("None", serialization_alias="storageEngineName")

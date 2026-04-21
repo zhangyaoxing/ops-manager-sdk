@@ -38,7 +38,12 @@ class UsersResource(BaseResource):
         last_name: Optional[str] = Field("None", serialization_alias="lastName")
         mobile_number: Optional[str] = Field("None", serialization_alias="mobileNumber")
         password: Optional[str] = Field("None", serialization_alias="password")
-        roles: Optional[list[dict]] = Field(serialization_alias="roles")
+        class RolesParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            org_id: Optional[str] = Field("None", serialization_alias="orgId")
+            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+        roles: Optional[list[RolesParams]] = Field(serialization_alias="roles")
         username: str = Field("None", serialization_alias="username")
     def create(self,
         query_params: Optional[CreateQueryParams],
@@ -105,7 +110,12 @@ class UsersResource(BaseResource):
         pretty: Optional[bool] = Field(False, serialization_alias="pretty")
     class UpdateRolesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        roles: list[dict] = Field(serialization_alias="roles")
+        class RolesParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            group_id: Optional[str] = Field("None", serialization_alias="groupId")
+            org_id: Optional[str] = Field("None", serialization_alias="orgId")
+            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+        roles: list[RolesParams] = Field(serialization_alias="roles")
     def update_roles(self,
         path_params: UpdateRolesPathParams,
         query_params: Optional[UpdateRolesQueryParams],

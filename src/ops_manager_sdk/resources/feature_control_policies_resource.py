@@ -56,8 +56,17 @@ class FeatureControlPoliciesResource(BaseResource):
         pretty: Optional[bool] = Field(serialization_alias="pretty")
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
-        external_management_system: Optional[dict] = Field(serialization_alias="externalManagementSystem")
-        policies: Optional[list[Any]] = Field(serialization_alias="policies")
+        class ExternalmanagementsystemParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            name: Optional[str] = Field("None", serialization_alias="name")
+            system_id: Optional[str] = Field("None", serialization_alias="systemId")
+            version: Optional[str] = Field("None", serialization_alias="version")
+        external_management_system: Optional[ExternalmanagementsystemParams] = Field(serialization_alias="externalManagementSystem")
+        class PoliciesParams(BaseModel):
+            model_config = ConfigDict(populate_by_name=True)
+            disabled_params: Optional[list[Any]] = Field(serialization_alias="disabledParams")
+            policy: Optional[dict] = Field(serialization_alias="policy")
+        policies: Optional[list[PoliciesParams]] = Field(serialization_alias="policies")
     def update(self,
         path_params: UpdatePathParams,
         query_params: Optional[UpdateQueryParams],
