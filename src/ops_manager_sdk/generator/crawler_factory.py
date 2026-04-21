@@ -21,15 +21,38 @@ class StandardCrawler:
         "name": "xpath=(//a[@aria-current='page'])[1]",
         "description": "xpath=(//div[@class='body'])[1]/section[1]/p[1]",
         "endpoints": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[contains(@class, 'intro-code-block')]//td",
-        "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table[1]/tbody[1]/tr",
-        "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table/tbody/tr",
-        "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div/table[1]/tbody[1]/tr",
+        "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table",
+        "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table",
+        "body_params": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div/table",
         "body_desc": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::p[1]",
         "resource": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
     }
 
     def __init__(self, context: BrowserContext):
         self.context: BrowserContext = context
+
+    def _column_mapping(self, params_locator: Locator) -> tuple[int, int, int, int, int]:
+        """Determines the column indices for parameter name, type, required status, description, and default value.
+        Args:
+            params_locator: A Playwright Locator pointing to the parameter table in the API documentation.
+        Returns:
+            A tuple containing the column indices for name, type, required status, description, and default value.
+        """
+        header_locator = params_locator.locator("xpath=./thead/tr/th")
+        name_col, type_col, required_col, desc_col, default_col = 0, 0, 0, 0, 0
+        for i in range(header_locator.count()):
+            header_text = header_locator.nth(i).inner_text().strip().lower()
+            if "name" in header_text or "parameter" in header_text:
+                name_col = i + 1
+            elif "type" in header_text:
+                type_col = i + 1
+            elif "required" in header_text or "necessity" in header_text:
+                required_col = i + 1
+            elif "description" in header_text:
+                desc_col = i + 1
+            elif "default" in header_text:
+                default_col = i + 1
+        return name_col, type_col, required_col, desc_col, default_col
 
     def _get_params(self, params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
         """Extracts parameters from the given locator.
@@ -44,57 +67,65 @@ class StandardCrawler:
         required_override = kwargs.get("required_override", None)
         type_override = kwargs.get("type_override", None)
         params: list[dict[str, Any]] = []
-        locators: list = params_locator.all()
-        for param in locators:
-            param_name: str = param.locator("xpath=./td[1]").inner_text()
-            param_name = param_name.replace("[n]", "").strip()
-            if type_override is not None:
-                param_type: str = type_override
-            else:
-                param_type_locator = param.locator("xpath=./td[2]")
-                if param_type_locator.count() > 0:
-                    param_type = param_type_locator.inner_text()
-                else:
-                    param_type = "string"
-            # If param_name is one of the following, overwrite the type.
-            # Because some pages have incorrect type for these parameters
-            if param_name in ["pageNum", "itemsPerPage"]:
-                param_type = "number"
-            if param_name in ["envelope", "pretty"]:
-                param_type = "boolean"
-            if param_name in ["since", "duration"]:
-                param_type = "long"
-            if param_name == "CLUSTER-ID":
-                param_name = "clusterId"
-                param_type = "string"
 
-            if required_override is not None:
-                required: str = required_override
-            else:
-                required_locator = param.locator("xpath=./td[3]")
-                if required_locator.count() > 0:
-                    required = required_locator.inner_text()
+        # In some documents, the parameters are listed in multiple tables instead of one table.
+        # So we need to loop through all tables to get the parameters.
+        tables: list = params_locator.all()
+        for table in tables:
+            name_col, type_col, required_col, desc_col, default_col = self._column_mapping(table)
+            locators = table.locator("xpath=./tbody/tr").all()
+            for param in locators:
+                param_name: str = param.locator(f"xpath=./td[{name_col}]").inner_text()
+                param_name = param_name.replace("[n]", "").strip()
+                if type_override is not None:
+                    param_type: str = type_override
                 else:
-                    required = "Optional"
-            desc_locator: Locator = param.locator("xpath=./td[4]")
-            if desc_locator.count() == 0:
-                desc_locator = param.locator("xpath=./td[3]")
-            desc: str = desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
-            default_locator: Locator = param.locator("xpath=./td[5]")
-            if default_locator.count() > 0:
-                inner_text = default_locator.inner_text()
-                default_value: Optional[str] = inner_text if inner_text else None
-            else:
-                default_value = None
-            params.append(
-                {
-                    "name": param_name,
-                    "type": param_type,
-                    "required": required,
-                    "description": desc,
-                    "default": default_value,
-                }
-            )
+                    param_type_locator = param.locator(f"xpath=./td[{type_col}]")
+                    if param_type_locator.count() > 0:
+                        param_type = param_type_locator.inner_text()
+                    else:
+                        param_type = "string"
+                # If param_name is one of the following, overwrite the type.
+                # Because some pages have incorrect type for these parameters
+                if param_name in ["pageNum", "itemsPerPage"]:
+                    param_type = "number"
+                if param_name in ["envelope", "pretty"]:
+                    param_type = "boolean"
+                if param_name in ["since", "duration"]:
+                    param_type = "long"
+                if param_name == "CLUSTER-ID":
+                    param_name = "clusterId"
+                    param_type = "string"
+
+                if required_override is not None:
+                    required: str = required_override
+                else:
+                    required_locator = param.locator(f"xpath=./td[{required_col}]")
+                    if required_locator.count() > 0:
+                        required = required_locator.inner_text()
+                    else:
+                        required = "Optional"
+                desc_locator: Locator = param.locator(f"xpath=./td[{desc_col}]")
+                if desc_locator.count() == 0:
+                    desc_locator = param.locator(f"xpath=./td[{required_col}]")
+                desc: str = (
+                    desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
+                )
+                default_locator: Locator = param.locator(f"xpath=./td[{default_col}]")
+                if default_locator.count() > 0:
+                    inner_text = default_locator.inner_text()
+                    default_value: Optional[str] = inner_text if inner_text else None
+                else:
+                    default_value = None
+                params.append(
+                    {
+                        "name": param_name,
+                        "type": param_type,
+                        "required": required,
+                        "description": desc,
+                        "default": default_value,
+                    }
+                )
         return params
 
     def get_title(self, page: Page) -> str:
@@ -232,6 +263,34 @@ class OrganizationAccessListsCrawler(StandardCrawler):
         return params
 
 
+class EventsCrawler(StandardCrawler):
+    LOCATORS = StandardCrawler.LOCATORS.copy()
+
+    def __init__(self, context) -> None:
+        super().__init__(context)
+        # This is a special handling for the following page which has a different structure for body parameters.
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/events/
+        self.LOCATORS["query_params"] = (
+            "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::section/div/table"
+        )
+
+    def get_path_params(self, page: Page) -> list[dict[str, Any]]:
+        path_params: list[dict[str, Any]] = super().get_path_params(page)
+        # Special handling for the following page where the "orgId" is missing.
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-org/
+        if "get-all-events-for-org/" in page.url:
+            path_params.append(
+                {
+                    "name": "orgId",
+                    "type": "string",
+                    "required": "Required",
+                    "description": "The unique identifier of the organization.",
+                    "default": None,
+                }
+            )
+        return path_params
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -249,6 +308,7 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["organization_access_lists"] = OrganizationAccessListsCrawler(
             context
         )
+        CrawlerFactory.crawlers["events"] = EventsCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -261,6 +321,8 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["no_path_title"]
         elif "create-org-api-key-access-list" in url:
             crawler = CrawlerFactory.crawlers["organization_access_lists"]
+        elif "/events/get-all" in url or "/measures/" in url:
+            crawler = CrawlerFactory.crawlers["events"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

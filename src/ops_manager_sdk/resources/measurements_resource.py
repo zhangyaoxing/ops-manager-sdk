@@ -22,9 +22,134 @@ class MeasurementsResource(BaseResource):
         """Unique identifier of the project that owns the host.
         """
 
+    class DatabaseQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        end: Optional[str] = Field("None", serialization_alias="end")
+        """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
+        """
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        granularity: str = Field("None", serialization_alias="granularity")
+        """Duration in ISO 8601 notation that specifies the interval between measurement data points.
+
+Measurement granularity can be expressed as days, hours, minutes, seconds and milliseconds using the following notation:
+
+P (for period) followed by:
+
+D for days (if desired)
+
+T for time (after days)
+
+H for hours
+
+M for minutes
+
+S for seconds
+
+For example:
+
+Notation
+	
+Duration
+
+
+
+PT30S
+
+	
+
+30 seconds
+
+
+
+
+P1T12H
+
+	
+
+1 day, 12 hours
+
+
+
+
+PT0.5S
+
+	
+
+500 milliseconds
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        m: Optional[str] = Field("None", serialization_alias="m")
+        """Measurements to return. If m is not specified, all measurements are returned.
+
+To specify multiple values for m, you must repeat the m parameter.
+
+For example:
+
+../measurements?m=CONNECTIONS&m=OPCOUNTER_CMD&m=OPCOUNTER_QUERY
+
+You must specify measurements that are valid for the host. Ops Manager returns an error if any specified measurements are invalid For available measurements, see Measurement Types.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
+        """
+
+        period: Optional[str] = Field("None", serialization_alias="period")
+        """Duration in ISO 8601 notation that specifies how far back in the past to retrieve measurements.
+
+For example, to request the last 36 hours, include this query parameter: period=P1DT12H.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
+        """
+
+        start: Optional[str] = Field("None", serialization_alias="start")
+        """Timestamp in ISO 8601 date and time format in UTC for the beginning of the period for which to retrieve measurements. If you specify start you must also specify end.
+        """
+
     def database(
         self,
         path_params: DatabasePathParams,
+        query_params: DatabaseQueryParams,
     ) -> dict[str, Any]:
         """
         ## Get Database Measurements
@@ -36,7 +161,7 @@ class MeasurementsResource(BaseResource):
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}/measurements",
             path_params,
-            None,
+            query_params,
             None,
         )
 
@@ -55,9 +180,134 @@ class MeasurementsResource(BaseResource):
         """Unique identifier of the project that owns the host.
         """
 
+    class DiskPartitionQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        end: Optional[str] = Field("None", serialization_alias="end")
+        """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
+        """
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        granularity: str = Field("None", serialization_alias="granularity")
+        """Duration in ISO 8601 notation that specifies the interval between measurement data points.
+
+Measurement granularity can be expressed as days, hours, minutes, seconds and milliseconds using the following notation:
+
+P (for period) followed by:
+
+D for days (if desired)
+
+T for time (after days)
+
+H for hours
+
+M for minutes
+
+S for seconds
+
+For example:
+
+Notation
+	
+Duration
+
+
+
+PT30S
+
+	
+
+30 seconds
+
+
+
+
+P1T12H
+
+	
+
+1 day, 12 hours
+
+
+
+
+PT0.5S
+
+	
+
+500 milliseconds
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        m: Optional[str] = Field("None", serialization_alias="m")
+        """Measurements to return. If m is not specified, all measurements are returned.
+
+To specify multiple values for m, you must repeat the m parameter.
+
+For example:
+
+../measurements?m=CONNECTIONS&m=OPCOUNTER_CMD&m=OPCOUNTER_QUERY
+
+You must specify measurements that are valid for the host. Ops Manager returns an error if any specified measurements are invalid For available measurements, see Measurement Types.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
+        """
+
+        period: Optional[str] = Field("None", serialization_alias="period")
+        """Duration in ISO 8601 notation that specifies how far back in the past to retrieve measurements.
+
+For example, to request the last 36 hours, include this query parameter: period=P1DT12H.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
+        """
+
+        start: Optional[str] = Field("None", serialization_alias="start")
+        """Timestamp in ISO 8601 date and time format in UTC for the beginning of the period for which to retrieve measurements. If you specify start you must also specify end.
+        """
+
     def disk_partition(
         self,
         path_params: DiskPartitionPathParams,
+        query_params: DiskPartitionQueryParams,
     ) -> dict[str, Any]:
         """
         ## Get Disk Partition Measurements
@@ -69,7 +319,7 @@ class MeasurementsResource(BaseResource):
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}/measurements",
             path_params,
-            None,
+            query_params,
             None,
         )
 
@@ -84,9 +334,134 @@ class MeasurementsResource(BaseResource):
         """Unique identifier of the project that owns the host.
         """
 
+    class HostQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        end: Optional[str] = Field("None", serialization_alias="end")
+        """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
+        """
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        granularity: str = Field("None", serialization_alias="granularity")
+        """Duration in ISO 8601 notation that specifies the interval between measurement data points.
+
+Measurement granularity can be expressed as days, hours, minutes, seconds and milliseconds using the following notation:
+
+P (for period) followed by:
+
+D for days (if desired)
+
+T for time (after days)
+
+H for hours
+
+M for minutes
+
+S for seconds
+
+For example:
+
+Notation
+	
+Duration
+
+
+
+PT30S
+
+	
+
+30 seconds
+
+
+
+
+P1T12H
+
+	
+
+1 day, 12 hours
+
+
+
+
+PT0.5S
+
+	
+
+500 milliseconds
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        m: Optional[str] = Field("None", serialization_alias="m")
+        """Measurements to return. If m is not specified, all measurements are returned.
+
+To specify multiple values for m, you must repeat the m parameter.
+
+For example:
+
+../measurements?m=CONNECTIONS&m=OPCOUNTER_CMD&m=OPCOUNTER_QUERY
+
+You must specify measurements that are valid for the host. Ops Manager returns an error if any specified measurements are invalid For available measurements, see Measurement Types.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
+        """
+
+        period: Optional[str] = Field("None", serialization_alias="period")
+        """Duration in ISO 8601 notation that specifies how far back in the past to retrieve measurements.
+
+For example, to request the last 36 hours, include this query parameter: period=P1DT12H.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
+        """
+
+        start: Optional[str] = Field("None", serialization_alias="start")
+        """Timestamp in ISO 8601 date and time format in UTC for the beginning of the period for which to retrieve measurements. If you specify start you must also specify end.
+        """
+
     def host(
         self,
         path_params: HostPathParams,
+        query_params: HostQueryParams,
     ) -> dict[str, Any]:
         """
         ## Get Host, Process, System Measurements
@@ -98,7 +473,7 @@ class MeasurementsResource(BaseResource):
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements?granularity={ISO-8601-PERIOD}&period={ISO-8601-PERIOD}",
             path_params,
-            None,
+            query_params,
             None,
         )
 
@@ -113,9 +488,134 @@ class MeasurementsResource(BaseResource):
         """Unique identifier of the project that owns the host.
         """
 
+    class GetTypesQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        end: Optional[str] = Field("None", serialization_alias="end")
+        """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
+        """
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        granularity: str = Field("None", serialization_alias="granularity")
+        """Duration in ISO 8601 notation that specifies the interval between measurement data points.
+
+Measurement granularity can be expressed as days, hours, minutes, seconds and milliseconds using the following notation:
+
+P (for period) followed by:
+
+D for days (if desired)
+
+T for time (after days)
+
+H for hours
+
+M for minutes
+
+S for seconds
+
+For example:
+
+Notation
+	
+Duration
+
+
+
+PT30S
+
+	
+
+30 seconds
+
+
+
+
+P1T12H
+
+	
+
+1 day, 12 hours
+
+
+
+
+PT0.5S
+
+	
+
+500 milliseconds
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        m: Optional[str] = Field("None", serialization_alias="m")
+        """Measurements to return. If m is not specified, all measurements are returned.
+
+To specify multiple values for m, you must repeat the m parameter.
+
+For example:
+
+../measurements?m=CONNECTIONS&m=OPCOUNTER_CMD&m=OPCOUNTER_QUERY
+
+You must specify measurements that are valid for the host. Ops Manager returns an error if any specified measurements are invalid For available measurements, see Measurement Types.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
+        """
+
+        period: Optional[str] = Field("None", serialization_alias="period")
+        """Duration in ISO 8601 notation that specifies how far back in the past to retrieve measurements.
+
+For example, to request the last 36 hours, include this query parameter: period=P1DT12H.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
+        """
+
+        start: Optional[str] = Field("None", serialization_alias="start")
+        """Timestamp in ISO 8601 date and time format in UTC for the beginning of the period for which to retrieve measurements. If you specify start you must also specify end.
+        """
+
     def get_types(
         self,
         path_params: GetTypesPathParams,
+        query_params: GetTypesQueryParams,
     ) -> dict[str, Any]:
         """
         ## Get Measurement Types
@@ -127,6 +627,6 @@ class MeasurementsResource(BaseResource):
             "GET",
             "/groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements",
             path_params,
-            None,
+            query_params,
             None,
         )
