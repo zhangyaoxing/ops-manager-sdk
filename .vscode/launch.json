@@ -18,7 +18,7 @@
             "program": "${workspaceFolder}/src/ops_manager_sdk/generator/__main__.py",
             "console": "integratedTerminal",
             "env": {
-                "LOG_LEVEL": "INFO"
+                "LOG_LEVEL": "DEBUG"
             }
         },
         {

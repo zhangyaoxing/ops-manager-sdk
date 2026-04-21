@@ -76,7 +76,7 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
     Returns:
         A dictionary containing the API endpoint and parameters.
     """
-    is_debug: bool = os.getenv("LOG_LEVEL", "INFO").upper() == "DEBUG"
+    is_debug: bool = os.getenv("ENV", "INFO").upper() == "DEVELOPMENT"
     # Check if the API document was crawled recently (within the last 7 days).
     HOME_DIR.mkdir(parents=True, exist_ok=True)
     output_file = HOME_DIR / "api_docs.json"

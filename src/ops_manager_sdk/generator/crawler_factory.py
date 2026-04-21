@@ -234,7 +234,7 @@ class CrawlerFactory:
 
     @staticmethod
     def initiate_crawler() -> None:
-        is_debug: bool = os.getenv("LOG_LEVEL", "INFO").upper() == "DEBUG"
+        is_debug: bool = os.getenv("ENV", "INFO").upper() == "DEVELOPMENT"
         CrawlerFactory.playwright = sync_playwright().start()
         CrawlerFactory.browser = CrawlerFactory.playwright.chromium.launch(headless=not is_debug)
         context = CrawlerFactory.browser.new_context()
