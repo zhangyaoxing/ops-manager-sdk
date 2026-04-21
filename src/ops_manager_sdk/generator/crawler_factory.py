@@ -291,6 +291,21 @@ class EventsCrawler(StandardCrawler):
         return path_params
 
 
+class GroupIDtoProjectIDCrawler(StandardCrawler):
+    def get_endpoints(self, page: Page) -> list[str]:
+        # Special handling for the following page where the "groupId" is used instead of "projectId".
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/
+
+        endpoints = super().get_endpoints(page)
+        endpoints = [endpoint.replace("{GROUP-ID}", "{PROJECT-ID}") for endpoint in endpoints]
+        return endpoints
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -309,6 +324,7 @@ class CrawlerFactory:
             context
         )
         CrawlerFactory.crawlers["events"] = EventsCrawler(context)
+        CrawlerFactory.crawlers["group_id_to_project_id"] = GroupIDtoProjectIDCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -323,6 +339,8 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["organization_access_lists"]
         elif "/events/get-all" in url or "/measures/" in url:
             crawler = CrawlerFactory.crawlers["events"]
+        elif "/third-party-integration" in url:
+            crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)
