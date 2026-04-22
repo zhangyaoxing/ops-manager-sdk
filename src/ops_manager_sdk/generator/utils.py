@@ -125,13 +125,13 @@ def type_mapping(type_str: str) -> Any:
         "number": "float",
         "boolean": "bool",
         "object": "dict",
-        "timestamp": "datetime",
+        "timestamp": "string",
         "array of strings": "list[str]",
         "string array": "list[str]",
         "array of objects": "list[dict]",
         "object array": "list[dict]",
         "array": "list[Any]",
-        "date field": "datetime",
+        "date field": "string",
     }
     return mapping.get(type_str, "Any")
 
