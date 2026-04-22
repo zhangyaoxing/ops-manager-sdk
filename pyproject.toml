@@ -51,3 +51,6 @@ max-line-length = 100
 
 [tool.pylint.design]
 max-args = 8
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
