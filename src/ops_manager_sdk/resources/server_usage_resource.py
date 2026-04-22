@@ -930,7 +930,7 @@ Expected response body
         class ServertypeParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            label: Optional[dict] = Field(serialization_alias="label")
+            label: Optional[list[Any]] = Field(serialization_alias="label")
             """Server Type label for the physical host.
 
 You can set this to one of the following values:
@@ -946,7 +946,7 @@ Ram Pool
 To learn more, see MongoDB Usage Page.
             """
 
-            name: dict = Field(serialization_alias="name")
+            name: list[Any] = Field(serialization_alias="name")
             """Server Type value for the physical host.
 
 You can set this to one of the following values:
@@ -1035,7 +1035,7 @@ Expected response body
         class ServertypeParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            label: Optional[dict] = Field(serialization_alias="label")
+            label: Optional[list[Any]] = Field(serialization_alias="label")
             """Server Type label for the physical host.
 
 You can set this to one of the following values:
@@ -1051,7 +1051,7 @@ Ram Pool
 To learn more, see MongoDB Usage Page.
             """
 
-            name: dict = Field(serialization_alias="name")
+            name: list[Any] = Field(serialization_alias="name")
             """Server Type value for the physical host.
 
 You can set this to one of the following values:
@@ -1253,7 +1253,7 @@ Expected response body
         class ServertypeParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            label: Optional[dict] = Field(serialization_alias="label")
+            label: Optional[list[Any]] = Field(serialization_alias="label")
             """Server Type label for the physical host.
 
 You can set this to one of the following values:
@@ -1269,7 +1269,7 @@ Ram Pool
 To learn more, see MongoDB Usage Page.
             """
 
-            name: dict = Field(serialization_alias="name")
+            name: list[Any] = Field(serialization_alias="name")
             """Server Type value for the physical host.
 
 You can set this to one of the following values:

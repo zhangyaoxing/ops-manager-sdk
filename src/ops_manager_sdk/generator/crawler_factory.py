@@ -105,6 +105,8 @@ class StandardCrawler:
                     param_type = "number"
                 if param_name in ["envelope", "pretty"]:
                     param_type = "boolean"
+                if param_name in ["policies.policy", "serverType.name", "serverType.label"]:
+                    param_type = "enum"
 
                 desc_locator: Locator = param.locator(f"xpath=./td[{desc_col}]")
                 if desc_locator.count() == 0:
@@ -112,10 +114,16 @@ class StandardCrawler:
                 desc: str = (
                     desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
                 )
-                has_table = desc_locator.locator("xpath=.//table").count() > 0
+                has_table = desc_locator.locator("xpath=(.//table|.//ul)").count() > 0
                 if has_table and param_name != "envelope":
+                    param_display = param_name.replace("\n", " ")
                     logger.debug(
-                        f"Parameter {param_name} ({params_locator.page.url}) has a table in its description."
+                        f"Parameter {param_display} ({params_locator.page.url}) has a table in its description."
+                    )
+                wrong_type = param_type == "object" and "." in param_name
+                if wrong_type:
+                    logger.debug(
+                        f"Parameter {param_name} ({params_locator.page.url}) type may be wrong."
                     )
 
                 if required_override is not None:
@@ -144,7 +152,6 @@ class StandardCrawler:
                         "type": param_type,
                         "required": required,
                         "description": desc,
-                        "has_table": has_table,
                         "default": default_value,
                     }
                 )

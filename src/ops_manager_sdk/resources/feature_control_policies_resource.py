@@ -235,7 +235,7 @@ For endpoints that return a list of results, the results object is an envelope. 
             """List of mongod settings to disable when you apply the DISABLE_SET_MONGOD_CONFIG policy. Automation doesn't support all MongoDB options, which can result in failed import attempts. To learn more, see MongoDB Settings and Automation Support.
             """
 
-            policy: Optional[dict] = Field(serialization_alias="policy")
+            policy: Optional[list[Any]] = Field(serialization_alias="policy")
             """Single policy set for this Ops Manager Project. This parameter can be set one or more times in the policies array.
 
 Accepted values are:
