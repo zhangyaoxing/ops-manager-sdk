@@ -115,18 +115,8 @@ class APIResource:
         for param in params_sorted:
             required_str: str = param.get("required", "").lower()
             is_required: bool = "required" in required_str and "required if" not in required_str
-            original_name: str = param["name"]
+            original_name: str = param["name"].strip(".")
 
-            if "{" in original_name or "}" in original_name:
-                original_name = original_name.strip("{}")
-                logger.debug(f"Stripped curly braces from parameter name: {original_name}")
-            # Sometimes the required is written in the parameter name.
-            if "\nrequired" in original_name.lower():
-                original_name = original_name.split("\n")[0]
-                is_required = True
-                logger.debug(
-                    f"Extracted required status from parameter name: {original_name} is required"
-                )
             original_name = original_name.replace("\n", "").strip()
             if "-" in original_name:
                 param_name: str = original_name.replace("-", "_").lower()

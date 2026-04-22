@@ -10,8 +10,8 @@ class VersionManifestResource(BaseResource):
     class RetrieveQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     def retrieve(
@@ -35,8 +35,8 @@ class VersionManifestResource(BaseResource):
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     def update(

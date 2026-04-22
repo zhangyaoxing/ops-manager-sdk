@@ -138,15 +138,19 @@ def type_mapping(type_str: str) -> Any:
 
 def parse_value(value_str: str, type_str: str) -> Any:
     """Parse the string value to the appropriate Python type."""
-    if value_str is None:
+    try:
+        if value_str is None:
+            return None
+        if type_str == "int":
+            return int(value_str)
+        elif type_str == "float":
+            return float(value_str)
+        elif type_str == "bool":
+            return value_str.lower() == "true"
+        elif type_str == "str":
+            return value_str
+        else:
+            return value_str
+    except (ValueError, AttributeError) as e:
+        logger.warning(f"Failed to parse value '{value_str}' as type '{type_str}': {e}")
         return None
-    if type_str == "int":
-        return int(value_str)
-    elif type_str == "float":
-        return float(value_str)
-    elif type_str == "bool":
-        return value_str.lower() == "true"
-    elif type_str == "str":
-        return value_str
-    else:
-        return value_str

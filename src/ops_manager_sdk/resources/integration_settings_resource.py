@@ -62,39 +62,43 @@ For endpoints that return a list of results, the content object is an envelope. 
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        datadog: Optional[Any] = Field(serialization_alias="Datadog")
+        datadog: Optional[str] = Field("None", serialization_alias="Datadog")
         """No description.
         """
 
-        hip_chat: Optional[Any] = Field(serialization_alias="HipChat")
+        hip_chat: Optional[str] = Field("None", serialization_alias="HipChat")
         """No description.
         """
 
-        microsoft_teams: Optional[Any] = Field(serialization_alias="Microsoft Teams")
+        microsoft_teams: Optional[str] = Field(
+            "None", serialization_alias="Microsoft Teams"
+        )
         """No description.
         """
 
-        opsgenie: Optional[Any] = Field(serialization_alias="Opsgenie")
+        opsgenie: Optional[str] = Field("None", serialization_alias="Opsgenie")
         """No description.
         """
 
-        pager_duty: Optional[Any] = Field(serialization_alias="PagerDuty")
+        pager_duty: Optional[str] = Field("None", serialization_alias="PagerDuty")
         """No description.
         """
 
-        prometheus: Optional[Any] = Field(serialization_alias="Prometheus")
+        prometheus: Optional[str] = Field("None", serialization_alias="Prometheus")
         """No description.
         """
 
-        slack: Optional[Any] = Field(serialization_alias="Slack")
+        slack: Optional[str] = Field("None", serialization_alias="Slack")
         """No description.
         """
 
-        victor_ops: Optional[Any] = Field(serialization_alias="VictorOps")
+        victor_ops: Optional[str] = Field("None", serialization_alias="VictorOps")
         """No description.
         """
 
-        webhook_settings: Optional[Any] = Field(serialization_alias="Webhook Settings")
+        webhook_settings: Optional[str] = Field(
+            "None", serialization_alias="Webhook Settings"
+        )
         """No description.
         """
 
@@ -107,123 +111,12 @@ For endpoints that return a list of results, the content object is an envelope. 
         """
         ## Create a Configuration for a Third-Party Service Integration
         - Document: [Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/)
-        - Resource: `POST /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`
+        - Resource: `POST /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}`
         - Description: No description.
         """
         return self._request(
             "POST",
-            "/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
-            path_params,
-            query_params,
-            body_params,
-        )
-
-    class UpdatePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
-        """Third-party service identifier. Accepted values are:
-
-DATADOG
-
-HIP_CHAT
-
-PAGER_DUTY
-
-SLACK
-
-NEW_RELIC
-
-OPS_GENIE
-
-VICTOR_OPS
-
-WEBHOOK
-        """
-
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Project identifier.
-        """
-
-    class UpdateQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
-
-For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
-        """
-
-        items_per_page: Optional[float] = Field(
-            100.0, serialization_alias="itemsPerPage"
-        )
-        """Number of items to return per page, up to a maximum of 500.
-        """
-
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        """One-based integer that returns a subsection of results.
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag that indicates whether the response body should be in a prettyprint format.
-        """
-
-    class UpdateBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        datadog: Optional[Any] = Field(serialization_alias="Datadog")
-        """No description.
-        """
-
-        hip_chat: Optional[Any] = Field(serialization_alias="HipChat")
-        """No description.
-        """
-
-        microsoft_teams: Optional[Any] = Field(serialization_alias="Microsoft Teams")
-        """No description.
-        """
-
-        opsgenie: Optional[Any] = Field(serialization_alias="Opsgenie")
-        """No description.
-        """
-
-        pager_duty: Optional[Any] = Field(serialization_alias="PagerDuty")
-        """No description.
-        """
-
-        prometheus: Optional[Any] = Field(serialization_alias="Prometheus")
-        """No description.
-        """
-
-        slack: Optional[Any] = Field(serialization_alias="Slack")
-        """No description.
-        """
-
-        victor_ops: Optional[Any] = Field(serialization_alias="VictorOps")
-        """No description.
-        """
-
-        webhook_settings: Optional[Any] = Field(serialization_alias="Webhook Settings")
-        """No description.
-        """
-
-    def update(
-        self,
-        path_params: UpdatePathParams,
-        query_params: Optional[UpdateQueryParams],
-        body_params: Optional[UpdateBodyParams],
-    ) -> dict[str, Any]:
-        """
-        ## Update a Configuration for a Third-Party Service Integration
-        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/)
-        - Resource: `PUT /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`
-        - Description: No description.
-        """
-        return self._request(
-            "PUT",
-            "/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
+            "/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             path_params,
             query_params,
             body_params,
@@ -471,4 +364,119 @@ For endpoints that return a list of results, the content object is an envelope. 
             path_params,
             query_params,
             None,
+        )
+
+    class UpdatePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        """Third-party service identifier. Accepted values are:
+
+DATADOG
+
+HIP_CHAT
+
+PAGER_DUTY
+
+SLACK
+
+NEW_RELIC
+
+OPS_GENIE
+
+VICTOR_OPS
+
+WEBHOOK
+        """
+
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Project identifier.
+        """
+
+    class UpdateQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format.
+        """
+
+    class UpdateBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        datadog: Optional[str] = Field("None", serialization_alias="Datadog")
+        """No description.
+        """
+
+        hip_chat: Optional[str] = Field("None", serialization_alias="HipChat")
+        """No description.
+        """
+
+        microsoft_teams: Optional[str] = Field(
+            "None", serialization_alias="Microsoft Teams"
+        )
+        """No description.
+        """
+
+        opsgenie: Optional[str] = Field("None", serialization_alias="Opsgenie")
+        """No description.
+        """
+
+        pager_duty: Optional[str] = Field("None", serialization_alias="PagerDuty")
+        """No description.
+        """
+
+        prometheus: Optional[str] = Field("None", serialization_alias="Prometheus")
+        """No description.
+        """
+
+        slack: Optional[str] = Field("None", serialization_alias="Slack")
+        """No description.
+        """
+
+        victor_ops: Optional[str] = Field("None", serialization_alias="VictorOps")
+        """No description.
+        """
+
+        webhook_settings: Optional[str] = Field(
+            "None", serialization_alias="Webhook Settings"
+        )
+        """No description.
+        """
+
+    def update(
+        self,
+        path_params: UpdatePathParams,
+        query_params: Optional[UpdateQueryParams],
+        body_params: Optional[UpdateBodyParams],
+    ) -> dict[str, Any]:
+        """
+        ## Update a Configuration for a Third-Party Service Integration
+        - Document: [Update](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/)
+        - Resource: `PUT /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}`
+        - Description: No description.
+        """
+        return self._request(
+            "PUT",
+            "/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            path_params,
+            query_params,
+            body_params,
         )

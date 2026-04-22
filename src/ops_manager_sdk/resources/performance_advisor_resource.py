@@ -22,27 +22,33 @@ class PerformanceAdvisorResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
 
         duration: Optional[int] = Field(serialization_alias="duration")
-        """up to the present time
+        """Length of time in milliseconds during which to find slow query logs among the managed namespaces in the cluster.
         """
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """false
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
         """
 
-        n_logs: Optional[int] = Field(serialization_alias="nLogs")
-        """20000
+        n_logs: Optional[int] = Field(20000, serialization_alias="nLogs")
+        """Maximum number of log lines to return.
         """
 
-        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
-        """all
+        namespaces: Optional[str] = Field("all", serialization_alias="namespaces")
+        """Namespaces from which to retrieve suggested slow query logs. A namespace consists of the database and collection resource separated by a ., such as <database>.<collection>.
+
+To specify multiple namespaces, pass the parameter multiple times using an ampersand (&) as a delimiter, once for each namespace.
+
+For example:
+
+?namespaces=data.stocks&namespaces=data.zips&pretty=true
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
         since: Optional[int] = Field(serialization_alias="since")
-        """previous 24 hours
+        """Point in time from which to retrieve slow query logs, stated in milliseconds since epoch.
         """
 
     def get_slow_query_logs(
@@ -79,31 +85,37 @@ class PerformanceAdvisorResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
 
         duration: Optional[int] = Field(serialization_alias="duration")
-        """up to the present time
+        """Length of time in milliseconds during which to find suggested indexes among the managed namespaces in the cluster.
         """
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """false
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
         """
 
-        n_examples: Optional[int] = Field(serialization_alias="nExamples")
-        """5
+        n_examples: Optional[int] = Field(5, serialization_alias="nExamples")
+        """Maximum number of examples queries to provide that will be improved by a suggested index.
         """
 
         n_indexes: Optional[int] = Field(serialization_alias="nIndexes")
-        """unlimited
+        """Maximum number of indexes to suggest.
         """
 
-        namespaces: Optional[str] = Field("None", serialization_alias="namespaces")
-        """all
+        namespaces: Optional[str] = Field("all", serialization_alias="namespaces")
+        """Namespaces from which to retrieve suggested indexes. A namespace consists of the database and collection resource separated by a ., such as <database>.<collection>.
+
+To specify multiple namespaces, pass the parameter multiple times using an ampersand (&) as a delimiter, once for each namespace.
+
+For example:
+
+?namespaces=data.stocks&namespaces=data.zips&pretty=true
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
         since: Optional[int] = Field(serialization_alias="since")
-        """previous 24 hours
+        """Point in time from which to retrieve suggested indexes, stated in milliseconds since epoch.
         """
 
     def get_suggested_indexes(
@@ -129,17 +141,17 @@ class PerformanceAdvisorResource(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
 
         host_id: str = Field("None", serialization_alias="HOST-ID")
-        """No description.
+        """The unique identifier for the host of a MongoDB process. For information about retrieving host ids, see Get All Hosts in One Project.
         """
 
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """No description.
+        """The unique identifier for the project where the MongoDB host resides.
         """
 
     class GetNamespacesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        duration: Optional[int] = Field(serialization_alias="duration")
+        duration: Optional[float] = Field(serialization_alias="duration")
         """Length of time from the since parameter, in milliseconds, for which you want to receive results. If you do not also specify the since parameter, the endpoint returns results from the number of milliseconds specified by duration before the current time until now.
         """
 
@@ -151,7 +163,7 @@ class PerformanceAdvisorResource(BaseResource):
         """Indicates whether the response body should be in a prettyprint format. The default value is false.
         """
 
-        since: Optional[int] = Field(serialization_alias="since")
+        since: Optional[float] = Field(serialization_alias="since")
         """Point in time, specified as milliseconds since the Unix Epoch, from which you want to receive results. If you do not also specify the duration parameter, the endpoint returns results from since until the current time.
         """
 

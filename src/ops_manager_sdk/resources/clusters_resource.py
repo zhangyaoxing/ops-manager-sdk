@@ -115,12 +115,12 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for the project.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier for the cluster you want to retrieve.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier for the cluster you want to retrieve.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for the project.
         """
 
     class GetOneQueryParams(BaseModel):
@@ -181,12 +181,12 @@ Expected response body
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for the project.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier for the cluster you want to retrieve.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier for the cluster you want to retrieve.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for the project.
         """
 
     class UpdateQueryParams(BaseModel):

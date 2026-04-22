@@ -182,8 +182,10 @@ Expected response body
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        assignable_only: Optional[bool] = Field(serialization_alias="assignableOnly")
-        """true
+        assignable_only: Optional[bool] = Field(
+            True, serialization_alias="assignableOnly"
+        )
+        """Indicates whether this sync store can be assigned new backup jobs.
         """
 
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")

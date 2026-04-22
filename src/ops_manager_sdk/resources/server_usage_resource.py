@@ -79,20 +79,49 @@ For example, to retrieve a diagnostic archive with data for the last 10 minutes,
     class CreatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """None
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        """100
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
         """
 
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        """1
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     class CreatePhysicalHostBodyParams(BaseModel):
@@ -225,20 +254,49 @@ Expected response body
     class GenerateUsageSnapshotQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """None
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        """100
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
         """
 
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        """1
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     def generate_usage_snapshot(
@@ -262,20 +320,49 @@ Expected response body
     class RetrieveAllPhysicalHostsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """None
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        """100
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
         """
 
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        """1
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     def retrieve_all_physical_hosts(
@@ -430,20 +517,49 @@ Expected response body
     class RetreiveOnePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """None
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        """100
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
         """
 
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        """1
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     def retreive_one_physical_host(
@@ -701,20 +817,49 @@ Expected response body
     class RemovePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """None
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        """100
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
         """
 
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        """1
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     def remove_physical_host(
@@ -956,20 +1101,49 @@ To learn more, see MongoDB Usage Page.
     class UpdatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(serialization_alias="envelope")
-        """None
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
+
+For endpoints that return one result, response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+
+For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        items_per_page: Optional[float] = Field(serialization_alias="itemsPerPage")
-        """100
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
         """
 
-        page_num: Optional[float] = Field(serialization_alias="pageNum")
-        """1
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """Page number (1-index based).
         """
 
-        pretty: Optional[bool] = Field(serialization_alias="pretty")
-        """false
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Indicates whether the response body should be in a prettyprint format.
         """
 
     class UpdatePhysicalHostBodyParams(BaseModel):

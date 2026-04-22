@@ -61,12 +61,12 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique 24-hexadecimal digit string that identifies the project that holds the cluster with the backup configuration you want to find.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique 24-hexadecimal digit string that identifies the cluster whose backup configuration you want to find.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique 24-hexadecimal digit string that identifies the cluster whose backup configuration you want to find.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique 24-hexadecimal digit string that identifies the project that holds the cluster with the backup configuration you want to find.
         """
 
     class GetOneQueryParams(BaseModel):

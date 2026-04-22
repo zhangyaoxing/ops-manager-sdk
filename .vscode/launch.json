@@ -22,7 +22,7 @@
             "console": "integratedTerminal",
             "postDebugTask": "format-resources",
             "env": {
-                "LOG_LEVEL": "DEBUG"
+                "LOG_LEVEL": "INFO"
             },
         },
         {

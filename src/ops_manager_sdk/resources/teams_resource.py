@@ -575,7 +575,7 @@ Expected response body
     class RenameBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        name: Optional[Any] = Field(serialization_alias="name")
+        name: str = Field("None", serialization_alias="name")
         """The new name of the team.
         """
 
@@ -583,7 +583,7 @@ Expected response body
         self,
         path_params: RenamePathParams,
         query_params: Optional[RenameQueryParams],
-        body_params: Optional[RenameBodyParams],
+        body_params: RenameBodyParams,
     ) -> dict[str, Any]:
         """
         ## Rename a Team

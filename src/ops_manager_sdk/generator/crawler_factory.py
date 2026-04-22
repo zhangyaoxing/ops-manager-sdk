@@ -27,6 +27,7 @@ class StandardCrawler:
         "body_desc": "xpath=(//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::p[1]",
         "resource": "xpath=//div[@class='body']/div[1]//a[contains(@href, '/reference/api/')]",
     }
+    COLUMN_MAPPING: tuple[int, int, int, int, int] = (0, 0, 0, 0, 0)
 
     def __init__(self, context: BrowserContext):
         self.context: BrowserContext = context
@@ -39,10 +40,16 @@ class StandardCrawler:
             A tuple containing the column indices for name, type, required status, description, and default value.
         """
         header_locator = params_locator.locator("xpath=./thead/tr/th")
-        name_col, type_col, required_col, desc_col, default_col = 0, 0, 0, 0, 0
+        name_col, type_col, required_col, desc_col, default_col = self.COLUMN_MAPPING
         for i in range(header_locator.count()):
             header_text = header_locator.nth(i).inner_text().strip().lower()
-            if "name" in header_text or "parameter" in header_text:
+            # The column name of parameter name varies.
+            if (
+                "name" in header_text
+                or "parameter" in header_text
+                or "path element" in header_text
+                or "field" in header_text
+            ):
                 name_col = i + 1
             elif "type" in header_text:
                 type_col = i + 1
@@ -52,6 +59,11 @@ class StandardCrawler:
                 desc_col = i + 1
             elif "default" in header_text:
                 default_col = i + 1
+        if name_col == 0:
+            logger.warning(
+                f"Could not find 'Name' column in parameters table. Defaulting to first column. URL: {params_locator.page.url}"
+            )
+            name_col = 1
         return name_col, type_col, required_col, desc_col, default_col
 
     def _get_params(self, params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
@@ -76,7 +88,9 @@ class StandardCrawler:
             locators = table.locator("xpath=./tbody/tr").all()
             for param in locators:
                 param_name: str = param.locator(f"xpath=./td[{name_col}]").inner_text()
-                param_name = param_name.replace("[n]", "").strip()
+                # In some pages the parameter is surrounded by {}.
+                # The [n] indicates the parameter is an array, which is already known from the type.
+                param_name = param_name.replace("[n]", "").strip("{}")
                 if type_override is not None:
                     param_type: str = type_override
                 else:
@@ -91,11 +105,13 @@ class StandardCrawler:
                     param_type = "number"
                 if param_name in ["envelope", "pretty"]:
                     param_type = "boolean"
-                if param_name in ["since", "duration"]:
-                    param_type = "long"
-                if param_name == "CLUSTER-ID":
-                    param_name = "clusterId"
-                    param_type = "string"
+
+                desc_locator: Locator = param.locator(f"xpath=./td[{desc_col}]")
+                if desc_locator.count() == 0:
+                    desc_locator = param.locator(f"xpath=./td[{required_col}]")
+                desc: str = (
+                    desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
+                )
 
                 if required_override is not None:
                     required: str = required_override
@@ -103,14 +119,14 @@ class StandardCrawler:
                     required_locator = param.locator(f"xpath=./td[{required_col}]")
                     if required_locator.count() > 0:
                         required = required_locator.inner_text()
+                    elif "required" in desc.lower() or "required" in param_name.lower():
+                        required = "Required"
                     else:
                         required = "Optional"
-                desc_locator: Locator = param.locator(f"xpath=./td[{desc_col}]")
-                if desc_locator.count() == 0:
-                    desc_locator = param.locator(f"xpath=./td[{required_col}]")
-                desc: str = (
-                    desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
-                )
+
+                if "\nrequired" in param_name.lower():
+                    param_name = param_name.split("\n")[0]
+
                 default_locator: Locator = param.locator(f"xpath=./td[{default_col}]")
                 if default_locator.count() > 0:
                     inner_text = default_locator.inner_text()
@@ -163,7 +179,7 @@ class StandardCrawler:
             logger.debug(f"Extracted description: {description} from {page.url}")
             if "Base URL" not in description:
                 return description
-        logger.info(f"No description found in document: {page.url}")
+        logger.debug(f"No description found in document: {page.url}")
         return "No description."
 
     def get_endpoints(self, page: Page) -> list[str]:
@@ -251,7 +267,7 @@ class NoPathTitleCrawler(StandardCrawler):
         # This is a special handling for the following page which misses the path parameter title.
         # https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
         self.LOCATORS["path_params"] = (
-            "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[not(contains(@class, 'intro-code-block'))]//tbody[1]/tr"
+            "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[not(contains(@class, 'intro-code-block'))]/table"
         )
 
 
@@ -306,6 +322,25 @@ class GroupIDtoProjectIDCrawler(StandardCrawler):
         return endpoints
 
 
+class MissingHeader4ColsCrawler(StandardCrawler):
+    COLUMN_MAPPING: tuple[int, int, int, int, int] = (1, 2, 0, 3, 4)
+
+
+class MissingHeader5ColsCrawler(StandardCrawler):
+    COLUMN_MAPPING: tuple[int, int, int, int, int] = (1, 2, 3, 4, 5)
+
+
+class InvitationsCrawler(StandardCrawler):
+    COLUMN_MAPPING: tuple[int, int, int, int, int] = (1, 2, 3, 4, 0)
+
+
+class GetAllHostsInOneProjectCrawler(StandardCrawler):
+    def get_query_params(self, page: Page) -> list[dict[str, Any]]:
+        params: list[dict[str, Any]] = super().get_query_params(page)
+        params[-1]["name"] = "clusterId"
+        return params
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -325,6 +360,12 @@ class CrawlerFactory:
         )
         CrawlerFactory.crawlers["events"] = EventsCrawler(context)
         CrawlerFactory.crawlers["group_id_to_project_id"] = GroupIDtoProjectIDCrawler(context)
+        CrawlerFactory.crawlers["missing_header_4_cols"] = MissingHeader4ColsCrawler(context)
+        CrawlerFactory.crawlers["missing_header_5_cols"] = MissingHeader5ColsCrawler(context)
+        CrawlerFactory.crawlers["invitations"] = InvitationsCrawler(context)
+        CrawlerFactory.crawlers["get_all_hosts_in_one_project"] = GetAllHostsInOneProjectCrawler(
+            context
+        )
 
     @staticmethod
     def close() -> None:
@@ -333,7 +374,7 @@ class CrawlerFactory:
 
     @staticmethod
     def crawl(url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
-        if "get-one-backup-daemon-configuration-by-host" in url:
+        if "/get-one-backup-daemon-configuration-by-host/" in url:
             crawler = CrawlerFactory.crawlers["no_path_title"]
         elif "create-org-api-key-access-list" in url:
             crawler = CrawlerFactory.crawlers["organization_access_lists"]
@@ -341,6 +382,30 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["events"]
         elif "/third-party-integration" in url:
             crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-all-blockstore-configurations/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-all-oplog-configurations/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-all-s3-oplog-configurations/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-all-sync-store-configurations/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/",
+        ]:
+            crawler = CrawlerFactory.crawlers["missing_header_4_cols"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-all/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-report/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/diagnostics/get-project-diagnostic-archive/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-all-file-system-store-configurations/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/",
+        ]:
+            crawler = CrawlerFactory.crawlers["missing_header_5_cols"]
+        elif "/get-all-hosts-in-group/" in url:
+            crawler = CrawlerFactory.crawlers["get_all_hosts_in_one_project"]
+        elif "/get-all-invitations/" in url:
+            crawler = CrawlerFactory.crawlers["invitations"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

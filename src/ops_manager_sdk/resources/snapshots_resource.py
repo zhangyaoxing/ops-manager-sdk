@@ -12,16 +12,16 @@ class SnapshotsResource(BaseResource):
     class ChangeExpiryPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
+        """
+
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
         """Unique identifier of the project that owns the snapshot.
         """
 
         snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
         """Unique identifier of the snapshot.
-        """
-
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
         """
 
     class ChangeExpiryQueryParams(BaseModel):
@@ -157,12 +157,12 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetAllClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier of the project that owns the snapshot.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the snapshot.
         """
 
     class GetAllClusterQueryParams(BaseModel):
@@ -222,16 +222,16 @@ For endpoints that return a list of results, the results object is an envelope. 
     class GetOneConfigServerPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
+        """
+
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
         """Unique identifier of the project that owns the snapshot.
         """
 
         snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
         """Unique identifier of the snapshot.
-        """
-
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
         """
 
     class GetOneConfigServerQueryParams(BaseModel):
@@ -292,16 +292,16 @@ Expected response body
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
+        """
+
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
         """Unique identifier of the project that owns the snapshot.
         """
 
         snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
         """Unique identifier of the snapshot.
-        """
-
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
         """
 
     class GetOneClusterQueryParams(BaseModel):
@@ -362,16 +362,16 @@ Expected response body
     class RemoveOnePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
+        """
+
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
         """Unique identifier of the project that owns the snapshot.
         """
 
         snapshot_id: str = Field("None", serialization_alias="SNAPSHOT-ID")
         """Unique identifier of the snapshot.
-        """
-
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
         """
 
     class RemoveOneQueryParams(BaseModel):
@@ -432,18 +432,18 @@ Expected response body
     class CreateOneOnDemandClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        group_id: str = Field("None", serialization_alias="GROUP-ID")
-        """Unique identifier of your project from your project settings.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        """Unique identifier of your project from your project settings.
         """
 
     class CreateOneOnDemandClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Flag that indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
@@ -451,7 +451,7 @@ Some API clients cannot access the HTTP response headers or status code. To reme
 For endpoints that return a list of results, the results object is an envelope. Ops Manager adds the status field to the response body.
         """
 
-        retention_days: float = Field(15.0, serialization_alias="retentionDays")
+        retention_days: float = Field(serialization_alias="retentionDays")
         """Integer that indicates the number of days the on-demand snapshot will be retained. Must be greater than 0.
         """
 

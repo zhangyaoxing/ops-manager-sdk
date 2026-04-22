@@ -7,6 +7,394 @@ from .base_resource import BaseResource
 class AlertConfigurationsResource(BaseResource):
     """Client for AlertConfigurationsResource resource."""
 
+    class DeletePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        """Unique identifier for this alert configuration.
+        """
+
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for this Project.
+        """
+
+    class DeleteQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+
+For endpoints that return one result, the response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format.
+        """
+
+    def delete(
+        self,
+        path_params: DeletePathParams,
+        query_params: Optional[DeleteQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Delete an Alert Configuration
+        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-delete-config/)
+        - Resource: `DELETE /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description.
+        """
+        return self._request(
+            "DELETE",
+            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            path_params,
+            query_params,
+            None,
+        )
+
+    class EnableDisablePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        """Unique identifier for this alert configuration.
+        """
+
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for this Project.
+        """
+
+    class EnableDisableQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+
+For endpoints that return one result, the response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format.
+        """
+
+    class EnableDisableBodyParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        enabled: Optional[bool] = Field(serialization_alias="enabled")
+        """Specify true to enable; false to disable.
+        """
+
+    def enable_disable(
+        self,
+        path_params: EnableDisablePathParams,
+        query_params: Optional[EnableDisableQueryParams],
+        body_params: Optional[EnableDisableBodyParams],
+    ) -> dict[str, Any]:
+        """
+        ## Enable/Disable Alert Configuration
+        - Document: [Enable/Disable](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-enable-disable-config/)
+        - Resource: `PATCH /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description.
+        """
+        return self._request(
+            "PATCH",
+            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            path_params,
+            query_params,
+            body_params,
+        )
+
+    class GetAllForAProjectPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for this Project.
+        """
+
+    class GetAllForAProjectQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format.
+        """
+
+    def get_all_for_a_project(
+        self,
+        path_params: GetAllForAProjectPathParams,
+        query_params: Optional[GetAllForAProjectQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Get All Alert Configurations for a Project
+        - Document: [Get All for a Project](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-all-configs/)
+        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs`
+        - Description: No description.
+        """
+        return self._request(
+            "GET",
+            "/groups/{PROJECT-ID}/alertConfigs",
+            path_params,
+            query_params,
+            None,
+        )
+
+    class GetOnePathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        """Unique identifier for this alert configuration.
+        """
+
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for this Project.
+        """
+
+    class GetOneQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format.
+        """
+
+    def get_one(
+        self,
+        path_params: GetOnePathParams,
+        query_params: Optional[GetOneQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Get an Alert Configuration
+        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-config/)
+        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
+        - Description: No description.
+        """
+        return self._request(
+            "GET",
+            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            path_params,
+            query_params,
+            None,
+        )
+
+    class GetMatchersFieldNamesQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+
+For endpoints that return one result, the response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format.
+        """
+
+    def get_matchers_field_names(
+        self,
+        query_params: Optional[GetMatchersFieldNamesQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Get All Alert Configuration Matchers Field Names
+        - Document: [Get Matchers Field Names](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-matchers-field-names/)
+        - Resource: `GET /alertConfigs/matchers/fieldNames`
+        - Description: No description.
+        """
+        return self._request(
+            "GET",
+            "/alertConfigs/matchers/fieldNames",
+            None,
+            query_params,
+            None,
+        )
+
+    class GetOpenAlertsPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        """Unique identifier for this alert configuration.
+        """
+
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for this Project.
+        """
+
+    class GetOpenAlertsQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
+
+For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
+        """
+
+        items_per_page: Optional[float] = Field(
+            100.0, serialization_alias="itemsPerPage"
+        )
+        """Number of items to return per page, up to a maximum of 500.
+        """
+
+        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
+        """One-based integer that returns a subsection of results.
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag that indicates whether the response body should be in a prettyprint format.
+        """
+
+    def get_open_alerts(
+        self,
+        path_params: GetOpenAlertsPathParams,
+        query_params: Optional[GetOpenAlertsQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Get Open Alerts for Alert Configuration
+        - Document: [Get Open Alerts](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-open-alerts/)
+        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts`
+        - Description: No description.
+        """
+        return self._request(
+            "GET",
+            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts",
+            path_params,
+            query_params,
+            None,
+        )
+
+    class TestProjectAlertConfigurationPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
+        """Unique 24-hexadecimal digit string that identifies the alert configuration.
+        """
+
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        """Unique 24-hexadecimal digit string that identifies the project.
+        """
+
+        notification_id: str = Field("None", serialization_alias="NOTIFICATION-ID")
+        """Unique 24-hexadecimal digit string that identifies the notification method within the alert configuration.
+        """
+
+    def test_project_alert_configuration(
+        self,
+        path_params: TestProjectAlertConfigurationPathParams,
+    ) -> dict[str, Any]:
+        """
+        ## Test Project Alert Configuration
+        - Document: [Test Project Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/)
+        - Resource: `POST /api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`
+        - Description: Triggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration.
+        """
+        return self._request(
+            "POST",
+            "/api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test",
+            path_params,
+            None,
+            None,
+        )
+
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
@@ -439,7 +827,7 @@ HOURS
 DAYS
             """
 
-        metric_threshold: Optional[MetricthresholdParams] = Field(
+        metric_threshold: MetricthresholdParams = Field(
             serialization_alias="metricThreshold"
         )
         """Threshold that will cause an alert to be triggered. Required if "eventTypeName" : "OUTSIDE_METRIC_THRESHOLD".
@@ -448,7 +836,7 @@ DAYS
         class NotificationsParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            api_token: Optional[str] = Field("None", serialization_alias="apiToken")
+            api_token: str = Field("None", serialization_alias="apiToken")
             """Slack API token or Bot token. Required if "notifications.typeName" : "SLACK". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.
 
 After you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:
@@ -458,15 +846,11 @@ View or edit the alert through the UI.
 Query the third-party integration settings through the API.
             """
 
-            channel_name: Optional[str] = Field(
-                "None", serialization_alias="channelName"
-            )
+            channel_name: str = Field("None", serialization_alias="channelName")
             """Slack channel name. Required if "notifications.typeName" : "SLACK".
             """
 
-            datadog_api_key: Optional[str] = Field(
-                "None", serialization_alias="datadogApiKey"
-            )
+            datadog_api_key: str = Field("None", serialization_alias="datadogApiKey")
             """DataDog API Key. Found in the DataDog dashboard. Required if "notifications.typeName" : "DATADOG".
 
 After you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:
@@ -480,13 +864,11 @@ Query the third-party integration settings through the API.
             """Number of minutes to wait after an alert condition is detected before sending out the first notification.
             """
 
-            email_address: Optional[str] = Field(
-                "None", serialization_alias="emailAddress"
-            )
+            email_address: str = Field("None", serialization_alias="emailAddress")
             """Email address to which to send notification. Required if "notifications.typeName" : "EMAIL".
             """
 
-            email_enabled: Optional[bool] = Field(serialization_alias="emailEnabled")
+            email_enabled: bool = Field(serialization_alias="emailEnabled")
             """Determines if email notifications should be sent. Required if:
 
 "notifications.typeName" : "GROUP"
@@ -498,7 +880,7 @@ Query the third-party integration settings through the API.
             """Number of minutes to wait between successive notifications for unacknowledged alerts that are not resolved.
             """
 
-            microsoft_teams_webhook_url: Optional[str] = Field(
+            microsoft_teams_webhook_url: str = Field(
                 "None", serialization_alias="microsoftTeamsWebhookUrl"
             )
             """Microsoft Teams channel incoming webhook URL. Required if "notifications.typeName" : "MICROSOFT_TEAMS".
@@ -506,13 +888,11 @@ Query the third-party integration settings through the API.
 When you view or edit the alert for a webhook notification, the URL appears partially redacted, and the secret appears completely redacted.
             """
 
-            mobile_number: Optional[str] = Field(
-                "None", serialization_alias="mobileNumber"
-            )
+            mobile_number: str = Field("None", serialization_alias="mobileNumber")
             """Mobile number to send SMS messages to. Required if "notifications.typeName" : "SMS".
             """
 
-            notification_token: Optional[str] = Field(
+            notification_token: str = Field(
                 "None", serialization_alias="notificationToken"
             )
             """A HipChat API token. Required if "notifications.typeName" : "HIP_CHAT". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.
@@ -524,15 +904,15 @@ View or edit the alert through the UI.
 Query the third-party integration settings through the API.
             """
 
-            role: Optional[str] = Field("None", serialization_alias="role")
+            role: str = Field("None", serialization_alias="role")
             """Ops Manager role in current Project. Required if "notifications.typeName" : "GROUP".
             """
 
-            room_name: Optional[str] = Field("None", serialization_alias="roomName")
+            room_name: str = Field("None", serialization_alias="roomName")
             """HipChat room name. Required if "notifications.typeName" : "HIP_CHAT".
             """
 
-            service_key: Optional[str] = Field("None", serialization_alias="serviceKey")
+            service_key: str = Field("None", serialization_alias="serviceKey")
             """PagerDuty integration key. Required if "notifications.typeName" : "PAGER_DUTY".
 
 After you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:
@@ -542,7 +922,7 @@ View or edit the alert through the UI.
 Query the third-party integration settings through the API.
             """
 
-            sms_enabled: Optional[bool] = Field(serialization_alias="smsEnabled")
+            sms_enabled: bool = Field(serialization_alias="smsEnabled")
             """Flag indicating SMS notifications must be sent. Required if:
 
 "notifications.typeName" : "GROUP"
@@ -578,7 +958,7 @@ USER
 WEBHOOK
             """
 
-            username: Optional[str] = Field("None", serialization_alias="username")
+            username: str = Field("None", serialization_alias="username")
             """Name of an Ops Manager user to which to send notifications. Specify a user in the Project that owns the alert configuration. Required if "notifications.typeName" : "USER".
             """
 
@@ -637,7 +1017,7 @@ LESS_THAN
             """Threshold value outside of which an alert is triggered.
             """
 
-        threshold: Optional[ThresholdParams] = Field(serialization_alias="threshold")
+        threshold: ThresholdParams = Field(serialization_alias="threshold")
         """Threshold that will cause an alert to be triggered. Required if:
 
 "eventTypeName" : "TOO_FEW_HEALTHY_MEMBERS"
@@ -663,394 +1043,6 @@ LESS_THAN
             path_params,
             query_params,
             body_params,
-        )
-
-    class DeletePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
-        """Unique identifier for this alert configuration.
-        """
-
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for this Project.
-        """
-
-    class DeleteQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
-
-For endpoints that return one result, the response body includes:
-
-Name
-	
-Description
-
-
-
-status
-
-	
-
-HTTP response code
-
-
-
-
-content
-
-	
-
-Expected response body
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag indicating whether the response body should be in a prettyprint format.
-        """
-
-    def delete(
-        self,
-        path_params: DeletePathParams,
-        query_params: Optional[DeleteQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Delete an Alert Configuration
-        - Document: [Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-delete-config/)
-        - Resource: `DELETE /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
-        - Description: No description.
-        """
-        return self._request(
-            "DELETE",
-            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
-            path_params,
-            query_params,
-            None,
-        )
-
-    class EnableDisablePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
-        """Unique identifier for this alert configuration.
-        """
-
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for this Project.
-        """
-
-    class EnableDisableQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
-
-For endpoints that return one result, the response body includes:
-
-Name
-	
-Description
-
-
-
-status
-
-	
-
-HTTP response code
-
-
-
-
-content
-
-	
-
-Expected response body
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag indicating whether the response body should be in a prettyprint format.
-        """
-
-    class EnableDisableBodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        enabled: Optional[bool] = Field(serialization_alias="enabled")
-        """Specify true to enable; false to disable.
-        """
-
-    def enable_disable(
-        self,
-        path_params: EnableDisablePathParams,
-        query_params: Optional[EnableDisableQueryParams],
-        body_params: Optional[EnableDisableBodyParams],
-    ) -> dict[str, Any]:
-        """
-        ## Enable/Disable Alert Configuration
-        - Document: [Enable/Disable](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-enable-disable-config/)
-        - Resource: `PATCH /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
-        - Description: No description.
-        """
-        return self._request(
-            "PATCH",
-            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
-            path_params,
-            query_params,
-            body_params,
-        )
-
-    class GetAllForAProjectPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for this Project.
-        """
-
-    class GetAllForAProjectQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
-
-For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
-        """
-
-        items_per_page: Optional[float] = Field(
-            100.0, serialization_alias="itemsPerPage"
-        )
-        """Number of items to return per page, up to a maximum of 500.
-        """
-
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        """One-based integer that returns a subsection of results.
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag that indicates whether the response body should be in a prettyprint format.
-        """
-
-    def get_all_for_a_project(
-        self,
-        path_params: GetAllForAProjectPathParams,
-        query_params: Optional[GetAllForAProjectQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Get All Alert Configurations for a Project
-        - Document: [Get All for a Project](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-all-configs/)
-        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs`
-        - Description: No description.
-        """
-        return self._request(
-            "GET",
-            "/groups/{PROJECT-ID}/alertConfigs",
-            path_params,
-            query_params,
-            None,
-        )
-
-    class GetOnePathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
-        """Unique identifier for this alert configuration.
-        """
-
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for this Project.
-        """
-
-    class GetOneQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
-
-For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
-        """
-
-        items_per_page: Optional[float] = Field(
-            100.0, serialization_alias="itemsPerPage"
-        )
-        """Number of items to return per page, up to a maximum of 500.
-        """
-
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        """One-based integer that returns a subsection of results.
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag that indicates whether the response body should be in a prettyprint format.
-        """
-
-    def get_one(
-        self,
-        path_params: GetOnePathParams,
-        query_params: Optional[GetOneQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Get an Alert Configuration
-        - Document: [Get One](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-config/)
-        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}`
-        - Description: No description.
-        """
-        return self._request(
-            "GET",
-            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
-            path_params,
-            query_params,
-            None,
-        )
-
-    class GetMatchersFieldNamesQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
-
-For endpoints that return one result, the response body includes:
-
-Name
-	
-Description
-
-
-
-status
-
-	
-
-HTTP response code
-
-
-
-
-content
-
-	
-
-Expected response body
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag indicating whether the response body should be in a prettyprint format.
-        """
-
-    def get_matchers_field_names(
-        self,
-        query_params: Optional[GetMatchersFieldNamesQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Get All Alert Configuration Matchers Field Names
-        - Document: [Get Matchers Field Names](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-matchers-field-names/)
-        - Resource: `GET /alertConfigs/matchers/fieldNames`
-        - Description: No description.
-        """
-        return self._request(
-            "GET",
-            "/alertConfigs/matchers/fieldNames",
-            None,
-            query_params,
-            None,
-        )
-
-    class GetOpenAlertsPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
-        """Unique identifier for this alert configuration.
-        """
-
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for this Project.
-        """
-
-    class GetOpenAlertsQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope : true in the query.
-
-For endpoints that return a list of results, the content object is an envelope. Ops Manager adds the status field to the response body.
-        """
-
-        items_per_page: Optional[float] = Field(
-            100.0, serialization_alias="itemsPerPage"
-        )
-        """Number of items to return per page, up to a maximum of 500.
-        """
-
-        page_num: Optional[float] = Field(1.0, serialization_alias="pageNum")
-        """One-based integer that returns a subsection of results.
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag that indicates whether the response body should be in a prettyprint format.
-        """
-
-    def get_open_alerts(
-        self,
-        path_params: GetOpenAlertsPathParams,
-        query_params: Optional[GetOpenAlertsQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Get Open Alerts for Alert Configuration
-        - Document: [Get Open Alerts](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-open-alerts/)
-        - Resource: `GET /groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts`
-        - Description: No description.
-        """
-        return self._request(
-            "GET",
-            "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts",
-            path_params,
-            query_params,
-            None,
-        )
-
-    class TestProjectAlertConfigurationPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        alert_config_id: str = Field("None", serialization_alias="ALERT-CONFIG-ID")
-        """Unique 24-hexadecimal digit string that identifies the alert configuration.
-        """
-
-        group_id: str = Field("None", serialization_alias="GROUP-ID")
-        """Unique 24-hexadecimal digit string that identifies the project.
-        """
-
-        notification_id: str = Field("None", serialization_alias="NOTIFICATION-ID")
-        """Unique 24-hexadecimal digit string that identifies the notification method within the alert configuration.
-        """
-
-    def test_project_alert_configuration(
-        self,
-        path_params: TestProjectAlertConfigurationPathParams,
-    ) -> dict[str, Any]:
-        """
-        ## Test Project Alert Configuration
-        - Document: [Test Project Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/)
-        - Resource: `POST /api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`
-        - Description: Triggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration.
-        """
-        return self._request(
-            "POST",
-            "/api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test",
-            path_params,
-            None,
-            None,
         )
 
     class UpdatePathParams(BaseModel):
@@ -1489,7 +1481,7 @@ HOURS
 DAYS
             """
 
-        metric_threshold: Optional[MetricthresholdParams] = Field(
+        metric_threshold: MetricthresholdParams = Field(
             serialization_alias="metricThreshold"
         )
         """Threshold that will cause an alert to be triggered. Required if "eventTypeName" : "OUTSIDE_METRIC_THRESHOLD".
@@ -1498,7 +1490,7 @@ DAYS
         class NotificationsParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            api_token: Optional[str] = Field("None", serialization_alias="apiToken")
+            api_token: str = Field("None", serialization_alias="apiToken")
             """Slack API token or Bot token. Required if "notifications.typeName" : "SLACK". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.
 
 After you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:
@@ -1508,15 +1500,11 @@ View or edit the alert through the UI.
 Query the third-party integration settings through the API.
             """
 
-            channel_name: Optional[str] = Field(
-                "None", serialization_alias="channelName"
-            )
+            channel_name: str = Field("None", serialization_alias="channelName")
             """Slack channel name. Required if "notifications.typeName" : "SLACK".
             """
 
-            datadog_api_key: Optional[str] = Field(
-                "None", serialization_alias="datadogApiKey"
-            )
+            datadog_api_key: str = Field("None", serialization_alias="datadogApiKey")
             """DataDog API Key. Found in the DataDog dashboard. Required if "notifications.typeName" : "DATADOG".
 
 After you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:
@@ -1530,13 +1518,11 @@ Query the third-party integration settings through the API.
             """Number of minutes to wait after an alert condition is detected before sending out the first notification.
             """
 
-            email_address: Optional[str] = Field(
-                "None", serialization_alias="emailAddress"
-            )
+            email_address: str = Field("None", serialization_alias="emailAddress")
             """Email address to which to send notification. Required if "notifications.typeName" : "EMAIL".
             """
 
-            email_enabled: Optional[bool] = Field(serialization_alias="emailEnabled")
+            email_enabled: bool = Field(serialization_alias="emailEnabled")
             """Determines if email notifications should be sent. Required if:
 
 "notifications.typeName" : "GROUP"
@@ -1548,7 +1534,7 @@ Query the third-party integration settings through the API.
             """Number of minutes to wait between successive notifications for unacknowledged alerts that are not resolved.
             """
 
-            microsoft_teams_webhook_url: Optional[str] = Field(
+            microsoft_teams_webhook_url: str = Field(
                 "None", serialization_alias="microsoftTeamsWebhookUrl"
             )
             """Microsoft Teams channel incoming webhook URL. Required if "notifications.typeName" : "MICROSOFT_TEAMS".
@@ -1556,13 +1542,11 @@ Query the third-party integration settings through the API.
 When you view or edit the alert for a webhook notification, the URL appears partially redacted, and the secret appears completely redacted.
             """
 
-            mobile_number: Optional[str] = Field(
-                "None", serialization_alias="mobileNumber"
-            )
+            mobile_number: str = Field("None", serialization_alias="mobileNumber")
             """Mobile number to send SMS messages to. Required if "notifications.typeName" : "SMS".
             """
 
-            notification_token: Optional[str] = Field(
+            notification_token: str = Field(
                 "None", serialization_alias="notificationToken"
             )
             """A HipChat API token. Required if "notifications.typeName" : "HIP_CHAT". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.
@@ -1574,15 +1558,15 @@ View or edit the alert through the UI.
 Query the third-party integration settings through the API.
             """
 
-            role: Optional[str] = Field("None", serialization_alias="role")
+            role: str = Field("None", serialization_alias="role")
             """Ops Manager role in current Project. Required if "notifications.typeName" : "GROUP".
             """
 
-            room_name: Optional[str] = Field("None", serialization_alias="roomName")
+            room_name: str = Field("None", serialization_alias="roomName")
             """HipChat room name. Required if "notifications.typeName" : "HIP_CHAT".
             """
 
-            service_key: Optional[str] = Field("None", serialization_alias="serviceKey")
+            service_key: str = Field("None", serialization_alias="serviceKey")
             """PagerDuty integration key. Required if "notifications.typeName" : "PAGER_DUTY".
 
 After you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:
@@ -1592,7 +1576,7 @@ View or edit the alert through the UI.
 Query the third-party integration settings through the API.
             """
 
-            sms_enabled: Optional[bool] = Field(serialization_alias="smsEnabled")
+            sms_enabled: bool = Field(serialization_alias="smsEnabled")
             """Flag indicating SMS notifications must be sent. Required if:
 
 "notifications.typeName" : "GROUP"
@@ -1628,7 +1612,7 @@ USER
 WEBHOOK
             """
 
-            username: Optional[str] = Field("None", serialization_alias="username")
+            username: str = Field("None", serialization_alias="username")
             """Name of an Ops Manager user to which to send notifications. Specify a user in the Project that owns the alert configuration. Required if "notifications.typeName" : "USER".
             """
 
@@ -1687,7 +1671,7 @@ LESS_THAN
             """Threshold value outside of which an alert is triggered.
             """
 
-        threshold: Optional[ThresholdParams] = Field(serialization_alias="threshold")
+        threshold: ThresholdParams = Field(serialization_alias="threshold")
         """Threshold that will cause an alert to be triggered. Required if:
 
 "eventTypeName" : "TOO_FEW_HEALTHY_MEMBERS"

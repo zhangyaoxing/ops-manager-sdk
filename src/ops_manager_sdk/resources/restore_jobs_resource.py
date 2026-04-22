@@ -10,12 +10,12 @@ class RestoreJobsResource(BaseResource):
     class CreateClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier of the project that owns the job.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the job represents.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the job represents.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the job.
         """
 
     class CreateClusterQueryParams(BaseModel):
@@ -267,19 +267,19 @@ If you set pointInTimeUTCMillis, you cannot set oplogInc, oplogTs, or checkpoint
     class GetAllClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier of the project that owns the snapshot.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the snapshot represents.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the snapshot represents.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier of the project that owns the snapshot.
         """
 
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        batch_id: Optional[str] = Field("None", serialization_alias="BATCH-ID")
-        """NONE
+        batch_id: Optional[str] = Field("NONE", serialization_alias="BATCH-ID")
+        """Unique identifier of the batch.
         """
 
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
@@ -381,16 +381,16 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetOneClusterPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster that the restore job represents.
+        """
+
         job_id: str = Field("None", serialization_alias="JOB-ID")
         """Unique identifier of the restore job.
         """
 
         project_id: str = Field("None", serialization_alias="PROJECT-ID")
         """Unique identifier of the project that owns the restore job.
-        """
-
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster that the restore job represents.
         """
 
     class GetOneClusterQueryParams(BaseModel):

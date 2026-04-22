@@ -10,12 +10,12 @@ class SnapshotScheduleResource(BaseResource):
     class GetSchedulePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for the project that holds the cluster with the snapshot schedule you want to get.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster whose snapshot schedule you want to get.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster whose snapshot schedule you want to get.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for the project that holds the cluster with the snapshot schedule you want to get.
         """
 
     class GetScheduleQueryParams(BaseModel):
@@ -76,12 +76,12 @@ Expected response body
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        project_id: str = Field("None", serialization_alias="PROJECT-ID")
-        """Unique identifier for the project that holds the cluster with the snapshot schedule you want to update.
+        cluster_id: str = Field("None", serialization_alias="CLUSTER-ID")
+        """Unique identifier of the cluster whose snapshot schedule you want to update.
         """
 
-        cluster_id: str = Field("None", serialization_alias="clusterId")
-        """Unique identifier of the cluster whose snapshot schedule you want to update.
+        project_id: str = Field("None", serialization_alias="PROJECT-ID")
+        """Unique identifier for the project that holds the cluster with the snapshot schedule you want to update.
         """
 
     class UpdateQueryParams(BaseModel):

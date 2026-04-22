@@ -320,9 +320,9 @@ Expected response body
         model_config = ConfigDict(populate_by_name=True)
 
         assignable_only: Optional[bool] = Field(
-            True, serialization_alias="assignableOnly"
+            False, serialization_alias="assignableOnly"
         )
-        """Flag indicating whether this S3 blockstore can be assigned new backup jobs.
+        """Optional
         """
 
         envelope: Optional[bool] = Field(False, serialization_alias="envelope")
