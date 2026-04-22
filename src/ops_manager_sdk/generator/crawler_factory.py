@@ -112,6 +112,11 @@ class StandardCrawler:
                 desc: str = (
                     desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
                 )
+                has_table = desc_locator.locator("xpath=.//table").count() > 0
+                if has_table and param_name != "envelope":
+                    logger.debug(
+                        f"Parameter {param_name} ({params_locator.page.url}) has a table in its description."
+                    )
 
                 if required_override is not None:
                     required: str = required_override
@@ -139,6 +144,7 @@ class StandardCrawler:
                         "type": param_type,
                         "required": required,
                         "description": desc,
+                        "has_table": has_table,
                         "default": default_value,
                     }
                 )

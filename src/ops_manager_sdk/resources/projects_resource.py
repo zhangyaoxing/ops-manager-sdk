@@ -1053,6 +1053,74 @@ Expected response body
             None,
         )
 
+    class GetAllInvitationsPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        group_id: str = Field("None", serialization_alias="GROUP-ID")
+        """Unique 24-hexadecimal digit string that identifies the project.
+        """
+
+    class GetAllInvitationsQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+
+For endpoints that return one result, the response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format.
+        """
+
+        username: Optional[str] = Field("None", serialization_alias="username")
+        """Email address of the invited user. This is the address to which Ops Manager sent the invite.
+
+If omitted, Ops Manager returns all pending invitations.
+        """
+
+    def get_all_invitations(
+        self,
+        path_params: GetAllInvitationsPathParams,
+        query_params: Optional[GetAllInvitationsQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Get All Project Invitations
+        - Document: [Get All Invitations](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-all-invitations/)
+        - Resource: `GET /groups/{GROUP-ID}/invites`
+        - Description: Retrieves all pending invitations to the specified Ops Manager project.
+        """
+        return self._request(
+            "GET",
+            "/groups/{GROUP-ID}/invites",
+            path_params,
+            query_params,
+            None,
+        )
+
     class GetOneInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
@@ -1348,74 +1416,6 @@ For endpoints that return a list of results, the results object is an envelope. 
         return self._request(
             "DELETE",
             "/groups/{PROJECT-ID}/teams/{TEAM-ID}",
-            path_params,
-            query_params,
-            None,
-        )
-
-    class GetAllInvitationsPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        group_id: str = Field("None", serialization_alias="GROUP-ID")
-        """Unique 24-hexadecimal digit string that identifies the project.
-        """
-
-    class GetAllInvitationsQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
-
-For endpoints that return one result, the response body includes:
-
-Name
-	
-Description
-
-
-
-status
-
-	
-
-HTTP response code
-
-
-
-
-content
-
-	
-
-Expected response body
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag indicating whether the response body should be in a prettyprint format.
-        """
-
-        username: Optional[str] = Field("None", serialization_alias="username")
-        """Email address of the invited user. This is the address to which Ops Manager sent the invite.
-
-If omitted, Ops Manager returns all pending invitations.
-        """
-
-    def get_all_invitations(
-        self,
-        path_params: GetAllInvitationsPathParams,
-        query_params: Optional[GetAllInvitationsQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Get All Project Invitations
-        - Document: [Get All Invitations](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-all-invitations/)
-        - Resource: `GET /groups/{GROUP-ID}/invites`
-        - Description: Retrieves all pending invitations to the specified Ops Manager project.
-        """
-        return self._request(
-            "GET",
-            "/groups/{GROUP-ID}/invites",
             path_params,
             query_params,
             None,

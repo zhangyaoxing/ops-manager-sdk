@@ -155,6 +155,74 @@ Expected response body
             None,
         )
 
+    class GetAllInvitationsPathParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        org_id: str = Field("None", serialization_alias="ORG-ID")
+        """Unique 24-hexadecimal digit string that identifies the organization.
+        """
+
+    class GetAllInvitationsQueryParams(BaseModel):
+        model_config = ConfigDict(populate_by_name=True)
+
+        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        """Flag that indicates whether or not to wrap the response in an envelope.
+
+Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
+
+For endpoints that return one result, the response body includes:
+
+Name
+	
+Description
+
+
+
+status
+
+	
+
+HTTP response code
+
+
+
+
+content
+
+	
+
+Expected response body
+        """
+
+        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
+        """Flag indicating whether the response body should be in a prettyprint format.
+        """
+
+        username: Optional[str] = Field("None", serialization_alias="username")
+        """Email address of the invited user. This is the address to which Ops Manager sent the invite.
+
+If omitted, Ops Manager returns all pending invitations.
+        """
+
+    def get_all_invitations(
+        self,
+        path_params: GetAllInvitationsPathParams,
+        query_params: Optional[GetAllInvitationsQueryParams],
+    ) -> dict[str, Any]:
+        """
+        ## Get All Organization Invitations
+        - Document: [Get All Invitations](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-all-invitations/)
+        - Resource: `GET /orgs/{ORG-ID}/invites`
+        - Description: Retrieves all pending invitations to the specified Ops Manager organization.
+        """
+        return self._request(
+            "GET",
+            "/orgs/{ORG-ID}/invites",
+            path_params,
+            query_params,
+            None,
+        )
+
     class GetOneInvitationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
@@ -826,72 +894,4 @@ Expected response body
             path_params,
             query_params,
             body_params,
-        )
-
-    class GetAllInvitationsPathParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        org_id: str = Field("None", serialization_alias="ORG-ID")
-        """Unique 24-hexadecimal digit string that identifies the organization.
-        """
-
-    class GetAllInvitationsQueryParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
-
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
-        """Flag that indicates whether or not to wrap the response in an envelope.
-
-Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.
-
-For endpoints that return one result, the response body includes:
-
-Name
-	
-Description
-
-
-
-status
-
-	
-
-HTTP response code
-
-
-
-
-content
-
-	
-
-Expected response body
-        """
-
-        pretty: Optional[bool] = Field(False, serialization_alias="pretty")
-        """Flag indicating whether the response body should be in a prettyprint format.
-        """
-
-        username: Optional[str] = Field("None", serialization_alias="username")
-        """Email address of the invited user. This is the address to which Ops Manager sent the invite.
-
-If omitted, Ops Manager returns all pending invitations.
-        """
-
-    def get_all_invitations(
-        self,
-        path_params: GetAllInvitationsPathParams,
-        query_params: Optional[GetAllInvitationsQueryParams],
-    ) -> dict[str, Any]:
-        """
-        ## Get All Organization Invitations
-        - Document: [Get All Invitations](https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-all-invitations/)
-        - Resource: `GET /orgs/{ORG-ID}/invites`
-        - Description: Retrieves all pending invitations to the specified Ops Manager organization.
-        """
-        return self._request(
-            "GET",
-            "/orgs/{ORG-ID}/invites",
-            path_params,
-            query_params,
-            None,
         )
