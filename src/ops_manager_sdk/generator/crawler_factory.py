@@ -137,7 +137,7 @@ class StandardCrawler:
 
                 if "\nrequired" in param_name.lower():
                     param_name = param_name.split("\n")[0]
-                param_name = param_name.replace("\n", " ").strip()
+                param_name = param_name.replace("\n", "").strip()
 
                 default_locator: Locator = param.locator(f"xpath=./td[{default_col}]")
                 if default_locator.count() > 0:
