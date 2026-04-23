@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -57,8 +58,8 @@ Expected response body
         """Set to true if alerts should be enabled for this MongoDB process.
         """
 
-        auth_mechanism_name: Optional[str] = Field(
-            "None", serialization_alias="authMechanismName"
+        auth_mechanism_name: Optional[AuthMechanismNames] = Field(
+            serialization_alias="authMechanismName"
         )
         """Specify which authentication mechanism should be used to connect to this MongoDB process. Possible values are:
 
@@ -440,8 +441,8 @@ Expected response body
         """Set to true if alerts should be enabled for this MongoDB process.
         """
 
-        auth_mechanism_name: Optional[str] = Field(
-            "None", serialization_alias="authMechanismName"
+        auth_mechanism_name: Optional[AuthMechanismNames] = Field(
+            serialization_alias="authMechanismName"
         )
         """Specify which authentication mechanism should be used to connect to this MongoDB process. Possible values are:
 

@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -135,8 +136,8 @@ Expected response body
         """LDAP group distinguished name for PLAIN authentication.
         """
 
-        auth_mechanism: Optional[str] = Field(
-            "None", serialization_alias="authMechanism"
+        auth_mechanism: Optional[AuthMechanismNames] = Field(
+            serialization_alias="authMechanism"
         )
         """Authentication mechanism for connecting to the MongoDB processes. Possible values are:
 

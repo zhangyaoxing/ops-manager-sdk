@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -174,8 +175,8 @@ Expected response body
     class UpdateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        auth_mechanism_name: Optional[str] = Field(
-            "None", serialization_alias="authMechanismName"
+        auth_mechanism_name: Optional[AuthMechanismNames] = Field(
+            serialization_alias="authMechanismName"
         )
         """Authentication mechanism needed to connect to the sync source database. Ops Manager requires this parameter if the sync store uses authentication. Ops Manager accepts:
 
@@ -291,7 +292,9 @@ If the new list only removes namespaces from the existing array, don't set syncS
         """Flag that indicates if TLS is enabled for the sync source database.
         """
 
-        status_name: Optional[str] = Field("None", serialization_alias="statusName")
+        status_name: Optional[BackupStatusName] = Field(
+            serialization_alias="statusName"
+        )
         """Current (or desired) status of the backup configuration. Ops Manager accepts:
 
 INACTIVE
@@ -305,8 +308,8 @@ STOPPED
 TERMINATING
         """
 
-        storage_engine_name: Optional[str] = Field(
-            "None", serialization_alias="storageEngineName"
+        storage_engine_name: Optional[StorageEngineName] = Field(
+            serialization_alias="storageEngineName"
         )
         """Storage engine used for the backup. Ops Manager accepts:
 

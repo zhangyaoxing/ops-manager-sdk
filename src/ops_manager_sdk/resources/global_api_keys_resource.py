@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -50,7 +51,7 @@ Expected response body
         """Description of the Global API Key. Must be between 1 and 250 characters in length.
         """
 
-        roles: list[str] = Field(serialization_alias="roles")
+        roles: GlobalRole = Field(serialization_alias="roles")
         """List of roles that the Global API Key needs to have. If the roles array is provided:
 
 Provide at least one role
@@ -201,7 +202,7 @@ Expected response body
     class GetAllRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -419,7 +420,7 @@ Expected response body
         """Description of the key. This parameter is optional; however, the request must contain either a desc parameter or a roles parameter. If desc is provided, it must be between 1 and 250 characters long.
         """
 
-        roles: Optional[list[str]] = Field(serialization_alias="roles")
+        roles: Optional[GlobalRole] = Field(serialization_alias="roles")
         """List of roles that the Global API Key needs to have. If the roles array is provided:
 
 Provide at least one role

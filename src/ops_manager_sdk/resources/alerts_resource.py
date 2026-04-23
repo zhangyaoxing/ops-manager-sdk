@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -193,7 +194,7 @@ For endpoints that return a list of results, the content object is an envelope. 
         """Flag that indicates whether the response body should be in a prettyprint format.
         """
 
-        status: Optional[str] = Field("None", serialization_alias="status")
+        status: Optional[AlertStatus] = Field(serialization_alias="status")
         """Specify a status to return only those alerts with the specified status. Omit to return all alerts.
 
 Ops Manager accepts the following values:

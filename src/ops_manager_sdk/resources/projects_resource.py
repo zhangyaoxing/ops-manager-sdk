@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -664,7 +665,7 @@ For endpoints that return a list of results, the content object is an envelope. 
     class AddTeamsBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        role_names: Optional[list[Any]] = Field(serialization_alias="roleNames")
+        role_names: Optional[GroupRole] = Field(serialization_alias="roleNames")
         """Each object in the array represents a project role you want to assign to the team.
 
 The valid roles and their associated mappings are:
@@ -1357,7 +1358,7 @@ IMPORTANT: Ops Manager replaces the roles in the invitation with the roles that 
     class RemoveTeamQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.

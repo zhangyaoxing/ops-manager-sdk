@@ -139,7 +139,7 @@ def type_mapping(type_str: str) -> str:
 def parse_value(value_str: str, type_str: str) -> Any:
     """Parse the string value to the appropriate Python type."""
     try:
-        if value_str is None:
+        if value_str is None or value_str.lower() in ["null", "none"]:
             return None
         if type_str == "int":
             return int(value_str)

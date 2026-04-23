@@ -105,8 +105,6 @@ class StandardCrawler:
                     param_type = "number"
                 if param_name in ["envelope", "pretty"]:
                     param_type = "boolean"
-                if param_name in ["policies.policy", "serverType.name", "serverType.label"]:
-                    param_type = "enum"
 
                 desc_locator: Locator = param.locator(f"xpath=./td[{desc_col}]")
                 if desc_locator.count() == 0:
@@ -139,6 +137,7 @@ class StandardCrawler:
 
                 if "\nrequired" in param_name.lower():
                     param_name = param_name.split("\n")[0]
+                param_name = param_name.replace("\n", " ").strip()
 
                 default_locator: Locator = param.locator(f"xpath=./td[{default_col}]")
                 if default_locator.count() > 0:

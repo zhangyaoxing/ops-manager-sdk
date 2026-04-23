@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -86,7 +87,9 @@ To learn more about Load Factor, see Edit One Existing Blockstore.
         """A comma-separated list of hosts in the <hostname:port> format that can be used to access this blockstore.
         """
 
-        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        write_concern: Optional[WriteConcern] = Field(
+            serialization_alias="writeConcern"
+        )
         """Optional. The write concern used for this blockstore.
 
 The accepted values for this option are:
@@ -376,7 +379,9 @@ To learn more about Load Factor, see Edit One Existing Blockstore.
         """A comma-separated list of hosts in the <hostname:port> format that can be used to access this blockstore.
         """
 
-        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        write_concern: Optional[WriteConcern] = Field(
+            serialization_alias="writeConcern"
+        )
         """Optional. The write concern used for this blockstore.
 
 The accepted values for this option are:

@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -79,7 +80,7 @@ For example, to retrieve a diagnostic archive with data for the last 10 minutes,
     class CreatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -131,7 +132,7 @@ For endpoints that return a list of results, the results object is an envelope. 
         """Label you gave to the physical host. This value must be unique.
         """
 
-        server_type: str = Field("None", serialization_alias="serverType")
+        server_type: ServerTypeName = Field(serialization_alias="serverType")
         """Server Type of the physical host. You can set this to one of the following values:
 
 DEV_SERVER
@@ -254,7 +255,7 @@ Expected response body
     class GenerateUsageSnapshotQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -320,7 +321,7 @@ For endpoints that return a list of results, the results object is an envelope. 
     class RetrieveAllPhysicalHostsQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -517,7 +518,7 @@ Expected response body
     class RetreiveOnePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -817,7 +818,7 @@ Expected response body
     class RemovePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -930,7 +931,7 @@ Expected response body
         class ServertypeParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            label: Optional[list[Any]] = Field(serialization_alias="label")
+            label: Optional[ServerTypeLabel] = Field(serialization_alias="label")
             """Server Type label for the physical host.
 
 You can set this to one of the following values:
@@ -946,7 +947,7 @@ Ram Pool
 To learn more, see MongoDB Usage Page.
             """
 
-            name: list[Any] = Field(serialization_alias="name")
+            name: ServerTypeName = Field(serialization_alias="name")
             """Server Type value for the physical host.
 
 You can set this to one of the following values:
@@ -1035,7 +1036,7 @@ Expected response body
         class ServertypeParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            label: Optional[list[Any]] = Field(serialization_alias="label")
+            label: Optional[ServerTypeLabel] = Field(serialization_alias="label")
             """Server Type label for the physical host.
 
 You can set this to one of the following values:
@@ -1051,7 +1052,7 @@ Ram Pool
 To learn more, see MongoDB Usage Page.
             """
 
-            name: list[Any] = Field(serialization_alias="name")
+            name: ServerTypeName = Field(serialization_alias="name")
             """Server Type value for the physical host.
 
 You can set this to one of the following values:
@@ -1101,7 +1102,7 @@ To learn more, see MongoDB Usage Page.
     class UpdatePhysicalHostQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -1153,7 +1154,7 @@ For endpoints that return a list of results, the results object is an envelope. 
         """Label you gave to the physical host. This value must be unique.
         """
 
-        server_type: str = Field("None", serialization_alias="serverType")
+        server_type: ServerTypeName = Field(serialization_alias="serverType")
         """Server Type of the physical host. You can set this to one of the following values:
 
 DEV_SERVER
@@ -1253,7 +1254,7 @@ Expected response body
         class ServertypeParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            label: Optional[list[Any]] = Field(serialization_alias="label")
+            label: Optional[ServerTypeLabel] = Field(serialization_alias="label")
             """Server Type label for the physical host.
 
 You can set this to one of the following values:
@@ -1269,7 +1270,7 @@ Ram Pool
 To learn more, see MongoDB Usage Page.
             """
 
-            name: list[Any] = Field(serialization_alias="name")
+            name: ServerTypeName = Field(serialization_alias="name")
             """Server Type value for the physical host.
 
 You can set this to one of the following values:

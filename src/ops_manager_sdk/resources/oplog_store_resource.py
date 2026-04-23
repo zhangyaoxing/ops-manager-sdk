@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -80,7 +81,9 @@ Setting these tags limits which backup jobs this oplog store can process. If omi
         """A comma-separated list of hosts in the <hostname:port> format that can be used to access this oplog store.
         """
 
-        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        write_concern: Optional[WriteConcern] = Field(
+            serialization_alias="writeConcern"
+        )
         """Optional. The write concern used for this oplog store.
 
 The accepted values for this option are:
@@ -364,7 +367,9 @@ Setting these tags limits which backup jobs this oplog store can process. If omi
         """A comma-separated list of hosts in the <hostname:port> format that can be used to access this oplog store.
         """
 
-        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        write_concern: Optional[WriteConcern] = Field(
+            serialization_alias="writeConcern"
+        )
         """Optional. The write concern used for this oplog store.
 
 The accepted values for this option are:

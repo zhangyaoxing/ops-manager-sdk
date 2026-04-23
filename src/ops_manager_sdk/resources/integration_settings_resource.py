@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -10,7 +11,9 @@ class IntegrationSettingsResource(BaseResource):
     class CreatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        integration_type: IntegrationType = Field(
+            serialization_alias="INTEGRATION-TYPE"
+        )
         """Third-party service identifier. Accepted values are:
 
 DATADOG
@@ -125,7 +128,9 @@ For endpoints that return a list of results, the content object is an envelope. 
     class DeletePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        integration_type: IntegrationType = Field(
+            serialization_alias="INTEGRATION-TYPE"
+        )
         """Third-party service identifier. Accepted values are:
 
 DATADOG
@@ -298,7 +303,9 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetOneConfigurationPathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        integration_type: IntegrationType = Field(
+            serialization_alias="INTEGRATION-TYPE"
+        )
         """Third-party service identifier. Accepted values are:
 
 DATADOG
@@ -369,7 +376,9 @@ For endpoints that return a list of results, the content object is an envelope. 
     class UpdatePathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        integration_type: str = Field("None", serialization_alias="INTEGRATION-TYPE")
+        integration_type: IntegrationType = Field(
+            serialization_alias="INTEGRATION-TYPE"
+        )
         """Third-party service identifier. Accepted values are:
 
 DATADOG

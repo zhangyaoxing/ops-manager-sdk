@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -21,7 +22,7 @@ class ApiKeysOnProjectsResource(BaseResource):
     class AssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -187,7 +188,7 @@ Project User Admin
     class CreateAssignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -367,7 +368,7 @@ Project User Admin
     class UnassignQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -441,7 +442,7 @@ For endpoints that return a list of results, the results object is an envelope. 
     class GetAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -519,7 +520,7 @@ For endpoints that return a list of results, the results object is an envelope. 
     class ModifyRolesQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.

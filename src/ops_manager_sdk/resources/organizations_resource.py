@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -480,7 +481,7 @@ For endpoints that return a list of results, the content object is an envelope. 
             """LDAP group(s) that map to associate to the roleName.
             """
 
-            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+            role_name: Optional[OrgRole] = Field(serialization_alias="roleName")
             """Ops Manager organization role to map. Can specify from the following list:
 
 ORG_READ_ONLY

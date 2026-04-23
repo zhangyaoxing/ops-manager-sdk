@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -75,8 +76,8 @@ Expected response body
         """Flag indicating whether this Backup Daemon has garbage collection set.
         """
 
-        head_disk_type: Optional[str] = Field(
-            "None", serialization_alias="headDiskType"
+        head_disk_type: Optional[HeadDiskType] = Field(
+            serialization_alias="headDiskType"
         )
         """Type of disk used to store the head directory.
 
@@ -410,8 +411,8 @@ Expected response body
         """Flag indicating whether this Backup Daemon has garbage collection set.
         """
 
-        head_disk_type: Optional[str] = Field(
-            "None", serialization_alias="headDiskType"
+        head_disk_type: Optional[HeadDiskType] = Field(
+            serialization_alias="headDiskType"
         )
         """Type of disk used to store the head directory.
 

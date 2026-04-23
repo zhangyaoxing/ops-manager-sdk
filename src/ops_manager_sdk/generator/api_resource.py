@@ -5,12 +5,14 @@ from jinja2 import Template
 from loguru import logger
 
 from ops_manager_sdk.generator.utils import parse_value, type_mapping
+from ops_manager_sdk.resources.enums import PARAM_TO_ENUM
 
 RESOURCE_TEMPLATE = """
 from typing import Any, Optional
 {% if need_datetime_import %}
 from datetime import datetime
 {% endif %}
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -103,7 +105,9 @@ class APIResource:
         logger.debug(f"Resolved endpoint: verb={verb}, path={path}")
         return verb, path
 
-    def _resolve_params(self, params: list[dict[str, Any]]) -> tuple[bool, list[dict[str, Any]]]:
+    def _resolve_params(
+        self, params: list[dict[str, Any]], url: str
+    ) -> tuple[bool, list[dict[str, Any]]]:
         """Resolve the parameter name, type, required status,
         and default value from the parameter dictionaries."""
         result: list[dict[str, Any]] = []
@@ -135,6 +139,15 @@ class APIResource:
             default_value: Any = parse_value(param["default"], param_type)
             class_name: str = re.sub(r"[^\w]+", "", f"{original_name.title()}Params")
             desc: str = param.get("description", "No description.")
+            item: dict = next(
+                (item for item in PARAM_TO_ENUM if original_name == item["param"]), None
+            )
+            if item and (url in item["urls"] or item["urls"] == "*"):
+                enum_cls = item["enum"]
+                param_type = enum_cls.__name__
+                logger.debug(f"Override parameter type of {original_name} to {param_type}")
+                if default_value is not None:
+                    default_value = f"{param_type}.{enum_cls(default_value).name}"
             # Handle nested params
             if "." in original_name:
                 if parent_param is None:
@@ -197,9 +210,15 @@ class APIResource:
         - Document: [{api['name']}]({api['doc_url']})
         - Resource: `{api["endpoints"][0]}`
         - Description: {api.get('description', '')}"""
-            path_required, path_params = self._resolve_params(api.get("path_params", []))
-            query_required, query_params = self._resolve_params(api.get("query_params", []))
-            body_required, body_params = self._resolve_params(api.get("body_params", []))
+            path_required, path_params = self._resolve_params(
+                api.get("path_params", []), url=api["doc_url"]
+            )
+            query_required, query_params = self._resolve_params(
+                api.get("query_params", []), url=api["doc_url"]
+            )
+            body_required, body_params = self._resolve_params(
+                api.get("body_params", []), url=api["doc_url"]
+            )
             path_needed = len(path_params) > 0
             query_needed = len(query_params) > 0
             body_needed = len(body_params) > 0

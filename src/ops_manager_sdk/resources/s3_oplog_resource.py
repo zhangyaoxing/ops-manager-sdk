@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -150,8 +151,8 @@ Virtual-host-style URL endpoint
 To review the S3-compatible storage bucket URL conventions, see the AWS S3 documentation.
         """
 
-        s3_auth_method: Optional[str] = Field(
-            "None", serialization_alias="s3AuthMethod"
+        s3_auth_method: Optional[S3AuthMethod] = Field(
+            serialization_alias="s3AuthMethod"
         )
         """Method used to authorize access to the S3-compatible storage bucket specified in s3BucketName.
 
@@ -205,7 +206,9 @@ Use this field only if your S3-compatible storage store's s3BucketEndpoint doesn
         """Connection String that connects to the metadata database for this S3-compatible storage oplog store. This database stores the locations of the blocks in the S3-compatible storage bucket.
         """
 
-        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        write_concern: Optional[WriteConcern] = Field(
+            serialization_alias="writeConcern"
+        )
         """Write concern used for this oplog store.
 
 Ops Manager accepts the following values:
@@ -565,8 +568,8 @@ Virtual-host-style URL endpoint
 To review the S3-compatible storage bucket URL conventions, see the AWS S3 documentation.
         """
 
-        s3_auth_method: Optional[str] = Field(
-            "None", serialization_alias="s3AuthMethod"
+        s3_auth_method: Optional[S3AuthMethod] = Field(
+            serialization_alias="s3AuthMethod"
         )
         """Method used to authorize access to the S3-compatible storage bucket specified in s3BucketName.
 
@@ -620,7 +623,9 @@ Use this field only if your S3-compatible storage store's s3BucketEndpoint doesn
         """Comma-separated list of hosts in the <hostname:port> format that can access this S3-compatible storage oplog store.
         """
 
-        write_concern: Optional[str] = Field("None", serialization_alias="writeConcern")
+        write_concern: Optional[WriteConcern] = Field(
+            serialization_alias="writeConcern"
+        )
         """Write concern used for this oplog store.
 
 Ops Manager accepts the following values:

@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -628,7 +629,7 @@ Defaults to false.
     class UpdateRolesBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        role_names: list[Any] = Field(serialization_alias="roleNames")
+        role_names: GroupRole = Field(serialization_alias="roleNames")
         """Project roles you want to assign the given team.
         """
 

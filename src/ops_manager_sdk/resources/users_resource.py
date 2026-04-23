@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -166,7 +167,7 @@ For the "global" roles (those whose name starts with GLOBAL_) there is no groupI
             """Unique identifier of the organization in which the Ops Manager user has the specified role.
             """
 
-            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+            role_name: Optional[AllRole] = Field(serialization_alias="roleName")
             """Name of the role. Accepted values are:
 
 Value
@@ -586,7 +587,7 @@ Roles that start with GLOBAL_ don't require a groupId. These roles aren't tied t
             """Unique identifier of the organization in which the Ops Manager user has the specified role.
             """
 
-            role_name: Optional[str] = Field("None", serialization_alias="roleName")
+            role_name: Optional[AllRole] = Field(serialization_alias="roleName")
             """Name of the role. Accepted values are:
 
 Value

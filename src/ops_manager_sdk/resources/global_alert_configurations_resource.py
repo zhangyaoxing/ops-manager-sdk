@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -103,7 +104,7 @@ Expected response body
         """Toggle that specifies whether the alert configuration is enabled.
         """
 
-        event_type_name: str = Field("None", serialization_alias="eventTypeName")
+        event_type_name: EventTypeName = Field(serialization_alias="eventTypeName")
         """Type of event for which this alert configuration triggers an alert.
 
 To review the types of events that generate alerts, see Alert Types.
@@ -126,7 +127,9 @@ If false, the configuration applies only to the groups specified in the groupIds
         class MatchersParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            field_name: Optional[str] = Field("None", serialization_alias="fieldName")
+            field_name: Optional[MatcherFieldName] = Field(
+                serialization_alias="fieldName"
+            )
             """Name of the field in the target object on which to match.
 
 Host alerts support these fields:
@@ -158,7 +161,7 @@ SHARD_NAME
 All other types of alerts do not support matchers.
             """
 
-            operator: Optional[str] = Field("None", serialization_alias="operator")
+            operator: Optional[MatcherOperator] = Field(serialization_alias="operator")
             """Operator to test the field's value. Accepted values are:
 
 EQUALS
@@ -176,7 +179,7 @@ ENDS_WITH
 REGEX
             """
 
-            value: Optional[str] = Field("None", serialization_alias="value")
+            value: Optional[MatcherValue] = Field(serialization_alias="value")
             """Value to test with the specified operator.
 
 If matchers.fieldName is set to TYPE_NAME, you can match on the following values:
@@ -209,7 +212,9 @@ You can filter using the matchers array only when the eventTypeName specifies an
             """This is set to AVERAGE and computes the current metric value as an average.
             """
 
-            operator: Optional[str] = Field("None", serialization_alias="operator")
+            operator: Optional[ThresholdOperator] = Field(
+                serialization_alias="operator"
+            )
             """Operator to apply when checking the current metric value against metricThreshold.threshold. Possible values are:
 
 GREATER_THAN
@@ -221,7 +226,7 @@ LESS_THAN
             """Threshold value outside of which this alert configuration triggers an alert.
             """
 
-            units: Optional[str] = Field("None", serialization_alias="units")
+            units: Optional[Unit] = Field(serialization_alias="units")
             """Units for metricThreshold.threshold. The units depend on the type of metric.
 
 Accepted values are:
@@ -322,7 +327,7 @@ All new PagerDuty keys use their Events API v2. If you have an Events API v1 key
             """Toggle specifying whether Ops Manager sends SMS notifications. Only accepted for GROUP and USER notifications.
             """
 
-            type_name: str = Field("None", serialization_alias="typeName")
+            type_name: NotificationsTypeName = Field(serialization_alias="typeName")
             """Type of alert notification this alert configuration triggers. Accepted values are:
 
 ADMIN
@@ -389,7 +394,9 @@ To explicitly declare a webhookURL without a webhookSecret, omit this field.
         class ThresholdParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            operator: Optional[str] = Field("None", serialization_alias="operator")
+            operator: Optional[ThresholdOperator] = Field(
+                serialization_alias="operator"
+            )
             """Operator to apply when checking the current metric value against threshold.threshold. Accepted values are:
 
 GREATER_THAN
@@ -760,7 +767,7 @@ Expected response body
         """Toggle that specifies whether the alert configuration is enabled.
         """
 
-        event_type_name: str = Field("None", serialization_alias="eventTypeName")
+        event_type_name: EventTypeName = Field(serialization_alias="eventTypeName")
         """Type of event for which this alert configuration triggers an alert.
 
 To review the types of events that generate alerts, see Alert Types.
@@ -783,7 +790,9 @@ If false, the configuration applies only to the groups specified in the groupIds
         class MatchersParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            field_name: Optional[str] = Field("None", serialization_alias="fieldName")
+            field_name: Optional[MatcherFieldName] = Field(
+                serialization_alias="fieldName"
+            )
             """Name of the field in the target object on which to match.
 
 Host alerts support these fields:
@@ -815,7 +824,7 @@ SHARD_NAME
 All other types of alerts do not support matchers.
             """
 
-            operator: Optional[str] = Field("None", serialization_alias="operator")
+            operator: Optional[MatcherOperator] = Field(serialization_alias="operator")
             """Operator to test the field's value. Accepted values are:
 
 EQUALS
@@ -833,7 +842,7 @@ ENDS_WITH
 REGEX
             """
 
-            value: Optional[str] = Field("None", serialization_alias="value")
+            value: Optional[MatcherValue] = Field(serialization_alias="value")
             """Value to test with the specified operator.
 
 If matchers.fieldName is set to TYPE_NAME, you can match on the following values:
@@ -866,7 +875,9 @@ You can filter using the matchers array only when the eventTypeName specifies an
             """This is set to AVERAGE and computes the current metric value as an average.
             """
 
-            operator: Optional[str] = Field("None", serialization_alias="operator")
+            operator: Optional[ThresholdOperator] = Field(
+                serialization_alias="operator"
+            )
             """Operator to apply when checking the current metric value against metricThreshold.threshold. Possible values are:
 
 GREATER_THAN
@@ -878,7 +889,7 @@ LESS_THAN
             """Threshold value outside of which this alert configuration triggers an alert.
             """
 
-            units: Optional[str] = Field("None", serialization_alias="units")
+            units: Optional[Unit] = Field(serialization_alias="units")
             """Units for metricThreshold.threshold. The units depend on the type of metric.
 
 Accepted values are:
@@ -979,7 +990,7 @@ All new PagerDuty keys use their Events API v2. If you have an Events API v1 key
             """Toggle specifying whether Ops Manager sends SMS notifications. Only accepted for GROUP and USER notifications.
             """
 
-            type_name: str = Field("None", serialization_alias="typeName")
+            type_name: NotificationsTypeName = Field(serialization_alias="typeName")
             """Type of alert notification this alert configuration triggers. Accepted values are:
 
 ADMIN
@@ -1046,7 +1057,9 @@ To explicitly declare a webhookURL without a webhookSecret, omit this field.
         class ThresholdParams(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
 
-            operator: Optional[str] = Field("None", serialization_alias="operator")
+            operator: Optional[ThresholdOperator] = Field(
+                serialization_alias="operator"
+            )
             """Operator to apply when checking the current metric value against threshold.threshold. Accepted values are:
 
 GREATER_THAN

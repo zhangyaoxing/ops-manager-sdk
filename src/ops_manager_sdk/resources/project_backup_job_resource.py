@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -210,7 +211,7 @@ If omitted, the project's backup jobs can use any available Backup Daemon or sna
 Retrieve the id of the oplog store you want to use with Get All Oplog Configurations.
             """
 
-            type: Optional[str] = Field("None", serialization_alias="type")
+            type: Optional[OplogStoreFilterType] = Field(serialization_alias="type")
             """Type of oplog store to use.
 
 The accepted values are:
@@ -235,7 +236,7 @@ thirdPartyOplogStore
             """Optional. The unique identifier representing specific snapshot stores that can be used with this project's backup jobs.
             """
 
-            type: Optional[str] = Field("None", serialization_alias="type")
+            type: Optional[SnapshotStoreFilterType] = Field(serialization_alias="type")
             """Optional. The type of the specific snapshot store given as snapshotStoreFilter.id.
 
 The accepted values for this option are:

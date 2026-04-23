@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -10,7 +11,7 @@ class FeatureControlPoliciesResource(BaseResource):
     class RetrieveAllQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -83,7 +84,7 @@ For endpoints that return a list of results, the results object is an envelope. 
     class RetrieveForOneProjectQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -157,7 +158,7 @@ For endpoints that return a list of results, the results object is an envelope. 
     class UpdateQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -235,7 +236,7 @@ For endpoints that return a list of results, the results object is an envelope. 
             """List of mongod settings to disable when you apply the DISABLE_SET_MONGOD_CONFIG policy. Automation doesn't support all MongoDB options, which can result in failed import attempts. To learn more, see MongoDB Settings and Automation Support.
             """
 
-            policy: Optional[list[Any]] = Field(serialization_alias="policy")
+            policy: Optional[Policy] = Field(serialization_alias="policy")
             """Single policy set for this Ops Manager Project. This parameter can be set one or more times in the policies array.
 
 Accepted values are:

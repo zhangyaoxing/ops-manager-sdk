@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -158,7 +159,7 @@ delivery.methodName" : "HTTP"
 delivery.methodName" : "HTTP"
             """
 
-            method_name: str = Field("None", serialization_alias="methodName")
+            method_name: DeliveryMethodName = Field(serialization_alias="methodName")
             """Means by which Ops Manager delivers the data. Accepted values are:
 
 AUTOMATED_RESTORE
@@ -278,7 +279,7 @@ If you set pointInTimeUTCMillis, you cannot set oplogInc, oplogTs, or checkpoint
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        batch_id: Optional[str] = Field("NONE", serialization_alias="BATCH-ID")
+        batch_id: Optional[str] = Field("None", serialization_alias="BATCH-ID")
         """Unique identifier of the batch.
         """
 

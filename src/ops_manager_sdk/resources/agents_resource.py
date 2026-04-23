@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -379,7 +380,7 @@ For endpoints that return a list of results, the content object is an envelope. 
         """Unique identifier of the project that owns the Agent API Key.
         """
 
-        type: str = Field("None", serialization_alias="TYPE")
+        type: AgentType = Field(serialization_alias="TYPE")
         """The agent type to retrieve. TYPE can be one of the following values:
 
 MONITORING

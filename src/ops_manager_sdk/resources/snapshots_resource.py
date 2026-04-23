@@ -1,7 +1,6 @@
 from typing import Any, Optional
 
-from datetime import datetime
-
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -69,7 +68,7 @@ Expected response body
 IMPORTANT: You cannot set doNotDelete to true and set a timestamp for expires in the same request. If you do, Ops Manager returns an error: Cannot modify snapshot because of invalid fields.
         """
 
-        expires: Optional[datetime] = Field(serialization_alias="expires")
+        expires: Optional[str] = Field("None", serialization_alias="expires")
         """The date in ISO 8601 date and time format at UTC after which this snapshot can be deleted.
 
 If doNotDelete is set to true, any existing value in expires is removed.
@@ -168,7 +167,9 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetAllClusterQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        completed: Optional[str] = Field("true", serialization_alias="completed")
+        completed: Optional[SnapshotCompletedState] = Field(
+            SnapshotCompletedState.TRUE, serialization_alias="completed"
+        )
         """String that indicates whether to return completed or incomplete snapshots:
 
 true: Return only completed snapshots

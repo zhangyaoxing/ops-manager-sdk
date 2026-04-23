@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -214,7 +215,7 @@ For endpoints that return a list of results, the content object is an envelope. 
     class GetJobQueryParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -394,7 +395,7 @@ Expected response body
     class CreateBodyParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
 
-        log_types: list[Any] = Field(serialization_alias="logTypes")
+        log_types: LogType = Field(serialization_alias="logTypes")
         """Array of strings specifying the types of logs to collect. Each array element must be one of the following values:
 
 AUTOMATION_AGENT
@@ -428,7 +429,7 @@ To obtain the name of the replica set, the list of nodes, and other information,
 For the REPLICASET resourceType, the value is the name of the replica set in the cluster followed by the shard name. For example, test-123abc-shard-0.
         """
 
-        resource_type: str = Field("None", serialization_alias="resourceType")
+        resource_type: ResourceType = Field(serialization_alias="resourceType")
         """Type of resource from which to collect logs. Must be one of the following values:
 
 CLUSTER, for a sharded cluster.

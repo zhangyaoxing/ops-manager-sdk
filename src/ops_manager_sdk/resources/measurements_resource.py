@@ -1,5 +1,6 @@
 from typing import Any, Optional
 
+from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
 
@@ -29,7 +30,7 @@ class MeasurementsResource(BaseResource):
         """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
         """
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -187,7 +188,7 @@ For example, to request the last 36 hours, include this query parameter: period=
         """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
         """
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -341,7 +342,7 @@ For example, to request the last 36 hours, include this query parameter: period=
         """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
         """
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.
@@ -495,7 +496,7 @@ For example, to request the last 36 hours, include this query parameter: period=
         """Timestamp in ISO 8601 date and time format in UTC for the end of the period for which to retrieve measurements. If you specify end you must also specify start.
         """
 
-        envelope: Optional[bool] = Field(False, serialization_alias="envelope")
+        envelope: Optional[bool] = Field(serialization_alias="envelope")
         """Indicates whether or not to wrap the response in an envelope.
 
 Some API clients cannot access the HTTP response headers or status code. To remediate this, set "envelope" : true in the query.

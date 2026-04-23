@@ -68,7 +68,7 @@ class OplogStoreFilterType(str, Enum):
     THIRD_PARTY_OPLOG_STORE = "thirdPartyOplogStore"
 
 
-class SnapshotStoreFilter(str, Enum):
+class SnapshotStoreFilterType(str, Enum):
     """The type of the specific snapshot store given as `snapshotStoreFilter.id`."""
 
     S3_BLOCK_STORE = "s3blockstore"
@@ -221,11 +221,8 @@ class MatcherFieldName(str, Enum):
     HOSTNAME_AND_PORT = "HOSTNAME_AND_PORT"
     REPLICA_SET_NAME = "REPLICA_SET_NAME"
     TYPE_NAME = "TYPE_NAME"
-    REPLICA_SET_NAME = "REPLICA_SET_NAME"
     SHARD_NAME = "SHARD_NAME"
     CLUSTER_NAME = "CLUSTER_NAME"
-    CLUSTER_NAME = "CLUSTER_NAME"
-    SHARD_NAME = "SHARD_NAME"
 
 
 class MatcherOperator(str, Enum):
@@ -240,7 +237,7 @@ class MatcherOperator(str, Enum):
     REGEX = "REGEX"
 
 
-class ValueMatcher(str, Enum):
+class MatcherValue(str, Enum):
     """Enum for value matchers."""
 
     PRIMARY = "PRIMARY"
@@ -250,14 +247,14 @@ class ValueMatcher(str, Enum):
     MONGOS = "MONGOS"
 
 
-class Operator(str, Enum):
+class ThresholdOperator(str, Enum):
     """Enum for metric threshold operators."""
 
     GREATER_THAN = "GREATER_THAN"
     LESS_THAN = "LESS_THAN"
 
 
-class Units(str, Enum):
+class Unit(str, Enum):
     """Enum for metric threshold units."""
 
     RAW = "RAW"
@@ -306,7 +303,7 @@ class AlertStatus(str, Enum):
 If an alert's configuration has multiple notifications, each with its own notification delay, Ops Manager uses the smallest delay value to determine when to move the alert from TRACKING to OPEN."""
 
 
-class OpsManagerRole(str, Enum):
+class GlobalRole(str, Enum):
     """Enum for Ops Manager roles."""
 
     GLOBAL_AUTOMATION_ADMIN = "GLOBAL_AUTOMATION_ADMIN"
@@ -317,7 +314,7 @@ class OpsManagerRole(str, Enum):
     GLOBAL_USER_ADMIN = "GLOBAL_USER_ADMIN"
 
 
-class AuthMechanismName(str, Enum):
+class AuthMechanismNames(str, Enum):
     """Enum for authentication mechanism names."""
 
     MONGODB_CR = "MONGODB_CR"
@@ -345,7 +342,7 @@ class StorageEngineName(str, Enum):
     WIRED_TIGER = "WIRED_TIGER"
 
 
-class RoleName(str, Enum):
+class GroupRole(str, Enum):
     """Enum for role names."""
 
     GROUP_OWNER = "GROUP_OWNER"
@@ -380,12 +377,13 @@ class LogType(str, Enum):
     FTDC = "FTDC"
 
 
-class OrgRoleName(str, Enum):
+class OrgRole(str, Enum):
     """Enum for organization role names."""
 
     ORG_OWNER = "ORG_OWNER"
     ORG_READ_ONLY = "ORG_READ_ONLY"
     ORG_MEMBER = "ORG_MEMBER"
+    ORG_GROUP_CREATOR = "ORG_GROUP_CREATOR"
 
 
 class DeliveryMethodName(str, Enum):
@@ -417,3 +415,147 @@ class IntegrationType(str, Enum):
     OPS_GENIE = "OPS_GENIE"
     VICTOR_OPS = "VICTOR_OPS"
     WEBHOOK = "WEBHOOK"
+
+
+class AllRole(str, Enum):
+    """Enum for all role names."""
+
+    GLOBAL_AUTOMATION_ADMIN = GlobalRole.GLOBAL_AUTOMATION_ADMIN.value
+    GLOBAL_BACKUP_ADMIN = GlobalRole.GLOBAL_BACKUP_ADMIN.value
+    GLOBAL_MONITORING_ADMIN = GlobalRole.GLOBAL_MONITORING_ADMIN.value
+    GLOBAL_OWNER = GlobalRole.GLOBAL_OWNER.value
+    GLOBAL_READ_ONLY = GlobalRole.GLOBAL_READ_ONLY.value
+    GLOBAL_USER_ADMIN = GlobalRole.GLOBAL_USER_ADMIN.value
+    ORG_OWNER = OrgRole.ORG_OWNER.value
+    ORG_READ_ONLY = OrgRole.ORG_READ_ONLY.value
+    ORG_MEMBER = OrgRole.ORG_MEMBER.value
+    ORG_GROUP_CREATOR = OrgRole.ORG_GROUP_CREATOR.value
+    GROUP_OWNER = GroupRole.GROUP_OWNER.value
+    GROUP_READ_ONLY = GroupRole.GROUP_READ_ONLY.value
+    GROUP_DATA_ACCESS_ADMIN = GroupRole.GROUP_DATA_ACCESS_ADMIN.value
+    GROUP_DATA_ACCESS_READ_WRITE = GroupRole.GROUP_DATA_ACCESS_READ_WRITE.value
+    GROUP_DATA_ACCESS_READ_ONLY = GroupRole.GROUP_DATA_ACCESS_READ_ONLY.value
+    GROUP_MONITORING_ADMIN = GroupRole.GROUP_MONITORING_ADMIN.value
+    GROUP_BACKUP_ADMIN = GroupRole.GROUP_BACKUP_ADMIN.value
+    GROUP_AUTOMATION_ADMIN = GroupRole.GROUP_AUTOMATION_ADMIN.value
+    GROUP_USER_ADMIN = GroupRole.GROUP_USER_ADMIN.value
+
+
+PARAM_TO_ENUM = [
+    {"param": "headDiskType", "enum": HeadDiskType, "urls": "*"},
+    {"param": "writeConcern", "enum": WriteConcern, "urls": "*"},
+    {"param": "serverType.name", "enum": ServerTypeName, "urls": "*"},
+    {
+        "param": "serverType",
+        "enum": ServerTypeName,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-physical-host/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-one-physical-host/",
+        ],
+    },
+    {"param": "serverType.label", "enum": ServerTypeLabel, "urls": "*"},
+    {"param": "policies.policy", "enum": Policy, "urls": "*"},
+    {"param": "oplogStoreFilter.type", "enum": OplogStoreFilterType, "urls": "*"},
+    {
+        "param": "snapshotStoreFilter.type",
+        "enum": SnapshotStoreFilterType,
+        "urls": "*",
+    },
+    {"param": "s3AuthMethod", "enum": S3AuthMethod, "urls": "*"},
+    {
+        "param": "TYPE",
+        "enum": AgentType,
+        "urls": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-by-type/",
+    },
+    {"param": "eventTypeName", "enum": EventTypeName, "urls": "*"},
+    {"param": "matchers.fieldName", "enum": MatcherFieldName, "urls": "*"},
+    {"param": "matchers.operator", "enum": MatcherOperator, "urls": "*"},
+    {"param": "matchers.value", "enum": MatcherValue, "urls": "*"},
+    {"param": "metricThreshold.operator", "enum": ThresholdOperator, "urls": "*"},
+    {"param": "threshold.operator", "enum": ThresholdOperator, "urls": "*"},
+    {"param": "metricThreshold.units", "enum": Unit, "urls": "*"},
+    {"param": "notifications.typeName", "enum": NotificationsTypeName, "urls": "*"},
+    {
+        "param": "status",
+        "enum": AlertStatus,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-all-alerts/",
+        ],
+    },
+    {
+        "param": "roles",
+        "enum": GlobalRole,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-api-key/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-api-key/",
+        ],
+    },
+    {
+        "param": "roles",
+        "enum": OrgRole,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-one-org-api-key/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/update-one-org-api-key/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/create-one-invitation/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation-by-id/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation/",
+        ],
+    },
+    {
+        "param": "ldapGroupMappings.roleName",
+        "enum": OrgRole,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-create-one/"
+        ],
+    },
+    {
+        "param": "roles",
+        "enum": GroupRole,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/assign-one-org-apiKey-to-one-project/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/create-one-apiKey-in-one-project/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/update-one-apiKey-in-one-project/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/create-one-invitation/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation-by-id/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation/",
+        ],
+    },
+    {
+        "param": "roleNames",
+        "enum": GroupRole,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-add-team/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-update-roles/",
+        ],
+    },
+    {
+        "param": "roles.roleName",
+        "enum": AllRole,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-update/",
+        ],
+    },
+    {"param": "authMechanismName", "enum": AuthMechanismNames, "urls": "*"},
+    {"param": "authMechanism", "enum": AuthMechanismNames, "urls": "*"},
+    {
+        "param": "statusName",
+        "enum": BackupStatusName,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-backup-config/"
+        ],
+    },
+    {"param": "storageEngineName", "enum": StorageEngineName, "urls": "*"},
+    {"param": "resourceType", "enum": ResourceType, "urls": "*"},
+    {"param": "logTypes", "enum": LogType, "urls": "*"},
+    {"param": "delivery.methodName", "enum": DeliveryMethodName, "urls": "*"},
+    {
+        "param": "completed",
+        "enum": SnapshotCompletedState,
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-one-cluster/"
+        ],
+    },
+    {"param": "INTEGRATION-TYPE", "enum": IntegrationType, "urls": "*"},
+]
