@@ -110,7 +110,7 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
     CrawlerFactory.close()
 
     with output_file.open("w", encoding="utf-8") as f:
-        indent: Optional[int] = 4 if is_debug else None
+        indent: Optional[int] = 4
         json.dump(api_docs, f, ensure_ascii=False, indent=indent)
     return api_docs
 
