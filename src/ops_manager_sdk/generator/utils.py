@@ -115,7 +115,7 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
     return api_docs
 
 
-def type_mapping(type_str: str) -> Any:
+def type_mapping(type_str: str) -> str:
     """Map the type string from documentation to a Python type hint."""
     type_str = type_str.lower()
     mapping = {
@@ -125,13 +125,13 @@ def type_mapping(type_str: str) -> Any:
         "number": "float",
         "boolean": "bool",
         "object": "dict",
-        "timestamp": "string",
+        "timestamp": "str",
         "array of strings": "list[str]",
         "string array": "list[str]",
         "array of objects": "list[dict]",
         "object array": "list[dict]",
         "array": "list[Any]",
-        "date field": "string",
+        "date field": "str",
     }
     return mapping.get(type_str, "Any")
 
