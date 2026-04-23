@@ -5,22 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: Current File",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}"
-            }
-        },
-        {
             "name": "API Crawler",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/ops_manager_sdk/generator/__main__.py",
             "console": "integratedTerminal",
             "postDebugTask": "format-resources",
+            "cwd": "${workspaceFolder}",
             "env": {
                 "LOG_LEVEL": "INFO"
             },
@@ -38,11 +29,7 @@
             "justMyCode": false,
             "purpose": [
                 "debug-test"
-            ],
-            "exceptionHandling": {
-                "raiseNotifications": [],
-                "userUnhandled": []
-            }
+            ]
         },
         {
             "name": "Run Current File Tests (pytest)",
@@ -58,11 +45,7 @@
             "justMyCode": false,
             "purpose": [
                 "debug-test"
-            ],
-            "exceptionHandling": {
-                "raiseNotifications": [],
-                "userUnhandled": []
-            }
+            ]
         }
     ]
 }

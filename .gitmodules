@@ -1,0 +1,3 @@
+[submodule "pyomsdk"]
+	path = pyomsdk
+	url = git@github.com:zhangyaoxing/pyomsdk.git

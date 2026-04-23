@@ -2,7 +2,7 @@ import os
 import sys
 from loguru import logger
 from ops_manager_sdk.generator.api_resource import APIResource
-from ops_manager_sdk.generator.client import generate_client_code
+from ops_manager_sdk.generator.client import gen_client_code, gen_resources_init_code
 from ops_manager_sdk.generator.utils import extract_apis, get_sitemap_urls
 
 LOG_LEVELS: list[str] = [
@@ -27,4 +27,5 @@ if __name__ == "__main__":
     for name, apis in api_docs.items():
         resource: APIResource = APIResource(name=name, apis=apis)
         resources.extend(resource.generate_code())
-    generate_client_code(resources)
+    gen_client_code(resources)
+    gen_resources_init_code(resources)

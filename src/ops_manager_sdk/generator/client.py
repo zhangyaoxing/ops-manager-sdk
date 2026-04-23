@@ -2,36 +2,56 @@ from pathlib import Path
 from jinja2 import Template
 
 CLIENT_TEMPLATE = """
+from importlib.metadata import version
 from httpx import Auth, DigestAuth, Client
-from .config import ClientConfig
-{% for package_name, class_name in resources %}from .resources.{{ package_name }} import {{class_name}}
+{% for package_name, class_name in resources %}from .resources import {{class_name}}
 {% endfor %}
 
 
 class OpsManagerClient:
-    def __init__(self, cfg: ClientConfig) -> None:
-        self._config = cfg
-        auth: Auth = DigestAuth(cfg.public_key, cfg.private_key)
+    def __init__(
+        self, base_url: str, public_key: str, private_key: str, timeout: float = 30.0
+    ) -> None:
+        ver_num: str = version("ops-manager-sdk")
+        auth: Auth = DigestAuth(public_key, private_key)
         self._client = Client(
-            base_url=f"{cfg.base_url.rstrip('/')}/api/public/v1.0",
-            headers=cfg.headers,
-            timeout=cfg.timeout,
+            base_url=f"{base_url.rstrip('/')}/api/public/v1.0",
+            headers={
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "User-Agent": f"ops-manager-sdk-python/{ver_num}",
+            },
+            timeout=timeout,
             auth=auth,
         )
     {% for package_name, class_name in resources %}
     @property
     def {{ package_name }}(self) -> {{ class_name }}:
         \"\"\"Get the client for {{ class_name }} resource.\"\"\"
-        return {{ class_name }}(self._client)
-    {% endfor %}
+        return {{ class_name }}(self._client){% endfor %}
 
 """
 
 
-def generate_client_code(resources: list[tuple[str, str]]) -> None:
+def gen_client_code(resources: list[tuple[str, str]]) -> None:
     """Generate the OpsManagerClient code based on the provided resources."""
     template = Template(CLIENT_TEMPLATE)
     code = template.render(resources=resources)
-    file_name = Path(__file__).parent.parent / "ops_manager_client.py"
+    file_name = Path().cwd() / "pyomsdk/src/pyomsdk/ops_manager_client.py"
     with open(file_name, "w", encoding="utf-8") as f:
         f.write(code)
+
+
+def gen_resources_init_code(resources: list[tuple[str, str]]) -> None:
+    """Generate the __init__.py code based on the provided resources."""
+    imports = "\n".join(
+        [f"from .{package_name} import {class_name}" for package_name, class_name in resources]
+    )
+    init_code = (
+        f"{imports}\n\n__all__ = [\n"
+        + ",\n".join([f'    "{class_name}"' for _, class_name in resources])
+        + "\n]"
+    )
+    file_name = Path().cwd() / "pyomsdk/src/pyomsdk/resources/__init__.py"
+    with open(file_name, "w", encoding="utf-8") as f:
+        f.write(init_code)

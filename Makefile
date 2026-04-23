@@ -29,7 +29,7 @@ lint: venv
 	$(VENV_PYTHON) -m pylint src/$(PACKAGE) tests
 
 format-resources: venv
-	$(VENV_PYTHON) -m black src/$(PACKAGE)/resources
+	$(VENV_PYTHON) -m black pyomsdk/src/pyomsdk/
 
 clean:
 	find . -type d \( -name __pycache__ -o -name .pytest_cache -o -name .mypy_cache \) -prune -exec rm -rf {} +

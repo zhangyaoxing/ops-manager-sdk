@@ -1,7 +1,7 @@
 import os
 
-from ops_manager_sdk.ops_manager_client import OpsManagerClient
-from ops_manager_sdk.config import ClientConfig
+from ops_manager_sdk import OpsManagerClient
+from ops_manager_sdk import ClientConfig
 
 
 def get_client() -> OpsManagerClient:

@@ -5,16 +5,19 @@ from jinja2 import Template
 from loguru import logger
 
 from ops_manager_sdk.generator.utils import parse_value, type_mapping
-from ops_manager_sdk.resources.enums import PARAM_TO_ENUM
+from ops_manager_sdk.generator.enum import PARAM_TO_ENUM
 
 RESOURCE_TEMPLATE = """
+\"\"\"Auto-generated client for {{ class_name }} resource.
+Any manual changes to this file may be overwritten when the code is regenerated.
+\"\"\"
 from typing import Any, Optional
 {% if need_datetime_import %}
 from datetime import datetime
 {% endif %}
-from .enums import *
 from pydantic import BaseModel, ConfigDict, Field
 from .base_resource import BaseResource
+from .enums import *
 
 class {{ class_name }}(BaseResource):
     \"\"\"Client for {{ class_name }} resource.
@@ -143,11 +146,11 @@ class APIResource:
                 (item for item in PARAM_TO_ENUM if original_name == item["param"]), None
             )
             if item and (url in item["urls"] or item["urls"] == "*"):
-                enum_cls = item["enum"]
-                param_type = enum_cls.__name__
+                enum_name = item["enum"]
+                param_type = enum_name
                 logger.debug(f"Override parameter type of {original_name} to {param_type}")
                 if default_value is not None:
-                    default_value = f"{param_type}.{enum_cls(default_value).name}"
+                    default_value = f"{enum_name}.{default_value.upper()}"
             # Handle nested params
             if "." in original_name:
                 if parent_param is None:
@@ -282,7 +285,7 @@ class APIResource:
                 r"(?<!^)(?=[A-Z][a-z])|(?<=[a-z0-9])(?=[A-Z])", "_", class_name
             ).lower()
             file_name = f"{package_name}.py"
-            output_path = Path(__file__).parent.parent / "resources" / f"{file_name}"
+            output_path = Path().cwd() / "pyomsdk/src/pyomsdk/resources" / f"{file_name}"
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(code)
             resources.append((package_name, class_name))
