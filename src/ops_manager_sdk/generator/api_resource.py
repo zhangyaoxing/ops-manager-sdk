@@ -93,7 +93,7 @@ class APIResource:
                         "alias": original_name,
                         "type": param_type,
                         "required": is_required,
-                        "default": default_value if param_type != "str" else f'"{default_value}"',
+                        "default": default_value,
                         "description": desc,
                     }
                 )
@@ -106,7 +106,7 @@ class APIResource:
                         "alias": original_name,
                         "type": param_type,
                         "required": is_required,
-                        "default": default_value if param_type != "str" else f'"{default_value}"',
+                        "default": default_value,
                         "description": desc,
                     }
                 )

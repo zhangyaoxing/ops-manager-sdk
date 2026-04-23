@@ -136,7 +136,7 @@ def type_mapping(type_str: str) -> str:
     return mapping.get(type_str, "Any")
 
 
-def parse_value(value_str: str, type_str: str) -> Any:
+def parse_value(value_str: Optional[str], type_str: str) -> Any:
     """Parse the string value to the appropriate Python type."""
     try:
         if value_str is None or value_str.lower() in ["null", "none"]:
@@ -148,7 +148,7 @@ def parse_value(value_str: str, type_str: str) -> Any:
         elif type_str == "bool":
             return value_str.lower() == "true"
         elif type_str == "str":
-            return value_str
+            return f'"{value_str}"'
         else:
             return value_str
     except (ValueError, AttributeError) as e:
