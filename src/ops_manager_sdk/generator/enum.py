@@ -115,4 +115,12 @@ PARAM_TO_ENUM = [
         ],
     },
     {"param": "INTEGRATION-TYPE", "enum": "IntegrationType", "urls": "*"},
+    {
+        "param": "type",
+        "enum": "IntegrationType",
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/",
+        ],
+    },
 ]

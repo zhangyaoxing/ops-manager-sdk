@@ -44,12 +44,23 @@ def gen_client_code(resources: list[tuple[str, str]]) -> None:
 
 def gen_resources_init_code(resources: list[tuple[str, str]]) -> None:
     """Generate the __init__.py code based on the provided resources."""
+    res = resources + [
+        ("integration_settings", "PagerDutyIntegrationSettings"),
+        ("integration_settings", "SlackIntegrationSettings"),
+        ("integration_settings", "DatadogIntegrationSettings"),
+        ("integration_settings", "HipChatIntegrationSettings"),
+        ("integration_settings", "OpsgenieIntegrationSettings"),
+        ("integration_settings", "VictorOpsIntegrationSettings"),
+        ("integration_settings", "WebhookIntegrationSettings"),
+        ("integration_settings", "MicrosoftTeamsIntegrationSettings"),
+        ("integration_settings", "PrometheusIntegrationSettings"),
+    ]
     imports = "\n".join(
-        [f"from .{package_name} import {class_name}" for package_name, class_name in resources]
+        [f"from .{package_name} import {class_name}" for package_name, class_name in res]
     )
     init_code = (
         f"{imports}\n\n__all__ = [\n"
-        + ",\n".join([f'    "{class_name}"' for _, class_name in resources])
+        + ",\n".join([f'    "{class_name}"' for _, class_name in res])
         + "\n]"
     )
     file_name = Path().cwd() / "pyomsdk/src/pyomsdk/resources/__init__.py"

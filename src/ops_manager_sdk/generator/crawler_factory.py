@@ -321,17 +321,37 @@ class EventsCrawler(StandardCrawler):
 
 class GroupIDtoProjectIDCrawler(StandardCrawler):
     def get_endpoints(self, page: Page) -> list[str]:
-        # Special handling for the following page where the "groupId" is used instead of "projectId".
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/
-
+        # Special handling for the integration pages where the "groupId" is used instead of "projectId".
         endpoints = super().get_endpoints(page)
         endpoints = [endpoint.replace("{GROUP-ID}", "{PROJECT-ID}") for endpoint in endpoints]
         return endpoints
+
+
+class IntegrationCrawler(GroupIDtoProjectIDCrawler):
+    def get_description(self, page) -> str:
+        return """Use the following dataclasses to pass the integration settings:
+
+- PagerDutyIntegrationSettings
+- SlackIntegrationSettings
+- DatadogIntegrationSettings
+- HipChatIntegrationSettings
+- OpsgenieIntegrationSettings
+- VictorOpsIntegrationSettings
+- WebhookIntegrationSettings
+- MicrosoftTeamsIntegrationSettings
+- PrometheusIntegrationSettings
+"""
+
+    def get_body_params(self, page) -> list[dict[str, Any]]:
+        return [
+            {
+                "name": "type",
+                "type": "string",
+                "required": "Required",
+                "description": "The type of the third-party integration.",
+                "default": None,
+            }
+        ]
 
 
 class MissingHeader4ColsCrawler(StandardCrawler):
@@ -372,6 +392,7 @@ class CrawlerFactory:
         )
         CrawlerFactory.crawlers["events"] = EventsCrawler(context)
         CrawlerFactory.crawlers["group_id_to_project_id"] = GroupIDtoProjectIDCrawler(context)
+        CrawlerFactory.crawlers["integration"] = IntegrationCrawler(context)
         CrawlerFactory.crawlers["missing_header_4_cols"] = MissingHeader4ColsCrawler(context)
         CrawlerFactory.crawlers["missing_header_5_cols"] = MissingHeader5ColsCrawler(context)
         CrawlerFactory.crawlers["invitations"] = InvitationsCrawler(context)
@@ -392,6 +413,11 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["organization_access_lists"]
         elif "/events/get-all" in url or "/measures/" in url:
             crawler = CrawlerFactory.crawlers["events"]
+        elif (
+            "/third-party-integration-settings-create/" in url
+            or "/third-party-integration-settings-update/" in url
+        ):
+            crawler = CrawlerFactory.crawlers["integration"]
         elif "/third-party-integration" in url:
             crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
         elif url in [
