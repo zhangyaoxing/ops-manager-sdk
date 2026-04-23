@@ -12,7 +12,7 @@ from ops_manager_sdk.generator.crawler_factory import CrawlerFactory
 
 SITEMAP_URL: str = "https://www.mongodb.com/docs/ops-manager/current/sitemap-0.xml"
 API_BASE_URL: str = "https://www.mongodb.com/docs/ops-manager/current/reference/api/"
-HOME_DIR: Path = Path.home() / ".ops_manager_sdk"
+HOME_DIR: Path = Path.cwd() / ".data"
 EXPIRE_DAYS: int = 7
 
 
@@ -37,7 +37,7 @@ def get_sitemap_urls() -> list[str]:
                 api_urls.append(loc)
                 logger.debug(f"Found API URL: {loc}")
     logger.info(f"Total API URLs found: {len(api_urls)}")
-    return api_urls
+    return sorted(api_urls)
 
 
 def _extract_expired_docs(api_docs: dict[str, list[dict[str, Any]]]) -> list[str]:
