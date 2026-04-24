@@ -330,7 +330,6 @@ class GroupIDtoProjectIDCrawler(StandardCrawler):
 class IntegrationCrawler(GroupIDtoProjectIDCrawler):
     def get_description(self, page) -> str:
         return """Use the following dataclasses to pass the integration settings:
-
 - PagerDutyIntegrationSettings
 - SlackIntegrationSettings
 - DatadogIntegrationSettings

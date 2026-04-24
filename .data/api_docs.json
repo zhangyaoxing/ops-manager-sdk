@@ -15544,7 +15544,7 @@
         {
             "title": "Create a Configuration for a Third-Party Service Integration",
             "name": "Create",
-            "description": "Use the following dataclasses to pass the integration settings:\n\n- PagerDutyIntegrationSettings\n- SlackIntegrationSettings\n- DatadogIntegrationSettings\n- HipChatIntegrationSettings\n- OpsgenieIntegrationSettings\n- VictorOpsIntegrationSettings\n- WebhookIntegrationSettings\n- MicrosoftTeamsIntegrationSettings\n- PrometheusIntegrationSettings\n",
+            "description": "Use the following dataclasses to pass the integration settings:\n- PagerDutyIntegrationSettings\n- SlackIntegrationSettings\n- DatadogIntegrationSettings\n- HipChatIntegrationSettings\n- OpsgenieIntegrationSettings\n- VictorOpsIntegrationSettings\n- WebhookIntegrationSettings\n- MicrosoftTeamsIntegrationSettings\n- PrometheusIntegrationSettings\n",
             "endpoints": [
                 "POST /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}"
             ],
@@ -15604,7 +15604,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:07.182683+00:00",
+            "capture_time": "2026-04-24T07:59:50.545739+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
             "status": 200
         },
@@ -15663,7 +15663,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:07.839217+00:00",
+            "capture_time": "2026-04-24T07:59:51.386293+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/",
             "status": 200
         },
@@ -15715,7 +15715,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:09.072365+00:00",
+            "capture_time": "2026-04-24T07:59:51.975130+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/",
             "status": 200
         },
@@ -15767,7 +15767,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:10.187883+00:00",
+            "capture_time": "2026-04-24T07:59:52.652887+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/",
             "status": 200
         },
@@ -15826,14 +15826,14 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:11.130313+00:00",
+            "capture_time": "2026-04-24T07:59:53.163175+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/",
             "status": 200
         },
         {
             "title": "Update a Configuration for a Third-Party Service Integration",
             "name": "Update",
-            "description": "Use the following dataclasses to pass the integration settings:\n\n- PagerDutyIntegrationSettings\n- SlackIntegrationSettings\n- DatadogIntegrationSettings\n- HipChatIntegrationSettings\n- OpsgenieIntegrationSettings\n- VictorOpsIntegrationSettings\n- WebhookIntegrationSettings\n- MicrosoftTeamsIntegrationSettings\n- PrometheusIntegrationSettings\n",
+            "description": "Use the following dataclasses to pass the integration settings:\n- PagerDutyIntegrationSettings\n- SlackIntegrationSettings\n- DatadogIntegrationSettings\n- HipChatIntegrationSettings\n- OpsgenieIntegrationSettings\n- VictorOpsIntegrationSettings\n- WebhookIntegrationSettings\n- MicrosoftTeamsIntegrationSettings\n- PrometheusIntegrationSettings\n",
             "endpoints": [
                 "PUT /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}"
             ],
@@ -15893,7 +15893,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:11.668616+00:00",
+            "capture_time": "2026-04-24T07:59:53.745109+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/",
             "status": 200
         }

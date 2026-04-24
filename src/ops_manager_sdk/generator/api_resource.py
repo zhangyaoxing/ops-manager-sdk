@@ -119,10 +119,13 @@ class APIResource:
         for api in self.apis:
             verb, path = self._resolve_endpoint(api["endpoints"][0])
             doc = f"""
-        ## {api['title']}
-        - Document: [{api['name']}]({api['doc_url']})
-        - Resource: `{api["endpoints"][0]}`
-        - Description: {api.get('description', '')}"""
+## {api['title']}
+### Document:
+[{api['name']}]({api['doc_url']})
+### Endpoint:
+`{api["endpoints"][0]}`
+### Description
+{api.get('description', '')}"""
             path_required, path_params = self._resolve_params(
                 api.get("path_params", []), url=api["doc_url"]
             )
