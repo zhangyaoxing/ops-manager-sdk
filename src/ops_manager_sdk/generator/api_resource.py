@@ -62,7 +62,7 @@ class APIResource:
                 param_type = enum_name
                 logger.debug(f"Override parameter type of {original_name} to {param_type}")
                 if default_value is not None:
-                    default_value = f"{enum_name}.{default_value.upper()}"
+                    default_value = f"{enum_name}({default_value})"
             # Handle nested params
             if "." in original_name:
                 if parent_param is None:

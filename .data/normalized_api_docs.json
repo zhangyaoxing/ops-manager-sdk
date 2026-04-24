@@ -19852,7 +19852,7 @@
                         "alias": "completed",
                         "type": "SnapshotCompletedState",
                         "required": false,
-                        "default": "SnapshotCompletedState.\"TRUE\"",
+                        "default": "SnapshotCompletedState(\"true\")",
                         "description": "String that indicates whether to return completed or incomplete snapshots:\n\ntrue: Return only completed snapshots\n\nfalse: Return only incomplete snapshots\n\nall: Return both completed and incomplete snapshots"
                     },
                     {
