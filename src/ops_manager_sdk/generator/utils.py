@@ -66,7 +66,7 @@ def _extract_expired_docs(api_docs: dict[str, list[dict[str, Any]]]) -> list[str
         # remove recrawled URLs from the existing docs to avoid duplication
         apis[:] = [api for api in apis if api["doc_url"] not in recrawl_urls]
 
-    return recrawl_urls
+    return sorted(recrawl_urls)
 
 
 def extract_apis(urls: list[str]) -> dict[str, list]:
