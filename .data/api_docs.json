@@ -2,6 +2,7 @@
     "AccessList": [
         {
             "title": "Add Entries to an Access List",
+            "base_url": "/api/public/v1.0",
             "name": "Add Entries",
             "description": "No description.",
             "endpoints": [
@@ -56,12 +57,13 @@
                 }
             ],
             "body_type": "array",
-            "capture_time": "2026-04-23T21:17:19.236178+00:00",
+            "capture_time": "2026-04-26T17:43:57.915596+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-add-entries/",
             "status": 200
         },
         {
             "title": "Delete One Entry from One Access List",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Entry",
             "description": "No description.",
             "endpoints": [
@@ -101,12 +103,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:20.454894+00:00",
+            "capture_time": "2026-04-26T17:43:58.863830+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-delete-entry/",
             "status": 200
         },
         {
             "title": "Get Access List for the Current User",
+            "base_url": "/api/public/v1.0",
             "name": "Get for Current User",
             "description": "No description.",
             "endpoints": [
@@ -153,12 +156,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:21.665090+00:00",
+            "capture_time": "2026-04-26T17:44:00.180682+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-current-user/",
             "status": 200
         },
         {
             "title": "Get Access List for an IP Address",
+            "base_url": "/api/public/v1.0",
             "name": "Get for IP Address",
             "description": "Retrieves an access list entity if the value of IP-ADDRESS equals the value of the entity's ipAddress field. This does not retrieve an object where the value of IP-ADDRESS is contained within the values allowed by the cidrBlock field.",
             "endpoints": [
@@ -198,7 +202,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:22.878253+00:00",
+            "capture_time": "2026-04-26T17:44:01.234798+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/access-list-get-for-ip-address/",
             "status": 200
         }
@@ -206,6 +210,7 @@
     "BackupDaemon": [
         {
             "title": "Create One Backup Daemon Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures a new Backup Daemon.",
             "endpoints": [
@@ -323,12 +328,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:28.185396+00:00",
+            "capture_time": "2026-04-26T17:44:06.873877+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/create-one-backup-daemon-configuration/",
             "status": 200
         },
         {
             "title": "Delete One Backup Daemon Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one backup daemon.",
             "endpoints": [
@@ -368,12 +374,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:29.393305+00:00",
+            "capture_time": "2026-04-26T17:44:08.072445+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/delete-one-backup-daemon-configuration/",
             "status": 200
         },
         {
             "title": "Get All Backup Daemon Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all backup daemons.",
             "endpoints": [
@@ -419,12 +426,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:30.640853+00:00",
+            "capture_time": "2026-04-26T17:44:09.198417+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-all-backup-daemon-configurations/",
             "status": 200
         },
         {
             "title": "Get One Backup Daemon Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one backup daemon.",
             "endpoints": [
@@ -464,12 +472,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:31.935481+00:00",
+            "capture_time": "2026-04-26T17:44:10.440357+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/",
             "status": 200
         },
         {
             "title": "Update One Backup Daemon Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one Backup Daemon.",
             "endpoints": [
@@ -594,7 +603,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:32.641628+00:00",
+            "capture_time": "2026-04-26T17:44:11.603024+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/update-one-backup-daemon-configuration/",
             "status": 200
         }
@@ -602,6 +611,7 @@
     "ProjectBackupJob": [
         {
             "title": "Get All Project Backup Jobs Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all project's backup jobs.",
             "endpoints": [
@@ -640,12 +650,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:34.747390+00:00",
+            "capture_time": "2026-04-26T17:44:13.591677+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/groups/get-all-backup-group-configurations/",
             "status": 200
         },
         {
             "title": "Get One Project Backup Jobs Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one project's backup jobs.",
             "endpoints": [
@@ -678,12 +689,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:35.979948+00:00",
+            "capture_time": "2026-04-26T17:44:14.551313+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/groups/get-one-backup-group-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One Project Backup Jobs Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one project's backup jobs.",
             "endpoints": [
@@ -815,7 +827,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:37.111871+00:00",
+            "capture_time": "2026-04-26T17:44:15.378479+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/groups/update-one-backup-group-configuration/",
             "status": 200
         }
@@ -823,6 +835,7 @@
     "OplogStore": [
         {
             "title": "Create One Oplog Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures one new oplog store.",
             "endpoints": [
@@ -904,12 +917,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:39.120844+00:00",
+            "capture_time": "2026-04-26T17:44:17.606813+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/create-one-oplog-configuration/",
             "status": 200
         },
         {
             "title": "Delete One Oplog Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one oplog store.",
             "endpoints": [
@@ -942,12 +956,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:40.086833+00:00",
+            "capture_time": "2026-04-26T17:44:18.696740+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/delete-one-oplog-configuration/",
             "status": 200
         },
         {
             "title": "Get All Oplog Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all oplog stores.",
             "endpoints": [
@@ -993,12 +1008,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:41.196013+00:00",
+            "capture_time": "2026-04-26T17:44:19.840958+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-all-oplog-configurations/",
             "status": 200
         },
         {
             "title": "Get One Oplog Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one oplog store.",
             "endpoints": [
@@ -1031,12 +1047,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:42.417499+00:00",
+            "capture_time": "2026-04-26T17:44:20.880319+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-one-oplog-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One Oplog Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one oplog store.",
             "endpoints": [
@@ -1119,7 +1136,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:43.547123+00:00",
+            "capture_time": "2026-04-26T17:44:21.469612+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/update-one-oplog-configuration/",
             "status": 200
         }
@@ -1127,6 +1144,7 @@
     "S3Oplog": [
         {
             "title": "Create One S3 Oplog Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures one new s3 oplog store.",
             "endpoints": [
@@ -1299,12 +1317,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:45.173399+00:00",
+            "capture_time": "2026-04-26T17:44:22.456969+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/create-one-s3-oplog-configuration/",
             "status": 200
         },
         {
             "title": "Delete One S3-Compatible Oplog Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one S3-compatible oplog store.",
             "endpoints": [
@@ -1337,12 +1356,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:46.398515+00:00",
+            "capture_time": "2026-04-26T17:44:23.442959+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/delete-one-s3-oplog-configuration/",
             "status": 200
         },
         {
             "title": "Get All S3 Oplog Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all s3 oplog stores.",
             "endpoints": [
@@ -1388,12 +1408,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:47.135966+00:00",
+            "capture_time": "2026-04-26T17:44:24.565141+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-all-s3-oplog-configurations/",
             "status": 200
         },
         {
             "title": "Get One S3 Oplog Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one s3 oplog store.",
             "endpoints": [
@@ -1426,12 +1447,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:48.050330+00:00",
+            "capture_time": "2026-04-26T17:44:25.343706+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-one-s3-oplog-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One S3 Oplog Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one s3 oplog store.",
             "endpoints": [
@@ -1605,7 +1627,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:49.581681+00:00",
+            "capture_time": "2026-04-26T17:44:26.616630+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/update-one-s3-oplog-configuration/",
             "status": 200
         }
@@ -1613,6 +1635,7 @@
     "FileSystemStore": [
         {
             "title": "Create One File System Store Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures one new file system store.",
             "endpoints": [
@@ -1687,12 +1710,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:52.771382+00:00",
+            "capture_time": "2026-04-26T17:44:29.857691+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/create-one-file-system-store-configuration/",
             "status": 200
         },
         {
             "title": "Delete One File System Store Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one file system store.",
             "endpoints": [
@@ -1725,12 +1749,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:54.003288+00:00",
+            "capture_time": "2026-04-26T17:44:30.906248+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/delete-one-file-system-store-configuration/",
             "status": 200
         },
         {
             "title": "Get All File System Store Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all file system stores.",
             "endpoints": [
@@ -1776,12 +1801,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:55.551129+00:00",
+            "capture_time": "2026-04-26T17:44:32.087311+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-all-file-system-store-configurations/",
             "status": 200
         },
         {
             "title": "Get One File System Store Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one file system store.",
             "endpoints": [
@@ -1814,12 +1840,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:56.453051+00:00",
+            "capture_time": "2026-04-26T17:44:32.735879+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-one-file-system-store-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One File System Store Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one file system store.",
             "endpoints": [
@@ -1895,7 +1922,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:57.555434+00:00",
+            "capture_time": "2026-04-26T17:44:33.824674+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/update-one-file-system-store-configuration/",
             "status": 200
         }
@@ -1903,6 +1930,7 @@
     "Blockstore": [
         {
             "title": "Create One Blockstore Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures one new blockstore.",
             "endpoints": [
@@ -1991,12 +2019,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:58.652877+00:00",
+            "capture_time": "2026-04-26T17:44:34.921516+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/create-one-blockstore-configuration/",
             "status": 200
         },
         {
             "title": "Delete One Blockstore Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one blockstore.",
             "endpoints": [
@@ -2029,12 +2058,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:17:59.587495+00:00",
+            "capture_time": "2026-04-26T17:44:36.283626+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/delete-one-blockstore-configuration/",
             "status": 200
         },
         {
             "title": "Get All Blockstore Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all blockstores.",
             "endpoints": [
@@ -2080,12 +2110,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:00.829116+00:00",
+            "capture_time": "2026-04-26T17:44:37.389602+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-all-blockstore-configurations/",
             "status": 200
         },
         {
             "title": "Get One Blockstore Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one blockstore.",
             "endpoints": [
@@ -2118,12 +2149,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:01.833537+00:00",
+            "capture_time": "2026-04-26T17:44:37.995756+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-one-blockstore-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One Blockstore Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one blockstore.",
             "endpoints": [
@@ -2213,7 +2245,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:02.970637+00:00",
+            "capture_time": "2026-04-26T17:44:39.434277+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/update-one-blockstore-configuration/",
             "status": 200
         }
@@ -2221,6 +2253,7 @@
     "S3CompatibleBlockstore": [
         {
             "title": "Create One S3 Blockstore Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures one new s3 blockstore.",
             "endpoints": [
@@ -2407,12 +2440,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:04.325051+00:00",
+            "capture_time": "2026-04-26T17:44:40.803717+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/create-one-s3-blockstore-configuration/",
             "status": 200
         },
         {
             "title": "Delete One S3-Compatible Blockstore Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one s3 blockstore.",
             "endpoints": [
@@ -2445,12 +2479,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:05.046484+00:00",
+            "capture_time": "2026-04-26T17:44:41.689327+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/delete-one-s3-blockstore-configuration/",
             "status": 200
         },
         {
             "title": "Get All S3 Blockstore Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all S3 blockstores.",
             "endpoints": [
@@ -2496,12 +2531,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:06.079270+00:00",
+            "capture_time": "2026-04-26T17:44:43.192765+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/",
             "status": 200
         },
         {
             "title": "Get One S3 Blockstore Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one S3 blockstore.",
             "endpoints": [
@@ -2534,12 +2570,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:07.436369+00:00",
+            "capture_time": "2026-04-26T17:44:44.180379+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-one-s3-blockstore-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One S3 Blockstore Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one s3 blockstore.",
             "endpoints": [
@@ -2727,7 +2764,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:08.865188+00:00",
+            "capture_time": "2026-04-26T17:44:45.544760+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/update-one-s3-blockstore-configuration/",
             "status": 200
         }
@@ -2735,6 +2772,7 @@
     "SyncStore": [
         {
             "title": "Create One Sync Store Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Create",
             "description": "Configures one new sync store.",
             "endpoints": [
@@ -2816,12 +2854,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:10.823565+00:00",
+            "capture_time": "2026-04-26T17:44:47.403471+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/create-one-sync-store-configuration/",
             "status": 200
         },
         {
             "title": "Delete One Sync Store Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Delete",
             "description": "Deletes the configuration of one sync store.",
             "endpoints": [
@@ -2854,12 +2893,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:11.638924+00:00",
+            "capture_time": "2026-04-26T17:44:48.616440+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/delete-one-sync-store-configuration/",
             "status": 200
         },
         {
             "title": "Get All Sync Store Configurations",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get All",
             "description": "Retrieves the configurations of all sync stores.",
             "endpoints": [
@@ -2905,12 +2945,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:12.635120+00:00",
+            "capture_time": "2026-04-26T17:44:49.752187+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-all-sync-store-configurations/",
             "status": 200
         },
         {
             "title": "Get One Sync Store Configuration by ID",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Get by ID",
             "description": "Retrieves the configuration of one sync store.",
             "endpoints": [
@@ -2943,12 +2984,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:13.635790+00:00",
+            "capture_time": "2026-04-26T17:44:50.775475+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-one-sync-store-configuration-by-id/",
             "status": 200
         },
         {
             "title": "Update One Sync Store Configuration",
+            "base_url": "/api/public/v1.0/admin/backup",
             "name": "Update",
             "description": "Updates the configuration of one sync store.",
             "endpoints": [
@@ -3031,7 +3073,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:14.733282+00:00",
+            "capture_time": "2026-04-26T17:44:51.882607+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/update-one-sync-store-configuration/",
             "status": 200
         }
@@ -3039,6 +3081,7 @@
     "Agents": [
         {
             "title": "Create One Agent API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Create API Key",
             "description": "No description.",
             "endpoints": [
@@ -3079,12 +3122,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:15.988723+00:00",
+            "capture_time": "2026-04-26T17:44:52.925602+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/create-one-agent-api-key/",
             "status": 200
         },
         {
             "title": "Remove One Agent API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Remove API Key",
             "description": "No description.",
             "endpoints": [
@@ -3124,12 +3168,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:17.315245+00:00",
+            "capture_time": "2026-04-26T17:44:54.135912+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/delete-one-agent-api-key/",
             "status": 200
         },
         {
             "title": "Get All Agent API Keys for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All API Keys",
             "description": "No description.",
             "endpoints": [
@@ -3162,12 +3207,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:18.058610+00:00",
+            "capture_time": "2026-04-26T17:44:55.152979+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agentapikeys/get-all-agent-api-keys-for-project/",
             "status": 200
         },
         {
             "title": "Get Links to Agent Resources for a Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Get links to Monitoring, Backup, and Automation Agent resources for a project.",
             "endpoints": [
@@ -3214,12 +3260,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:18.648609+00:00",
+            "capture_time": "2026-04-26T17:44:56.368944+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-all/",
             "status": 200
         },
         {
             "title": "Get Agents by Type for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Type",
             "description": "Get all agents of a specified type (i.e. Monitoring, Backup, or Automation) for a project.",
             "endpoints": [
@@ -3273,12 +3320,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:19.196809+00:00",
+            "capture_time": "2026-04-26T17:44:57.435371+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agents-get-by-type/",
             "status": 200
         },
         {
             "title": "Retrieve All Agent Versions",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve All Versions",
             "description": "No description.",
             "endpoints": [
@@ -3303,12 +3351,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:20.755082+00:00",
+            "capture_time": "2026-04-26T17:44:59.627498+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agents/get-agent-versions-global/",
             "status": 200
         },
         {
             "title": "Retrieve All Agent Versions for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve for One Project",
             "description": "No description.",
             "endpoints": [
@@ -3341,7 +3390,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:22.116896+00:00",
+            "capture_time": "2026-04-26T17:45:00.418005+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/agents/get-agent-versions-per-project/",
             "status": 200
         }
@@ -3349,6 +3398,7 @@
     "AlertConfigurations": [
         {
             "title": "Create an Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "No description.",
             "endpoints": [
@@ -3641,12 +3691,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:23.856207+00:00",
+            "capture_time": "2026-04-26T17:45:01.786930+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-create-config/",
             "status": 200
         },
         {
             "title": "Delete an Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
@@ -3686,12 +3737,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:24.692483+00:00",
+            "capture_time": "2026-04-26T17:45:02.999130+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-delete-config/",
             "status": 200
         },
         {
             "title": "Enable/Disable Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Enable/Disable",
             "description": "No description.",
             "endpoints": [
@@ -3739,12 +3791,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:25.358652+00:00",
+            "capture_time": "2026-04-26T17:45:04.209700+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-enable-disable-config/",
             "status": 200
         },
         {
             "title": "Get All Alert Configurations for a Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All for a Project",
             "description": "No description.",
             "endpoints": [
@@ -3791,12 +3844,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:26.559554+00:00",
+            "capture_time": "2026-04-26T17:45:05.180147+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-all-configs/",
             "status": 200
         },
         {
             "title": "Get an Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "No description.",
             "endpoints": [
@@ -3850,12 +3904,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:27.573735+00:00",
+            "capture_time": "2026-04-26T17:45:06.227609+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-config/",
             "status": 200
         },
         {
             "title": "Get All Alert Configuration Matchers Field Names",
+            "base_url": "/api/public/v1.0",
             "name": "Get Matchers Field Names",
             "description": "No description.",
             "endpoints": [
@@ -3880,12 +3935,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:28.516378+00:00",
+            "capture_time": "2026-04-26T17:45:07.361384+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-matchers-field-names/",
             "status": 200
         },
         {
             "title": "Get Open Alerts for Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get Open Alerts",
             "description": "No description.",
             "endpoints": [
@@ -3939,12 +3995,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:29.743817+00:00",
+            "capture_time": "2026-04-26T17:45:08.135128+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-get-open-alerts/",
             "status": 200
         },
         {
             "title": "Test Project Alert Configuration",
+            "base_url": "",
             "name": "Test Project Alert Configuration",
             "description": "Triggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration.",
             "endpoints": [
@@ -3976,12 +4033,13 @@
             "query_params": [],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:30.926192+00:00",
+            "capture_time": "2026-04-26T17:45:09.154793+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/",
             "status": 200
         },
         {
             "title": "Update an Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "No description.",
             "endpoints": [
@@ -4281,7 +4339,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:32.240982+00:00",
+            "capture_time": "2026-04-26T17:45:10.621261+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-update-config/",
             "status": 200
         }
@@ -4289,6 +4347,7 @@
     "Alerts": [
         {
             "title": "Acknowledge One Alert",
+            "base_url": "/api/public/v1.0",
             "name": "Acknowledge One",
             "description": "No description.",
             "endpoints": [
@@ -4343,12 +4402,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:33.613024+00:00",
+            "capture_time": "2026-04-26T17:45:11.972063+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-acknowledge-alert/",
             "status": 200
         },
         {
             "title": "Get One Alert",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "No description.",
             "endpoints": [
@@ -4388,12 +4448,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:34.146115+00:00",
+            "capture_time": "2026-04-26T17:45:13.186629+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-alert/",
             "status": 200
         },
         {
             "title": "Get All Alerts",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -4447,7 +4508,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:35.100579+00:00",
+            "capture_time": "2026-04-26T17:45:14.116278+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/alerts-get-all-alerts/",
             "status": 200
         }
@@ -4455,6 +4516,7 @@
     "GlobalAccessList": [
         {
             "title": "Create One Global Access List Entry",
+            "base_url": "/api/public/v1.0",
             "name": "Create Entry",
             "description": "Create one Global Access List Entry for Ops Manager.",
             "endpoints": [
@@ -4494,12 +4556,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:36.989217+00:00",
+            "capture_time": "2026-04-26T17:45:15.312558+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-access-list/",
             "status": 200
         },
         {
             "title": "Delete One Access List Entry for a Global API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Entry",
             "description": "Delete one Global Access List Entry from Ops Manager using the unique identifier for the desired IP address.",
             "endpoints": [
@@ -4532,12 +4595,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:38.688483+00:00",
+            "capture_time": "2026-04-26T17:45:16.902416+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-access-list/",
             "status": 200
         },
         {
             "title": "Get All Access List Entries for a Global API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Entries",
             "description": "Return all Global Access List Entries for Ops Manager.",
             "endpoints": [
@@ -4576,12 +4640,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:40.906580+00:00",
+            "capture_time": "2026-04-26T17:45:18.160994+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-access-list/",
             "status": 200
         },
         {
             "title": "Get One Global Access List Entry",
+            "base_url": "/api/public/v1.0",
             "name": "Get One Entry",
             "description": "Return one Global Access List Entry using the unique identifier for the desired IP address.",
             "endpoints": [
@@ -4614,12 +4679,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:43.117041+00:00",
+            "capture_time": "2026-04-26T17:45:20.603033+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-access-list/",
             "status": 200
         },
         {
             "title": "Update One Global Access List Entry",
+            "base_url": "/api/public/v1.0",
             "name": "Update Entry",
             "description": "Update the values of one Global Access List Entry using the unique identifier for the desired IP address.",
             "endpoints": [
@@ -4652,7 +4718,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:45.330345+00:00",
+            "capture_time": "2026-04-26T17:45:22.119094+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-access-list/",
             "status": 200
         }
@@ -4660,6 +4726,7 @@
     "GlobalApiKeys": [
         {
             "title": "Create One Global API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "Create one Global API Key for Ops Manager.",
             "endpoints": [
@@ -4699,12 +4766,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:38.229113+00:00",
+            "capture_time": "2026-04-26T17:45:15.882349+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/create-one-global-api-key/",
             "status": 200
         },
         {
             "title": "Delete One Global API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "Delete one Global API Key from Ops Manager using the unique identifier for that Key.",
             "endpoints": [
@@ -4737,12 +4805,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:39.618595+00:00",
+            "capture_time": "2026-04-26T17:45:17.559595+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/delete-one-global-api-key/",
             "status": 200
         },
         {
             "title": "Get All Roles for Global API Keys",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Roles",
             "description": "Return a list of acceptable Global Roles for Global API Keys.",
             "endpoints": [
@@ -4781,12 +4850,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:41.513649+00:00",
+            "capture_time": "2026-04-26T17:45:18.793257+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-key-roles/",
             "status": 200
         },
         {
             "title": "Get All Global API Keys",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Return all Global API Keys for Ops Manager.",
             "endpoints": [
@@ -4825,12 +4895,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:42.527516+00:00",
+            "capture_time": "2026-04-26T17:45:19.992077+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-all-global-api-keys/",
             "status": 200
         },
         {
             "title": "Get One Global API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "Return one Global API Key for Ops Manager using the unique identifier for that Key.",
             "endpoints": [
@@ -4863,12 +4934,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:44.106291+00:00",
+            "capture_time": "2026-04-26T17:45:21.525402+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/get-one-global-api-key/",
             "status": 200
         },
         {
             "title": "Update One Global API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Update values of one Global API Key from Ops Manager using the unique identifier for that Key.",
             "endpoints": [
@@ -4916,7 +4988,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:46.558971+00:00",
+            "capture_time": "2026-04-26T17:45:22.724116+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/global/update-one-global-api-key/",
             "status": 200
         }
@@ -4924,6 +4996,7 @@
     "OrganizationApiKeys": [
         {
             "title": "Create an API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "No description.",
             "endpoints": [
@@ -4985,12 +5058,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:47.250762+00:00",
+            "capture_time": "2026-04-26T17:45:23.922576+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-one-org-api-key/",
             "status": 200
         },
         {
             "title": "Delete One API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
@@ -5044,12 +5118,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:49.217504+00:00",
+            "capture_time": "2026-04-26T17:45:25.576534+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-api-key/",
             "status": 200
         },
         {
             "title": "Get All API Keys",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -5096,12 +5171,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:51.848559+00:00",
+            "capture_time": "2026-04-26T17:45:28.235057+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-keys/",
             "status": 200
         },
         {
             "title": "Get One API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "No description.",
             "endpoints": [
@@ -5155,12 +5231,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:53.739644+00:00",
+            "capture_time": "2026-04-26T17:45:30.307599+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key/",
             "status": 200
         },
         {
             "title": "Update an API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "No description.",
             "endpoints": [
@@ -5229,7 +5306,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:54.316251+00:00",
+            "capture_time": "2026-04-26T17:45:31.490552+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/update-one-org-api-key/",
             "status": 200
         }
@@ -5237,6 +5314,7 @@
     "OrganizationAccessLists": [
         {
             "title": "Create Access List Entries for One Organization API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Create Entries",
             "description": "No description.",
             "endpoints": [
@@ -5305,12 +5383,13 @@
                 }
             ],
             "body_type": "array",
-            "capture_time": "2026-04-23T21:18:48.539638+00:00",
+            "capture_time": "2026-04-26T17:45:24.581362+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/create-org-api-key-access-list/",
             "status": 200
         },
         {
             "title": "Delete One Access List Entry for an API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Entry",
             "description": "No description.",
             "endpoints": [
@@ -5371,12 +5450,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:50.313550+00:00",
+            "capture_time": "2026-04-26T17:45:26.757580+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/delete-one-org-api-key-access-list/",
             "status": 200
         },
         {
             "title": "Get All Access List Entries for One Organization API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Entries",
             "description": "No description.",
             "endpoints": [
@@ -5430,12 +5510,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:51.371485+00:00",
+            "capture_time": "2026-04-26T17:45:27.386172+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-all-org-api-key-access-list/",
             "status": 200
         },
         {
             "title": "Get One Access List Entry for One Organization API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Get One Entry",
             "description": "No description.",
             "endpoints": [
@@ -5496,7 +5577,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:52.732362+00:00",
+            "capture_time": "2026-04-26T17:45:29.313324+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/org/get-one-org-api-key-access-list/",
             "status": 200
         }
@@ -5504,6 +5585,7 @@
     "ApiKeysOnProjects": [
         {
             "title": "Assign One Organization API Key to One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Assign",
             "description": "No description.",
             "endpoints": [
@@ -5565,12 +5647,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:55.667477+00:00",
+            "capture_time": "2026-04-26T17:45:32.562235+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/assign-one-org-apiKey-to-one-project/",
             "status": 200
         },
         {
             "title": "Create and Assign One Organization API Key to One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Create & Assign",
             "description": "No description.",
             "endpoints": [
@@ -5632,12 +5715,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:56.738630+00:00",
+            "capture_time": "2026-04-26T17:45:33.656138+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/create-one-apiKey-in-one-project/",
             "status": 200
         },
         {
             "title": "Unassign One Organization API Key from One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Unassign",
             "description": "No description.",
             "endpoints": [
@@ -5691,12 +5775,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:57.603868+00:00",
+            "capture_time": "2026-04-26T17:45:34.579417+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/delete-one-apiKey-in-one-project/",
             "status": 200
         },
         {
             "title": "Get All Organization API Keys Assigned to One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -5743,12 +5828,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:58.685928+00:00",
+            "capture_time": "2026-04-26T17:45:35.611431+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/get-all-apiKeys-in-one-project/",
             "status": 200
         },
         {
             "title": "Modify Roles of One Organization API Key to One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Modify Roles",
             "description": "No description.",
             "endpoints": [
@@ -5810,7 +5896,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:18:59.312748+00:00",
+            "capture_time": "2026-04-26T17:45:36.696297+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/api-keys/project/update-one-apiKey-in-one-project/",
             "status": 200
         }
@@ -5818,6 +5904,7 @@
     "Configuration": [
         {
             "title": "Get the Audit Log Rotate Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get the Audit Log Rotate Configuration",
             "description": "This endpoint returns the current audit log rotation configuration.",
             "endpoints": [
@@ -5850,12 +5937,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:03.439133+00:00",
+            "capture_time": "2026-04-26T17:45:39.515856+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-audit-log-rotate-config/",
             "status": 200
         },
         {
             "title": "Get the Automation Configuration (Redacted Secrets)",
+            "base_url": "/api/public/v1.0",
             "name": "Get the Automation Configuration (No Secrets)",
             "description": "A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified.",
             "endpoints": [
@@ -5888,12 +5976,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:04.426972+00:00",
+            "capture_time": "2026-04-26T17:45:40.557530+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config-no-secrets/",
             "status": 200
         },
         {
             "title": "Get the Automation Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get the Automation Configuration",
             "description": "A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified.",
             "endpoints": [
@@ -5926,12 +6015,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:05.771362+00:00",
+            "capture_time": "2026-04-26T17:45:41.355014+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config/",
             "status": 200
         },
         {
             "title": "Get Backup Configuration Settings",
+            "base_url": "/api/public/v1.0",
             "name": "Get Backup Configuration Settings",
             "description": "No description.",
             "endpoints": [
@@ -5964,12 +6054,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:06.811516+00:00",
+            "capture_time": "2026-04-26T17:45:42.516471+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-backup-log-attributes/",
             "status": 200
         },
         {
             "title": "Get Monitoring Configuration Settings",
+            "base_url": "/api/public/v1.0",
             "name": "Get Monitoring Configuration Settings",
             "description": "No description.",
             "endpoints": [
@@ -6002,12 +6093,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:08.019566+00:00",
+            "capture_time": "2026-04-26T17:45:43.171483+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-monitoring-log-attributes/",
             "status": 200
         },
         {
             "title": "Get the System Log Rotate Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get the System Log Rotate Configuration",
             "description": "This endpoint returns the current system log rotation configuration.",
             "endpoints": [
@@ -6040,12 +6132,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:08.634714+00:00",
+            "capture_time": "2026-04-26T17:45:44.121296+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-system-log-rotate-config/",
             "status": 200
         },
         {
             "title": "Update Agent Versions",
+            "base_url": "/api/public/v1.0",
             "name": "Update Agent Versions",
             "description": "This endpoint updates the MongoDB Agent and tools to the latest versions available at the time of the request:",
             "endpoints": [
@@ -6100,12 +6193,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:10.003305+00:00",
+            "capture_time": "2026-04-26T17:45:45.149552+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-agent-versions/",
             "status": 200
         },
         {
             "title": "Update the Audit Log Rotate Config",
+            "base_url": "/api/public/v1.0",
             "name": "Update the Audit Log Rotate Config",
             "description": "This endpoint updates the MongoDB Agent audit log rotation configuration. After this request completes, Ops Manager modifies the agent configuration and saves the updated version.",
             "endpoints": [
@@ -6174,12 +6268,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:10.677647+00:00",
+            "capture_time": "2026-04-26T17:45:46.173598+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-audit-log-rotate-config/",
             "status": 200
         },
         {
             "title": "Update the Automation Configuration (Sensitive Information Ignored)",
+            "base_url": "/api/public/v1.0",
             "name": "Update the Automation Configuration (No Secrets)",
             "description": "A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified.",
             "endpoints": [
@@ -6212,12 +6307,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:11.863591+00:00",
+            "capture_time": "2026-04-26T17:45:46.801561+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/",
             "status": 200
         },
         {
             "title": "Update the Automation Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Update the Automation Configuration",
             "description": "A project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified.",
             "endpoints": [
@@ -6250,12 +6346,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:13.113492+00:00",
+            "capture_time": "2026-04-26T17:45:47.784533+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/",
             "status": 200
         },
         {
             "title": "Update Backup Configuration Settings",
+            "base_url": "/api/public/v1.0",
             "name": "Update Backup Configuration Settings",
             "description": "No description.",
             "endpoints": [
@@ -6331,12 +6428,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:14.057919+00:00",
+            "capture_time": "2026-04-26T17:45:48.775984+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-backup-log-attributes/",
             "status": 200
         },
         {
             "title": "Update Monitoring Configuration Settings",
+            "base_url": "/api/public/v1.0",
             "name": "Update Monitoring Configuration Settings",
             "description": "No description.",
             "endpoints": [
@@ -6412,12 +6510,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:15.048807+00:00",
+            "capture_time": "2026-04-26T17:45:49.888926+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-monitoring-log-attributes/",
             "status": 200
         },
         {
             "title": "Update the System Log Rotate Config",
+            "base_url": "/api/public/v1.0",
             "name": "Update the System Log Rotate Config",
             "description": "This endpoint updates the MongoDB Agent system log rotation configuration. After this request completes, Ops Manager modifies the agent configuration and saves the updated version.",
             "endpoints": [
@@ -6486,7 +6585,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:16.334989+00:00",
+            "capture_time": "2026-04-26T17:45:50.883220+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-system-log-rotate-config/",
             "status": 200
         }
@@ -6494,6 +6593,7 @@
     "Automation": [
         {
             "title": "Get Automation Status of Last 50 Plans",
+            "base_url": "/api/public/v1.0",
             "name": "Get Status of Last 50 Plans",
             "description": "No description.",
             "endpoints": [
@@ -6526,12 +6626,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T16:53:14.498397+00:00",
+            "capture_time": "2026-04-26T17:45:52.077513+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status-full/",
             "status": 200
         },
         {
             "title": "Get Automation Status of Latest Plan",
+            "base_url": "/api/public/v1.0",
             "name": "Get Status",
             "description": "No description.",
             "endpoints": [
@@ -6564,7 +6665,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T16:53:15.185847+00:00",
+            "capture_time": "2026-04-26T17:45:53.050551+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status/",
             "status": 200
         }
@@ -6572,6 +6673,7 @@
     "DeploymentRegions": [
         {
             "title": "Assign Deployment Region to One Shard",
+            "base_url": "/api/public/v1.0",
             "name": "Assign",
             "description": "No description.",
             "endpoints": [
@@ -6640,12 +6742,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:19.759021+00:00",
+            "capture_time": "2026-04-26T17:45:55.838338+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/assign-deployment-region/",
             "status": 200
         },
         {
             "title": "Create One Deployment Region by ID",
+            "base_url": "/api/public/v1.0",
             "name": "Create by ID",
             "description": "No description.",
             "endpoints": [
@@ -6714,12 +6817,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:20.789528+00:00",
+            "capture_time": "2026-04-26T17:45:56.551772+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region-by-id/",
             "status": 200
         },
         {
             "title": "Create One Deployment Region",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "No description.",
             "endpoints": [
@@ -6787,12 +6891,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:21.695465+00:00",
+            "capture_time": "2026-04-26T17:45:57.166025+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/create-one-deployment-region/",
             "status": 200
         },
         {
             "title": "Delete One Deployment Region by ID",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
@@ -6825,12 +6930,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:22.299756+00:00",
+            "capture_time": "2026-04-26T17:45:57.905369+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/delete-one-deployment-region-by-id/",
             "status": 200
         },
         {
             "title": "Get All Deployment Regions",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -6869,12 +6975,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:24.502056+00:00",
+            "capture_time": "2026-04-26T17:45:59.630988+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-deployment-regions/",
             "status": 200
         },
         {
             "title": "Get One Deployment Region",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "No description.",
             "endpoints": [
@@ -6921,7 +7028,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:26.963991+00:00",
+            "capture_time": "2026-04-26T17:46:02.151309+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-deployment-region-by-id/",
             "status": 200
         }
@@ -6929,6 +7036,7 @@
     "BackupConfigurations": [
         {
             "title": "Get All Backup Configurations for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -6975,12 +7083,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:23.296366+00:00",
+            "capture_time": "2026-04-26T17:45:58.393544+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-all-backup-configs-for-group/",
             "status": 200
         },
         {
             "title": "Get One Backup Configuration from One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "No description.",
             "endpoints": [
@@ -7020,12 +7129,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:25.569113+00:00",
+            "capture_time": "2026-04-26T17:46:00.887807+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-one-backup-config-by-cluster-id/",
             "status": 200
         },
         {
             "title": "Update One Backup Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "No description.",
             "endpoints": [
@@ -7171,7 +7281,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:28.972044+00:00",
+            "capture_time": "2026-04-26T17:46:04.596827+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-backup-config/",
             "status": 200
         }
@@ -7179,6 +7289,7 @@
     "SnapshotSchedule": [
         {
             "title": "Get the Snapshot Schedule",
+            "base_url": "/api/public/v1.0",
             "name": "Get Schedule",
             "description": "No description.",
             "endpoints": [
@@ -7218,12 +7329,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:27.787797+00:00",
+            "capture_time": "2026-04-26T17:55:12.163601+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/",
             "status": 200
         },
         {
             "title": "Update the Snapshot Schedule",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "No description.",
             "endpoints": [
@@ -7362,7 +7474,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:30.151404+00:00",
+            "capture_time": "2026-04-26T17:56:46.556360+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/update-one-snapshot-schedule-by-cluster-id/",
             "status": 200
         }
@@ -7370,6 +7482,7 @@
     "MigrateToMongodbAtlas": [
         {
             "title": "Connect One Organization with One Atlas Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Connect with Atlas Organization",
             "description": "Connect the source Ops Manager organization with a target MongoDB Atlas organization.",
             "endpoints": [
@@ -7410,12 +7523,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:31.733059+00:00",
+            "capture_time": "2026-04-26T17:46:08.340531+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/link-the-organization-with-atlas/",
             "status": 200
         },
         {
             "title": "Remove the Connection between Organizations",
+            "base_url": "/api/public/v1.0",
             "name": "Remove Connection",
             "description": "Remove the connection between the source Ops Manager organization and the target MongoDB Atlas organization. This stops the source organization from synchronizing data with the target organization.",
             "endpoints": [
@@ -7448,12 +7562,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:33.001982+00:00",
+            "capture_time": "2026-04-26T17:46:09.460484+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/remove-the-link-between-organizations/",
             "status": 200
         },
         {
             "title": "Return the Status of the Connection between Organizations",
+            "base_url": "/api/public/v1.0",
             "name": "Return Connection Status",
             "description": "Return the status of the connection between the specified source Ops Manager organization and the target MongoDB Atlas organization.",
             "endpoints": [
@@ -7486,7 +7601,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:33.941837+00:00",
+            "capture_time": "2026-04-26T17:46:10.724972+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/cloud-migration/return-the-status-of-the-organization-link/",
             "status": 200
         }
@@ -7494,6 +7609,7 @@
     "Clusters": [
         {
             "title": "Get All Clusters in All Projects",
+            "base_url": "/api/public/v1.0",
             "name": "Get All from All Projects",
             "description": "Get details for all clusters in all projects available to the programmatic API key making the request.",
             "endpoints": [
@@ -7518,12 +7634,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:35.756532+00:00",
+            "capture_time": "2026-04-26T17:46:12.569028+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all-key/",
             "status": 200
         },
         {
             "title": "Get All Clusters in One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All from One Project",
             "description": "Retrieve details for all clusters in one project.",
             "endpoints": [
@@ -7570,12 +7687,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:36.751923+00:00",
+            "capture_time": "2026-04-26T17:46:13.531132+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all/",
             "status": 200
         },
         {
             "title": "Get One Cluster in One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "Retrieve details for one cluster in one project.",
             "endpoints": [
@@ -7615,12 +7733,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:37.648156+00:00",
+            "capture_time": "2026-04-26T17:46:14.558490+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-one/",
             "status": 200
         },
         {
             "title": "Update One Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Update one cluster in one project.",
             "endpoints": [
@@ -7668,7 +7787,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:38.960594+00:00",
+            "capture_time": "2026-04-26T17:46:15.609328+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-update-one/",
             "status": 200
         }
@@ -7676,6 +7795,7 @@
     "FeatureControlPolicies": [
         {
             "title": "Retrieve All Feature Policies",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve All",
             "description": "No description.",
             "endpoints": [
@@ -7714,12 +7834,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:40.190782+00:00",
+            "capture_time": "2026-04-26T17:46:16.236072+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/get-all-feature-control-policies/",
             "status": 200
         },
         {
             "title": "Retrieve Feature Policies for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve for One Project",
             "description": "No description.",
             "endpoints": [
@@ -7766,12 +7887,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:41.177787+00:00",
+            "capture_time": "2026-04-26T17:46:17.481834+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/get-controlled-features-for-one-project/",
             "status": 200
         },
         {
             "title": "Update Feature Policies for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "No description.",
             "endpoints": [
@@ -7868,7 +7990,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:41.815807+00:00",
+            "capture_time": "2026-04-26T17:46:18.524340+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/controlled-features/update-controlled-features-for-one-project/",
             "status": 200
         }
@@ -7876,6 +7998,7 @@
     "Databases": [
         {
             "title": "Get a Database by Name",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Name",
             "description": "No description.",
             "endpoints": [
@@ -7922,12 +8045,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:42.289777+00:00",
+            "capture_time": "2026-04-26T17:46:19.263657+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/database-get-by-name/",
             "status": 200
         },
         {
             "title": "Get All Databases on One Host",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Retrieve all databases running on the specified host.",
             "endpoints": [
@@ -7981,7 +8105,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:43.547473+00:00",
+            "capture_time": "2026-04-26T17:46:20.349236+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/databases-get-all-on-host/",
             "status": 200
         }
@@ -7989,6 +8113,7 @@
     "ServerUsage": [
         {
             "title": "Get One Project Diagnostic Archive",
+            "base_url": "/api/public/v1.0",
             "name": "Get Diagnostic Archive",
             "description": "MongoDB engineers may request that Ops Manager administrators provide diagnostic archives for one project for debugging and troubleshooting. Project diagnostic archives also contain global system information about Ops Manager.",
             "endpoints": [
@@ -8063,12 +8188,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:46.549302+00:00",
+            "capture_time": "2026-04-26T17:46:22.774952+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/diagnostics/get-project-diagnostic-archive/",
             "status": 200
         },
         {
             "title": "Create One Physical Host",
+            "base_url": "/api/public/v1.0",
             "name": "Create Physical Host",
             "description": "No description.",
             "endpoints": [
@@ -8143,12 +8269,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:14.445235+00:00",
+            "capture_time": "2026-04-26T17:48:27.588947+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-physical-host/",
             "status": 200
         },
         {
             "title": "Get One Global Usage Report Archive",
+            "base_url": "/api/public/v1.0",
             "name": "Get Global Usage Report Archive",
             "description": "Retrieve a compressed report, in zip or .tar.gz format, of server usage in a given timeframe.",
             "endpoints": [
@@ -8201,12 +8328,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:15.424682+00:00",
+            "capture_time": "2026-04-26T17:48:28.315159+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-report/",
             "status": 200
         },
         {
             "title": "Generate Daily Usage Snapshot",
+            "base_url": "/api/public/v1.0",
             "name": "Generate Usage Snapshot",
             "description": "If MongoDB Usage UI is set to On, you can trigger this endpoint which tells Ops Manager to:",
             "endpoints": [
@@ -8245,12 +8373,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:16.305920+00:00",
+            "capture_time": "2026-04-26T17:48:28.916119+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/generate-daily-usage-snapshot/",
             "status": 200
         },
         {
             "title": "Retrieve All Physical Hosts",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve All Physical Hosts",
             "description": "No description.",
             "endpoints": [
@@ -8289,12 +8418,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:16.938845+00:00",
+            "capture_time": "2026-04-26T17:48:29.778246+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-all-physical-hosts/",
             "status": 200
         },
         {
             "title": "Get Default Server Type For One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Get Server Type in One Organization",
             "description": "Retrieve the default server type for one organization.",
             "endpoints": [
@@ -8327,12 +8457,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:18.165960+00:00",
+            "capture_time": "2026-04-26T17:48:30.274750+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-default-server-type-for-one-organization/",
             "status": 200
         },
         {
             "title": "Get Default Server Type For One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get Default Server Type",
             "description": "Retrieve the default server type for one project.",
             "endpoints": [
@@ -8365,12 +8496,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:18.999869+00:00",
+            "capture_time": "2026-04-26T17:48:31.145776+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-default-server-type-for-one-project/",
             "status": 200
         },
         {
             "title": "Retrieve One Physical Host",
+            "base_url": "/api/public/v1.0",
             "name": "Retreive One Physical Host",
             "description": "No description.",
             "endpoints": [
@@ -8417,12 +8549,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:19.560918+00:00",
+            "capture_time": "2026-04-26T17:48:32.035136+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/get-one-physical-host-by-host-id/",
             "status": 200
         },
         {
             "title": "List All Host Assignments In One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "List Host Assignments in One Organization",
             "description": "Retrieves all host assignments for one organization.",
             "endpoints": [
@@ -8483,12 +8616,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:20.361784+00:00",
+            "capture_time": "2026-04-26T17:48:32.772819+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments-in-one-organization/",
             "status": 200
         },
         {
             "title": "List All Host Assignments In One Project",
+            "base_url": "/api/public/v1.0",
             "name": "List Host Assignments in One Project",
             "description": "Retrieves all host assignments for one project.",
             "endpoints": [
@@ -8549,12 +8683,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:21.684741+00:00",
+            "capture_time": "2026-04-26T17:48:33.652464+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments-in-one-project/",
             "status": 200
         },
         {
             "title": "List All Host Assignments",
+            "base_url": "/api/public/v1.0",
             "name": "List Host Assignments",
             "description": "Retrieves all host assignments.",
             "endpoints": [
@@ -8607,12 +8742,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:22.972358+00:00",
+            "capture_time": "2026-04-26T17:48:34.360029+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/list-all-host-assignments/",
             "status": 200
         },
         {
             "title": "Remove One Physical Host",
+            "base_url": "/api/public/v1.0",
             "name": "Remove Physical Host",
             "description": "No description.",
             "endpoints": [
@@ -8659,12 +8795,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:23.583887+00:00",
+            "capture_time": "2026-04-26T17:48:35.170270+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/remove-one-physical-host/",
             "status": 200
         },
         {
             "title": "Update Default Server Type For One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Update Server Type for One Organization",
             "description": "Update the default server type for one organization.",
             "endpoints": [
@@ -8719,12 +8856,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:24.249092+00:00",
+            "capture_time": "2026-04-26T17:48:36.079344+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-default-server-type-for-one-organization/",
             "status": 200
         },
         {
             "title": "Update Default Server Type For One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Update Default Server Type",
             "description": "Update the default server type for one project.",
             "endpoints": [
@@ -8779,12 +8917,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:25.055320+00:00",
+            "capture_time": "2026-04-26T17:48:36.697332+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-default-server-type-for-one-project/",
             "status": 200
         },
         {
             "title": "Update One Physical Host",
+            "base_url": "/api/public/v1.0",
             "name": "Update Physical Host",
             "description": "No description.",
             "endpoints": [
@@ -8867,12 +9006,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:26.321334+00:00",
+            "capture_time": "2026-04-26T17:48:37.386177+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-one-physical-host/",
             "status": 200
         },
         {
             "title": "Update Server Type for One Host",
+            "base_url": "/api/public/v1.0",
             "name": "Update Server Type",
             "description": "Update one default server type for one host.",
             "endpoints": [
@@ -8927,7 +9067,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:27.149367+00:00",
+            "capture_time": "2026-04-26T17:48:38.007374+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/update-server-type-for-one-host/",
             "status": 200
         }
@@ -8935,6 +9075,7 @@
     "Disks": [
         {
             "title": "Get a Disk Partition",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "Retrieves a disk partition.",
             "endpoints": [
@@ -8981,12 +9122,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:47.724939+00:00",
+            "capture_time": "2026-04-26T17:46:23.787701+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/disk-get-one/",
             "status": 200
         },
         {
             "title": "Get all Disk Partitions",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Retrieves all disk partitions on the specified host.",
             "endpoints": [
@@ -9040,7 +9182,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:49.005958+00:00",
+            "capture_time": "2026-04-26T17:46:24.986112+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/disks-get-all/",
             "status": 200
         }
@@ -9048,6 +9190,7 @@
     "Events": [
         {
             "title": "Get All Organization Events",
+            "base_url": "/api/public/v1.0",
             "name": "Get All (Organization)",
             "description": "No description.",
             "endpoints": [
@@ -9122,12 +9265,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:52.795965+00:00",
+            "capture_time": "2026-04-26T17:46:28.520026+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-org/",
             "status": 200
         },
         {
             "title": "Get All Project Events",
+            "base_url": "/api/public/v1.0",
             "name": "Get All (Project)",
             "description": "No description.",
             "endpoints": [
@@ -9202,12 +9346,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:53.842757+00:00",
+            "capture_time": "2026-04-26T17:46:29.629611+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-project/",
             "status": 200
         },
         {
             "title": "Get One Organization Event",
+            "base_url": "/api/public/v1.0",
             "name": "Get One (Organization)",
             "description": "No description.",
             "endpoints": [
@@ -9254,12 +9399,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:55.891787+00:00",
+            "capture_time": "2026-04-26T17:46:31.516270+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-for-org/",
             "status": 200
         },
         {
             "title": "Get One Project Event",
+            "base_url": "/api/public/v1.0",
             "name": "Get One (Project)",
             "description": "No description.",
             "endpoints": [
@@ -9306,7 +9452,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:56.633609+00:00",
+            "capture_time": "2026-04-26T17:46:32.389462+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-for-project/",
             "status": 200
         }
@@ -9314,6 +9460,7 @@
     "GlobalEvents": [
         {
             "title": "Get All Global Events",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -9373,12 +9520,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:55.113280+00:00",
+            "capture_time": "2026-04-26T17:46:30.854439+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-global/",
             "status": 200
         },
         {
             "title": "Get One Global Event",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "No description.",
             "endpoints": [
@@ -9411,7 +9559,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:57.779567+00:00",
+            "capture_time": "2026-04-26T17:46:33.731662+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-one-event-global/",
             "status": 200
         }
@@ -9419,6 +9567,7 @@
     "GlobalAlertConfigurations": [
         {
             "title": "Get All Open Alerts Triggered by One Global Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Open Alerts",
             "description": "Retrieve all open alerts triggered by a global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID.",
             "endpoints": [
@@ -9465,12 +9614,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:00.103007+00:00",
+            "capture_time": "2026-04-26T17:46:35.616328+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configuration-get-all-open-alerts-triggered/",
             "status": 200
         },
         {
             "title": "Create One Global Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "Create one global alert configuration.",
             "endpoints": [
@@ -9755,12 +9905,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:01.525714+00:00",
+            "capture_time": "2026-04-26T17:46:36.761754+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-create-one/",
             "status": 200
         },
         {
             "title": "Delete One Global Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "Delete one global alert configuration.",
             "endpoints": [
@@ -9793,12 +9944,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:02.464273+00:00",
+            "capture_time": "2026-04-26T17:46:37.709743+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-delete-one/",
             "status": 200
         },
         {
             "title": "Get All Global Alert Configurations",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Retrieve all global alert configurations.",
             "endpoints": [
@@ -9837,12 +9989,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:03.121564+00:00",
+            "capture_time": "2026-04-26T17:46:38.467771+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-all/",
             "status": 200
         },
         {
             "title": "Get One Global Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "Retrieve one global alert configuration by its GLOBAL-ALERT-CONFIG-ID.",
             "endpoints": [
@@ -9875,12 +10028,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:04.051542+00:00",
+            "capture_time": "2026-04-26T17:46:39.674714+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-get-one/",
             "status": 200
         },
         {
             "title": "Test Global Alert Configuration",
+            "base_url": "",
             "name": "Test Global Alert Configuration",
             "description": "Triggers a test notification for a specific notification method in a global alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration.",
             "endpoints": [
@@ -9905,12 +10059,13 @@
             "query_params": [],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:05.169158+00:00",
+            "capture_time": "2026-04-26T17:46:40.777709+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/",
             "status": 200
         },
         {
             "title": "Enable or Disable One Global Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Enable or Disable",
             "description": "Enable or disable one global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID.",
             "endpoints": [
@@ -9951,12 +10106,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:06.397569+00:00",
+            "capture_time": "2026-04-26T17:46:41.731860+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-toggle-one/",
             "status": 200
         },
         {
             "title": "Update One Global Alert Configuration",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Update one global alert configuration identified by its GLOBAL-ALERT-CONFIG-ID.",
             "endpoints": [
@@ -10249,7 +10405,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:08.525000+00:00",
+            "capture_time": "2026-04-26T17:46:43.248967+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-update-one/",
             "status": 200
         }
@@ -10257,6 +10413,7 @@
     "GlobalAlerts": [
         {
             "title": "Acknowledge One Global Alert",
+            "base_url": "/api/public/v1.0",
             "name": "Acknowledge One",
             "description": "You can acknowledge one alert until the time and date you specify. You can also un-acknowledge an alert by specifying a date and time in the past.",
             "endpoints": [
@@ -10304,12 +10461,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:10.551532+00:00",
+            "capture_time": "2026-04-26T17:46:44.957306+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-ack-one/",
             "status": 200
         },
         {
             "title": "Get All Global Alerts",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Retrieve all global alerts.",
             "endpoints": [
@@ -10369,12 +10527,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:11.577453+00:00",
+            "capture_time": "2026-04-26T17:46:46.367407+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/",
             "status": 200
         },
         {
             "title": "Get One Global Alert",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "Retrieve one alert by its ALERT-ID.",
             "endpoints": [
@@ -10407,7 +10566,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:12.556715+00:00",
+            "capture_time": "2026-04-26T17:46:47.627044+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-one/",
             "status": 200
         }
@@ -10415,6 +10574,7 @@
     "Projects": [
         {
             "title": "Add Existing Users to One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Add Existing Users",
             "description": "This resource adds users who exist in Ops Manager to another project. It does not create new users and add them to a project. By default, users first receive an invitation to the project. You can add users directly to a project only if you set the mms.user.bypassInviteForExistingUsers setting to true.",
             "endpoints": [
@@ -10476,12 +10636,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:17.844903+00:00",
+            "capture_time": "2026-04-26T17:46:53.411220+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/add-users-to-one-group/",
             "status": 200
         },
         {
             "title": "Update One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Use this endpoint to make any of the following changes to one project:",
             "endpoints": [
@@ -10536,12 +10697,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:18.466607+00:00",
+            "capture_time": "2026-04-26T17:46:53.969657+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/change-one-group-name/",
             "status": 200
         },
         {
             "title": "Create One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "No description.",
             "endpoints": [
@@ -10581,12 +10743,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:19.216620+00:00",
+            "capture_time": "2026-04-26T17:46:55.227059+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/create-one-group/",
             "status": 200
         },
         {
             "title": "Delete One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
@@ -10619,12 +10782,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:20.366234+00:00",
+            "capture_time": "2026-04-26T17:46:55.811806+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/delete-one-group/",
             "status": 200
         },
         {
             "title": "Get All Projects for the Current User",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -10663,12 +10827,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:21.536725+00:00",
+            "capture_time": "2026-04-26T17:46:56.802562+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-groups-for-current-user/",
             "status": 200
         },
         {
             "title": "Get All Projects with Specific Tags for the Current User",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Specific Tags for the Current User",
             "description": "No description.",
             "endpoints": [
@@ -10686,12 +10851,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:22.483865+00:00",
+            "capture_time": "2026-04-26T17:46:57.782179+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-groups-with-specific-tags-for-current-user/",
             "status": 200
         },
         {
             "title": "Get All Users in One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Users",
             "description": "No description.",
             "endpoints": [
@@ -10724,12 +10890,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:23.656303+00:00",
+            "capture_time": "2026-04-26T17:46:58.946450+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-all-users-in-one-group/",
             "status": 200
         },
         {
             "title": "Get One Project by Agent API Key",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Agent API Key",
             "description": "No description.",
             "endpoints": [
@@ -10762,12 +10929,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:24.946755+00:00",
+            "capture_time": "2026-04-26T17:46:59.939438+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-agent-api-key/",
             "status": 200
         },
         {
             "title": "Get One Project by ID",
+            "base_url": "/api/public/v1.0",
             "name": "Get by ID",
             "description": "No description.",
             "endpoints": [
@@ -10800,12 +10968,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:25.888798+00:00",
+            "capture_time": "2026-04-26T17:47:00.986594+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-id/",
             "status": 200
         },
         {
             "title": "Get One Project by Name",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Name",
             "description": "No description.",
             "endpoints": [
@@ -10838,12 +11007,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:26.909905+00:00",
+            "capture_time": "2026-04-26T17:47:01.568735+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/get-one-group-by-name/",
             "status": 200
         },
         {
             "title": "Add Teams to a Project",
+            "base_url": "/api/public/v1.0",
             "name": "Add Teams",
             "description": "No description.",
             "endpoints": [
@@ -10905,12 +11075,13 @@
                 }
             ],
             "body_type": "array",
-            "capture_time": "2026-04-23T21:20:28.182898+00:00",
+            "capture_time": "2026-04-26T17:47:02.607840+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-add-team/",
             "status": 200
         },
         {
             "title": "Get All Teams in One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Teams",
             "description": "No description.",
             "endpoints": [
@@ -10957,12 +11128,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:29.435596+00:00",
+            "capture_time": "2026-04-26T17:47:03.776545+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/project-get-teams/",
             "status": 200
         },
         {
             "title": "Remove One User from One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Remove User",
             "description": "No description.",
             "endpoints": [
@@ -11002,12 +11174,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:30.401421+00:00",
+            "capture_time": "2026-04-26T17:47:04.759228+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/groups/remove-one-user-from-one-group/",
             "status": 200
         },
         {
             "title": "Create One Project Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Create Invitation",
             "description": "Retrieve details for one pending invitation to the specified Ops Manager project.",
             "endpoints": [
@@ -11055,12 +11228,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:51.875300+00:00",
+            "capture_time": "2026-04-26T17:47:23.550700+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/create-one-invitation/",
             "status": 200
         },
         {
             "title": "Delete One Project Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Invitation",
             "description": "Deletes one pending invitation to the Ops Manager project that you specify. You can't delete an invitation that a user has accepted.",
             "endpoints": [
@@ -11100,12 +11274,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:52.856791+00:00",
+            "capture_time": "2026-04-26T17:47:24.410842+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/delete-one-invitation/",
             "status": 200
         },
         {
             "title": "Get All Project Invitations",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Invitations",
             "description": "Retrieves all pending invitations to the specified Ops Manager project.",
             "endpoints": [
@@ -11145,12 +11320,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:53.825403+00:00",
+            "capture_time": "2026-04-26T17:47:25.007631+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-all-invitations/",
             "status": 200
         },
         {
             "title": "Get One Project Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Get One Invitation",
             "description": "Retrieve details for one pending invitation to the specified Ops Manager project.",
             "endpoints": [
@@ -11190,12 +11366,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:54.831430+00:00",
+            "capture_time": "2026-04-26T17:47:25.599947+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/get-one-invitation/",
             "status": 200
         },
         {
             "title": "Update One Project Invitation by Invitation ID",
+            "base_url": "/api/public/v1.0",
             "name": "Update Invitation by Invitation ID",
             "description": "Updates one pending invitation by {INVITATION-ID} to the Ops Manager project that you specify.",
             "endpoints": [
@@ -11243,12 +11420,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:55.797285+00:00",
+            "capture_time": "2026-04-26T17:47:26.513319+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation-by-id/",
             "status": 200
         },
         {
             "title": "Update One Project Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Update Invitation",
             "description": "Updates one pending invitation to the Ops Manager project that you specify.",
             "endpoints": [
@@ -11296,12 +11474,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:56.937543+00:00",
+            "capture_time": "2026-04-26T17:47:27.367215+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/projects/update-one-invitation/",
             "status": 200
         },
         {
             "title": "Remove One Team From One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Remove Team",
             "description": "No description.",
             "endpoints": [
@@ -11355,7 +11534,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:00.421234+00:00",
+            "capture_time": "2026-04-26T17:48:17.141694+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-from-project/",
             "status": 200
         }
@@ -11363,6 +11542,7 @@
     "Hosts": [
         {
             "title": "Begin Monitoring One Host",
+            "base_url": "/api/public/v1.0",
             "name": "Begin Monitoring",
             "description": "Start monitoring a new MongoDB process. The Monitoring starts monitoring the MongoDB process on the hostname and port you specify. Ops Manager knows only the information that you provide. The response document includes blank values until Ops Manager completes discovery of the MongoDB processes configuration.",
             "endpoints": [
@@ -11459,12 +11639,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:32.518230+00:00",
+            "capture_time": "2026-04-26T17:47:06.933225+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/create-one-host/",
             "status": 200
         },
         {
             "title": "Stop Monitoring One Host",
+            "base_url": "/api/public/v1.0",
             "name": "Stop Monitoring",
             "description": "Stops the Monitoring from monitoring the MongoDB process on the hostname and port you specify.",
             "endpoints": [
@@ -11504,12 +11685,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:33.838380+00:00",
+            "capture_time": "2026-04-26T17:47:07.879036+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/delete-one-host/",
             "status": 200
         },
         {
             "title": "Get All Hosts in One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Get all MongoDB hosts in a project. Use the CLUSTER-ID query parameter to only get the hosts that belong to the specified cluster. The response sorts the hosts alphabetically by HOSTNAME:PORT.",
             "endpoints": [
@@ -11564,12 +11746,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:35.055161+00:00",
+            "capture_time": "2026-04-26T17:47:09.414943+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-all-hosts-in-group/",
             "status": 200
         },
         {
             "title": "Get One Host by Hostname and Port",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Hostname & Port",
             "description": "Get a single MongoDB process by its hostname and port combination. You can specify either the primary hostname or an alias.",
             "endpoints": [
@@ -11616,12 +11799,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:36.286041+00:00",
+            "capture_time": "2026-04-26T17:47:10.075265+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-hostname-port/",
             "status": 200
         },
         {
             "title": "Get Host by ID",
+            "base_url": "/api/public/v1.0",
             "name": "Get by ID",
             "description": "Get the MongoDB process with the specified host ID.",
             "endpoints": [
@@ -11661,12 +11845,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:37.255815+00:00",
+            "capture_time": "2026-04-26T17:47:11.230278+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-one-host-by-id/",
             "status": 200
         },
         {
             "title": "Update Configuration of One Monitored Host",
+            "base_url": "/api/public/v1.0",
             "name": "Update Configuration",
             "description": "Update the configuration of a monitored MongoDB process.",
             "endpoints": [
@@ -11756,7 +11941,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:38.565795+00:00",
+            "capture_time": "2026-04-26T17:47:11.968527+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/update-one-host/",
             "status": 200
         }
@@ -11764,6 +11949,7 @@
     "ImportDeployments": [
         {
             "title": "Cancel Import Deployment Request",
+            "base_url": "/api/public/v1.0",
             "name": "Cancel Import Deployment Request",
             "description": "Cancel an in-progress import deployment request. This endpoint allows you to stop an import deployment request that is currently running. Once cancelled, the import process will stop and the request state will change to CANCELLED.",
             "endpoints": [
@@ -11803,12 +11989,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:40.988780+00:00",
+            "capture_time": "2026-04-26T17:47:13.569659+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/cancel/",
             "status": 200
         },
         {
             "title": "Create Import Deployment Request",
+            "base_url": "/api/public/v1.0",
             "name": "Create Import Deployment Request",
             "description": "Create a new import deployment request to add existing MongoDB processes to Ops Manager automation. This endpoint initiates the process of importing multiple MongoDB processes into both monitoring and automation management.",
             "endpoints": [
@@ -11975,12 +12162,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:41.761571+00:00",
+            "capture_time": "2026-04-26T17:47:14.819825+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/create/",
             "status": 200
         },
         {
             "title": "Delete Import Deployment Request",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Import Deployment Request",
             "description": "Delete a failed import deployment request and clean up any partially imported resources. This endpoint removes the import deployment request record and performs cleanup of any resources that were partially imported during the failed import process.",
             "endpoints": [
@@ -12020,12 +12208,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:42.516767+00:00",
+            "capture_time": "2026-04-26T17:47:16.079443+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/delete/",
             "status": 200
         },
         {
             "title": "Get Import Deployment Requests",
+            "base_url": "/api/public/v1.0",
             "name": "Get Import Deployment Requests",
             "description": "Retrieve all import deployment requests for a project. This endpoint returns a list of all import deployment requests that have been created for the specified project, including their current status and history.",
             "endpoints": [
@@ -12058,12 +12247,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:43.607436+00:00",
+            "capture_time": "2026-04-26T17:47:16.576393+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/get-all/",
             "status": 200
         },
         {
             "title": "Get Import Deployment Request Status",
+            "base_url": "/api/public/v1.0",
             "name": "Get Import Deployment Request Status",
             "description": "Retrieve the status of a specific import deployment request. This endpoint provides detailed information about the current state and history of a single import deployment request.",
             "endpoints": [
@@ -12103,7 +12293,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:44.862740+00:00",
+            "capture_time": "2026-04-26T17:47:17.794887+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/import-deployments/get-status/",
             "status": 200
         }
@@ -12111,6 +12301,7 @@
     "Organizations": [
         {
             "title": "Invite One User to an Ops Manager Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Invite User",
             "description": "Invites one user to the Ops Manager organization that you specify.",
             "endpoints": [
@@ -12165,12 +12356,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:46.117068+00:00",
+            "capture_time": "2026-04-26T17:47:18.619262+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/create-one-invitation/",
             "status": 200
         },
         {
             "title": "Delete One Organization Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Invitation",
             "description": "Deletes one pending invitation to the specified Ops Manager organization. You can't delete an invitation that a user has accepted.",
             "endpoints": [
@@ -12210,12 +12402,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:47.167262+00:00",
+            "capture_time": "2026-04-26T17:47:19.193798+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/delete-one-invitation/",
             "status": 200
         },
         {
             "title": "Get All Organization Invitations",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Invitations",
             "description": "Retrieves all pending invitations to the specified Ops Manager organization.",
             "endpoints": [
@@ -12255,12 +12448,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:48.381454+00:00",
+            "capture_time": "2026-04-26T17:47:20.000731+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-all-invitations/",
             "status": 200
         },
         {
             "title": "Get One Organization Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Get One Invitation",
             "description": "Retrieve details for one pending invitation to the specified Ops Manager organization.",
             "endpoints": [
@@ -12300,12 +12494,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:49.238729+00:00",
+            "capture_time": "2026-04-26T17:47:20.857890+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/get-one-invitation/",
             "status": 200
         },
         {
             "title": "Update One Organization Invitation by Invitation ID",
+            "base_url": "/api/public/v1.0",
             "name": "Update by Invitation ID",
             "description": "Updates one pending invitation by {INVITATION-ID} to the Ops Manager organization that you specify.",
             "endpoints": [
@@ -12353,12 +12548,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:50.466407+00:00",
+            "capture_time": "2026-04-26T17:47:21.800763+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation-by-id/",
             "status": 200
         },
         {
             "title": "Update One Organization Invitation",
+            "base_url": "/api/public/v1.0",
             "name": "Update Invitation",
             "description": "Updates one pending invitation to the Ops Manager organization that you specify.",
             "endpoints": [
@@ -12406,12 +12602,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:51.369510+00:00",
+            "capture_time": "2026-04-26T17:47:22.675179+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/invitations/organizations/update-one-invitation/",
             "status": 200
         },
         {
             "title": "Create One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Create Organization",
             "description": "No description.",
             "endpoints": [
@@ -12479,12 +12676,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:22.687697+00:00",
+            "capture_time": "2026-04-26T17:47:48.359568+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-create-one/",
             "status": 200
         },
         {
             "title": "Delete One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Delete Organization",
             "description": "No description.",
             "endpoints": [
@@ -12517,12 +12715,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:23.934420+00:00",
+            "capture_time": "2026-04-26T17:47:48.988048+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-delete-one/",
             "status": 200
         },
         {
             "title": "Get All Projects in an Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Projects",
             "description": "No description.",
             "endpoints": [
@@ -12576,12 +12775,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:24.961381+00:00",
+            "capture_time": "2026-04-26T17:47:49.676475+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-projects/",
             "status": 200
         },
         {
             "title": "Get All Organization Users",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Users",
             "description": "No description.",
             "endpoints": [
@@ -12628,12 +12828,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:25.992554+00:00",
+            "capture_time": "2026-04-26T17:47:50.275404+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all-users/",
             "status": 200
         },
         {
             "title": "Get All Organizations",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Organizations",
             "description": "No description.",
             "endpoints": [
@@ -12686,12 +12887,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:27.385381+00:00",
+            "capture_time": "2026-04-26T17:47:50.897538+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-all/",
             "status": 200
         },
         {
             "title": "Get One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Get One Organization",
             "description": "No description.",
             "endpoints": [
@@ -12731,12 +12933,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:28.362701+00:00",
+            "capture_time": "2026-04-26T17:47:51.859833+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-get-one/",
             "status": 200
         },
         {
             "title": "Update One Organization",
+            "base_url": "/api/public/v1.0",
             "name": "Rename Organization",
             "description": "Use this endpoint to make any of the following changes to one organization:",
             "endpoints": [
@@ -12784,7 +12987,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:29.637301+00:00",
+            "capture_time": "2026-04-26T17:47:52.984352+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/organizations/organization-rename/",
             "status": 200
         }
@@ -12792,6 +12995,7 @@
     "BackupEncryptionKeys": [
         {
             "title": "Retrieve the KMIP Master Key ID",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve KMIP Master Key ID",
             "description": "Use the GET HTTP method with the same endpoint to retrieve the ID of the current KMIP master key.",
             "endpoints": [
@@ -12831,12 +13035,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:58.096239+00:00",
+            "capture_time": "2026-04-26T17:47:28.741797+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/",
             "status": 200
         },
         {
             "title": "Rotate the KMIP Master Key ID",
+            "base_url": "/api/public/v1.0",
             "name": "Rotate KMIP Master Key ID",
             "description": "Use the PUT HTTP method with the following endpoint to rotate the KMIP master key. Issue one PUT request for each shard and another PUT request for the config server replica set.",
             "endpoints": [
@@ -12876,7 +13081,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:20:59.022213+00:00",
+            "capture_time": "2026-04-26T17:47:29.561735+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/",
             "status": 200
         }
@@ -12884,6 +13089,7 @@
     "LogCollectionJobs": [
         {
             "title": "Delete a Log Collection Job",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to delete a specified log collection job. You can delete both in-progress jobs and completed jobs.",
             "endpoints": [
@@ -12923,12 +13129,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:01.301935+00:00",
+            "capture_time": "2026-04-26T17:47:30.957174+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-delete-one/",
             "status": 200
         },
         {
             "title": "Download Logs from a Log Collection Job",
+            "base_url": "/api/public/v1.0",
             "name": "Download Logs",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to download a .tar.gz file stream for all logs associated with the specified job.",
             "endpoints": [
@@ -12968,12 +13175,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:02.423521+00:00",
+            "capture_time": "2026-04-26T17:47:31.933208+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-download-job/",
             "status": 200
         },
         {
             "title": "Get All Log Collection Jobs for One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Jobs",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retrieve all log collection jobs for a specified Ops Manager project.",
             "endpoints": [
@@ -13027,12 +13235,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:03.779842+00:00",
+            "capture_time": "2026-04-26T17:47:32.894663+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-all/",
             "status": 200
         },
         {
             "title": "Get One Log Collection Job",
+            "base_url": "/api/public/v1.0",
             "name": "Get Job",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retrieve a single log collection job by its unique identifier.",
             "endpoints": [
@@ -13093,12 +13302,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:04.315459+00:00",
+            "capture_time": "2026-04-26T17:47:33.997800+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/",
             "status": 200
         },
         {
             "title": "Retry a Failed Log Collection Job",
+            "base_url": "/api/public/v1.0",
             "name": "Retry",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to retry a single failed log collection job.",
             "endpoints": [
@@ -13138,12 +13348,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:05.278408+00:00",
+            "capture_time": "2026-04-26T17:47:34.887149+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-retry/",
             "status": 200
         },
         {
             "title": "Create a Log Collection Job",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Use this endpoint to create a new log collection job.",
             "endpoints": [
@@ -13212,12 +13423,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:05.895837+00:00",
+            "capture_time": "2026-04-26T17:47:35.854160+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-submit/",
             "status": 200
         },
         {
             "title": "Extend a Log Collection Job",
+            "base_url": "/api/public/v1.0",
             "name": "Extend",
             "description": "When you create a log collection job, Ops Manager starts a background job to download the logs from the specified Ops Manager deployment. Each job is created with a specified expiration date. Use this endpoint to extend the expiration date of an existing log collection job.",
             "endpoints": [
@@ -13265,7 +13477,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:06.517876+00:00",
+            "capture_time": "2026-04-26T17:47:36.768531+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-update-one/",
             "status": 200
         }
@@ -13273,6 +13485,7 @@
     "MaintenanceWindows": [
         {
             "title": "Create One Maintenance Window",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "Create one maintenance window. Ops Manager turns off alert notifications for certain alert types for a period of time you specify to allow maintenance to occur.",
             "endpoints": [
@@ -13334,12 +13547,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:07.775279+00:00",
+            "capture_time": "2026-04-26T17:47:37.433148+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-create-one/",
             "status": 200
         },
         {
             "title": "Delete One Maintenance Window",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "Delete one maintenance window with an end date in the future.",
             "endpoints": [
@@ -13379,12 +13593,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:08.737314+00:00",
+            "capture_time": "2026-04-26T17:47:38.057873+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-delete-one/",
             "status": 200
         },
         {
             "title": "Get All Maintenance Windows",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "Retrieve all maintenance windows with end dates in the future.",
             "endpoints": [
@@ -13417,12 +13632,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:09.584399+00:00",
+            "capture_time": "2026-04-26T17:47:38.625305+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-get-all/",
             "status": 200
         },
         {
             "title": "Get One Maintenance Window",
+            "base_url": "/api/public/v1.0",
             "name": "Get One",
             "description": "Retrieve one maintenance window with an end date in the future.",
             "endpoints": [
@@ -13462,12 +13678,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:10.807059+00:00",
+            "capture_time": "2026-04-26T17:47:39.245783+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-get-one/",
             "status": 200
         },
         {
             "title": "Update One Maintenance Window",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Update one maintenance window with an end date in the future.",
             "endpoints": [
@@ -13536,7 +13753,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:11.460498+00:00",
+            "capture_time": "2026-04-26T17:47:39.915984+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/maintenance-windows-update-one/",
             "status": 200
         }
@@ -13544,6 +13761,7 @@
     "Measurements": [
         {
             "title": "Get Database Measurements",
+            "base_url": "/api/public/v1.0",
             "name": "Database",
             "description": "Database measurements provide statistics on database performance and storage. The Monitoring collects database measurements through the dbStats command.",
             "endpoints": [
@@ -13639,12 +13857,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:14.049240+00:00",
+            "capture_time": "2026-04-26T17:47:42.032161+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/measures/get-database-measurements/",
             "status": 200
         },
         {
             "title": "Get Disk Partition Measurements",
+            "base_url": "/api/public/v1.0",
             "name": "Disk Partition",
             "description": "Disk measurements provide data on IOPS, disk use, and disk latency on the disk partitions for hosts running MongoDB that the Automations collect. You must run Ops Manager Automation to retrieve disk measurements.",
             "endpoints": [
@@ -13740,12 +13959,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:15.126003+00:00",
+            "capture_time": "2026-04-26T17:47:42.904889+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/measures/get-disk-measurements/",
             "status": 200
         },
         {
             "title": "Get Host, Process, System Measurements",
+            "base_url": "/api/public/v1.0",
             "name": "Host",
             "description": "Host measurements provide data on the state of the MongoDB process. The Monitoring collects host measurements through the MongoDB serverStatus and dbStats commands.",
             "endpoints": [
@@ -13834,12 +14054,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:16.479815+00:00",
+            "capture_time": "2026-04-26T17:47:44.188117+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/measures/get-host-process-system-measurements/",
             "status": 200
         },
         {
             "title": "Get Measurement Types",
+            "base_url": "/api/public/v1.0",
             "name": "Get Types",
             "description": "To retrieve the Measurement Types that apply to a specific measurement without returning a large document, issue the following GET command with a value of PT5M for both the granularity and period. This returns a document with only one data point for each measurement.",
             "endpoints": [
@@ -13928,7 +14149,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:17.972154+00:00",
+            "capture_time": "2026-04-26T17:47:45.197194+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/measures/get-measurement-types/",
             "status": 200
         }
@@ -13936,6 +14157,7 @@
     "PerformanceAdvisor": [
         {
             "title": "Get Slow Query Logs",
+            "base_url": "/api/public/v1.0",
             "name": "Get Slow Query Logs",
             "description": "Retrieves log lines for slow queries as determined by the Performance Advisor.",
             "endpoints": [
@@ -14003,12 +14225,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:31.798714+00:00",
+            "capture_time": "2026-04-26T17:47:54.462534+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/",
             "status": 200
         },
         {
             "title": "Get Suggested Indexes",
+            "base_url": "/api/public/v1.0",
             "name": "Get Suggested Indexes",
             "description": "Retrieves suggested indexes as determined by the Performance Advisor.",
             "endpoints": [
@@ -14083,12 +14306,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:33.166878+00:00",
+            "capture_time": "2026-04-26T17:47:55.376179+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/",
             "status": 200
         },
         {
             "title": "Get Namespaces for a Project",
+            "base_url": "/api/public/v1.0",
             "name": "Get Namespaces",
             "description": "Retrieve namespaces for collections experiencing slow queries on a specified host. Namespaces appear in the following format: {database}.{collection}.",
             "endpoints": [
@@ -14142,7 +14366,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:34.205225+00:00",
+            "capture_time": "2026-04-26T17:47:56.272141+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/pa-namespaces-get-all/",
             "status": 200
         }
@@ -14150,6 +14374,7 @@
     "RestoreJobs": [
         {
             "title": "Create One Restore Job for One Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Create (Cluster)",
             "description": "No description.",
             "endpoints": [
@@ -14189,12 +14414,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:37.061321+00:00",
+            "capture_time": "2026-04-26T17:47:58.134050+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-cluster/",
             "status": 200
         },
         {
             "title": "Create One Restore Job for One Legacy Mirrored Config Server",
+            "base_url": "/api/public/v1.0",
             "name": "Create (Config Server)",
             "description": "No description.",
             "endpoints": [
@@ -14319,12 +14545,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:37.903731+00:00",
+            "capture_time": "2026-04-26T17:47:59.212822+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/create-one-restore-job-for-one-sccc-config-server/",
             "status": 200
         },
         {
             "title": "Get All Restore Jobs for One Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Get All (Cluster)",
             "description": "Get all restore jobs for a cluster. CLUSTER-ID must be the ID of either a replica set or a sharded cluster.",
             "endpoints": [
@@ -14386,12 +14613,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:38.593419+00:00",
+            "capture_time": "2026-04-26T17:47:59.867733+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/",
             "status": 200
         },
         {
             "title": "Get All Restore Jobs for One Legacy Mirrored Config Server",
+            "base_url": "/api/public/v1.0",
             "name": "Get All (Config Server)",
             "description": "No description.",
             "endpoints": [
@@ -14445,12 +14673,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:39.630983+00:00",
+            "capture_time": "2026-04-26T17:48:00.572567+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-sccc-config-server/",
             "status": 200
         },
         {
             "title": "Get One Restore Job for One Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Get One (Cluster)",
             "description": "No description.",
             "endpoints": [
@@ -14497,12 +14726,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:40.958236+00:00",
+            "capture_time": "2026-04-26T17:48:00.993215+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-cluster/",
             "status": 200
         },
         {
             "title": "Get One Restore Job for One Legacy Mirrored Config Server",
+            "base_url": "/api/public/v1.0",
             "name": "Get One (Config Server)",
             "description": "No description.",
             "endpoints": [
@@ -14549,7 +14779,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:42.227888+00:00",
+            "capture_time": "2026-04-26T17:48:01.939058+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-one-single-restore-job-for-one-sccc-config-server/",
             "status": 200
         }
@@ -14557,6 +14787,7 @@
     "Root": [
         {
             "title": "Root",
+            "base_url": "/api/public/v1.0",
             "name": "Root",
             "description": "The root resource is the starting point for the Ops Manager API. From here, you can traverse the links to reach all other API resources.",
             "endpoints": [
@@ -14595,7 +14826,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:43.352856+00:00",
+            "capture_time": "2026-04-26T17:48:02.887016+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/root/",
             "status": 200
         }
@@ -14603,6 +14834,7 @@
     "Snapshots": [
         {
             "title": "Change the Expiry of One Snapshot",
+            "base_url": "/api/public/v1.0",
             "name": "Change Expiry",
             "description": "No description.",
             "endpoints": [
@@ -14664,12 +14896,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:45.777807+00:00",
+            "capture_time": "2026-04-26T17:48:05.318260+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/change-expiry-for-one-snapshot/",
             "status": 200
         },
         {
             "title": "Get All Snapshots for One Config Server",
+            "base_url": "/api/public/v1.0",
             "name": "Get All (Config Server)",
             "description": "No description.",
             "endpoints": [
@@ -14723,12 +14956,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:46.807365+00:00",
+            "capture_time": "2026-04-26T17:48:06.467432+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-config-server/",
             "status": 200
         },
         {
             "title": "Get All Snapshots for One Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Get All (Cluster)",
             "description": "No description.",
             "endpoints": [
@@ -14789,12 +15023,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:47.725351+00:00",
+            "capture_time": "2026-04-26T17:48:07.152913+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-all-snapshots-for-one-cluster/",
             "status": 200
         },
         {
             "title": "Get One Snapshot for One Config Server",
+            "base_url": "/api/public/v1.0",
             "name": "Get One (Config Server)",
             "description": "No description.",
             "endpoints": [
@@ -14841,12 +15076,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:48.974186+00:00",
+            "capture_time": "2026-04-26T17:48:08.120037+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-one-snapshot-for-config-server/",
             "status": 200
         },
         {
             "title": "Get One Snapshot for One Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Get One (Cluster)",
             "description": "No description.",
             "endpoints": [
@@ -14893,12 +15129,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:49.893154+00:00",
+            "capture_time": "2026-04-26T17:48:08.722987+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/get-one-snapshot-for-one-cluster/",
             "status": 200
         },
         {
             "title": "Remove One Snapshot from a Cluster",
+            "base_url": "/api/public/v1.0",
             "name": "Remove One",
             "description": "No description.",
             "endpoints": [
@@ -14945,12 +15182,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:51.049141+00:00",
+            "capture_time": "2026-04-26T17:48:09.397495+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/remove-one-snapshot-from-one-cluster/",
             "status": 200
         },
         {
             "title": "Create an On-Demand Snapshot",
+            "base_url": "/api/public/v1.0",
             "name": "Create One On-Demand (Cluster)",
             "description": "No description.",
             "endpoints": [
@@ -14990,7 +15228,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:51.656455+00:00",
+            "capture_time": "2026-04-26T17:48:10.034132+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/snapshots/take-an-on-demand-snapshot/",
             "status": 200
         }
@@ -14998,6 +15236,7 @@
     "Teams": [
         {
             "title": "Add Users to Team",
+            "base_url": "/api/public/v1.0",
             "name": "Add Users",
             "description": "No description.",
             "endpoints": [
@@ -15045,12 +15284,13 @@
                 }
             ],
             "body_type": "array",
-            "capture_time": "2026-04-23T21:21:53.981449+00:00",
+            "capture_time": "2026-04-26T17:48:11.483059+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-add-user/",
             "status": 200
         },
         {
             "title": "Create a Team",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "No description.",
             "endpoints": [
@@ -15091,12 +15331,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:55.210149+00:00",
+            "capture_time": "2026-04-26T17:48:12.344737+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-create-one/",
             "status": 200
         },
         {
             "title": "Delete One Team",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
@@ -15136,12 +15377,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:56.166269+00:00",
+            "capture_time": "2026-04-26T17:48:12.993015+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-delete-one/",
             "status": 200
         },
         {
             "title": "Get All Users Assigned to a Team",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Team Users",
             "description": "No description.",
             "endpoints": [
@@ -15195,12 +15437,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:56.926029+00:00",
+            "capture_time": "2026-04-26T17:48:13.912108+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all-users/",
             "status": 200
         },
         {
             "title": "Get All Teams",
+            "base_url": "/api/public/v1.0",
             "name": "Get All",
             "description": "No description.",
             "endpoints": [
@@ -15247,12 +15490,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:58.305780+00:00",
+            "capture_time": "2026-04-26T17:48:14.775192+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-all/",
             "status": 200
         },
         {
             "title": "Get One Team by ID",
+            "base_url": "/api/public/v1.0",
             "name": "Get One by ID",
             "description": "No description.",
             "endpoints": [
@@ -15292,12 +15536,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:58.932719+00:00",
+            "capture_time": "2026-04-26T17:48:15.673912+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-id/",
             "status": 200
         },
         {
             "title": "Get One Team by Name",
+            "base_url": "/api/public/v1.0",
             "name": "Get One by Name",
             "description": "No description.",
             "endpoints": [
@@ -15337,12 +15582,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:21:59.574901+00:00",
+            "capture_time": "2026-04-26T17:48:16.549238+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-get-one-by-name/",
             "status": 200
         },
         {
             "title": "Remove a User from a Team",
+            "base_url": "/api/public/v1.0",
             "name": "Remove User",
             "description": "No description.",
             "endpoints": [
@@ -15389,12 +15635,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:01.031620+00:00",
+            "capture_time": "2026-04-26T17:48:18.157708+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-remove-user/",
             "status": 200
         },
         {
             "title": "Rename a Team",
+            "base_url": "/api/public/v1.0",
             "name": "Rename",
             "description": "No description.",
             "endpoints": [
@@ -15442,12 +15689,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:02.278121+00:00",
+            "capture_time": "2026-04-26T17:48:19.092049+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-rename-one/",
             "status": 200
         },
         {
             "title": "Update Team Roles in One Project",
+            "base_url": "/api/public/v1.0",
             "name": "Update Roles",
             "description": "No description.",
             "endpoints": [
@@ -15495,7 +15743,7 @@
                 }
             ],
             "body_type": "array",
-            "capture_time": "2026-04-23T21:22:03.230966+00:00",
+            "capture_time": "2026-04-26T17:48:19.925831+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/teams/teams-update-roles/",
             "status": 200
         }
@@ -15503,6 +15751,7 @@
     "Telemetry": [
         {
             "title": "Retrieve Telemetry Data",
+            "base_url": "/api/private/v1.0/telemetry",
             "name": "Retrieve Telemetry Data",
             "description": "Retrieve telemetry collection status and configuration details for your Ops Manager installation.",
             "endpoints": [
@@ -15512,12 +15761,13 @@
             "query_params": [],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:05.109499+00:00",
+            "capture_time": "2026-04-26T17:48:21.136499+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/telemetry/get-data/",
             "status": 200
         },
         {
             "title": "Toggle Telemetry Status",
+            "base_url": "/api/private/v1.0/telemetry",
             "name": "Toggle Telemetry Status",
             "description": "Enable or disable telemetry collection for your Ops Manager installation.",
             "endpoints": [
@@ -15535,7 +15785,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:05.878505+00:00",
+            "capture_time": "2026-04-26T17:48:21.682779+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/telemetry/toggle-status/",
             "status": 200
         }
@@ -15543,6 +15793,7 @@
     "IntegrationSettings": [
         {
             "title": "Create a Configuration for a Third-Party Service Integration",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "Use the following dataclasses to pass the integration settings:\n- PagerDutyIntegrationSettings\n- SlackIntegrationSettings\n- DatadogIntegrationSettings\n- HipChatIntegrationSettings\n- OpsgenieIntegrationSettings\n- VictorOpsIntegrationSettings\n- WebhookIntegrationSettings\n- MicrosoftTeamsIntegrationSettings\n- PrometheusIntegrationSettings\n",
             "endpoints": [
@@ -15604,12 +15855,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-24T07:59:50.545739+00:00",
+            "capture_time": "2026-04-26T17:48:22.305332+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
             "status": 200
         },
         {
             "title": "Delete a Configuration for a Third-Party Service Integration",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
@@ -15663,12 +15915,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-24T07:59:51.386293+00:00",
+            "capture_time": "2026-04-26T17:48:23.098810+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/",
             "status": 200
         },
         {
             "title": "Return the Latest Targets for Prometheus",
+            "base_url": "/prometheus/v1.0/",
             "name": "Return Latest Prometheus Targets",
             "description": "No description.",
             "endpoints": [
@@ -15715,12 +15968,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-24T07:59:51.975130+00:00",
+            "capture_time": "2026-04-26T17:48:23.680174+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/",
             "status": 200
         },
         {
             "title": "Get All Configurations for Third-Party Service Integrations",
+            "base_url": "/api/public/v1.0",
             "name": "Get All Configurations",
             "description": "No description.",
             "endpoints": [
@@ -15767,12 +16021,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-24T07:59:52.652887+00:00",
+            "capture_time": "2026-04-26T17:48:24.363721+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/",
             "status": 200
         },
         {
             "title": "Get the Configuration of a Third-Party Service Integration",
+            "base_url": "/api/public/v1.0",
             "name": "Get One Configuration",
             "description": "No description.",
             "endpoints": [
@@ -15826,12 +16081,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-24T07:59:53.163175+00:00",
+            "capture_time": "2026-04-26T17:48:24.968924+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/",
             "status": 200
         },
         {
             "title": "Update a Configuration for a Third-Party Service Integration",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Use the following dataclasses to pass the integration settings:\n- PagerDutyIntegrationSettings\n- SlackIntegrationSettings\n- DatadogIntegrationSettings\n- HipChatIntegrationSettings\n- OpsgenieIntegrationSettings\n- VictorOpsIntegrationSettings\n- WebhookIntegrationSettings\n- MicrosoftTeamsIntegrationSettings\n- PrometheusIntegrationSettings\n",
             "endpoints": [
@@ -15893,7 +16149,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-24T07:59:53.745109+00:00",
+            "capture_time": "2026-04-26T17:48:25.801730+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/",
             "status": 200
         }
@@ -15901,6 +16157,7 @@
     "Users": [
         {
             "title": "Create the First User",
+            "base_url": "/api/public/v1.0",
             "name": "Create First User",
             "description": "Create the first Ops Manager user. You can call this endpoint without having an API key.",
             "endpoints": [
@@ -15954,12 +16211,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:28.039401+00:00",
+            "capture_time": "2026-04-26T17:48:39.113637+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create-first/",
             "status": 200
         },
         {
             "title": "Create One User",
+            "base_url": "/api/public/v1.0",
             "name": "Create",
             "description": "Create a new user. By default, any non-global organization and project roles in the payload send users an invitation to the organization or project first.",
             "endpoints": [
@@ -16055,12 +16313,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:28.787056+00:00",
+            "capture_time": "2026-04-26T17:48:40.062201+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-create/",
             "status": 200
         },
         {
             "title": "Get a User by ID",
+            "base_url": "/api/public/v1.0",
             "name": "Get by ID",
             "description": "You can always retrieve your own user account. Otherwise, you must be a global user or you must have the Project User Admin role in at least one project that is common between you and the user you are retrieving.",
             "endpoints": [
@@ -16093,12 +16352,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:29.820608+00:00",
+            "capture_time": "2026-04-26T17:48:40.966885+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-id/",
             "status": 200
         },
         {
             "title": "Get a User by Name",
+            "base_url": "/api/public/v1.0",
             "name": "Get by Name",
             "description": "You can always retrieve your own user account. Otherwise, you must be a global user or you must have the Project User Admin role in at least one project that is common between you and the user you are retrieving.",
             "endpoints": [
@@ -16131,12 +16391,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:31.066379+00:00",
+            "capture_time": "2026-04-26T17:48:41.802399+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-get-by-name/",
             "status": 200
         },
         {
             "title": "Update Roles for One User",
+            "base_url": "/api/public/v1.0",
             "name": "Update Roles",
             "description": "Add, update, or remove a user's roles within an organization or project. By default, any new non-global organization and project roles in the payload send users an invitation to the organization or project first. You can add users directly to an organization or project only if you set the mms.user.bypassInviteForExistingUsers setting to true.",
             "endpoints": [
@@ -16198,12 +16459,13 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:31.780642+00:00",
+            "capture_time": "2026-04-26T17:48:42.432364+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/user-update/",
             "status": 200
         },
         {
             "title": "Remove One User",
+            "base_url": "/api/public/v1.0",
             "name": "Delete",
             "description": "Removes one user from Ops Manager by user ID.",
             "endpoints": [
@@ -16236,7 +16498,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:33.593072+00:00",
+            "capture_time": "2026-04-26T17:48:43.853094+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/users/delete-one-user/",
             "status": 200
         }
@@ -16244,6 +16506,7 @@
     "VersionManifest": [
         {
             "title": "Retrieve the Ops Manager Version Manifest",
+            "base_url": "/api/public/v1.0",
             "name": "Retrieve",
             "description": "Use this resource to retrieve the version manifest that Ops Manager is configured to use.",
             "endpoints": [
@@ -16261,12 +16524,13 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:35.419726+00:00",
+            "capture_time": "2026-04-26T17:48:45.252640+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/get-om-version-manifest/",
             "status": 200
         },
         {
             "title": "Update the Version Manifest",
+            "base_url": "/api/public/v1.0",
             "name": "Update",
             "description": "Use this resource to upload the latest version manifest from MongoDB, Inc.",
             "endpoints": [
@@ -16284,7 +16548,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:22:36.545457+00:00",
+            "capture_time": "2026-04-26T17:48:45.791812+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/version-manifest/update-version-manifest/",
             "status": 200
         }

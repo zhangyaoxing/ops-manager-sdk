@@ -18,7 +18,7 @@ class OpsManagerClient:
         assert base_url and public_key and private_key, "Base URL, public key, and private key are required to initialize the OpsManagerClient."
         auth: Auth = DigestAuth(public_key, private_key)
         self._client = Client(
-            base_url=f"{base_url.rstrip('/')}/api/public/v1.0",
+            base_url=f"{base_url.rstrip('/')}",
             headers={
                 "Accept": "application/json",
                 "Content-Type": "application/json",

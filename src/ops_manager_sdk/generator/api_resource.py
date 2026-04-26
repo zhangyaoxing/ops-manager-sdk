@@ -118,6 +118,7 @@ class APIResource:
         normalized_apis: list[dict[str, Any]] = []
         for api in self.apis:
             verb, path = self._resolve_endpoint(api["endpoints"][0])
+            base_url = api.get("base_url", "")
             doc = f"""
 ## {api['title']}
 ### Document:
@@ -148,7 +149,7 @@ class APIResource:
                     ),
                     "params_class_name": re.sub(r"[^\w]+", "", api["name"].title()),
                     "verb": verb,
-                    "path": path,
+                    "path": f"{base_url}{path}",
                     "path_params": {
                         "required": path_required,
                         "needed": path_needed,

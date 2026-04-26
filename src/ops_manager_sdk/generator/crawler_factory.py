@@ -20,6 +20,7 @@ class StandardCrawler:
         "title": "xpath=(//h1)[1]",
         "name": "xpath=(//a[@aria-current='page'])[1]",
         "description": "xpath=(//div[@class='body'])[1]/section[1]/p[1]",
+        "base_url": "xpath=(//div[@class='body'])[1]//p[contains(text(), 'Base URL')][1]/code[1]",
         "endpoints": "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[contains(@class, 'intro-code-block')]//td",
         "path_params": "xpath=(//h3[contains(text(), 'Path Parameters')])[1]/following-sibling::div[1]/table",
         "query_params": "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::div/table",
@@ -165,6 +166,16 @@ class StandardCrawler:
         logger.warning(f"No title found in document: {page.url}")
         return "Untitled API"
 
+    def get_base_url(self, page: Page) -> str:
+        base_url_locator = page.locator(self.LOCATORS["base_url"])
+        if base_url_locator.count() > 0:
+            base_url: str = base_url_locator.inner_text()
+            base_url = base_url.split("{PORT}")[1].strip()
+            logger.debug(f"Extracted base URL: {base_url} from {page.url}")
+            return base_url
+        logger.warning(f"No base URL found in document: {page.url}")
+        return ""
+
     def get_resource_name(self, page: Page) -> str:
         resource_name_locator = page.locator(self.LOCATORS["resource"])
         if resource_name_locator.count() > 0:
@@ -232,22 +243,24 @@ class StandardCrawler:
             if status is None or status >= 300 or status < 200:
                 raise httpx.HTTPError(f"Failed to load page with status code: {status}")
 
-            title: str = self.get_title(page)
-            action_name: str = self.get_action_name(page)
-            resource_name: str = self.get_resource_name(page)
-            description: str = self.get_description(page)
             endpoints: list[str] = self.get_endpoints(page)
-            path_params: list[dict[str, Any]] = self.get_path_params(page)
-            query_params: list[dict[str, Any]] = self.get_query_params(page)
-            body_params: list[dict[str, Any]] = self.get_body_params(page)
-            body_type: str = self.get_body_description(page)
             if len(endpoints) == 0:
                 logger.warning(
                     f"No endpoints found for URL: {url}. Skipping this API documentation."
                 )
                 return None, None
+            title: str = self.get_title(page)
+            base_url: str = self.get_base_url(page)
+            action_name: str = self.get_action_name(page)
+            resource_name: str = self.get_resource_name(page)
+            description: str = self.get_description(page)
+            path_params: list[dict[str, Any]] = self.get_path_params(page)
+            query_params: list[dict[str, Any]] = self.get_query_params(page)
+            body_params: list[dict[str, Any]] = self.get_body_params(page)
+            body_type: str = self.get_body_description(page)
             return resource_name, {
                 "title": title,
+                "base_url": base_url,
                 "name": action_name,
                 "description": description,
                 "endpoints": endpoints,
@@ -378,6 +391,11 @@ class AutomationStatusCrawler(StandardCrawler):
         return list(endpoints)
 
 
+class UpdateSSCrawler(StandardCrawler):
+    def get_base_url(self, page):
+        return "/api/public/v1.0"
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -405,6 +423,7 @@ class CrawlerFactory:
             context
         )
         CrawlerFactory.crawlers["automation_status"] = AutomationStatusCrawler(context)
+        CrawlerFactory.crawlers["update_ss"] = UpdateSSCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -452,6 +471,8 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["invitations"]
         elif "/automation-status-full/" in url:
             crawler = CrawlerFactory.crawlers["automation_status"]
+        elif "/update-one-snapshot-schedule-by-cluster-id/" in url:
+            crawler = CrawlerFactory.crawlers["update_ss"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

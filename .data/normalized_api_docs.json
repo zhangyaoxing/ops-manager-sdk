@@ -4,7 +4,7 @@
             "method_name": "add_entries",
             "params_class_name": "AddEntries",
             "verb": "POST",
-            "path": "/users/{USER-ID}/accessList",
+            "path": "/api/public/v1.0/users/{USER-ID}/accessList",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -85,7 +85,7 @@
             "method_name": "delete_entry",
             "params_class_name": "DeleteEntry",
             "verb": "DELETE",
-            "path": "/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
+            "path": "/api/public/v1.0/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -147,7 +147,7 @@
             "method_name": "get_for_current_user",
             "params_class_name": "GetForCurrentUser",
             "verb": "GET",
-            "path": "/users/{USER-ID}/accessList",
+            "path": "/api/public/v1.0/users/{USER-ID}/accessList",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -218,7 +218,7 @@
             "method_name": "get_for_ip_address",
             "params_class_name": "GetForIpAddress",
             "verb": "GET",
-            "path": "/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
+            "path": "/api/public/v1.0/users/{USER-ID}/accessList/{ACCESS-LIST-ENTRY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -282,7 +282,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "PUT",
-            "path": "/daemon/configs/{MACHINE}",
+            "path": "/api/public/v1.0/admin/backup/daemon/configs/{MACHINE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -445,7 +445,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
+            "path": "/api/public/v1.0/admin/backup/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -507,7 +507,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/daemon/configs",
+            "path": "/api/public/v1.0/admin/backup/daemon/configs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -577,7 +577,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
+            "path": "/api/public/v1.0/admin/backup/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -639,7 +639,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
+            "path": "/api/public/v1.0/admin/backup/daemon/configs/{MACHINE}/{HEAD-ROOT-DIRECTORY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -813,7 +813,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups",
+            "path": "/api/public/v1.0/admin/backup/groups",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -874,7 +874,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}",
+            "path": "/api/public/v1.0/admin/backup/groups/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -927,7 +927,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}",
+            "path": "/api/public/v1.0/admin/backup/groups/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -1112,7 +1112,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/oplog/mongoConfigs",
+            "path": "/api/public/v1.0/admin/backup/oplog/mongoConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -1228,7 +1228,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -1281,7 +1281,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/oplog/mongoConfigs",
+            "path": "/api/public/v1.0/admin/backup/oplog/mongoConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -1351,7 +1351,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -1404,7 +1404,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/oplog/mongoConfigs/{OPLOG-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -1523,7 +1523,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/oplog/s3Configs",
+            "path": "/api/public/v1.0/admin/backup/oplog/s3Configs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -1757,7 +1757,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -1810,7 +1810,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/oplog/s3Configs",
+            "path": "/api/public/v1.0/admin/backup/oplog/s3Configs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -1880,7 +1880,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -1933,7 +1933,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/oplog/s3Configs/{S3-OPLOG-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2170,7 +2170,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/snapshot/fileSystemConfigs",
+            "path": "/api/public/v1.0/admin/backup/snapshot/fileSystemConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -2277,7 +2277,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2330,7 +2330,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/snapshot/fileSystemConfigs",
+            "path": "/api/public/v1.0/admin/backup/snapshot/fileSystemConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -2400,7 +2400,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2453,7 +2453,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/fileSystemConfigs/{FILE-SYSTEM-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2563,7 +2563,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/snapshot/mongoConfigs",
+            "path": "/api/public/v1.0/admin/backup/snapshot/mongoConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -2688,7 +2688,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2741,7 +2741,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/snapshot/mongoConfigs",
+            "path": "/api/public/v1.0/admin/backup/snapshot/mongoConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -2811,7 +2811,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2864,7 +2864,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/mongoConfigs/{BLOCKSTORE-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -2992,7 +2992,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/snapshot/s3Configs",
+            "path": "/api/public/v1.0/admin/backup/snapshot/s3Configs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -3244,7 +3244,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -3297,7 +3297,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/snapshot/s3Configs",
+            "path": "/api/public/v1.0/admin/backup/snapshot/s3Configs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -3367,7 +3367,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -3420,7 +3420,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/snapshot/s3Configs/{S3-BLOCKSTORE-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -3675,7 +3675,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/sync/mongoConfigs",
+            "path": "/api/public/v1.0/admin/backup/sync/mongoConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -3791,7 +3791,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -3844,7 +3844,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/sync/mongoConfigs",
+            "path": "/api/public/v1.0/admin/backup/sync/mongoConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -3914,7 +3914,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -3967,7 +3967,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
+            "path": "/api/public/v1.0/admin/backup/sync/mongoConfigs/{SYNC-STORE-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4086,7 +4086,7 @@
             "method_name": "create_api_key",
             "params_class_name": "CreateApiKey",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/agentapikeys",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/agentapikeys",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4149,7 +4149,7 @@
             "method_name": "remove_api_key",
             "params_class_name": "RemoveApiKey",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/agentapikeys/{API-AGENT-KEY-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/agentapikeys/{API-AGENT-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4211,7 +4211,7 @@
             "method_name": "get_all_api_keys",
             "params_class_name": "GetAllApiKeys",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/agentapikeys",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/agentapikeys",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4264,7 +4264,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/agents",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/agents",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4335,7 +4335,7 @@
             "method_name": "get_by_type",
             "params_class_name": "GetByType",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/agents/{TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/agents/{TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4415,7 +4415,7 @@
             "method_name": "retrieve_all_versions",
             "params_class_name": "RetrieveAllVersions",
             "verb": "GET",
-            "path": "/softwareComponents/versions/",
+            "path": "/api/public/v1.0/softwareComponents/versions/",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -4458,7 +4458,7 @@
             "method_name": "retrieve_for_one_project",
             "params_class_name": "RetrieveForOneProject",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/agents/versions",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/agents/versions",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4513,7 +4513,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/alertConfigs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4881,7 +4881,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -4943,7 +4943,7 @@
             "method_name": "enable_disable",
             "params_class_name": "EnableDisable",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5015,7 +5015,7 @@
             "method_name": "get_all_for_a_project",
             "params_class_name": "GetAllForAProject",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/alertConfigs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5086,7 +5086,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5166,7 +5166,7 @@
             "method_name": "get_matchers_field_names",
             "params_class_name": "GetMatchersFieldNames",
             "verb": "GET",
-            "path": "/alertConfigs/matchers/fieldNames",
+            "path": "/api/public/v1.0/alertConfigs/matchers/fieldNames",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -5209,7 +5209,7 @@
             "method_name": "get_open_alerts",
             "params_class_name": "GetOpenAlerts",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}/alerts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5341,7 +5341,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alertConfigs/{ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5720,7 +5720,7 @@
             "method_name": "acknowledge_one",
             "params_class_name": "AcknowledgeOne",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5801,7 +5801,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alerts/{ALERT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5863,7 +5863,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/alerts",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/alerts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -5945,7 +5945,7 @@
             "method_name": "create_entry",
             "params_class_name": "CreateEntry",
             "verb": "POST",
-            "path": "/admin/accessList",
+            "path": "/api/public/v1.0/admin/accessList",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -6007,7 +6007,7 @@
             "method_name": "delete_entry",
             "params_class_name": "DeleteEntry",
             "verb": "DELETE",
-            "path": "/admin/accessList/{ACCESS-LIST-ID}",
+            "path": "/api/public/v1.0/admin/accessList/{ACCESS-LIST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6060,7 +6060,7 @@
             "method_name": "get_all_entries",
             "params_class_name": "GetAllEntries",
             "verb": "GET",
-            "path": "/admin/accessList",
+            "path": "/api/public/v1.0/admin/accessList",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -6121,7 +6121,7 @@
             "method_name": "get_one_entry",
             "params_class_name": "GetOneEntry",
             "verb": "GET",
-            "path": "/admin/accessList/{ACCESS-LIST-ID}",
+            "path": "/api/public/v1.0/admin/accessList/{ACCESS-LIST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6174,7 +6174,7 @@
             "method_name": "update_entry",
             "params_class_name": "UpdateEntry",
             "verb": "PATCH",
-            "path": "/admin/accessList/{ACCESS-LIST-ID}",
+            "path": "/api/public/v1.0/admin/accessList/{ACCESS-LIST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6229,7 +6229,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/admin/apiKeys",
+            "path": "/api/public/v1.0/admin/apiKeys",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -6291,7 +6291,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/admin/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/admin/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6344,7 +6344,7 @@
             "method_name": "get_all_roles",
             "params_class_name": "GetAllRoles",
             "verb": "GET",
-            "path": "/admin/apiKeys/roles",
+            "path": "/api/public/v1.0/admin/apiKeys/roles",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -6405,7 +6405,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/admin/apiKeys",
+            "path": "/api/public/v1.0/admin/apiKeys",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -6466,7 +6466,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/admin/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/admin/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6519,7 +6519,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/admin/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/admin/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6593,7 +6593,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/orgs/{ORG-ID}/apiKeys",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6683,7 +6683,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6763,7 +6763,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/apiKeys",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6834,7 +6834,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -6914,7 +6914,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7015,7 +7015,7 @@
             "method_name": "create_entries",
             "params_class_name": "CreateEntries",
             "verb": "POST",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7114,7 +7114,7 @@
             "method_name": "delete_entry",
             "params_class_name": "DeleteEntry",
             "verb": "DELETE",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7203,7 +7203,7 @@
             "method_name": "get_all_entries",
             "params_class_name": "GetAllEntries",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7283,7 +7283,7 @@
             "method_name": "get_one_entry",
             "params_class_name": "GetOneEntry",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/apiKeys/{API-KEY-ID}/accessList/{ACCESS-LIST-ENTRY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7374,7 +7374,7 @@
             "method_name": "assign",
             "params_class_name": "Assign",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7464,7 +7464,7 @@
             "method_name": "create_assign",
             "params_class_name": "CreateAssign",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/apiKeys",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/apiKeys",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7554,7 +7554,7 @@
             "method_name": "unassign",
             "params_class_name": "Unassign",
             "verb": "DELETE",
-            "path": "/orgs/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/orgs/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7634,7 +7634,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/apiKeys",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/apiKeys",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7705,7 +7705,7 @@
             "method_name": "modify_roles",
             "params_class_name": "ModifyRoles",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/apiKeys/{API-KEY-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7797,7 +7797,7 @@
             "method_name": "get_the_audit_log_rotate_configuration",
             "params_class_name": "GetTheAuditLogRotateConfiguration",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7850,7 +7850,7 @@
             "method_name": "get_the_automation_configuration_no_secrets",
             "params_class_name": "GetTheAutomationConfigurationNoSecrets",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationConfig/noSecrets",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/noSecrets",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7903,7 +7903,7 @@
             "method_name": "get_the_automation_configuration",
             "params_class_name": "GetTheAutomationConfiguration",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -7956,7 +7956,7 @@
             "method_name": "get_backup_configuration_settings",
             "params_class_name": "GetBackupConfigurationSettings",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8009,7 +8009,7 @@
             "method_name": "get_monitoring_configuration_settings",
             "params_class_name": "GetMonitoringConfigurationSettings",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8062,7 +8062,7 @@
             "method_name": "get_the_system_log_rotate_configuration",
             "params_class_name": "GetTheSystemLogRotateConfiguration",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8115,7 +8115,7 @@
             "method_name": "update_agent_versions",
             "params_class_name": "UpdateAgentVersions",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/automationConfig/updateAgentVersions",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/updateAgentVersions",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8196,7 +8196,7 @@
             "method_name": "update_the_audit_log_rotate_config",
             "params_class_name": "UpdateTheAuditLogRotateConfig",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/auditLogRotateConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8295,7 +8295,7 @@
             "method_name": "update_the_automation_configuration_no_secrets",
             "params_class_name": "UpdateTheAutomationConfigurationNoSecrets",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/automationConfig/noSecrets",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/noSecrets",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8348,7 +8348,7 @@
             "method_name": "update_the_automation_configuration",
             "params_class_name": "UpdateTheAutomationConfiguration",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/automationConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8401,7 +8401,7 @@
             "method_name": "update_backup_configuration_settings",
             "params_class_name": "UpdateBackupConfigurationSettings",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/backupAgentConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8510,7 +8510,7 @@
             "method_name": "update_monitoring_configuration_settings",
             "params_class_name": "UpdateMonitoringConfigurationSettings",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/monitoringAgentConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8619,7 +8619,7 @@
             "method_name": "update_the_system_log_rotate_config",
             "params_class_name": "UpdateTheSystemLogRotateConfig",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationConfig/systemLogRotateConfig",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8720,7 +8720,7 @@
             "method_name": "get_status_of_last_50_plans",
             "params_class_name": "GetStatusOfLast50Plans",
             "verb": "GET",
-            "path": "/groups/{GROUP-ID}/automationStatus/full",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/automationStatus/full",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8773,7 +8773,7 @@
             "method_name": "get_status",
             "params_class_name": "GetStatus",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/automationStatus",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/automationStatus",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8828,7 +8828,7 @@
             "method_name": "assign",
             "params_class_name": "Assign",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8928,7 +8928,7 @@
             "method_name": "create_by_id",
             "params_class_name": "CreateById",
             "verb": "PUT",
-            "path": "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
+            "path": "/api/public/v1.0/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9027,7 +9027,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/admin/backup/backupDeployments",
+            "path": "/api/public/v1.0/admin/backup/backupDeployments",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -9125,7 +9125,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
+            "path": "/api/public/v1.0/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9178,7 +9178,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/admin/backup/backupDeployments",
+            "path": "/api/public/v1.0/admin/backup/backupDeployments",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -9239,7 +9239,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
+            "path": "/api/public/v1.0/admin/backup/backupDeployments/{DEPLOYMENT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9312,7 +9312,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/backupConfigs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9383,7 +9383,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9445,7 +9445,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/groups/{projectId}/backupConfigs/{clusterId}",
+            "path": "/api/public/v1.0/groups/{projectId}/backupConfigs/{clusterId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9646,7 +9646,7 @@
             "method_name": "get_schedule",
             "params_class_name": "GetSchedule",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9708,7 +9708,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9899,7 +9899,7 @@
             "method_name": "connect_with_atlas_organization",
             "params_class_name": "ConnectWithAtlasOrganization",
             "verb": "POST",
-            "path": "/orgs/{orgId}/liveExport/migrationLink",
+            "path": "/api/public/v1.0/orgs/{orgId}/liveExport/migrationLink",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9962,7 +9962,7 @@
             "method_name": "remove_connection",
             "params_class_name": "RemoveConnection",
             "verb": "DELETE",
-            "path": "/orgs/{orgId}/liveExport/migrationLink",
+            "path": "/api/public/v1.0/orgs/{orgId}/liveExport/migrationLink",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10015,7 +10015,7 @@
             "method_name": "return_connection_status",
             "params_class_name": "ReturnConnectionStatus",
             "verb": "GET",
-            "path": "/orgs/{orgId}/liveExport/migrationLink/status",
+            "path": "/api/public/v1.0/orgs/{orgId}/liveExport/migrationLink/status",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10070,7 +10070,7 @@
             "method_name": "get_all_from_all_projects",
             "params_class_name": "GetAllFromAllProjects",
             "verb": "GET",
-            "path": "/api/public/v1.0/clusters",
+            "path": "/api/public/v1.0/api/public/v1.0/clusters",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -10113,7 +10113,7 @@
             "method_name": "get_all_from_one_project",
             "params_class_name": "GetAllFromOneProject",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/clusters",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10184,7 +10184,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10246,7 +10246,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10320,7 +10320,7 @@
             "method_name": "retrieve_all",
             "params_class_name": "RetrieveAll",
             "verb": "GET",
-            "path": "/groups/availablePolicies",
+            "path": "/api/public/v1.0/groups/availablePolicies",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -10381,7 +10381,7 @@
             "method_name": "retrieve_for_one_project",
             "params_class_name": "RetrieveForOneProject",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/controlledFeature",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/controlledFeature",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10452,7 +10452,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/controlledFeature",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/controlledFeature",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10590,7 +10590,7 @@
             "method_name": "get_by_name",
             "params_class_name": "GetByName",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10661,7 +10661,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10743,7 +10743,7 @@
             "method_name": "get_diagnostic_archive",
             "params_class_name": "GetDiagnosticArchive",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/diagnostics",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/diagnostics",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -10850,7 +10850,7 @@
             "method_name": "create_physical_host",
             "params_class_name": "CreatePhysicalHost",
             "verb": "POST",
-            "path": "/usage/groups",
+            "path": "/api/public/v1.0/usage/groups",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -10958,7 +10958,7 @@
             "method_name": "get_global_usage_report_archive",
             "params_class_name": "GetGlobalUsageReportArchive",
             "verb": "GET",
-            "path": "/usage/report",
+            "path": "/api/public/v1.0/usage/report",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -11037,7 +11037,7 @@
             "method_name": "generate_usage_snapshot",
             "params_class_name": "GenerateUsageSnapshot",
             "verb": "POST",
-            "path": "/usage/dailyCapture",
+            "path": "/api/public/v1.0/usage/dailyCapture",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -11098,7 +11098,7 @@
             "method_name": "retrieve_all_physical_hosts",
             "params_class_name": "RetrieveAllPhysicalHosts",
             "verb": "GET",
-            "path": "/usage/groups",
+            "path": "/api/public/v1.0/usage/groups",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -11159,7 +11159,7 @@
             "method_name": "get_server_type_in_one_organization",
             "params_class_name": "GetServerTypeInOneOrganization",
             "verb": "GET",
-            "path": "/usage/organizations/{orgId}/defaultServerType",
+            "path": "/api/public/v1.0/usage/organizations/{orgId}/defaultServerType",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11212,7 +11212,7 @@
             "method_name": "get_default_server_type",
             "params_class_name": "GetDefaultServerType",
             "verb": "GET",
-            "path": "/usage/groups/{groupId}/defaultServerType",
+            "path": "/api/public/v1.0/usage/groups/{groupId}/defaultServerType",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11265,7 +11265,7 @@
             "method_name": "retreive_one_physical_host",
             "params_class_name": "RetreiveOnePhysicalHost",
             "verb": "GET",
-            "path": "/usage/groups/{physicalHostId}",
+            "path": "/api/public/v1.0/usage/groups/{physicalHostId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11336,7 +11336,7 @@
             "method_name": "list_host_assignments_in_one_organization",
             "params_class_name": "ListHostAssignmentsInOneOrganization",
             "verb": "GET",
-            "path": "/usage/organizations/{orgId}/hosts",
+            "path": "/api/public/v1.0/usage/organizations/{orgId}/hosts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11425,7 +11425,7 @@
             "method_name": "list_host_assignments_in_one_project",
             "params_class_name": "ListHostAssignmentsInOneProject",
             "verb": "GET",
-            "path": "/usage/groups/{groupId}/hosts",
+            "path": "/api/public/v1.0/usage/groups/{groupId}/hosts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11514,7 +11514,7 @@
             "method_name": "list_host_assignments",
             "params_class_name": "ListHostAssignments",
             "verb": "GET",
-            "path": "/usage/assignments",
+            "path": "/api/public/v1.0/usage/assignments",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -11593,7 +11593,7 @@
             "method_name": "remove_physical_host",
             "params_class_name": "RemovePhysicalHost",
             "verb": "DELETE",
-            "path": "/usage/groups/{physicalHostId}",
+            "path": "/api/public/v1.0/usage/groups/{physicalHostId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11664,7 +11664,7 @@
             "method_name": "update_server_type_for_one_organization",
             "params_class_name": "UpdateServerTypeForOneOrganization",
             "verb": "PUT",
-            "path": "/usage/organizations/{orgId}/defaultServerType",
+            "path": "/api/public/v1.0/usage/organizations/{orgId}/defaultServerType",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11746,7 +11746,7 @@
             "method_name": "update_default_server_type",
             "params_class_name": "UpdateDefaultServerType",
             "verb": "PUT",
-            "path": "/usage/groups/{groupId}/defaultServerType",
+            "path": "/api/public/v1.0/usage/groups/{groupId}/defaultServerType",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11828,7 +11828,7 @@
             "method_name": "update_physical_host",
             "params_class_name": "UpdatePhysicalHost",
             "verb": "PUT",
-            "path": "/usage/groups/{physicalHostId}",
+            "path": "/api/public/v1.0/usage/groups/{physicalHostId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -11946,7 +11946,7 @@
             "method_name": "update_server_type",
             "params_class_name": "UpdateServerType",
             "verb": "PUT",
-            "path": "/usage/hosts/{hostId}",
+            "path": "/api/public/v1.0/usage/hosts/{hostId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12030,7 +12030,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12101,7 +12101,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12183,7 +12183,7 @@
             "method_name": "get_all_organization",
             "params_class_name": "GetAllOrganization",
             "verb": "GET",
-            "path": "/orgs/{orgId}/events",
+            "path": "/api/public/v1.0/orgs/{orgId}/events",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12290,7 +12290,7 @@
             "method_name": "get_all_project",
             "params_class_name": "GetAllProject",
             "verb": "GET",
-            "path": "/groups/{groupId}/events",
+            "path": "/api/public/v1.0/groups/{groupId}/events",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12397,7 +12397,7 @@
             "method_name": "get_one_organization",
             "params_class_name": "GetOneOrganization",
             "verb": "GET",
-            "path": "/orgs/{orgId}/events/{eventId}",
+            "path": "/api/public/v1.0/orgs/{orgId}/events/{eventId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12468,7 +12468,7 @@
             "method_name": "get_one_project",
             "params_class_name": "GetOneProject",
             "verb": "GET",
-            "path": "/groups/{groupId}/events/{eventId}",
+            "path": "/api/public/v1.0/groups/{groupId}/events/{eventId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12541,7 +12541,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/globalEvents",
+            "path": "/api/public/v1.0/globalEvents",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -12629,7 +12629,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/globalEvents/{eventId}",
+            "path": "/api/public/v1.0/globalEvents/{eventId}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12684,7 +12684,7 @@
             "method_name": "get_all_open_alerts",
             "params_class_name": "GetAllOpenAlerts",
             "verb": "GET",
-            "path": "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}/alerts",
+            "path": "/api/public/v1.0/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}/alerts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -12755,7 +12755,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/globalAlertConfigs",
+            "path": "/api/public/v1.0/globalAlertConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -13117,7 +13117,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -13170,7 +13170,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/globalAlertConfigs",
+            "path": "/api/public/v1.0/globalAlertConfigs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -13231,7 +13231,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -13327,7 +13327,7 @@
             "method_name": "enable_or_disable",
             "params_class_name": "EnableOrDisable",
             "verb": "PATCH",
-            "path": "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -13390,7 +13390,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
+            "path": "/api/public/v1.0/globalAlertConfigs/{GLOBAL-ALERT-CONFIG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -13764,7 +13764,7 @@
             "method_name": "acknowledge_one",
             "params_class_name": "AcknowledgeOne",
             "verb": "PATCH",
-            "path": "/globalAlerts/{ALERT-ID}",
+            "path": "/api/public/v1.0/globalAlerts/{ALERT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -13836,7 +13836,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/globalAlerts",
+            "path": "/api/public/v1.0/globalAlerts",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -13924,7 +13924,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/globalAlerts/{ALERT-ID}",
+            "path": "/api/public/v1.0/globalAlerts/{ALERT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -13979,7 +13979,7 @@
             "method_name": "add_existing_users",
             "params_class_name": "AddExistingUsers",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/users",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/users",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14070,7 +14070,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14151,7 +14151,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/groups",
+            "path": "/api/public/v1.0/groups",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -14213,7 +14213,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14266,7 +14266,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups",
+            "path": "/api/public/v1.0/groups",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -14327,7 +14327,7 @@
             "method_name": "get_by_specific_tags_for_the_current_user",
             "params_class_name": "GetBySpecificTagsForTheCurrentUser",
             "verb": "GET",
-            "path": "/groups",
+            "path": "/api/public/v1.0/groups",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -14361,7 +14361,7 @@
             "method_name": "get_all_users",
             "params_class_name": "GetAllUsers",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/users",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/users",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14414,7 +14414,7 @@
             "method_name": "get_by_agent_api_key",
             "params_class_name": "GetByAgentApiKey",
             "verb": "GET",
-            "path": "/groups/byAgentApiKey/{AGENT-API-KEY}",
+            "path": "/api/public/v1.0/groups/byAgentApiKey/{AGENT-API-KEY}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14467,7 +14467,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14520,7 +14520,7 @@
             "method_name": "get_by_name",
             "params_class_name": "GetByName",
             "verb": "GET",
-            "path": "/groups/byName/{GROUP-NAME}",
+            "path": "/api/public/v1.0/groups/byName/{GROUP-NAME}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14573,7 +14573,7 @@
             "method_name": "add_teams",
             "params_class_name": "AddTeams",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/teams",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/teams",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14663,7 +14663,7 @@
             "method_name": "get_all_teams",
             "params_class_name": "GetAllTeams",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/teams",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/teams",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14734,7 +14734,7 @@
             "method_name": "remove_user",
             "params_class_name": "RemoveUser",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/users/{USER-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/users/{USER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14796,7 +14796,7 @@
             "method_name": "create_invitation",
             "params_class_name": "CreateInvitation",
             "verb": "POST",
-            "path": "/groups/{GROUP-ID}/invites/",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/invites/",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14868,7 +14868,7 @@
             "method_name": "delete_invitation",
             "params_class_name": "DeleteInvitation",
             "verb": "DELETE",
-            "path": "/groups/{GROUP-ID}/invites/{INVITATION-ID}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/invites/{INVITATION-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14930,7 +14930,7 @@
             "method_name": "get_all_invitations",
             "params_class_name": "GetAllInvitations",
             "verb": "GET",
-            "path": "/groups/{GROUP-ID}/invites",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/invites",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -14992,7 +14992,7 @@
             "method_name": "get_one_invitation",
             "params_class_name": "GetOneInvitation",
             "verb": "GET",
-            "path": "/groups/{GROUP-ID}/invites/{INVITATION-ID}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/invites/{INVITATION-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15054,7 +15054,7 @@
             "method_name": "update_invitation_by_invitation_id",
             "params_class_name": "UpdateInvitationByInvitationId",
             "verb": "PATCH",
-            "path": "/groups/{GROUP-ID}/invites/{INVITATION-ID}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/invites/{INVITATION-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15126,7 +15126,7 @@
             "method_name": "update_invitation",
             "params_class_name": "UpdateInvitation",
             "verb": "PATCH",
-            "path": "/groups/{GROUP-ID}/invites",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/invites",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15198,7 +15198,7 @@
             "method_name": "remove_team",
             "params_class_name": "RemoveTeam",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/teams/{TEAM-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/teams/{TEAM-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15280,7 +15280,7 @@
             "method_name": "begin_monitoring",
             "params_class_name": "BeginMonitoring",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/hosts",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15415,7 +15415,7 @@
             "method_name": "stop_monitoring",
             "params_class_name": "StopMonitoring",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15477,7 +15477,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15557,7 +15557,7 @@
             "method_name": "get_by_hostname_port",
             "params_class_name": "GetByHostnamePort",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/byName/{HOSTNAME}:{PORT}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/byName/{HOSTNAME}:{PORT}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15628,7 +15628,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15690,7 +15690,7 @@
             "method_name": "update_configuration",
             "params_class_name": "UpdateConfiguration",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15818,7 +15818,7 @@
             "method_name": "cancel_import_deployment_request",
             "params_class_name": "CancelImportDeploymentRequest",
             "verb": "POST",
-            "path": "/automation/importDeployment/{PROJECT-ID}/{REQUEST-ID}/cancel",
+            "path": "/api/public/v1.0/automation/importDeployment/{PROJECT-ID}/{REQUEST-ID}/cancel",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -15880,7 +15880,7 @@
             "method_name": "create_import_deployment_request",
             "params_class_name": "CreateImportDeploymentRequest",
             "verb": "POST",
-            "path": "/automation/importDeployment/{PROJECT-ID}",
+            "path": "/api/public/v1.0/automation/importDeployment/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16104,7 +16104,7 @@
             "method_name": "delete_import_deployment_request",
             "params_class_name": "DeleteImportDeploymentRequest",
             "verb": "DELETE",
-            "path": "/automation/importDeployment/{PROJECT-ID}/{REQUEST-ID}",
+            "path": "/api/public/v1.0/automation/importDeployment/{PROJECT-ID}/{REQUEST-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16166,7 +16166,7 @@
             "method_name": "get_import_deployment_requests",
             "params_class_name": "GetImportDeploymentRequests",
             "verb": "GET",
-            "path": "/automation/importDeployment/{PROJECT-ID}",
+            "path": "/api/public/v1.0/automation/importDeployment/{PROJECT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16219,7 +16219,7 @@
             "method_name": "get_import_deployment_request_status",
             "params_class_name": "GetImportDeploymentRequestStatus",
             "verb": "GET",
-            "path": "/automation/importDeployment/{PROJECT-ID}/{IMPORT-PROCESS-ID}",
+            "path": "/api/public/v1.0/automation/importDeployment/{PROJECT-ID}/{IMPORT-PROCESS-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16283,7 +16283,7 @@
             "method_name": "invite_user",
             "params_class_name": "InviteUser",
             "verb": "POST",
-            "path": "/orgs/{ORG-ID}/invites",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/invites",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16364,7 +16364,7 @@
             "method_name": "delete_invitation",
             "params_class_name": "DeleteInvitation",
             "verb": "DELETE",
-            "path": "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/invites/{INVITATION-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16426,7 +16426,7 @@
             "method_name": "get_all_invitations",
             "params_class_name": "GetAllInvitations",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/invites",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/invites",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16488,7 +16488,7 @@
             "method_name": "get_one_invitation",
             "params_class_name": "GetOneInvitation",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/invites/{INVITATION-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16550,7 +16550,7 @@
             "method_name": "update_by_invitation_id",
             "params_class_name": "UpdateByInvitationId",
             "verb": "PATCH",
-            "path": "/orgs/{ORG-ID}/invites/{INVITATION-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/invites/{INVITATION-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16622,7 +16622,7 @@
             "method_name": "update_invitation",
             "params_class_name": "UpdateInvitation",
             "verb": "PATCH",
-            "path": "/orgs/{ORG-ID}/invites",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/invites",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16694,7 +16694,7 @@
             "method_name": "create_organization",
             "params_class_name": "CreateOrganization",
             "verb": "POST",
-            "path": "/orgs",
+            "path": "/api/public/v1.0/orgs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -16793,7 +16793,7 @@
             "method_name": "delete_organization",
             "params_class_name": "DeleteOrganization",
             "verb": "DELETE",
-            "path": "/orgs/{ORG-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16846,7 +16846,7 @@
             "method_name": "get_all_projects",
             "params_class_name": "GetAllProjects",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/groups",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/groups",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16926,7 +16926,7 @@
             "method_name": "get_all_users",
             "params_class_name": "GetAllUsers",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/users",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/users",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -16997,7 +16997,7 @@
             "method_name": "get_all_organizations",
             "params_class_name": "GetAllOrganizations",
             "verb": "GET",
-            "path": "/orgs",
+            "path": "/api/public/v1.0/orgs",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -17076,7 +17076,7 @@
             "method_name": "get_one_organization",
             "params_class_name": "GetOneOrganization",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17138,7 +17138,7 @@
             "method_name": "rename_organization",
             "params_class_name": "RenameOrganization",
             "verb": "PATCH",
-            "path": "/orgs/{ORG-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17212,7 +17212,7 @@
             "method_name": "retrieve_kmip_master_key_id",
             "params_class_name": "RetrieveKmipMasterKeyId",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17274,7 +17274,7 @@
             "method_name": "rotate_kmip_master_key_id",
             "params_class_name": "RotateKmipMasterKeyId",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/encryptionKey",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17338,7 +17338,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17400,7 +17400,7 @@
             "method_name": "download_logs",
             "params_class_name": "DownloadLogs",
             "verb": "GET",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/download",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/download",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17462,7 +17462,7 @@
             "method_name": "get_all_jobs",
             "params_class_name": "GetAllJobs",
             "verb": "GET",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17542,7 +17542,7 @@
             "method_name": "get_job",
             "params_class_name": "GetJob",
             "verb": "GET",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17631,7 +17631,7 @@
             "method_name": "retry",
             "params_class_name": "Retry",
             "verb": "PUT",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/retry",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}/retry",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17693,7 +17693,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17792,7 +17792,7 @@
             "method_name": "extend",
             "params_class_name": "Extend",
             "verb": "PATCH",
-            "path": "/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/logCollectionJobs/{JOB-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17866,7 +17866,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/maintenanceWindows/",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/maintenanceWindows/",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -17956,7 +17956,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18018,7 +18018,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/maintenanceWindows/",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/maintenanceWindows/",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18071,7 +18071,7 @@
             "method_name": "get_one",
             "params_class_name": "GetOne",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18133,7 +18133,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/maintenanceWindows/{MW-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18234,7 +18234,7 @@
             "method_name": "database",
             "params_class_name": "Database",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}/measurements",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/databases/{DATABASE-NAME}/measurements",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18368,7 +18368,7 @@
             "method_name": "disk_partition",
             "params_class_name": "DiskPartition",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}/measurements",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/disks/{PARTITION-NAME}/measurements",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18502,7 +18502,7 @@
             "method_name": "host",
             "params_class_name": "Host",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements?granularity={ISO-8601-PERIOD}&period={ISO-8601-PERIOD}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements?granularity={ISO-8601-PERIOD}&period={ISO-8601-PERIOD}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18627,7 +18627,7 @@
             "method_name": "get_types",
             "params_class_name": "GetTypes",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18754,7 +18754,7 @@
             "method_name": "get_slow_query_logs",
             "params_class_name": "GetSlowQueryLogs",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/slowQueryLogs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/slowQueryLogs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18852,7 +18852,7 @@
             "method_name": "get_suggested_indexes",
             "params_class_name": "GetSuggestedIndexes",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/suggestedIndexes",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/suggestedIndexes",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -18959,7 +18959,7 @@
             "method_name": "get_namespaces",
             "params_class_name": "GetNamespaces",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/namespaces",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/performanceAdvisor/namespaces",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19041,7 +19041,7 @@
             "method_name": "create_cluster",
             "params_class_name": "CreateCluster",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19103,7 +19103,7 @@
             "method_name": "create_config_server",
             "params_class_name": "CreateConfigServer",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19271,7 +19271,7 @@
             "method_name": "get_all_cluster",
             "params_class_name": "GetAllCluster",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19360,7 +19360,7 @@
             "method_name": "get_all_config_server",
             "params_class_name": "GetAllConfigServer",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19440,7 +19440,7 @@
             "method_name": "get_one_cluster",
             "params_class_name": "GetOneCluster",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs/{JOB-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/restoreJobs/{JOB-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19511,7 +19511,7 @@
             "method_name": "get_one_config_server",
             "params_class_name": "GetOneConfigServer",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs/{JOB-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/restoreJobs/{JOB-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19584,7 +19584,7 @@
             "method_name": "root",
             "params_class_name": "Root",
             "verb": "GET",
-            "path": "/",
+            "path": "/api/public/v1.0/",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -19647,7 +19647,7 @@
             "method_name": "change_expiry",
             "params_class_name": "ChangeExpiry",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19737,7 +19737,7 @@
             "method_name": "get_all_config_server",
             "params_class_name": "GetAllConfigServer",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19817,7 +19817,7 @@
             "method_name": "get_all_cluster",
             "params_class_name": "GetAllCluster",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19906,7 +19906,7 @@
             "method_name": "get_one_config_server",
             "params_class_name": "GetOneConfigServer",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots/{SNAPSHOT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/hosts/{HOST-ID}/snapshots/{SNAPSHOT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -19977,7 +19977,7 @@
             "method_name": "get_one_cluster",
             "params_class_name": "GetOneCluster",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20048,7 +20048,7 @@
             "method_name": "remove_one",
             "params_class_name": "RemoveOne",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/clusters/{CLUSTER-ID}/snapshots/{SNAPSHOT-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20119,7 +20119,7 @@
             "method_name": "create_one_on_demand_cluster",
             "params_class_name": "CreateOneOnDemandCluster",
             "verb": "POST",
-            "path": "/groups/{groupId}/clusters/{clusterId}/snapshots/onDemandSnapshot",
+            "path": "/api/public/v1.0/groups/{groupId}/clusters/{clusterId}/snapshots/onDemandSnapshot",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20183,7 +20183,7 @@
             "method_name": "add_users",
             "params_class_name": "AddUsers",
             "verb": "POST",
-            "path": "/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20255,7 +20255,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/orgs/{ORG-ID}/teams",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20318,7 +20318,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/orgs/{ORG-ID}/teams/{TEAM-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/{TEAM-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20380,7 +20380,7 @@
             "method_name": "get_all_team_users",
             "params_class_name": "GetAllTeamUsers",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/{TEAM-ID}/users",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20460,7 +20460,7 @@
             "method_name": "get_all",
             "params_class_name": "GetAll",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/teams",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20531,7 +20531,7 @@
             "method_name": "get_one_by_id",
             "params_class_name": "GetOneById",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/teams/{TEAM-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/{TEAM-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20593,7 +20593,7 @@
             "method_name": "get_one_by_name",
             "params_class_name": "GetOneByName",
             "verb": "GET",
-            "path": "/orgs/{ORG-ID}/teams/byName/{TEAM-NAME}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/byName/{TEAM-NAME}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20655,7 +20655,7 @@
             "method_name": "remove_user",
             "params_class_name": "RemoveUser",
             "verb": "DELETE",
-            "path": "/orgs/{ORG-ID}/teams/{TEAM-ID}/users/{USER-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/{TEAM-ID}/users/{USER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20726,7 +20726,7 @@
             "method_name": "rename",
             "params_class_name": "Rename",
             "verb": "PATCH",
-            "path": "/orgs/{ORG-ID}/teams/{TEAM-ID}",
+            "path": "/api/public/v1.0/orgs/{ORG-ID}/teams/{TEAM-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20798,7 +20798,7 @@
             "method_name": "update_roles",
             "params_class_name": "UpdateRoles",
             "verb": "PATCH",
-            "path": "/groups/{PROJECT-ID}/teams/{TEAM-ID}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/teams/{TEAM-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -20872,7 +20872,7 @@
             "method_name": "retrieve_telemetry_data",
             "params_class_name": "RetrieveTelemetryData",
             "verb": "GET",
-            "path": "/collection/details",
+            "path": "/api/private/v1.0/telemetry/collection/details",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -20896,7 +20896,7 @@
             "method_name": "toggle_telemetry_status",
             "params_class_name": "ToggleTelemetryStatus",
             "verb": "PATCH",
-            "path": "/collection/status",
+            "path": "/api/private/v1.0/telemetry/collection/status",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -20932,7 +20932,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21022,7 +21022,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21102,7 +21102,7 @@
             "method_name": "return_latest_prometheus_targets",
             "params_class_name": "ReturnLatestPrometheusTargets",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/discovery",
+            "path": "/prometheus/v1.0//groups/{PROJECT-ID}/discovery",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21173,7 +21173,7 @@
             "method_name": "get_all_configurations",
             "params_class_name": "GetAllConfigurations",
             "verb": "GET",
-            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations",
+            "path": "/api/public/v1.0/api/public/v1.0/groups/{PROJECT-ID}/integrations",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21244,7 +21244,7 @@
             "method_name": "get_one_configuration",
             "params_class_name": "GetOneConfiguration",
             "verb": "GET",
-            "path": "/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21324,7 +21324,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21416,7 +21416,7 @@
             "method_name": "create_first_user",
             "params_class_name": "CreateFirstUser",
             "verb": "POST",
-            "path": "/unauth/users",
+            "path": "/api/public/v1.0/unauth/users",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -21496,7 +21496,7 @@
             "method_name": "create",
             "params_class_name": "Create",
             "verb": "POST",
-            "path": "/users",
+            "path": "/api/public/v1.0/users",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -21630,7 +21630,7 @@
             "method_name": "get_by_id",
             "params_class_name": "GetById",
             "verb": "GET",
-            "path": "/users/{USER-ID}",
+            "path": "/api/public/v1.0/users/{USER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21683,7 +21683,7 @@
             "method_name": "get_by_name",
             "params_class_name": "GetByName",
             "verb": "GET",
-            "path": "/users/byName/{USER-NAME}",
+            "path": "/api/public/v1.0/users/byName/{USER-NAME}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21736,7 +21736,7 @@
             "method_name": "update_roles",
             "params_class_name": "UpdateRoles",
             "verb": "PATCH",
-            "path": "/users/{USER-ID}",
+            "path": "/api/public/v1.0/users/{USER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21826,7 +21826,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/users/{USER-ID}",
+            "path": "/api/public/v1.0/users/{USER-ID}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21881,7 +21881,7 @@
             "method_name": "retrieve",
             "params_class_name": "Retrieve",
             "verb": "GET",
-            "path": "/unauth/versionManifest",
+            "path": "/api/public/v1.0/unauth/versionManifest",
             "path_params": {
                 "required": false,
                 "needed": false,
@@ -21915,7 +21915,7 @@
             "method_name": "update",
             "params_class_name": "Update",
             "verb": "PUT",
-            "path": "/versionManifest",
+            "path": "/api/public/v1.0/versionManifest",
             "path_params": {
                 "required": false,
                 "needed": false,
