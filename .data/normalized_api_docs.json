@@ -8720,7 +8720,7 @@
             "method_name": "get_status_of_last_50_plans",
             "params_class_name": "GetStatusOfLast50Plans",
             "verb": "GET",
-            "path": "/groups/GROUP-ID/automationStatus/full",
+            "path": "/groups/{GROUP-ID}/automationStatus/full",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -8767,7 +8767,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Get Automation Status of Last 50 Plans\n### Document:\n[Get Status of Last 50 Plans](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status-full/)\n### Endpoint:\n`GET /groups/GROUP-ID/automationStatus/full`\n### Description\nNo description."
+            "doc": "\n## Get Automation Status of Last 50 Plans\n### Document:\n[Get Status of Last 50 Plans](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status-full/)\n### Endpoint:\n`GET /groups/{GROUP-ID}/automationStatus/full`\n### Description\nNo description."
         },
         {
             "method_name": "get_status",

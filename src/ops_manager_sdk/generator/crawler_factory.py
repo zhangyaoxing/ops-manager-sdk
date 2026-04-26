@@ -372,6 +372,12 @@ class GetAllHostsInOneProjectCrawler(StandardCrawler):
         return params
 
 
+class AutomationStatusCrawler(StandardCrawler):
+    def get_endpoints(self, page: Page) -> list[str]:
+        endpoints = [e.replace("/GROUP-ID/", "/{GROUP-ID}/") for e in super().get_endpoints(page)]
+        return list(endpoints)
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -398,6 +404,7 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["get_all_hosts_in_one_project"] = GetAllHostsInOneProjectCrawler(
             context
         )
+        CrawlerFactory.crawlers["automation_status"] = AutomationStatusCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -443,6 +450,8 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["get_all_hosts_in_one_project"]
         elif "/get-all-invitations/" in url:
             crawler = CrawlerFactory.crawlers["invitations"]
+        elif "/automation-status-full/" in url:
+            crawler = CrawlerFactory.crawlers["automation_status"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

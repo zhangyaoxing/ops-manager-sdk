@@ -6497,7 +6497,7 @@
             "name": "Get Status of Last 50 Plans",
             "description": "No description.",
             "endpoints": [
-                "GET /groups/GROUP-ID/automationStatus/full"
+                "GET /groups/{GROUP-ID}/automationStatus/full"
             ],
             "path_params": [
                 {
@@ -6526,7 +6526,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:17.329912+00:00",
+            "capture_time": "2026-04-26T16:53:14.498397+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status-full/",
             "status": 200
         },
@@ -6564,7 +6564,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-23T21:19:17.917813+00:00",
+            "capture_time": "2026-04-26T16:53:15.185847+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-status/",
             "status": 200
         }
