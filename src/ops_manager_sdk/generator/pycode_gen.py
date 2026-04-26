@@ -15,6 +15,7 @@ class OpsManagerClient:
         self, base_url: str, public_key: str, private_key: str, timeout: float = 30.0
     ) -> None:
         ver_num: str = version("ops-manager-sdk")
+        assert base_url and public_key and private_key, "Base URL, public key, and private key are required to initialize the OpsManagerClient."
         auth: Auth = DigestAuth(public_key, private_key)
         self._client = Client(
             base_url=f"{base_url.rstrip('/')}/api/public/v1.0",
@@ -54,7 +55,7 @@ class {{ class_name }}(BaseResource):
     class {{ snippet.params_class_name }}PathParams(BaseModel):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.path_params.params %}
-        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
+        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none or not param.required %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         \"\"\"{{ param.description }}
         \"\"\"
         {% endfor %}
@@ -67,12 +68,12 @@ class {{ class_name }}(BaseResource):
         class {{ param.class_name }}(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
-            {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
+            {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none or not nested_param.required %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
             \"\"\"{{ nested_param.description }}
             \"\"\"
             {% endfor %}
         {% endif %}
-        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
+        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none or not param.required %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         \"\"\"{{ param.description }}
         \"\"\"
         {% endfor %}
@@ -85,12 +86,12 @@ class {{ class_name }}(BaseResource):
         class {{ param.class_name }}(BaseModel):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
-            {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
+            {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none or not nested_param.required %}{{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
             \"\"\"{{ nested_param.description }}
             \"\"\"
             {% endfor %}
         {% endif %}
-        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
+        {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none or not param.required %}{{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
         \"\"\"{{ param.description }}
         \"\"\"
         {% endfor %}

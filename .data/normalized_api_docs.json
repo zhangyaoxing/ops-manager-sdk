@@ -37,18 +37,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -180,18 +180,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -412,7 +412,7 @@
                         "name": "num_workers",
                         "class_name": "NumworkersParams",
                         "alias": "numWorkers",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of worker processes that can perform tasks (i.e. backup, restore, or groom) for the Backup Daemon."
@@ -539,18 +539,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -778,7 +778,7 @@
                         "name": "num_workers",
                         "class_name": "NumworkersParams",
                         "alias": "numWorkers",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of worker processes that can perform tasks (i.e. backup, restore, or groom) for the Backup Daemon."
@@ -836,18 +836,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -1186,7 +1186,7 @@
                         "name": "max_capacity_gb",
                         "class_name": "MaxcapacitygbParams",
                         "alias": "maxCapacityGB",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. The oplog store’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."
@@ -1313,18 +1313,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -1479,7 +1479,7 @@
                         "name": "max_capacity_gb",
                         "class_name": "MaxcapacitygbParams",
                         "alias": "maxCapacityGB",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. The oplog store’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."
@@ -1697,7 +1697,7 @@
                         "name": "s3_max_connections",
                         "class_name": "S3MaxconnectionsParams",
                         "alias": "s3MaxConnections",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Positive integer indicating the maximum number of connections to this S3-compatible storage oplog store."
@@ -1842,18 +1842,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -2108,7 +2108,7 @@
                         "name": "s3_max_connections",
                         "class_name": "S3MaxconnectionsParams",
                         "alias": "s3MaxConnections",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Positive integer indicating the maximum number of connections to this S3-compatible storage oplog store."
@@ -2235,7 +2235,7 @@
                         "name": "load_factor",
                         "class_name": "LoadfactorParams",
                         "alias": "loadFactor",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Positive, non-zero integer that expresses how much backup work this snapshot store should perform compared to another snapshot store. Set this option only if you're using more than one snapshot store.\n\nTo learn more about Load Factor, see Edit One Existing Blockstore."
@@ -2362,18 +2362,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -2519,7 +2519,7 @@
                         "name": "load_factor",
                         "class_name": "LoadfactorParams",
                         "alias": "loadFactor",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Positive, non-zero integer that expresses how much backup work this snapshot store should perform compared to another snapshot store. Set this option only if you're using more than one snapshot store.\n\nTo learn more about Load Factor, see Edit One Existing Blockstore."
@@ -2637,7 +2637,7 @@
                         "name": "load_factor",
                         "class_name": "LoadfactorParams",
                         "alias": "loadFactor",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. A positive, non-zero integer that expresses how much backup work this snapshot store should perform compared to another snapshot store. This option is needed only if more than one snapshot store is in use.\n\nTo learn more about Load Factor, see Edit One Existing Blockstore."
@@ -2646,7 +2646,7 @@
                         "name": "max_capacity_gb",
                         "class_name": "MaxcapacitygbParams",
                         "alias": "maxCapacityGB",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. The blockstore’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."
@@ -2773,18 +2773,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -2939,7 +2939,7 @@
                         "name": "load_factor",
                         "class_name": "LoadfactorParams",
                         "alias": "loadFactor",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. A positive, non-zero integer that expresses how much backup work this snapshot store should perform compared to another snapshot store. This option is needed only if more than one snapshot store is in use.\n\nTo learn more about Load Factor, see Edit One Existing Blockstore."
@@ -2948,7 +2948,7 @@
                         "name": "max_capacity_gb",
                         "class_name": "MaxcapacitygbParams",
                         "alias": "maxCapacityGB",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. The blockstore’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."
@@ -3130,7 +3130,7 @@
                         "name": "load_factor",
                         "class_name": "LoadfactorParams",
                         "alias": "loadFactor",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Positive, non-zero integer that expresses how much backup work this snapshot store performs compared to another snapshot store. This option is needed only if more than one snapshot store is in use.\n\nTo learn more about Load Factor, see Edit One Existing Blockstore."
@@ -3184,7 +3184,7 @@
                         "name": "s3_max_connections",
                         "class_name": "S3MaxconnectionsParams",
                         "alias": "s3MaxConnections",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Positive integer indicating the maximum number of connections to this S3-compatible storage blockstore."
@@ -3329,18 +3329,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -3559,7 +3559,7 @@
                         "name": "load_factor",
                         "class_name": "LoadfactorParams",
                         "alias": "loadFactor",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Positive, non-zero integer that expresses how much backup work this snapshot store performs compared to another snapshot store. This option is needed only if more than one snapshot store is in use.\n\nTo learn more about Load Factor, see Edit One Existing Blockstore."
@@ -3613,7 +3613,7 @@
                         "name": "s3_max_connections",
                         "class_name": "S3MaxconnectionsParams",
                         "alias": "s3MaxConnections",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Positive integer indicating the maximum number of connections to this S3-compatible storage blockstore."
@@ -3749,7 +3749,7 @@
                         "name": "max_capacity_gb",
                         "class_name": "MaxcapacitygbParams",
                         "alias": "maxCapacityGB",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. The sync store’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."
@@ -3876,18 +3876,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -4042,7 +4042,7 @@
                         "name": "max_capacity_gb",
                         "class_name": "MaxcapacitygbParams",
                         "alias": "maxCapacityGB",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Optional. The sync store’s expected maximum available capacity for use in the OUTSIDE_SPACE_USED_THRESHOLD alert. maxCapacityGB does not enforce any limitation on the size of the backing database."
@@ -4297,18 +4297,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -4377,18 +4377,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -4647,7 +4647,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which an alert is triggered."
@@ -4699,7 +4699,7 @@
                             {
                                 "name": "delay_min",
                                 "alias": "delayMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait after an alert condition is detected before sending out the first notification."
@@ -4723,7 +4723,7 @@
                             {
                                 "name": "interval_min",
                                 "alias": "intervalMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait between successive notifications for unacknowledged alerts that are not resolved."
@@ -4863,7 +4863,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which an alert is triggered."
@@ -5048,18 +5048,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -5128,18 +5128,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -5251,18 +5251,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -5484,7 +5484,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which an alert is triggered."
@@ -5536,7 +5536,7 @@
                             {
                                 "name": "delay_min",
                                 "alias": "delayMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait after an alert condition is detected before sending out the first notification."
@@ -5560,7 +5560,7 @@
                             {
                                 "name": "interval_min",
                                 "alias": "intervalMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait between successive notifications for unacknowledged alerts that are not resolved."
@@ -5700,7 +5700,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which an alert is triggered."
@@ -5896,18 +5896,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -6083,18 +6083,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -6367,18 +6367,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -6428,18 +6428,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -6626,18 +6626,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -6725,18 +6725,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -6796,18 +6796,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -6876,18 +6876,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -6956,18 +6956,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7057,18 +7057,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7165,18 +7165,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7245,18 +7245,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7334,18 +7334,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7416,18 +7416,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7497,18 +7497,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7596,18 +7596,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7667,18 +7667,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -7747,18 +7747,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -9201,18 +9201,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -9272,18 +9272,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -9345,18 +9345,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -9765,7 +9765,7 @@
                         "name": "cluster_checkpoint_interval_min",
                         "class_name": "ClustercheckpointintervalminParams",
                         "alias": "clusterCheckpointIntervalMin",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of minutes between successive cluster checkpoints. This only applies to sharded clusters. This number determines the granularity of point-in-time restores for sharded clusters. You can set a value of 15, 30, or 60."
@@ -9783,7 +9783,7 @@
                         "name": "daily_snapshot_retention_days",
                         "class_name": "DailysnapshotretentiondaysParams",
                         "alias": "dailySnapshotRetentionDays",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of days to retain daily snapshots. Accepted values are: 0, 3, 4, 5, 6, 7, 15, 30, 60, 90, 120, 180, 360.\n\nSetting dailySnapshotRetentionDays to 0 disables this rule."
@@ -9819,7 +9819,7 @@
                         "name": "monthly_snapshot_retention_months",
                         "class_name": "MonthlysnapshotretentionmonthsParams",
                         "alias": "monthlySnapshotRetentionMonths",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of months to retain monthly snapshots. You can set a value between 1 and 36, inclusive.\n\nSetting monthlySnapshotRetentionMonths to 0 disables this rule."
@@ -9828,7 +9828,7 @@
                         "name": "point_in_time_window_hours",
                         "class_name": "PointintimewindowhoursParams",
                         "alias": "pointInTimeWindowHours",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of hours in the past for which a point-in-time snapshot can be created."
@@ -9837,7 +9837,7 @@
                         "name": "reference_hour_of_day",
                         "class_name": "ReferencehourofdayParams",
                         "alias": "referenceHourOfDay",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Hour of the day to schedule snapshots using a 24 hour clock. You can set a value between 0 and 23, inclusive."
@@ -9846,7 +9846,7 @@
                         "name": "reference_minute_of_hour",
                         "class_name": "ReferenceminuteofhourParams",
                         "alias": "referenceMinuteOfHour",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Minute of the hour to schedule snapshots. You can set a value between 0 and 59, inclusive."
@@ -9864,7 +9864,7 @@
                         "name": "snapshot_interval_hours",
                         "class_name": "SnapshotintervalhoursParams",
                         "alias": "snapshotIntervalHours",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of hours between snapshots. You can set a value of 6, 8, 12, or 24."
@@ -9873,7 +9873,7 @@
                         "name": "snapshot_retention_days",
                         "class_name": "SnapshotretentiondaysParams",
                         "alias": "snapshotRetentionDays",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of days to keep recent snapshots. You can set a value between 2 and 5, inclusive."
@@ -9882,7 +9882,7 @@
                         "name": "weekly_snapshot_retention_weeks",
                         "class_name": "WeeklysnapshotretentionweeksParams",
                         "alias": "weeklySnapshotRetentionWeeks",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of weeks to retain weekly snapshots. You can set a value between 1 and 52, inclusive.\n\nSetting weeklySnapshotRetentionWeeks to 0 disables this rule."
@@ -10146,18 +10146,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -10343,18 +10343,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -10414,18 +10414,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -10485,18 +10485,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -10703,18 +10703,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -10785,9 +10785,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -10812,9 +10812,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -10873,18 +10873,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -11060,18 +11060,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -11121,18 +11121,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -11298,18 +11298,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -11378,16 +11378,16 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of host assignments to return in one group."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Starting group of host assignments to return. The group size is defined by itemsPerPage. This value starts with 1."
@@ -11467,16 +11467,16 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of host assignments to return in one group."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Starting group of host assignments to return. The group size is defined by itemsPerPage. This value starts with 1."
@@ -11546,16 +11546,16 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of host assignments to return in one group."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Starting group of host assignments to return. The group size is defined by itemsPerPage. This value starts with 1."
@@ -11626,18 +11626,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -11861,18 +11861,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -12143,18 +12143,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -12234,9 +12234,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -12261,9 +12261,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -12341,9 +12341,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -12368,9 +12368,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -12573,9 +12573,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -12600,9 +12600,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -12717,18 +12717,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -12897,7 +12897,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which this alert configuration triggers an alert."
@@ -12941,7 +12941,7 @@
                             {
                                 "name": "delay_min",
                                 "alias": "delayMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait after an alert condition is detected before Ops Manager sends out the first notification."
@@ -12965,7 +12965,7 @@
                             {
                                 "name": "interval_min",
                                 "alias": "intervalMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait between successive notifications for unacknowledged, unresolved alerts that this alert configuration triggers."
@@ -13090,7 +13090,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which this alert configuration triggers an alert."
@@ -13193,18 +13193,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -13542,7 +13542,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which this alert configuration triggers an alert."
@@ -13586,7 +13586,7 @@
                             {
                                 "name": "delay_min",
                                 "alias": "delayMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait after an alert condition is detected before Ops Manager sends out the first notification."
@@ -13610,7 +13610,7 @@
                             {
                                 "name": "interval_min",
                                 "alias": "intervalMin",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of minutes to wait between successive notifications for unacknowledged, unresolved alerts that this alert configuration triggers."
@@ -13735,7 +13735,7 @@
                             {
                                 "name": "threshold",
                                 "alias": "threshold",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Threshold value outside of which this alert configuration triggers an alert."
@@ -13877,18 +13877,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -14289,18 +14289,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -14606,18 +14606,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -14696,18 +14696,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -15240,18 +15240,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -15373,7 +15373,7 @@
                         "name": "port",
                         "class_name": "PortParams",
                         "alias": "port",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Port on which MongoDB process listens."
@@ -15519,18 +15519,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -16053,7 +16053,7 @@
                             {
                                 "name": "automation_imported",
                                 "alias": "automationImported",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Timeout in seconds for completing the automation import. Range: 60-86400 seconds. Default uses system settings."
@@ -16061,7 +16061,7 @@
                             {
                                 "name": "goal_state_sec",
                                 "alias": "goalStateSec",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Timeout in seconds for reaching automation goal state. Range: 60-86400 seconds. Default uses system settings."
@@ -16069,7 +16069,7 @@
                             {
                                 "name": "processes_discovery_sec",
                                 "alias": "processesDiscoverySec",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Timeout in seconds for discovering all required processes. Range: 60-86400 seconds. Default uses system settings."
@@ -16077,7 +16077,7 @@
                             {
                                 "name": "seed_host_connection_sec",
                                 "alias": "seedHostConnectionSec",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Timeout in seconds for connecting to the seed host. Range: 60-86400 seconds. Default uses system settings."
@@ -16717,18 +16717,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -16879,9 +16879,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -16897,9 +16897,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-based)."
                     },
                     {
@@ -16959,7 +16959,7 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Number of items to return per page, up to a maximum of 500.\n\nDefaults to 100."
@@ -16968,7 +16968,7 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "The page to return.\n\nDefaults to 1."
@@ -17029,9 +17029,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -17047,9 +17047,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-based)."
                     },
                     {
@@ -17495,18 +17495,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -17584,18 +17584,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -17777,7 +17777,7 @@
                         "name": "size_requested_per_file_bytes",
                         "class_name": "SizerequestedperfilebytesParams",
                         "alias": "sizeRequestedPerFileBytes",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Size for each log file in bytes."
@@ -18303,9 +18303,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -18321,9 +18321,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -18437,9 +18437,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -18455,9 +18455,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -18562,9 +18562,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -18580,9 +18580,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -18687,9 +18687,9 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
@@ -18705,9 +18705,9 @@
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "Page number (1-index based)."
                     },
                     {
@@ -18992,7 +18992,7 @@
                         "name": "duration",
                         "class_name": "DurationParams",
                         "alias": "duration",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Length of time from the since parameter, in milliseconds, for which you want to receive results. If you do not also specify the since parameter, the endpoint returns results from the number of milliseconds specified by duration before the current time until now."
@@ -19019,7 +19019,7 @@
                         "name": "since",
                         "class_name": "SinceParams",
                         "alias": "since",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
                         "default": null,
                         "description": "Point in time, specified as milliseconds since the Unix Epoch, from which you want to receive results. If you do not also specify the duration parameter, the endpoint returns results from since until the current time."
@@ -19177,7 +19177,7 @@
                             {
                                 "name": "expiration_hours",
                                 "alias": "expirationHours",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of hours the download URL is valid once the restore job is complete.\n\ndelivery.methodName\" : \"HTTP\""
@@ -19193,7 +19193,7 @@
                             {
                                 "name": "max_downloads",
                                 "alias": "maxDownloads",
-                                "type": "float",
+                                "type": "int",
                                 "required": false,
                                 "default": null,
                                 "description": "Number of times the download URL can be used. This must be 1 or greater.\n\ndelivery.methodName\" : \"HTTP\""
@@ -19322,18 +19322,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -19402,18 +19402,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -19607,18 +19607,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -19779,18 +19779,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -19868,18 +19868,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -20161,7 +20161,7 @@
                         "name": "retention_days",
                         "class_name": "RetentiondaysParams",
                         "alias": "retentionDays",
-                        "type": "float",
+                        "type": "int",
                         "required": true,
                         "default": null,
                         "description": "Integer that indicates the number of days the on-demand snapshot will be retained. Must be greater than 0."
@@ -20422,18 +20422,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -20493,18 +20493,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -20974,18 +20974,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -21064,18 +21064,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -21135,18 +21135,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -21206,18 +21206,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -21286,18 +21286,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {
@@ -21366,18 +21366,18 @@
                         "name": "items_per_page",
                         "class_name": "ItemsperpageParams",
                         "alias": "itemsPerPage",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 100.0,
+                        "default": 100,
                         "description": "Number of items to return per page, up to a maximum of 500."
                     },
                     {
                         "name": "page_num",
                         "class_name": "PagenumParams",
                         "alias": "pageNum",
-                        "type": "float",
+                        "type": "int",
                         "required": false,
-                        "default": 1.0,
+                        "default": 1,
                         "description": "One-based integer that returns a subsection of results."
                     },
                     {

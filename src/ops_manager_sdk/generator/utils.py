@@ -122,7 +122,7 @@ def type_mapping(type_str: str) -> str:
         "string": "str",
         "integer": "int",
         "long": "int",
-        "number": "float",
+        "number": "int",
         "boolean": "bool",
         "object": "dict",
         "timestamp": "str",
