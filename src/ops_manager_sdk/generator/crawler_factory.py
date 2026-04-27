@@ -403,6 +403,13 @@ class UpdateSSCrawler(StandardCrawler):
         return "/api/public/v1.0"
 
 
+class DuplicateBaseURLCrawler(StandardCrawler):
+    def get_endpoints(self, page):
+        endpoints = super().get_endpoints(page)
+        endpoints = [e.replace("/api/public/v1.0", "") for e in endpoints]
+        return endpoints
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -431,6 +438,7 @@ class CrawlerFactory:
         )
         CrawlerFactory.crawlers["automation_status"] = AutomationStatusCrawler(context)
         CrawlerFactory.crawlers["update_ss"] = UpdateSSCrawler(context)
+        CrawlerFactory.crawlers["duplicate_base_url"] = DuplicateBaseURLCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -476,6 +484,10 @@ class CrawlerFactory:
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/",
         ]:
             crawler = CrawlerFactory.crawlers["missing_header_5_cols"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all-key/"
+        ]:
+            crawler = CrawlerFactory.crawlers["duplicate_base_url"]
         elif "/get-all-hosts-in-group/" in url:
             crawler = CrawlerFactory.crawlers["get_all_hosts_in_one_project"]
         elif "/get-all-invitations/" in url:

@@ -52,7 +52,8 @@ class APIResource:
             if is_required:
                 params_required = True
             default_value: Any = parse_value(param["default"], param_type)
-            class_name: str = re.sub(r"[^\w]+", "", f"{original_name.title()}Params")
+            class_name: str = re.sub(r"[^\w]+", "", f"{original_name}Params")
+            class_name = class_name[0].upper() + class_name[1:]
             desc: str = param.get("description", "No description.")
             item: dict = next(
                 (item for item in PARAM_TO_ENUM if original_name == item["param"]), None
