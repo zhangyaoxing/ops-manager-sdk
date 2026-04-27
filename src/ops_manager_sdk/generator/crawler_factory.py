@@ -339,6 +339,13 @@ class GroupIDtoProjectIDCrawler(StandardCrawler):
         endpoints = [endpoint.replace("{GROUP-ID}", "{PROJECT-ID}") for endpoint in endpoints]
         return endpoints
 
+    def get_path_params(self, page: Page) -> list[dict[str, Any]]:
+        path_params = super().get_path_params(page)
+        for param in path_params:
+            if param["name"] == "GROUP-ID":
+                param["name"] = "PROJECT-ID"
+        return path_params
+
 
 class IntegrationCrawler(GroupIDtoProjectIDCrawler):
     def get_description(self, page) -> str:
@@ -443,7 +450,11 @@ class CrawlerFactory:
             or "/third-party-integration-settings-update/" in url
         ):
             crawler = CrawlerFactory.crawlers["integration"]
-        elif "/third-party-integration" in url:
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
+        ]:
             crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
         elif url in [
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-all-blockstore-configurations/",

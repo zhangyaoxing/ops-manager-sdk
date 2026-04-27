@@ -13003,7 +13003,7 @@
             ],
             "path_params": [
                 {
-                    "name": "GROUP-ID",
+                    "name": "PROJECT-ID",
                     "type": "string",
                     "required": "Required",
                     "description": "Unique identifier of the project to which the encryption key belongs.",
@@ -13035,7 +13035,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:47:28.741797+00:00",
+            "capture_time": "2026-04-27T12:48:19.242218+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/",
             "status": 200
         },
@@ -13049,7 +13049,7 @@
             ],
             "path_params": [
                 {
-                    "name": "GROUP-ID",
+                    "name": "PROJECT-ID",
                     "type": "string",
                     "required": "Required",
                     "description": "Unique identifier of the project to which the encryption key belongs.",
@@ -13081,7 +13081,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:47:29.561735+00:00",
+            "capture_time": "2026-04-27T12:48:19.886942+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/",
             "status": 200
         }

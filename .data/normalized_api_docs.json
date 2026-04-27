@@ -17227,9 +17227,9 @@
                         "description": "Unique identifier of the cluster to which the encryption keys belongs."
                     },
                     {
-                        "name": "group_id",
-                        "class_name": "GroupIdParams",
-                        "alias": "GROUP-ID",
+                        "name": "project_id",
+                        "class_name": "ProjectIdParams",
+                        "alias": "PROJECT-ID",
                         "type": "str",
                         "required": true,
                         "default": null,
@@ -17289,9 +17289,9 @@
                         "description": "Unique identifier of the cluster to which the encryption keys belongs."
                     },
                     {
-                        "name": "group_id",
-                        "class_name": "GroupIdParams",
-                        "alias": "GROUP-ID",
+                        "name": "project_id",
+                        "class_name": "ProjectIdParams",
+                        "alias": "PROJECT-ID",
                         "type": "str",
                         "required": true,
                         "default": null,
