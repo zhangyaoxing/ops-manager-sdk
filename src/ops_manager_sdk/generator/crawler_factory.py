@@ -403,7 +403,7 @@ class UpdateSSCrawler(StandardCrawler):
         return "/api/public/v1.0"
 
 
-class DuplicateBaseURLCrawler(StandardCrawler):
+class DuplicateBaseURLCrawler(GroupIDtoProjectIDCrawler):
     def get_endpoints(self, page):
         endpoints = super().get_endpoints(page)
         endpoints = [e.replace("/api/public/v1.0", "") for e in endpoints]
@@ -485,7 +485,8 @@ class CrawlerFactory:
         ]:
             crawler = CrawlerFactory.crawlers["missing_header_5_cols"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all-key/"
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all-key/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/",
         ]:
             crawler = CrawlerFactory.crawlers["duplicate_base_url"]
         elif "/get-all-hosts-in-group/" in url:

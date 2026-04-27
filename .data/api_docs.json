@@ -15855,7 +15855,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:48:22.305332+00:00",
+            "capture_time": "2026-04-27T21:34:03.319108+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
             "status": 200
         },
@@ -15865,7 +15865,7 @@
             "name": "Delete",
             "description": "No description.",
             "endpoints": [
-                "DELETE /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}"
+                "DELETE /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}"
             ],
             "path_params": [
                 {
@@ -15915,7 +15915,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:48:23.098810+00:00",
+            "capture_time": "2026-04-27T21:34:04.105922+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/",
             "status": 200
         },
@@ -15925,7 +15925,7 @@
             "name": "Return Latest Prometheus Targets",
             "description": "No description.",
             "endpoints": [
-                "GET /groups/{PROJECT-ID}/discovery"
+                "GET /groups/{GROUP-ID}/discovery"
             ],
             "path_params": [
                 {
@@ -15968,7 +15968,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:48:23.680174+00:00",
+            "capture_time": "2026-04-27T21:34:05.200122+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/",
             "status": 200
         },
@@ -15978,7 +15978,7 @@
             "name": "Get All Configurations",
             "description": "No description.",
             "endpoints": [
-                "GET /api/public/v1.0/groups/{PROJECT-ID}/integrations"
+                "GET /groups/{PROJECT-ID}/integrations"
             ],
             "path_params": [
                 {
@@ -16021,7 +16021,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:48:24.363721+00:00",
+            "capture_time": "2026-04-27T21:34:06.338421+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/",
             "status": 200
         },
@@ -16031,7 +16031,7 @@
             "name": "Get One Configuration",
             "description": "No description.",
             "endpoints": [
-                "GET /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}"
+                "GET /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}"
             ],
             "path_params": [
                 {
@@ -16081,7 +16081,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:48:24.968924+00:00",
+            "capture_time": "2026-04-27T21:34:07.412675+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/",
             "status": 200
         },
@@ -16149,7 +16149,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-04-26T17:48:25.801730+00:00",
+            "capture_time": "2026-04-27T21:34:08.647924+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-update/",
             "status": 200
         }

@@ -21022,7 +21022,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21096,13 +21096,13 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Delete a Configuration for a Third-Party Service Integration\n### Document:\n[Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/)\n### Endpoint:\n`DELETE /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
+            "doc": "\n## Delete a Configuration for a Third-Party Service Integration\n### Document:\n[Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/)\n### Endpoint:\n`DELETE /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
         },
         {
             "method_name": "return_latest_prometheus_targets",
             "params_class_name": "ReturnLatestPrometheusTargets",
             "verb": "GET",
-            "path": "/prometheus/v1.0//groups/{PROJECT-ID}/discovery",
+            "path": "/prometheus/v1.0//groups/{GROUP-ID}/discovery",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21167,13 +21167,13 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Return the Latest Targets for Prometheus\n### Document:\n[Return Latest Prometheus Targets](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/discovery`\n### Description\nNo description."
+            "doc": "\n## Return the Latest Targets for Prometheus\n### Document:\n[Return Latest Prometheus Targets](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/)\n### Endpoint:\n`GET /groups/{GROUP-ID}/discovery`\n### Description\nNo description."
         },
         {
             "method_name": "get_all_configurations",
             "params_class_name": "GetAllConfigurations",
             "verb": "GET",
-            "path": "/api/public/v1.0/api/public/v1.0/groups/{PROJECT-ID}/integrations",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21238,13 +21238,13 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Get All Configurations for Third-Party Service Integrations\n### Document:\n[Get All Configurations](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/)\n### Endpoint:\n`GET /api/public/v1.0/groups/{PROJECT-ID}/integrations`\n### Description\nNo description."
+            "doc": "\n## Get All Configurations for Third-Party Service Integrations\n### Document:\n[Get All Configurations](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/integrations`\n### Description\nNo description."
         },
         {
             "method_name": "get_one_configuration",
             "params_class_name": "GetOneConfiguration",
             "verb": "GET",
-            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21318,7 +21318,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Get the Configuration of a Third-Party Service Integration\n### Document:\n[Get One Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
+            "doc": "\n## Get the Configuration of a Third-Party Service Integration\n### Document:\n[Get One Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/)\n### Endpoint:\n`GET /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
         },
         {
             "method_name": "update",
