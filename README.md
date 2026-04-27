@@ -1,4 +1,7 @@
 # Ops Manager SDK Generator
+
+[![PyPI version](https://img.shields.io/pypi/v/ops-manager-sdk.svg)](https://pypi.org/project/ops-manager-sdk/)
+
 This tool is used to generate MongoDB Ops Manager SDKs. Currently only Python SDK is done for Ops Manager 8.0.
 
 ## How It's Built?
