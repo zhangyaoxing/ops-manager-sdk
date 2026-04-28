@@ -56,11 +56,17 @@ class APIResource:
             class_name = class_name[0].upper() + class_name[1:]
             desc: str = param.get("description", "No description.")
             item: dict = next(
-                (item for item in PARAM_TO_ENUM if original_name == item["param"]), None
+                (
+                    item
+                    for item in PARAM_TO_ENUM
+                    if original_name == item["param"]
+                    and (url in item["urls"] or item["urls"] == "*")
+                ),
+                None,
             )
-            if item and (url in item["urls"] or item["urls"] == "*"):
+            if item is not None:
                 enum_name = item["enum"]
-                param_type = enum_name
+                param_type = enum_name if "list" not in param_type else f"list[{enum_name}]"
                 logger.debug(f"Override parameter type of {original_name} to {param_type}")
                 if default_value is not None:
                     default_value = f"{enum_name}({default_value})"

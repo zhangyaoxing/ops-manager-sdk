@@ -6276,7 +6276,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "GlobalRole",
+                        "type": "list[GlobalRole]",
                         "required": true,
                         "default": null,
                         "description": "List of roles that the Global API Key needs to have. If the roles array is provided:\n\nProvide at least one role\n\nMake sure all roles are valid.\n\nGlobal roles accepted by default include:\n\nRole Value in API\n\t\nRole\n\n\n\nGLOBAL_AUTOMATION_ADMIN\n\n\t\n\nGlobal Automation Admin\n\n\n\n\nGLOBAL_BACKUP_ADMIN\n\n\t\n\nGlobal Backup Admin\n\n\n\n\nGLOBAL_MONITORING_ADMIN\n\n\t\n\nGlobal Monitoring Admin\n\n\n\n\nGLOBAL_OWNER\n\n\t\n\nGlobal Owner\n\n\n\n\nGLOBAL_READ_ONLY\n\n\t\n\nGlobal Read Only\n\n\n\n\nGLOBAL_USER_ADMIN\n\n\t\n\nGlobal User Admin"
@@ -6576,7 +6576,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "GlobalRole",
+                        "type": "list[GlobalRole]",
                         "required": false,
                         "default": null,
                         "description": "List of roles that the Global API Key needs to have. If the roles array is provided:\n\nProvide at least one role\n\nMake sure all roles are valid.\n\nGlobal roles accepted by default include:\n\nRole Value in API\n\t\nRole\n\n\n\nGLOBAL_AUTOMATION_ADMIN\n\n\t\n\nGlobal Automation Admin\n\n\n\n\nGLOBAL_BACKUP_ADMIN\n\n\t\n\nGlobal Backup Admin\n\n\n\n\nGLOBAL_MONITORING_ADMIN\n\n\t\n\nGlobal Monitoring Admin\n\n\n\n\nGLOBAL_OWNER\n\n\t\n\nGlobal Owner\n\n\n\n\nGLOBAL_READ_ONLY\n\n\t\n\nGlobal Read Only\n\n\n\n\nGLOBAL_USER_ADMIN\n\n\t\n\nGlobal User Admin"
@@ -6668,7 +6668,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[OrgRole]",
                         "required": false,
                         "default": null,
                         "description": "List of roles that the API key should have. There must be at least one role listed, and all roles must be valid for an Organization.\n\nOrganization roles include:\n\nRole Value in API\n\t\nRole\n\n\n\nORG_OWNER\n\n\t\n\nOrganization Owner\n\n\n\n\nORG_MEMBER\n\n\t\n\nOrganization Member\n\n\n\n\nORG_GROUP_CREATOR\n\n\t\n\nOrganization Project Creator\n\n\n\n\nORG_READ_ONLY\n\n\t\n\nOrganization Read Only"
@@ -6998,7 +6998,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[OrgRole]",
                         "required": false,
                         "default": null,
                         "description": "List of roles that the API key should have. This parameter is optional; however, the request must contain either a desc parameter or a roles parameter. If roles is provided, there must be at least one role listed, and all roles must be valid for an Organization.\n\nOrganization roles include:\n\nRole Value in API\n\t\nRole\n\n\n\nORG_OWNER\n\n\t\n\nOrganization Owner\n\n\n\n\nORG_MEMBER\n\n\t\n\nOrganization Member\n\n\n\n\nORG_GROUP_CREATOR\n\n\t\n\nOrganization Project Creator\n\n\n\n\nORG_READ_ONLY\n\n\t\n\nOrganization Read Only"
@@ -7449,7 +7449,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[Any]",
+                        "type": "list[GroupRole]",
                         "required": true,
                         "default": null,
                         "description": "List of roles that the API Key should be granted. A minimum of one role must be provided. Any roles provided must be valid for the assigned Project:\n\nRole Value in API\n\t\nRole\n\n\n\nGROUP_AUTOMATION_ADMIN\n\n\t\n\nProject Automation Admin\n\n\n\n\nGROUP_BACKUP_ADMIN\n\n\t\n\nProject Backup Admin\n\n\n\n\nGROUP_DATA_ACCESS_ADMIN\n\n\t\n\nProject Data Access Admin\n\n\n\n\nGROUP_DATA_ACCESS_READ_ONLY\n\n\t\n\nProject Data Access Read Only\n\n\n\n\nGROUP_DATA_ACCESS_READ_WRITE\n\n\t\n\nProject Data Access Read/Write\n\n\n\n\nGROUP_MONITORING_ADMIN\n\n\t\n\nProject Monitoring Admin\n\n\n\n\nGROUP_OWNER\n\n\t\n\nProject Owner\n\n\n\n\nGROUP_READ_ONLY\n\n\t\n\nProject Read Only\n\n\n\n\nGROUP_USER_ADMIN\n\n\t\n\nProject User Admin"
@@ -7539,7 +7539,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[GroupRole]",
                         "required": false,
                         "default": null,
                         "description": "List of roles that the API Key needs to have. If the roles array is provided:\n\nProvide at least one role\n\nMake sure all roles must be valid for the Project\n\nProject roles include:\n\nRole Value in API\n\t\nRole\n\n\n\nGROUP_AUTOMATION_ADMIN\n\n\t\n\nProject Automation Admin\n\n\n\n\nGROUP_BACKUP_ADMIN\n\n\t\n\nProject Backup Admin\n\n\n\n\nGROUP_DATA_ACCESS_ADMIN\n\n\t\n\nProject Data Access Admin\n\n\n\n\nGROUP_DATA_ACCESS_READ_ONLY\n\n\t\n\nProject Data Access Read Only\n\n\n\n\nGROUP_DATA_ACCESS_READ_WRITE\n\n\t\n\nProject Data Access Read/Write\n\n\n\n\nGROUP_MONITORING_ADMIN\n\n\t\n\nProject Monitoring Admin\n\n\n\n\nGROUP_OWNER\n\n\t\n\nProject Owner\n\n\n\n\nGROUP_READ_ONLY\n\n\t\n\nProject Read Only\n\n\n\n\nGROUP_USER_ADMIN\n\n\t\n\nProject User Admin"
@@ -7780,7 +7780,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[GroupRole]",
                         "required": true,
                         "default": null,
                         "description": "List of roles that the API Key should be granted. A minimum of one role must be provided. Any roles provided must be valid for the assigned Project:\n\nRole Value in API\n\t\nRole\n\n\n\nGROUP_AUTOMATION_ADMIN\n\n\t\n\nProject Automation Admin\n\n\n\n\nGROUP_BACKUP_ADMIN\n\n\t\n\nProject Backup Admin\n\n\n\n\nGROUP_DATA_ACCESS_ADMIN\n\n\t\n\nProject Data Access Admin\n\n\n\n\nGROUP_DATA_ACCESS_READ_ONLY\n\n\t\n\nProject Data Access Read Only\n\n\n\n\nGROUP_DATA_ACCESS_READ_WRITE\n\n\t\n\nProject Data Access Read/Write\n\n\n\n\nGROUP_MONITORING_ADMIN\n\n\t\n\nProject Monitoring Admin\n\n\n\n\nGROUP_OWNER\n\n\t\n\nProject Owner\n\n\n\n\nGROUP_READ_ONLY\n\n\t\n\nProject Read Only\n\n\n\n\nGROUP_USER_ADMIN\n\n\t\n\nProject User Admin\n\nInclude all roles that you want this API Key to have. Any roles not in this array are removed."
@@ -14639,7 +14639,7 @@
                         "name": "role_names",
                         "class_name": "RoleNamesParams",
                         "alias": "roleNames",
-                        "type": "GroupRole",
+                        "type": "list[GroupRole]",
                         "required": false,
                         "default": null,
                         "description": "Each object in the array represents a project role you want to assign to the team.\n\nThe valid roles and their associated mappings are:\n\nGROUP_OWNER - Project Owner\n\nGROUP_READ_ONLY - Project Read Only\n\nGROUP_DATA_ACCESS_ADMIN - Project Data Access Admin\n\nGROUP_DATA_ACCESS_READ_WRITE - Project Data Access Read/Write\n\nGROUP_DATA_ACCESS_READ_ONLY - Project Data Access Read Only\n\nGROUP_MONITORING_ADMIN - Project Monitoring Admin\n\nGROUP_BACKUP_ADMIN - Project Backup Admin\n\nGROUP_AUTOMATION_ADMIN - Project Automation Admin\n\nGROUP_USER_ADMIN - Project User Admin"
@@ -14844,7 +14844,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[GroupRole]",
                         "required": false,
                         "default": null,
                         "description": "List of Ops Manager project roles to assign to the invited user. If the user accepts the invitation, Ops Manager assigns these roles to them. Specify one or more of the following values:\n\nRole Value in API\n\t\nRole\n\n\n\nGROUP_AUTOMATION_ADMIN\n\n\t\n\nProject Automation Admin\n\n\n\n\nGROUP_BACKUP_ADMIN\n\n\t\n\nProject Backup Admin\n\n\n\n\nGROUP_DATA_ACCESS_ADMIN\n\n\t\n\nProject Data Access Admin\n\n\n\n\nGROUP_DATA_ACCESS_READ_ONLY\n\n\t\n\nProject Data Access Read Only\n\n\n\n\nGROUP_DATA_ACCESS_READ_WRITE\n\n\t\n\nProject Data Access Read/Write\n\n\n\n\nGROUP_MONITORING_ADMIN\n\n\t\n\nProject Monitoring Admin\n\n\n\n\nGROUP_OWNER\n\n\t\n\nProject Owner\n\n\n\n\nGROUP_READ_ONLY\n\n\t\n\nProject Read Only\n\n\n\n\nGROUP_USER_ADMIN\n\n\t\n\nProject User Admin"
@@ -15111,7 +15111,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[GroupRole]",
                         "required": true,
                         "default": null,
                         "description": "Ops Manager roles to assign to the invited user.\n\nIf the user accepts the invitation, Ops Manager assigns these roles to them.\n\nIMPORTANT: Ops Manager replaces the roles in the invitation with the roles that you provide in this request. Ensure that you include all roles that you want to assign the user in this request."
@@ -15174,7 +15174,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[GroupRole]",
                         "required": true,
                         "default": null,
                         "description": "Ops Manager roles to assign to the invited user.\n\nIf the user accepts the invitation, Ops Manager assigns these roles to them.\n\nIMPORTANT: Ops Manager replaces the roles in the invitation with the roles that you provide in this request. Ensure that you include all roles that you want to assign the user in this request."
@@ -16331,7 +16331,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[OrgRole]",
                         "required": true,
                         "default": null,
                         "description": "Ops Manager roles to assign to the invited user.\n\nIf the user accepts the invitation, Ops Manager assigns these roles to them."
@@ -16607,7 +16607,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[OrgRole]",
                         "required": true,
                         "default": null,
                         "description": "Ops Manager roles to assign to the invited user.\n\nIf the user accepts the invitation, Ops Manager assigns these roles to them.\n\nIMPORTANT: Ops Manager replaces the roles in the invitation with the roles that you provide in this request. Ensure that you include all roles that you want to assign the user in this request."
@@ -16670,7 +16670,7 @@
                         "name": "roles",
                         "class_name": "RolesParams",
                         "alias": "roles",
-                        "type": "list[str]",
+                        "type": "list[OrgRole]",
                         "required": true,
                         "default": null,
                         "description": "Ops Manager roles to assign to the invited user.\n\nIf the user accepts the invitation, Ops Manager assigns these roles to them.\n\nIMPORTANT: Ops Manager replaces the roles in the invitation with the roles that you provide in this request. Ensure that you include all roles that you want to assign the user in this request."
@@ -17741,7 +17741,7 @@
                         "name": "log_types",
                         "class_name": "LogTypesParams",
                         "alias": "logTypes",
-                        "type": "LogType",
+                        "type": "list[LogType]",
                         "required": true,
                         "default": null,
                         "description": "Array of strings specifying the types of logs to collect. Each array element must be one of the following values:\n\nAUTOMATION_AGENT\n\nBACKUP_AGENT\n\nMONITORING_AGENT\n\nMONGODB\n\nFTDC"
@@ -20855,7 +20855,7 @@
                         "name": "role_names",
                         "class_name": "RoleNamesParams",
                         "alias": "roleNames",
-                        "type": "GroupRole",
+                        "type": "list[GroupRole]",
                         "required": true,
                         "default": null,
                         "description": "Project roles you want to assign the given team."
