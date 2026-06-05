@@ -1298,7 +1298,7 @@
                         "type": "bool",
                         "required": false,
                         "default": true,
-                        "description": "Indicates whether this oplog store can be assigned new backup jobs."
+                        "description": "Indicates whether to return only oplog stores to which you can assign new backup jobs."
                     },
                     {
                         "name": "envelope",
@@ -1827,7 +1827,7 @@
                         "type": "bool",
                         "required": false,
                         "default": true,
-                        "description": "Flag indicating whether this S3 oplog store can be assigned new backup jobs."
+                        "description": "Indicates whether to return only S3 oplog stores to which you can assign new backup jobs."
                     },
                     {
                         "name": "envelope",
@@ -2347,7 +2347,7 @@
                         "type": "bool",
                         "required": false,
                         "default": true,
-                        "description": "Flag that indicates whether this file system store can be assigned new backup jobs."
+                        "description": "Indicates whether to return only file system stores to which you can assign new backup jobs."
                     },
                     {
                         "name": "envelope",
@@ -2758,7 +2758,7 @@
                         "type": "bool",
                         "required": false,
                         "default": true,
-                        "description": "Indicates whether this blockstore can be assigned new backup jobs."
+                        "description": "Indicates whether to return only blockstores to which you can assign new backup jobs."
                     },
                     {
                         "name": "envelope",
@@ -3314,7 +3314,7 @@
                         "type": "bool",
                         "required": false,
                         "default": true,
-                        "description": "Flag indicating whether this S3 blockstore can be assigned new backup jobs."
+                        "description": "Indicates whether to return only S3 blockstores to which you can assign new backup jobs."
                     },
                     {
                         "name": "envelope",
@@ -3861,7 +3861,7 @@
                         "type": "bool",
                         "required": false,
                         "default": true,
-                        "description": "Indicates whether this sync store can be assigned new backup jobs."
+                        "description": "Indicates whether to return only sync stores to which you can assign new backup jobs."
                     },
                     {
                         "name": "envelope",
@@ -4616,7 +4616,7 @@
                         "class_name": "MetricThresholdParams",
                         "alias": "metricThreshold",
                         "type": "MetricThresholdParams",
-                        "required": true,
+                        "required": false,
                         "default": null,
                         "description": "Threshold that will cause an alert to be triggered. Required if \"eventTypeName\" : \"OUTSIDE_METRIC_THRESHOLD\".",
                         "nested_params": [
@@ -4676,7 +4676,7 @@
                                 "name": "api_token",
                                 "alias": "apiToken",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Slack API token or Bot token. Required if \"notifications.typeName\" : \"SLACK\". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -4684,7 +4684,7 @@
                                 "name": "channel_name",
                                 "alias": "channelName",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Slack channel name. Required if \"notifications.typeName\" : \"SLACK\"."
                             },
@@ -4692,7 +4692,7 @@
                                 "name": "datadog_api_key",
                                 "alias": "datadogApiKey",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "DataDog API Key. Found in the DataDog dashboard. Required if \"notifications.typeName\" : \"DATADOG\".\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -4708,7 +4708,7 @@
                                 "name": "email_address",
                                 "alias": "emailAddress",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Email address to which to send notification. Required if \"notifications.typeName\" : \"EMAIL\"."
                             },
@@ -4716,7 +4716,7 @@
                                 "name": "email_enabled",
                                 "alias": "emailEnabled",
                                 "type": "bool",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Determines if email notifications should be sent. Required if:\n\n\"notifications.typeName\" : \"GROUP\"\n\n\"notifications.typeName\" : \"USER\""
                             },
@@ -4732,7 +4732,7 @@
                                 "name": "microsoft_teams_webhook_url",
                                 "alias": "microsoftTeamsWebhookUrl",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Microsoft Teams channel incoming webhook URL. Required if \"notifications.typeName\" : \"MICROSOFT_TEAMS\".\n\nWhen you view or edit the alert for a webhook notification, the URL appears partially redacted, and the secret appears completely redacted."
                             },
@@ -4740,7 +4740,7 @@
                                 "name": "mobile_number",
                                 "alias": "mobileNumber",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Mobile number to send SMS messages to. Required if \"notifications.typeName\" : \"SMS\"."
                             },
@@ -4748,7 +4748,7 @@
                                 "name": "notification_token",
                                 "alias": "notificationToken",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "A HipChat API token. Required if \"notifications.typeName\" : \"HIP_CHAT\". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -4756,7 +4756,7 @@
                                 "name": "role",
                                 "alias": "role",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Ops Manager role in current Project. Required if \"notifications.typeName\" : \"GROUP\"."
                             },
@@ -4764,7 +4764,7 @@
                                 "name": "room_name",
                                 "alias": "roomName",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "HipChat room name. Required if \"notifications.typeName\" : \"HIP_CHAT\"."
                             },
@@ -4772,7 +4772,7 @@
                                 "name": "service_key",
                                 "alias": "serviceKey",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "PagerDuty integration key. Required if \"notifications.typeName\" : \"PAGER_DUTY\".\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -4780,7 +4780,7 @@
                                 "name": "sms_enabled",
                                 "alias": "smsEnabled",
                                 "type": "bool",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Flag indicating SMS notifications must be sent. Required if:\n\n\"notifications.typeName\" : \"GROUP\"\n\n\"notifications.typeName\" : \"USER\""
                             },
@@ -4804,7 +4804,7 @@
                                 "name": "username",
                                 "alias": "username",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Name of an Ops Manager user to which to send notifications. Specify a user in the Project that owns the alert configuration. Required if \"notifications.typeName\" : \"USER\"."
                             },
@@ -4848,7 +4848,7 @@
                         "class_name": "ThresholdParams",
                         "alias": "threshold",
                         "type": "ThresholdParams",
-                        "required": true,
+                        "required": false,
                         "default": null,
                         "description": "Threshold that will cause an alert to be triggered. Required if:\n\n\"eventTypeName\" : \"TOO_FEW_HEALTHY_MEMBERS\"\n\n\"eventTypeName\" : TOO_MANY_UNHEALTHY_MEMBERS",
                         "nested_params": [
@@ -5453,7 +5453,7 @@
                         "class_name": "MetricThresholdParams",
                         "alias": "metricThreshold",
                         "type": "MetricThresholdParams",
-                        "required": true,
+                        "required": false,
                         "default": null,
                         "description": "Threshold that will cause an alert to be triggered. Required if \"eventTypeName\" : \"OUTSIDE_METRIC_THRESHOLD\".",
                         "nested_params": [
@@ -5513,7 +5513,7 @@
                                 "name": "api_token",
                                 "alias": "apiToken",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Slack API token or Bot token. Required if \"notifications.typeName\" : \"SLACK\". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -5521,7 +5521,7 @@
                                 "name": "channel_name",
                                 "alias": "channelName",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Slack channel name. Required if \"notifications.typeName\" : \"SLACK\"."
                             },
@@ -5529,7 +5529,7 @@
                                 "name": "datadog_api_key",
                                 "alias": "datadogApiKey",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "DataDog API Key. Found in the DataDog dashboard. Required if \"notifications.typeName\" : \"DATADOG\".\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -5545,7 +5545,7 @@
                                 "name": "email_address",
                                 "alias": "emailAddress",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Email address to which to send notification. Required if \"notifications.typeName\" : \"EMAIL\"."
                             },
@@ -5553,7 +5553,7 @@
                                 "name": "email_enabled",
                                 "alias": "emailEnabled",
                                 "type": "bool",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Determines if email notifications should be sent. Required if:\n\n\"notifications.typeName\" : \"GROUP\"\n\n\"notifications.typeName\" : \"USER\""
                             },
@@ -5569,7 +5569,7 @@
                                 "name": "microsoft_teams_webhook_url",
                                 "alias": "microsoftTeamsWebhookUrl",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Microsoft Teams channel incoming webhook URL. Required if \"notifications.typeName\" : \"MICROSOFT_TEAMS\".\n\nWhen you view or edit the alert for a webhook notification, the URL appears partially redacted, and the secret appears completely redacted."
                             },
@@ -5577,7 +5577,7 @@
                                 "name": "mobile_number",
                                 "alias": "mobileNumber",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Mobile number to send SMS messages to. Required if \"notifications.typeName\" : \"SMS\"."
                             },
@@ -5585,7 +5585,7 @@
                                 "name": "notification_token",
                                 "alias": "notificationToken",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "A HipChat API token. Required if \"notifications.typeName\" : \"HIP_CHAT\". If the token later becomes invalid, Ops Manager sends an email to the Project owner and eventually removes the token.\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -5593,7 +5593,7 @@
                                 "name": "role",
                                 "alias": "role",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Ops Manager role in current Project. Required if \"notifications.typeName\" : \"GROUP\"."
                             },
@@ -5601,7 +5601,7 @@
                                 "name": "room_name",
                                 "alias": "roomName",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "HipChat room name. Required if \"notifications.typeName\" : \"HIP_CHAT\"."
                             },
@@ -5609,7 +5609,7 @@
                                 "name": "service_key",
                                 "alias": "serviceKey",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "PagerDuty integration key. Required if \"notifications.typeName\" : \"PAGER_DUTY\".\n\nAfter you create a third-party integration that requires an API or integration key, the key appears partially redacted when you:\n\nView or edit the alert through the UI.\n\nQuery the third-party integration settings through the API."
                             },
@@ -5617,7 +5617,7 @@
                                 "name": "sms_enabled",
                                 "alias": "smsEnabled",
                                 "type": "bool",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Flag indicating SMS notifications must be sent. Required if:\n\n\"notifications.typeName\" : \"GROUP\"\n\n\"notifications.typeName\" : \"USER\""
                             },
@@ -5641,7 +5641,7 @@
                                 "name": "username",
                                 "alias": "username",
                                 "type": "str",
-                                "required": true,
+                                "required": false,
                                 "default": null,
                                 "description": "Name of an Ops Manager user to which to send notifications. Specify a user in the Project that owns the alert configuration. Required if \"notifications.typeName\" : \"USER\"."
                             },
@@ -5685,7 +5685,7 @@
                         "class_name": "ThresholdParams",
                         "alias": "threshold",
                         "type": "ThresholdParams",
-                        "required": true,
+                        "required": false,
                         "default": null,
                         "description": "Threshold that will cause an alert to be triggered. Required if:\n\n\"eventTypeName\" : \"TOO_FEW_HEALTHY_MEMBERS\"\n\n\"eventTypeName\" : TOO_MANY_UNHEALTHY_MEMBERS",
                         "nested_params": [
@@ -10573,7 +10573,7 @@
                                 "type": "Policy",
                                 "required": false,
                                 "default": null,
-                                "description": "Single policy set for this Ops Manager Project. This parameter can be set one or more times in the policies array.\n\nAccepted values are:\n\nValue\n\t\nPurpose\n\n\n\nEXTERNALLY_MANAGED_LOCK\n\n\t\n\nUsers can't use Ops Manager to manage other settings given in the policies.policy[n] array. These same users may use a configured external system, like the Kubernetes Operator to manage these settings.\n\n\n\n\nDISABLE_USER_MANAGEMENT\n\n\t\n\nUsers can't manage users or roles.\n\n\n\nDISABLE_AUTHENTICATION_\nMECHANISMS\n\t\n\nUsers can't change authentication settings.\n\n\n\nDISABLE_SET_MONGOD_\nCONFIG\n\t\n\nUsers can't change any mongod settings listed in the policies[n].disabledParams array.\n\n\n\nDISABLE_SET_MONGOD_\nVERSION\n\t\n\nUsers can't change the version of any mongod or mongos.\n\n\n\n\nDISABLE_BACKUP_AGENT\n\n\t\n\nUsers can't enable or disable the Backup agent.\n\n\n\nDISABLE_MONGOD_LOG_\nMANAGEMENT\n\t\n\nUsers can't change log management settings.\n\n\n\nDISABLE_IMPORT_TO_\nAUTOMATION\n\t\n\nUsers can't manage deployments using Automation.\n\n\n\nDISABLE_AGENT_API_KEY_\nMANAGEMENT\n\t\n\nUsers can't create or update Agent API keys.\n\n\n\nDISABLE_MONGOD_HOST_\nMANAGEMENT\n\t\n\nUsers can't change the server type of hosts."
+                                "description": "Single policy set for this Ops Manager Project. This parameter can be set one or more times in the policies array.\n\nAccepted values are:\n\nValue\n\t\nPurpose\n\n\n\nExternallyManagedLock\n\n\t\n\nUsers can't use Ops Manager to manage other settings given in the policies[n].policy array. These same users may use a configured external system, like the Kubernetes Operator to manage these settings.\n\n\n\n\nDisableUserManagement\n\n\t\n\nUsers can't manage users or roles.\n\n\n\nDisableAuthenticationMechanisms\n\t\n\nUsers can't change authentication settings.\n\n\n\nDisableSetMongodConfig\n\t\n\nUsers can't change any mongod settings listed in the policies[n].disabledParams array.\n\n\n\nDisableSetMongodVersion\n\t\n\nUsers can't change the version of any mongod or mongos.\n\n\n\n\nDisableBackupAgent\n\n\t\n\nUsers can't enable or disable the Backup agent.\n\n\n\nDisableMongodLogManagement\n\t\n\nUsers can't change log management settings.\n\n\n\nDisableImportToAutomation\n\t\n\nUsers can't manage deployments using Automation.\n\n\n\nDisableAgentApiKeyManagement\n\t\n\nUsers can't create or update Agent API keys.\n\n\n\nDisableMongodHostManagement\n\t\n\nUsers can't change the server type of hosts."
                             }
                         ],
                         "has_nested_params": true
@@ -12195,7 +12195,7 @@
                         "type": "str",
                         "required": true,
                         "default": null,
-                        "description": "The unique identifier of the organization."
+                        "description": "Unique identifier of the organization associated with the events."
                     }
                 ]
             },
@@ -13853,7 +13853,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Creation date of alerts you want to return. Ops Manager returns alerts created on or after the date you indicate."
+                        "description": "Creation date of alerts you want to return, in ISO 8601 format. Ops Manager returns alerts created on or after the date you indicate."
                     },
                     {
                         "name": "created_on_or_before",
@@ -13862,7 +13862,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Creation date of alerts you want to return. Ops Manager returns alerts created on or before the date you indicate."
+                        "description": "Creation date of alerts you want to return, in ISO 8601. Ops Manager returns alerts created on or before the date you indicate."
                     },
                     {
                         "name": "envelope",
@@ -15551,7 +15551,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Get All Hosts in One Project\n### Document:\n[Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-all-hosts-in-group/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/hosts`\n### Description\nGet all MongoDB hosts in a project. Use the CLUSTER-ID query parameter to only get the hosts that belong to the specified cluster. The response sorts the hosts alphabetically by HOSTNAME:PORT."
+            "doc": "\n## Get All Hosts in One Project\n### Document:\n[Get All](https://www.mongodb.com/docs/ops-manager/current/reference/api/hosts/get-all-hosts-in-group/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/hosts`\n### Description\nGet all MongoDB hosts in a project. Use the clusterId query parameter to only get the hosts that belong to the specified cluster. The response sorts the hosts alphabetically by HOSTNAME:PORT."
         },
         {
             "method_name": "get_by_hostname_port",
@@ -16953,7 +16953,7 @@
                         "type": "bool",
                         "required": false,
                         "default": null,
-                        "description": "A boolean that specifies whether or not to wrap the response in an envelope.\n\nDefaults to false."
+                        "description": "Specifies whether or not to wrap the response in an envelope.\n\nDefaults to false."
                     },
                     {
                         "name": "items_per_page",
@@ -16980,7 +16980,7 @@
                         "type": "bool",
                         "required": false,
                         "default": null,
-                        "description": "A boolean that specifies whether or not to return a \"pretty-printed\" JSON document.\n\nDefaults to false."
+                        "description": "Specifies whether or not to return a \"pretty-printed\" JSON document.\n\nDefaults to false."
                     }
                 ]
             },
@@ -18747,6 +18747,611 @@
             "body_type": "object",
             "need_datetime": false,
             "doc": "\n## Get Measurement Types\n### Document:\n[Get Types](https://www.mongodb.com/docs/ops-manager/current/reference/api/measures/get-measurement-types/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/hosts/{HOST-ID}/measurements`\n### Description\nTo retrieve the Measurement Types that apply to a specific measurement without returning a large document, issue the following GET command with a value of PT5M for both the granularity and period. This returns a document with only one data point for each measurement."
+        }
+    ],
+    "ServerLogCollectionJobsResource": [
+        {
+            "method_name": "delete",
+            "params_class_name": "Delete",
+            "verb": "DELETE",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs/{JOB-ID}",
+            "path_params": {
+                "required": true,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "job_id",
+                        "class_name": "JOBIDParams",
+                        "alias": "JOB-ID",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": "Unique 24-hexadecimal digit string that identifies the Ops Manager server log collection job. To find a job ID, call Get All Ops Manager Server Log Collection Jobs."
+                    }
+                ]
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether or not to wrap the response in an envelope.\n\nSome API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.\n\nFor endpoints that return one result, the response body includes:\n\nName\n\t\nDescription\n\n\n\nstatus\n\n\t\n\nHTTP response code\n\n\n\n\ncontent\n\n\t\n\nExpected response body"
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Delete an Ops Manager Server Log Collection Job\n### Document:\n[Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-delete-one/)\n### Endpoint:\n`DELETE /admin/omLogCollectionJobs/{JOB-ID}`\n### Description\nUse this endpoint to delete an Ops Manager server log collection job and its archive. Ops Manager removes the job, all task summaries, and every collected log file from the Application Database immediately. You cannot delete a job that is still in progress."
+        },
+        {
+            "method_name": "download_logs",
+            "params_class_name": "DownloadLogs",
+            "verb": "GET",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs/{JOB-ID}:download",
+            "path_params": {
+                "required": true,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "job_id",
+                        "class_name": "JOBIDParams",
+                        "alias": "JOB-ID",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": "Unique 24-hexadecimal digit string that identifies the Ops Manager server log collection job. To find a job ID, call Get All Ops Manager Server Log Collection Jobs."
+                    }
+                ]
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether or not to wrap the response in an envelope.\n\nSome API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.\n\nFor endpoints that return one result, the response body includes:\n\nName\n\t\nDescription\n\n\n\nstatus\n\n\t\n\nHTTP response code\n\n\n\n\ncontent\n\n\t\n\nExpected response body"
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Download Ops Manager Server Logs\n### Document:\n[Download Logs](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-download-job/)\n### Endpoint:\n`GET /admin/omLogCollectionJobs/{JOB-ID}:download`\n### Description\nUse this endpoint to download a .tar.gz archive that contains every log file that Ops Manager collected for the specified job. You cannot download from a job whose status is IN_PROGRESS or EXPIRED. If a job partially failed, the archive includes only the log files that Ops Manager collected successfully."
+        },
+        {
+            "method_name": "get_all_jobs",
+            "params_class_name": "GetAllJobs",
+            "verb": "GET",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs",
+            "path_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether to wrap the response in an envelope. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query."
+                    },
+                    {
+                        "name": "items_per_page",
+                        "class_name": "ItemsPerPageParams",
+                        "alias": "itemsPerPage",
+                        "type": "int",
+                        "required": false,
+                        "default": 100,
+                        "description": "Number of items to return per page, up to a maximum of 500."
+                    },
+                    {
+                        "name": "page_num",
+                        "class_name": "PageNumParams",
+                        "alias": "pageNum",
+                        "type": "int",
+                        "required": false,
+                        "default": 1,
+                        "description": "One-based integer that returns a subsection of results."
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    },
+                    {
+                        "name": "verbose",
+                        "class_name": "VerboseParams",
+                        "alias": "verbose",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether to include all child jobs in the response. Each Ops Manager server log collection job has a child job for each combination of server and log type included in the request."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Get All Ops Manager Server Log Collection Jobs\n### Document:\n[Get All Jobs](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-get-all/)\n### Endpoint:\n`GET /admin/omLogCollectionJobs`\n### Description\nUse this endpoint to retrieve every Ops Manager server log collection job."
+        },
+        {
+            "method_name": "get_one_job",
+            "params_class_name": "GetOneJob",
+            "verb": "GET",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs/{JOB-ID}",
+            "path_params": {
+                "required": true,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "job_id",
+                        "class_name": "JOBIDParams",
+                        "alias": "JOB-ID",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": "Unique 24-hexadecimal digit string that identifies the Ops Manager server log collection job. To find a job ID, call Get All Ops Manager Server Log Collection Jobs."
+                    }
+                ]
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether to wrap the response in an envelope. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query."
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    },
+                    {
+                        "name": "verbose",
+                        "class_name": "VerboseParams",
+                        "alias": "verbose",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether to include all child jobs in the response."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Get One Ops Manager Server Log Collection Job\n### Document:\n[Get One Job](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-get-one/)\n### Endpoint:\n`GET /admin/omLogCollectionJobs/{JOB-ID}`\n### Description\nUse this endpoint to retrieve a single Ops Manager server log collection job by its identifier."
+        },
+        {
+            "method_name": "list_active_servers",
+            "params_class_name": "ListActiveServers",
+            "verb": "GET",
+            "path": "/api/public/v1.0/admin/servers",
+            "path_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether to wrap the response in an envelope. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query."
+                    },
+                    {
+                        "name": "items_per_page",
+                        "class_name": "ItemsPerPageParams",
+                        "alias": "itemsPerPage",
+                        "type": "int",
+                        "required": false,
+                        "default": 100,
+                        "description": "Number of items to return per page, up to a maximum of 500."
+                    },
+                    {
+                        "name": "page_num",
+                        "class_name": "PageNumParams",
+                        "alias": "pageNum",
+                        "type": "int",
+                        "required": false,
+                        "default": 1,
+                        "description": "One-based integer that returns a subsection of results."
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    },
+                    {
+                        "name": "status",
+                        "class_name": "StatusParams",
+                        "alias": "status",
+                        "type": "str",
+                        "required": false,
+                        "default": "\"active\"",
+                        "description": "Server status to filter by. Currently the only valid value is active. Any other value returns 400 INVALID_SERVER_STATUS. If you omit this parameter, Ops Manager returns active servers."
+                    },
+                    {
+                        "name": "type",
+                        "class_name": "TypeParams",
+                        "alias": "type",
+                        "type": "str",
+                        "required": false,
+                        "default": "\"All types\"",
+                        "description": "Server type to filter by. Pass this parameter multiple times to include several types (?type=VALUE_1&type=VALUE_2). The currently supported value is MMS_SERVER, which represents the Ops Manager application server. If you omit this parameter, Ops Manager returns all types (currently only MMS_SERVER)."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## List Active Ops Manager Servers\n### Document:\n[List Active Servers](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-list-servers/)\n### Endpoint:\n`GET /admin/servers`\n### Description\nReturns a list of all active Ops Manager servers. Ops Manager considers a server active if it sent a heartbeat to the Application Database within the last 20 seconds. Use this endpoint to discover valid serverId values before you submit a log collection request."
+        },
+        {
+            "method_name": "retry",
+            "params_class_name": "Retry",
+            "verb": "POST",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs/{JOB-ID}:retry",
+            "path_params": {
+                "required": true,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "job_id",
+                        "class_name": "JOBIDParams",
+                        "alias": "JOB-ID",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": "Unique 24-hexadecimal digit string that identifies the Ops Manager server log collection job. To find a job ID, call Get All Ops Manager Server Log Collection Jobs."
+                    }
+                ]
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether or not to wrap the response in an envelope.\n\nSome API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.\n\nFor endpoints that return one result, the response body includes:\n\nName\n\t\nDescription\n\n\n\nstatus\n\n\t\n\nHTTP response code\n\n\n\n\ncontent\n\n\t\n\nExpected response body"
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Retry an Ops Manager Server Log Collection Job\n### Document:\n[Retry](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-retry/)\n### Endpoint:\n`POST /admin/omLogCollectionJobs/{JOB-ID}:retry`\n### Description\nUse this endpoint to retry the failed tasks in an Ops Manager server log collection job. Ops Manager reruns only the child tasks whose status is FAILURE and preserves the tasks that succeeded."
+        },
+        {
+            "method_name": "create",
+            "params_class_name": "Create",
+            "verb": "POST",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs",
+            "path_params": {
+                "required": false,
+                "needed": false,
+                "params": []
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether or not to wrap the response in an envelope.\n\nSome API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.\n\nFor endpoints that return one result, the response body includes:\n\nName\n\t\nDescription\n\n\n\nstatus\n\n\t\n\nHTTP response code\n\n\n\n\ncontent\n\n\t\n\nExpected response body"
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "eachvalueinserversmustidentifyaregisteredactive_ops_managerserver",
+                        "class_name": "EachvalueinserversmustidentifyaregisteredactiveOpsManagerserverParams",
+                        "alias": "Each value in servers must identify a registered, active Ops Manager server",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    },
+                    {
+                        "name": "theestimatedstoragemustnotexceedthestoragelimitthatthe_ops_manageradministratorhasconfiguredforlogcollection",
+                        "class_name": "TheestimatedstoragemustnotexceedthestoragelimitthattheOpsManageradministratorhasconfiguredforlogcollectionParams",
+                        "alias": "The estimated storage must not exceed the storage limit that the Ops Manager administrator has configured for log collection",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "413"
+                    },
+                    {
+                        "name": "thenumberofconcurrentjobsmustnotexceed4",
+                        "class_name": "Thenumberofconcurrentjobsmustnotexceed4Params",
+                        "alias": "The number of concurrent jobs must not exceed 4",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "429"
+                    },
+                    {
+                        "name": "thetimerangemustnotexceed7days",
+                        "class_name": "Thetimerangemustnotexceed7daysParams",
+                        "alias": "The time range must not exceed 7 days",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    },
+                    {
+                        "name": "thetimerangemustnotstartearlierthanthemaximumloghistorythatthe_ops_manageradministratorhasconfigured",
+                        "class_name": "ThetimerangemustnotstartearlierthanthemaximumloghistorythattheOpsManageradministratorhasconfiguredParams",
+                        "alias": "The time range must not start earlier than the maximum log history that the Ops Manager administrator has configured",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    },
+                    {
+                        "name": "log_collection_from_date",
+                        "class_name": "LogCollectionFromDateParams",
+                        "alias": "logCollectionFromDate",
+                        "type": "str",
+                        "required": false,
+                        "default": null,
+                        "description": "Start of the time range to collect, in ISO 8601 UTC format. If you set this field, you must also set logCollectionToDate."
+                    },
+                    {
+                        "name": "log_collection_from_dateandlog_collection_to_datemustbesettogether",
+                        "class_name": "LogCollectionFromDateandlogCollectionToDatemustbesettogetherParams",
+                        "alias": "logCollectionFromDate and logCollectionToDate must be set together",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    },
+                    {
+                        "name": "log_collection_from_datemustnotbeinthefuture",
+                        "class_name": "LogCollectionFromDatemustnotbeinthefutureParams",
+                        "alias": "logCollectionFromDate must not be in the future",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    },
+                    {
+                        "name": "log_collection_from_datemustprecedelog_collection_to_date",
+                        "class_name": "LogCollectionFromDatemustprecedelogCollectionToDateParams",
+                        "alias": "logCollectionFromDate must precede logCollectionToDate",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    },
+                    {
+                        "name": "log_collection_to_date",
+                        "class_name": "LogCollectionToDateParams",
+                        "alias": "logCollectionToDate",
+                        "type": "str",
+                        "required": false,
+                        "default": null,
+                        "description": "End of the time range to collect, in ISO 8601 UTC format. If you set this field, you must also set logCollectionFromDate."
+                    },
+                    {
+                        "name": "log_types",
+                        "class_name": "LogTypesParams",
+                        "alias": "logTypes",
+                        "type": "list[LogType]",
+                        "required": false,
+                        "default": null,
+                        "description": "Log types to collect. Each element must be one of the following values:\n\nAPPLICATION\n\nHTTP_ACCESS\n\nMIGRATION\n\nIf you omit this field or pass an empty array, Ops Manager collects every log type."
+                    },
+                    {
+                        "name": "servers",
+                        "class_name": "ServersParams",
+                        "alias": "servers",
+                        "type": "list[str]",
+                        "required": false,
+                        "default": null,
+                        "description": "List of serverId values returned by List Active Ops Manager Servers. If you omit this field or pass an empty array, Ops Manager collects logs from every active server."
+                    },
+                    {
+                        "name": "size_requested_per_file_bytes",
+                        "class_name": "SizeRequestedPerFileBytesParams",
+                        "alias": "sizeRequestedPerFileBytes",
+                        "type": "int",
+                        "required": false,
+                        "default": null,
+                        "description": "Maximum uncompressed size, in bytes, per log type per server. Must be greater than 0. If you omit this field, Ops Manager auto-allocates the remaining configured storage across the requested servers and log types."
+                    },
+                    {
+                        "name": "size_requested_per_file_bytesmustbegreaterthan0",
+                        "class_name": "SizeRequestedPerFileBytesmustbegreaterthan0Params",
+                        "alias": "sizeRequestedPerFileBytes must be greater than 0",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": "400"
+                    }
+                ]
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Create an Ops Manager Server Log Collection Job\n### Document:\n[Create](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/)\n### Endpoint:\n`POST /admin/omLogCollectionJobs`\n### Description\nWhen you create an Ops Manager server log collection job, Ops Manager starts background tasks to collect the requested logs from the target servers. Each server collects its logs locally, compresses and encrypts them, and stores the result in the Application Database. Use this endpoint to create a new job."
+        },
+        {
+            "method_name": "extend_expiration",
+            "params_class_name": "ExtendExpiration",
+            "verb": "PATCH",
+            "path": "/api/public/v1.0/admin/omLogCollectionJobs/{JOB-ID}",
+            "path_params": {
+                "required": true,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "job_id",
+                        "class_name": "JOBIDParams",
+                        "alias": "JOB-ID",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": "Unique 24-hexadecimal digit string that identifies the Ops Manager server log collection job. To find a job ID, call Get All Ops Manager Server Log Collection Jobs."
+                    }
+                ]
+            },
+            "query_params": {
+                "required": false,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "envelope",
+                        "class_name": "EnvelopeParams",
+                        "alias": "envelope",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag that indicates whether or not to wrap the response in an envelope.\n\nSome API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query.\n\nFor endpoints that return one result, the response body includes:\n\nName\n\t\nDescription\n\n\n\nstatus\n\n\t\n\nHTTP response code\n\n\n\n\ncontent\n\n\t\n\nExpected response body"
+                    },
+                    {
+                        "name": "pretty",
+                        "class_name": "PrettyParams",
+                        "alias": "pretty",
+                        "type": "bool",
+                        "required": false,
+                        "default": false,
+                        "description": "Flag indicating whether the response body should be in a prettyprint format."
+                    }
+                ]
+            },
+            "body_params": {
+                "required": true,
+                "needed": true,
+                "params": [
+                    {
+                        "name": "expiration_date",
+                        "class_name": "ExpirationDateParams",
+                        "alias": "expirationDate",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": "New expiration timestamp, in ISO 8601 UTC format. The timestamp must be no more than 28 days after the job creation date and no earlier than the time of the request."
+                    }
+                ]
+            },
+            "body_type": "object",
+            "need_datetime": false,
+            "doc": "\n## Extend an Ops Manager Server Log Collection Job Expiration\n### Document:\n[Extend Expiration](https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-update-one/)\n### Endpoint:\n`PATCH /admin/omLogCollectionJobs/{JOB-ID}`\n### Description\nOps Manager sets the default expiration of every job to 7 days from the job creation date. Use this endpoint to extend the expiration of an existing job. The new expiration date must be no more than 28 days after the original creation date. You cannot extend a job that has already expired."
         }
     ],
     "PerformanceAdvisorResource": [
@@ -21022,7 +21627,7 @@
             "method_name": "delete",
             "params_class_name": "Delete",
             "verb": "DELETE",
-            "path": "/api/public/v1.0/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21096,13 +21701,13 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Delete a Configuration for a Third-Party Service Integration\n### Document:\n[Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/)\n### Endpoint:\n`DELETE /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
+            "doc": "\n## Delete a Configuration for a Third-Party Service Integration\n### Document:\n[Delete](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-delete/)\n### Endpoint:\n`DELETE /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
         },
         {
             "method_name": "return_latest_prometheus_targets",
             "params_class_name": "ReturnLatestPrometheusTargets",
             "verb": "GET",
-            "path": "/prometheus/v1.0//groups/{GROUP-ID}/discovery",
+            "path": "/prometheus/v1.0//groups/{PROJECT-ID}/discovery",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21167,7 +21772,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Return the Latest Targets for Prometheus\n### Document:\n[Return Latest Prometheus Targets](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/)\n### Endpoint:\n`GET /groups/{GROUP-ID}/discovery`\n### Description\nNo description."
+            "doc": "\n## Return the Latest Targets for Prometheus\n### Document:\n[Return Latest Prometheus Targets](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-discovery/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/discovery`\n### Description\nNo description."
         },
         {
             "method_name": "get_all_configurations",
@@ -21244,7 +21849,7 @@
             "method_name": "get_one_configuration",
             "params_class_name": "GetOneConfiguration",
             "verb": "GET",
-            "path": "/api/public/v1.0/groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -21318,7 +21923,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Get the Configuration of a Third-Party Service Integration\n### Document:\n[Get One Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/)\n### Endpoint:\n`GET /groups/{GROUP-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
+            "doc": "\n## Get the Configuration of a Third-Party Service Integration\n### Document:\n[Get One Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-one/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/integrations/{INTEGRATION-TYPE}`\n### Description\nNo description."
         },
         {
             "method_name": "update",

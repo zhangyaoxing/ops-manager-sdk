@@ -60,11 +60,7 @@ class StandardCrawler:
                 desc_col = i + 1
             elif "default" in header_text:
                 default_col = i + 1
-        if name_col == 0:
-            logger.warning(
-                f"Could not find 'Name' column in parameters table. Defaulting to first column. URL: {params_locator.page.url}"
-            )
-            name_col = 1
+            # name_col = 1
         return name_col, type_col, required_col, desc_col, default_col
 
     def _get_params(self, params_locator: Locator, **kwargs) -> list[dict[str, Any]]:
@@ -86,6 +82,15 @@ class StandardCrawler:
         tables: list = params_locator.all()
         for table in tables:
             name_col, type_col, required_col, desc_col, default_col = self._column_mapping(table)
+            if [name_col, type_col, required_col, desc_col, default_col] == [0, 0, 0, 0, 0]:
+                name_col, type_col, required_col, desc_col, default_col = self._column_mapping(
+                    tables[0]
+                )
+            if [name_col, type_col, required_col, desc_col, default_col] == [0, 0, 0, 0, 0]:
+                logger.warning(
+                    "Cannot determine column mapping for parameters. Fallback to default mapping."
+                )
+                name_col = 1
             locators = table.locator("xpath=./tbody/tr").all()
             for param in locators:
                 param_name: str = param.locator(f"xpath=./td[{name_col}]").inner_text()
@@ -236,10 +241,12 @@ class StandardCrawler:
         return "object"
 
     def crawl(self, url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
+        page: Optional[Page] = None
+        status: Optional[int] = 500
         try:
             page = self.context.new_page()
             res: Optional[Response] = page.goto(url, wait_until="domcontentloaded")
-            status: Optional[int] = res.status if res else None
+            status = res.status if res else None
             if status is None or status >= 300 or status < 200:
                 raise httpx.HTTPError(f"Failed to load page with status code: {status}")
 
@@ -275,26 +282,14 @@ class StandardCrawler:
         except (httpx.HTTPError, AttributeError) as exc:
             logger.error(f"Error processing URL {url}: {exc}")
         finally:
-            page.close()
+            if page is not None:
+                page.close()
         return "Root", {
             "title": "Error",
             "capture_time": datetime.now(timezone.utc).isoformat(),
             "doc_url": url,
             "status": status,
         }
-
-
-class NoPathTitleCrawler(StandardCrawler):
-    LOCATORS = StandardCrawler.LOCATORS.copy()
-
-    def __init__(self, context):
-        super().__init__(context)
-        # This is a special handling for the following page which misses the path parameter title.
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/daemonConfigs/get-one-backup-daemon-configuration-by-host/
-        self.LOCATORS["path_params"] = (
-            "xpath=(//h2[contains(text(), 'Resource') or contains(text(), 'Request') or contains(text(), 'Syntax') or contains(text(), 'Endpoint')])[1]/following-sibling::div[not(contains(@class, 'intro-code-block'))]/table"
-        )
-
 
 class OrganizationAccessListsCrawler(StandardCrawler):
     def get_body_params(self, page: Page) -> list[dict[str, Any]]:
@@ -314,22 +309,6 @@ class EventsCrawler(StandardCrawler):
         self.LOCATORS["query_params"] = (
             "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::section/div/table"
         )
-
-    def get_path_params(self, page: Page) -> list[dict[str, Any]]:
-        path_params: list[dict[str, Any]] = super().get_path_params(page)
-        # Special handling for the following page where the "orgId" is missing.
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/events/get-all-events-for-org/
-        if "get-all-events-for-org/" in page.url:
-            path_params.append(
-                {
-                    "name": "orgId",
-                    "type": "string",
-                    "required": "Required",
-                    "description": "The unique identifier of the organization.",
-                    "default": None,
-                }
-            )
-        return path_params
 
 
 class GroupIDtoProjectIDCrawler(StandardCrawler):
@@ -423,7 +402,6 @@ class CrawlerFactory:
         context = CrawlerFactory.browser.new_context()
         context.set_default_timeout(10000)
         CrawlerFactory.crawlers["standard"] = StandardCrawler(context)
-        CrawlerFactory.crawlers["no_path_title"] = NoPathTitleCrawler(context)
         CrawlerFactory.crawlers["organization_access_lists"] = OrganizationAccessListsCrawler(
             context
         )
@@ -447,9 +425,7 @@ class CrawlerFactory:
 
     @staticmethod
     def crawl(url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
-        if "/get-one-backup-daemon-configuration-by-host/" in url:
-            crawler = CrawlerFactory.crawlers["no_path_title"]
-        elif "create-org-api-key-access-list" in url:
+        if "create-org-api-key-access-list" in url:
             crawler = CrawlerFactory.crawlers["organization_access_lists"]
         elif "/events/get-all" in url or "/measures/" in url:
             crawler = CrawlerFactory.crawlers["events"]
@@ -465,10 +441,6 @@ class CrawlerFactory:
         ]:
             crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/mongoConfigs/get-all-blockstore-configurations/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/mongoConfigs/get-all-oplog-configurations/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/oplog/s3Configs/get-all-s3-oplog-configurations/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/sync/mongoConfigs/get-all-sync-store-configurations/",
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/",
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/",
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/",
