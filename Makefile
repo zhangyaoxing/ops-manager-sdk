@@ -21,7 +21,7 @@ venv:
 install: venv
 	$(VENV_PYTHON) -m pip install -e .
 
-install-dev: venv
+install-dev: venv install
 	$(VENV_PYTHON) -m pip install -e .[dev]
 	$(VENV_PYTHON) -m playwright install chromium
 
