@@ -291,6 +291,7 @@ class StandardCrawler:
             "status": status,
         }
 
+
 class OrganizationAccessListsCrawler(StandardCrawler):
     def get_body_params(self, page: Page) -> list[dict[str, Any]]:
         params = super().get_body_params(page)
@@ -316,6 +317,7 @@ class GroupIDtoProjectIDCrawler(StandardCrawler):
         # Special handling for the integration pages where the "groupId" is used instead of "projectId".
         endpoints = super().get_endpoints(page)
         endpoints = [endpoint.replace("{GROUP-ID}", "{PROJECT-ID}") for endpoint in endpoints]
+        endpoints = [endpoint.replace("/CLUSTER-ID/", "/{CLUSTER-ID}/") for endpoint in endpoints]
         return endpoints
 
     def get_path_params(self, page: Page) -> list[dict[str, Any]]:
@@ -438,6 +440,7 @@ class CrawlerFactory:
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/",
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/",
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/",
         ]:
             crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
         elif url in [

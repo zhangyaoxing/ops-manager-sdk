@@ -9646,7 +9646,7 @@
             "method_name": "get_schedule",
             "params_class_name": "GetSchedule",
             "verb": "GET",
-            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule",
+            "path": "/api/public/v1.0/groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule",
             "path_params": {
                 "required": true,
                 "needed": true,
@@ -9702,7 +9702,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Get the Snapshot Schedule\n### Document:\n[Get Schedule](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/backupConfigs/CLUSTER-ID/snapshotSchedule`\n### Description\nNo description."
+            "doc": "\n## Get the Snapshot Schedule\n### Document:\n[Get Schedule](https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/)\n### Endpoint:\n`GET /groups/{PROJECT-ID}/backupConfigs/{CLUSTER-ID}/snapshotSchedule`\n### Description\nNo description."
         },
         {
             "method_name": "update",
