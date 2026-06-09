@@ -105,6 +105,13 @@ PARAM_TO_ENUM = [
     },
     {"param": "storageEngineName", "enum": "StorageEngineName", "urls": "*"},
     {"param": "resourceType", "enum": "ResourceType", "urls": "*"},
+    {
+        "param": "logTypes",
+        "enum": "ServerLogType",
+        "urls": [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/"
+        ],
+    },
     {"param": "logTypes", "enum": "LogType", "urls": "*"},
     {"param": "delivery.methodName", "enum": "DeliveryMethodName", "urls": "*"},
     {

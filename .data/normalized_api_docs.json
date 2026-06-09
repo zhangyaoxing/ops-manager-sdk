@@ -19252,7 +19252,7 @@
                         "name": "log_types",
                         "class_name": "LogTypesParams",
                         "alias": "logTypes",
-                        "type": "list[LogType]",
+                        "type": "list[ServerLogType]",
                         "required": false,
                         "default": null,
                         "description": "Log types to collect. Each element must be one of the following values:\n\nAPPLICATION\n\nHTTP_ACCESS\n\nMIGRATION\n\nIf you omit this field or pass an empty array, Ops Manager collects every log type."
