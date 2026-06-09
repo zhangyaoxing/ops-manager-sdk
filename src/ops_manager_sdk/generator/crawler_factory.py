@@ -391,6 +391,18 @@ class DuplicateBaseURLCrawler(GroupIDtoProjectIDCrawler):
         return endpoints
 
 
+class ServerLogCollectionCrawler(StandardCrawler):
+    LOCATORS = StandardCrawler.LOCATORS.copy()
+
+    def __init__(self, context) -> None:
+        super().__init__(context)
+        # This is a special handling for the following page which has a different structure for body parameters.
+        # https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/
+        self.LOCATORS["body_params"] = (
+            "xpath=((//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div/table)[1]"
+        )
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -419,6 +431,7 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["automation_status"] = AutomationStatusCrawler(context)
         CrawlerFactory.crawlers["update_ss"] = UpdateSSCrawler(context)
         CrawlerFactory.crawlers["duplicate_base_url"] = DuplicateBaseURLCrawler(context)
+        CrawlerFactory.crawlers["server_log_collection"] = ServerLogCollectionCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -472,6 +485,10 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["automation_status"]
         elif "/update-one-snapshot-schedule-by-cluster-id/" in url:
             crawler = CrawlerFactory.crawlers["update_ss"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/"
+        ]:
+            crawler = CrawlerFactory.crawlers["server_log_collection"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

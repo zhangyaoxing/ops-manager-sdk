@@ -19159,51 +19159,6 @@
                 "needed": true,
                 "params": [
                     {
-                        "name": "eachvalueinserversmustidentifyaregisteredactive_ops_managerserver",
-                        "class_name": "EachvalueinserversmustidentifyaregisteredactiveOpsManagerserverParams",
-                        "alias": "Each value in servers must identify a registered, active Ops Manager server",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
-                    },
-                    {
-                        "name": "theestimatedstoragemustnotexceedthestoragelimitthatthe_ops_manageradministratorhasconfiguredforlogcollection",
-                        "class_name": "TheestimatedstoragemustnotexceedthestoragelimitthattheOpsManageradministratorhasconfiguredforlogcollectionParams",
-                        "alias": "The estimated storage must not exceed the storage limit that the Ops Manager administrator has configured for log collection",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "413"
-                    },
-                    {
-                        "name": "thenumberofconcurrentjobsmustnotexceed4",
-                        "class_name": "Thenumberofconcurrentjobsmustnotexceed4Params",
-                        "alias": "The number of concurrent jobs must not exceed 4",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "429"
-                    },
-                    {
-                        "name": "thetimerangemustnotexceed7days",
-                        "class_name": "Thetimerangemustnotexceed7daysParams",
-                        "alias": "The time range must not exceed 7 days",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
-                    },
-                    {
-                        "name": "thetimerangemustnotstartearlierthanthemaximumloghistorythatthe_ops_manageradministratorhasconfigured",
-                        "class_name": "ThetimerangemustnotstartearlierthanthemaximumloghistorythattheOpsManageradministratorhasconfiguredParams",
-                        "alias": "The time range must not start earlier than the maximum log history that the Ops Manager administrator has configured",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
-                    },
-                    {
                         "name": "log_collection_from_date",
                         "class_name": "LogCollectionFromDateParams",
                         "alias": "logCollectionFromDate",
@@ -19211,33 +19166,6 @@
                         "required": false,
                         "default": null,
                         "description": "Start of the time range to collect, in ISO 8601 UTC format. If you set this field, you must also set logCollectionToDate."
-                    },
-                    {
-                        "name": "log_collection_from_dateandlog_collection_to_datemustbesettogether",
-                        "class_name": "LogCollectionFromDateandlogCollectionToDatemustbesettogetherParams",
-                        "alias": "logCollectionFromDate and logCollectionToDate must be set together",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
-                    },
-                    {
-                        "name": "log_collection_from_datemustnotbeinthefuture",
-                        "class_name": "LogCollectionFromDatemustnotbeinthefutureParams",
-                        "alias": "logCollectionFromDate must not be in the future",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
-                    },
-                    {
-                        "name": "log_collection_from_datemustprecedelog_collection_to_date",
-                        "class_name": "LogCollectionFromDatemustprecedelogCollectionToDateParams",
-                        "alias": "logCollectionFromDate must precede logCollectionToDate",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
                     },
                     {
                         "name": "log_collection_to_date",
@@ -19274,15 +19202,6 @@
                         "required": false,
                         "default": null,
                         "description": "Maximum uncompressed size, in bytes, per log type per server. Must be greater than 0. If you omit this field, Ops Manager auto-allocates the remaining configured storage across the requested servers and log types."
-                    },
-                    {
-                        "name": "size_requested_per_file_bytesmustbegreaterthan0",
-                        "class_name": "SizeRequestedPerFileBytesmustbegreaterthan0Params",
-                        "alias": "sizeRequestedPerFileBytes must be greater than 0",
-                        "type": "Any",
-                        "required": false,
-                        "default": null,
-                        "description": "400"
                     }
                 ]
             },

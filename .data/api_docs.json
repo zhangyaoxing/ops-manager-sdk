@@ -14189,7 +14189,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:22.846859+00:00",
+            "capture_time": "2026-06-09T12:58:26.115489+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-delete-one/",
             "status": 200
         },
@@ -14228,7 +14228,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:23.885359+00:00",
+            "capture_time": "2026-06-09T12:58:27.353055+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-download-job/",
             "status": 200
         },
@@ -14280,7 +14280,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:24.784010+00:00",
+            "capture_time": "2026-06-09T12:58:29.418210+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-get-all/",
             "status": 200
         },
@@ -14326,7 +14326,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:25.797608+00:00",
+            "capture_time": "2026-06-09T12:58:30.906168+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-get-one/",
             "status": 200
         },
@@ -14385,7 +14385,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:26.619399+00:00",
+            "capture_time": "2026-06-09T12:58:31.877830+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-list-servers/",
             "status": 200
         },
@@ -14424,7 +14424,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:27.604462+00:00",
+            "capture_time": "2026-06-09T12:58:33.483915+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-retry/",
             "status": 200
         },
@@ -14488,73 +14488,10 @@
                     "required": "Optional",
                     "description": "End of the time range to collect, in ISO 8601 UTC format. If you set this field, you must also set logCollectionFromDate.",
                     "default": null
-                },
-                {
-                    "name": "sizeRequestedPerFileBytes must be greater than 0.",
-                    "type": "INVALID_LOG_REQUEST_SIZE",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "logCollectionFromDate and logCollectionToDate must be set together.",
-                    "type": "OM_LOG_INCOMPLETE_TIME_RANGE",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "logCollectionFromDate must precede logCollectionToDate.",
-                    "type": "OM_LOG_INVALID_TIME_RANGE",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "logCollectionFromDate must not be in the future.",
-                    "type": "OM_LOG_TIME_RANGE_IN_FUTURE",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "The time range must not exceed 7 days.",
-                    "type": "OM_LOG_TIME_RANGE_TOO_LARGE",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "The time range must not start earlier than the maximum log history that the Ops Manager administrator has configured.",
-                    "type": "OM_LOG_TIME_RANGE_TOO_OLD",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "Each value in servers must identify a registered, active Ops Manager server.",
-                    "type": "INACTIVE_SERVER or INVALID_SERVER",
-                    "required": "400",
-                    "description": "400",
-                    "default": null
-                },
-                {
-                    "name": "The number of concurrent jobs must not exceed 4.",
-                    "type": "TOO_MANY_OM_LOG_JOBS",
-                    "required": "429",
-                    "description": "429",
-                    "default": null
-                },
-                {
-                    "name": "The estimated storage must not exceed the storage limit that the Ops Manager administrator has configured for log collection.",
-                    "type": "OM_LOG_STORAGE_LIMIT_EXCEEDED",
-                    "required": "413",
-                    "description": "413",
-                    "default": null
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:28.889842+00:00",
+            "capture_time": "2026-06-09T12:58:34.874758+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/",
             "status": 200
         },
@@ -14601,7 +14538,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-05T16:40:29.929622+00:00",
+            "capture_time": "2026-06-09T12:58:36.109537+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-update-one/",
             "status": 200
         }
