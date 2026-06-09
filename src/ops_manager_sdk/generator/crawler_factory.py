@@ -176,6 +176,8 @@ class StandardCrawler:
         if base_url_locator.count() > 0:
             base_url: str = base_url_locator.inner_text()
             base_url = base_url.split("{PORT}")[1].strip()
+            if base_url.endswith("/"):
+                base_url = base_url[:-1]
             logger.debug(f"Extracted base URL: {base_url} from {page.url}")
             return base_url
         logger.warning(f"No base URL found in document: {page.url}")

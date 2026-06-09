@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ops-manager-sdk-generator"
-version = "0.1.2"
+version = "0.1.3"
 description = "MongoDB Ops Manager SDK generator."
 readme = "README.md"
 requires-python = ">=3.10"
