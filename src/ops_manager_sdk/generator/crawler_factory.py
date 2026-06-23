@@ -419,6 +419,11 @@ class NoBaseUrlCrawler(StandardCrawler):
         return endpoints
 
 
+class RootCrawler(StandardCrawler):
+    def get_resource_name(self, page: Page) -> str:
+        return "Root"
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -449,6 +454,7 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["duplicate_base_url"] = DuplicateBaseURLCrawler(context)
         CrawlerFactory.crawlers["server_log_collection"] = ServerLogCollectionCrawler(context)
         CrawlerFactory.crawlers["no_base_url"] = NoBaseUrlCrawler(context)
+        CrawlerFactory.crawlers["root"] = RootCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -511,6 +517,8 @@ class CrawlerFactory:
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/",
         ]:
             crawler = CrawlerFactory.crawlers["no_base_url"]
+        elif url in ["https://www.mongodb.com/docs/ops-manager/current/reference/api/root/"]:
+            crawler = CrawlerFactory.crawlers["root"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

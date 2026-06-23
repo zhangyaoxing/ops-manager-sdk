@@ -5335,7 +5335,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Test Project Alert Configuration\n### Document:\n[Test Project Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/)\n### Endpoint:\n`POST /api/public/v1.0/groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`\n### Description\nTriggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."
+            "doc": "\n## Test Project Alert Configuration\n### Document:\n[Test Project Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/)\n### Endpoint:\n`POST /groups/{GROUP-ID}/alertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`\n### Description\nTriggers a test notification for a specific notification method in a project alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."
         },
         {
             "method_name": "update",
@@ -5780,7 +5780,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Timestamp in ISO 8601 date and time format in UTC until which the alert should be acknowledged.\n\nTo acknowledge an alert \"forever\", set the field value to a large number of years in the future. Recommend setting to 100 years in the future.\n\nTo unacknowledge an acknowledged alert, remove this parameter from your request."
+                        "description": "ISO 8601 until which the alert should be acknowledged.\n\nTo acknowledge an alert \"forever\", set the field value to a large number of years in the future. Recommend setting to 100 years in the future.\n\nTo unacknowledge an acknowledged alert, remove this parameter from your request."
                     },
                     {
                         "name": "acknowledgement_comment",
@@ -8342,7 +8342,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Update the Automation Configuration (Sensitive Information Ignored)\n### Document:\n[Update the Automation Configuration (No Secrets)](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/)\n### Endpoint:\n`PUT /groups/{PROJECT-ID}/automationConfig/noSecrets`\n### Description\nA project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."
+            "doc": "\n## Update Automation Config Without Sensitive Fields\n### Document:\n[Update the Automation Configuration (No Secrets)](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/)\n### Endpoint:\n`PUT /groups/{PROJECT-ID}/automationConfig/noSecrets`\n### Description\nA project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."
         },
         {
             "method_name": "update_the_automation_configuration",
@@ -10573,7 +10573,7 @@
                                 "type": "Policy",
                                 "required": false,
                                 "default": null,
-                                "description": "Single policy set for this Ops Manager Project. This parameter can be set one or more times in the policies array.\n\nAccepted values are:\n\nValue\n\t\nPurpose\n\n\n\nExternallyManagedLock\n\n\t\n\nUsers can't use Ops Manager to manage other settings given in the policies[n].policy array. These same users may use a configured external system, like the Kubernetes Operator to manage these settings.\n\n\n\n\nDisableUserManagement\n\n\t\n\nUsers can't manage users or roles.\n\n\n\nDisableAuthenticationMechanisms\n\t\n\nUsers can't change authentication settings.\n\n\n\nDisableSetMongodConfig\n\t\n\nUsers can't change any mongod settings listed in the policies[n].disabledParams array.\n\n\n\nDisableSetMongodVersion\n\t\n\nUsers can't change the version of any mongod or mongos.\n\n\n\n\nDisableBackupAgent\n\n\t\n\nUsers can't enable or disable the Backup agent.\n\n\n\nDisableMongodLogManagement\n\t\n\nUsers can't change log management settings.\n\n\n\nDisableImportToAutomation\n\t\n\nUsers can't manage deployments using Automation.\n\n\n\nDisableAgentApiKeyManagement\n\t\n\nUsers can't create or update Agent API keys.\n\n\n\nDisableMongodHostManagement\n\t\n\nUsers can't change the server type of hosts."
+                                "description": "Single policy set for this Ops Manager Project. This parameter can be set one or more times in the policies array.\n\nAccepted values are:\n\nValue\n\t\nPurpose\n\n\n\nExternallyManagedLock\n\n\t\n\nUsers can't use Ops Manager to manage other settings given in the policies[n].policy array. These same users may use a configured external system, like the Kubernetes Operator to manage these settings.\n\n\n\n\nDisableUserManagement\n\n\t\n\nUsers can't manage users or roles.\n\n\n\n\nDisableAuthenticationMechanisms\n\n\t\n\nUsers can't change authentication settings.\n\n\n\n\nDisableSetMongodConfig\n\n\t\n\nUsers can't change any mongod settings listed in the policies[n].disabledParams array.\n\n\n\n\nDisableSetMongodVersion\n\n\t\n\nUsers can't change the version of any mongod or mongos.\n\n\n\n\nDisableBackupAgent\n\n\t\n\nUsers can't enable or disable the Backup agent.\n\n\n\n\nDisableMongodLogManagement\n\n\t\n\nUsers can't change log management settings.\n\n\n\n\nDisableImportToAutomation\n\n\t\n\nUsers can't manage deployments using Automation.\n\n\n\n\nDisableAgentApiKeyManagement\n\n\t\n\nUsers can't create or update Agent API keys.\n\n\n\n\nDisableMongodHostManagement\n\n\t\n\nUsers can't change the server type of hosts."
                             }
                         ],
                         "has_nested_params": true
@@ -10975,7 +10975,7 @@
                         "type": "str",
                         "required": true,
                         "default": null,
-                        "description": "Date in ISO 8601 date format when the report ends."
+                        "description": "ISO 8601 when the report ends."
                     },
                     {
                         "name": "envelope",
@@ -11020,7 +11020,7 @@
                         "type": "str",
                         "required": true,
                         "default": null,
-                        "description": "Date in ISO 8601 date format when the report starts."
+                        "description": "ISO 8601 when the report starts."
                     }
                 ]
             },
@@ -12246,7 +12246,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Return only events for which the created date is less than or equal to the specified Timestamp in ISO 8601 date and time format in UTC."
+                        "description": "Return only events for which the created date is less than or equal to the specified ISO 8601."
                     },
                     {
                         "name": "min_date",
@@ -12255,7 +12255,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Return only events for which the created date is greater than or equal to the specified Timestamp in ISO 8601 date and time format in UTC."
+                        "description": "Return only events for which the created date is greater than or equal to the specified ISO 8601."
                     },
                     {
                         "name": "page_num",
@@ -12353,7 +12353,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Return only events for which the created date is less than or equal to the specified Timestamp in ISO 8601 date and time format in UTC."
+                        "description": "Return only events for which the created date is less than or equal to the specified ISO 8601."
                     },
                     {
                         "name": "min_date",
@@ -12362,7 +12362,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Return only events for which the created date is greater than or equal to the specified Timestamp in ISO 8601 date and time format in UTC."
+                        "description": "Return only events for which the created date is greater than or equal to the specified ISO 8601."
                     },
                     {
                         "name": "page_num",
@@ -12585,7 +12585,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Return only events for which the created date is less than or equal to the specified Timestamp in ISO 8601 date and time format in UTC."
+                        "description": "Return only events for which the created date is less than or equal to the specified ISO 8601."
                     },
                     {
                         "name": "min_date",
@@ -12594,7 +12594,7 @@
                         "type": "str",
                         "required": false,
                         "default": null,
-                        "description": "Return only events for which the created date is greater than or equal to the specified Timestamp in ISO 8601 date and time format in UTC."
+                        "description": "Return only events for which the created date is greater than or equal to the specified ISO 8601."
                     },
                     {
                         "name": "page_num",
@@ -13321,7 +13321,7 @@
             },
             "body_type": "object",
             "need_datetime": false,
-            "doc": "\n## Test Global Alert Configuration\n### Document:\n[Test Global Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/)\n### Endpoint:\n`POST /api/public/v1.0/globalAlertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`\n### Description\nTriggers a test notification for a specific notification method in a global alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."
+            "doc": "\n## Test Global Alert Configuration\n### Document:\n[Test Global Alert Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/)\n### Endpoint:\n`POST /globalAlertConfigs/{ALERT-CONFIG-ID}/{NOTIFICATION-ID}/test`\n### Description\nTriggers a test notification for a specific notification method in a global alert configuration. This endpoint sends a test payload with dummy data and rendered templates to validate your webhook configuration."
         },
         {
             "method_name": "enable_or_disable",
@@ -13815,7 +13815,7 @@
                         "type": "str",
                         "required": true,
                         "default": null,
-                        "description": "Timestamp in ISO 8601 date and time format in UTC through which you acknowledge this alert. After this time passes, Ops Manager reverts the alert to un-acknowledged.\n\nTo prevent the alert from resuming any time soon, set the date and time to some point in the distant future.\n\nTo un-acknowledge an alert, specify a time and date in the past."
+                        "description": "ISO 8601 through which you acknowledge this alert. After this time passes, Ops Manager reverts the alert to un-acknowledged.\n\nTo prevent the alert from resuming any time soon, set the date and time to some point in the distant future.\n\nTo un-acknowledge an alert, specify a time and date in the past."
                     },
                     {
                         "name": "acknowledgement_comment",
@@ -15795,7 +15795,7 @@
                         "type": "bool",
                         "required": false,
                         "default": null,
-                        "description": "Set to true if TLS/SSL should be enabled for this MongoDB process. Set to true if \"authMechanismName\" : \"MONGODB_X509\"."
+                        "description": "Set to true if TLS should be enabled for this MongoDB process. Set to true if \"authMechanismName\" : \"MONGODB_X509\"."
                     },
                     {
                         "name": "username",
@@ -17738,6 +17738,24 @@
                 "needed": true,
                 "params": [
                     {
+                        "name": "log_collection_from_date",
+                        "class_name": "LogCollectionFromDateParams",
+                        "alias": "logCollectionFromDate",
+                        "type": "int",
+                        "required": false,
+                        "default": null,
+                        "description": "Date and time from which to start this log, in milliseconds since the Unix epoch. If you specify the logCollectionFromDate, you must also specify the logCollectionToDate."
+                    },
+                    {
+                        "name": "log_collection_to_date",
+                        "class_name": "LogCollectionToDateParams",
+                        "alias": "logCollectionToDate",
+                        "type": "int",
+                        "required": false,
+                        "default": null,
+                        "description": "Date and time at which to end this log, in milliseconds since the Unix epoch. If you specify the logCollectionToDate, you must also specify the logCollectionFromDate."
+                    },
+                    {
                         "name": "log_types",
                         "class_name": "LogTypesParams",
                         "alias": "logTypes",
@@ -17771,7 +17789,7 @@
                         "type": "ResourceType",
                         "required": true,
                         "default": null,
-                        "description": "Type of resource from which to collect logs. Must be one of the following values:\n\nCLUSTER, for a sharded cluster.\n\nPROCESS, for a node in the replica set.\n\nREPLICASET, for a replica set.`"
+                        "description": "Type of resource from which to collect logs. Must be one of the following values:\n\nCLUSTER, for a sharded cluster.\n\nPROCESS, for a node in the replica set.\n\nREPLICASET, for a replica set."
                     },
                     {
                         "name": "size_requested_per_file_bytes",
@@ -17852,7 +17870,7 @@
                         "type": "str",
                         "required": true,
                         "default": null,
-                        "description": "Timestamp, in the number of seconds that have elapsed since the UNIX epoch when this job expires. This can be up to 6 months from the time the job was created. You cannot specify a date which precedes the time the request is made."
+                        "description": "UNIX epoch when this job expires. This can be up to 6 months from the time the job was created. You cannot specify a date which precedes the time the request is made."
                     }
                 ]
             },
@@ -21626,7 +21644,7 @@
             "method_name": "return_latest_prometheus_targets",
             "params_class_name": "ReturnLatestPrometheusTargets",
             "verb": "GET",
-            "path": "/prometheus/v1.0//groups/{PROJECT-ID}/discovery",
+            "path": "/prometheus/v1.0/groups/{PROJECT-ID}/discovery",
             "path_params": {
                 "required": true,
                 "needed": true,
