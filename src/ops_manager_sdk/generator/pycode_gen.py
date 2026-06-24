@@ -80,7 +80,7 @@ class {{ class_name }}(BaseResource):
     {% endif %}
     {% if snippet.body_params.needed %}
     class {{ snippet.params_class_name }}BodyParams(BaseModel):
-        model_config = ConfigDict(populate_by_name=True)
+        model_config = ConfigDict(populate_by_name=True{% if snippet.body_type == "any" %}, extra="allow"{% endif %})
         {% for param in snippet.body_params.params %}
         {% if param.has_nested_params %}
         class {{ param.class_name }}(BaseModel):

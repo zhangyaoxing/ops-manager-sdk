@@ -8337,10 +8337,10 @@
             },
             "body_params": {
                 "required": false,
-                "needed": false,
+                "needed": true,
                 "params": []
             },
-            "body_type": "object",
+            "body_type": "any",
             "need_datetime": false,
             "doc": "\n## Update Automation Config Without Sensitive Fields\n### Document:\n[Update the Automation Configuration (No Secrets)](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/)\n### Endpoint:\n`PUT /groups/{PROJECT-ID}/automationConfig/noSecrets`\n### Description\nA project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."
         },
@@ -8390,10 +8390,10 @@
             },
             "body_params": {
                 "required": false,
-                "needed": false,
+                "needed": true,
                 "params": []
             },
-            "body_type": "object",
+            "body_type": "any",
             "need_datetime": false,
             "doc": "\n## Update the Automation Configuration\n### Document:\n[Update the Automation Configuration](https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/)\n### Endpoint:\n`PUT /groups/{PROJECT-ID}/automationConfig`\n### Description\nA project's automation configuration determines the goal state of its MongoDB processes and agents. The MongoDB Agent builds the deployment according to the goals specified."
         },
