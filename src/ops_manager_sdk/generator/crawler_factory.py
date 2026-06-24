@@ -527,7 +527,7 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["root"]
         elif url in [
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/#std-label-update-automation-configuration-no-secrets",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/",
         ]:
             crawler = CrawlerFactory.crawlers["automation"]
         else:

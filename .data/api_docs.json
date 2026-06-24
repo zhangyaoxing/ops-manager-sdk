@@ -5937,7 +5937,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:04:58.053063+00:00",
+            "capture_time": "2026-06-24T10:53:04.023513+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-audit-log-rotate-config/",
             "status": 200
         },
@@ -5976,7 +5976,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:04:59.063206+00:00",
+            "capture_time": "2026-06-24T10:53:05.736514+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config-no-secrets/",
             "status": 200
         },
@@ -6015,7 +6015,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:00.391665+00:00",
+            "capture_time": "2026-06-24T10:53:07.218009+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-automation-config/",
             "status": 200
         },
@@ -6054,7 +6054,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:02.016454+00:00",
+            "capture_time": "2026-06-24T10:53:08.429153+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-backup-log-attributes/",
             "status": 200
         },
@@ -6093,7 +6093,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:03.704034+00:00",
+            "capture_time": "2026-06-24T10:53:09.923787+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-monitoring-log-attributes/",
             "status": 200
         },
@@ -6132,7 +6132,7 @@
             ],
             "body_params": [],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:05.368635+00:00",
+            "capture_time": "2026-06-24T10:53:11.465597+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/get-system-log-rotate-config/",
             "status": 200
         },
@@ -6193,7 +6193,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:07.037630+00:00",
+            "capture_time": "2026-06-24T10:53:13.001647+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-agent-versions/",
             "status": 200
         },
@@ -6268,7 +6268,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:08.284053+00:00",
+            "capture_time": "2026-06-24T10:53:14.416273+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-audit-log-rotate-config/",
             "status": 200
         },
@@ -6306,8 +6306,8 @@
                 }
             ],
             "body_params": [],
-            "body_type": "object",
-            "capture_time": "2026-06-23T16:05:09.649187+00:00",
+            "body_type": "any",
+            "capture_time": "2026-06-24T10:53:15.960339+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/",
             "status": 200
         },
@@ -6345,8 +6345,8 @@
                 }
             ],
             "body_params": [],
-            "body_type": "object",
-            "capture_time": "2026-06-23T16:05:10.876315+00:00",
+            "body_type": "any",
+            "capture_time": "2026-06-24T10:53:17.155112+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/",
             "status": 200
         },
@@ -6428,7 +6428,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:12.695479+00:00",
+            "capture_time": "2026-06-24T10:53:18.852107+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-backup-log-attributes/",
             "status": 200
         },
@@ -6510,7 +6510,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:14.320736+00:00",
+            "capture_time": "2026-06-24T10:53:20.529148+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-monitoring-log-attributes/",
             "status": 200
         },
@@ -6585,7 +6585,7 @@
                 }
             ],
             "body_type": "object",
-            "capture_time": "2026-06-23T16:05:15.987386+00:00",
+            "capture_time": "2026-06-24T10:53:22.359304+00:00",
             "doc_url": "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-system-log-rotate-config/",
             "status": 200
         }

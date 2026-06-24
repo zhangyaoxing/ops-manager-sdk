@@ -96,8 +96,10 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
             logger.info(f"Found {len(urls)} API documentation to recrawl. Recrawling...")
 
     CrawlerFactory.initiate_crawler()
+    processed_count = 0
     for index, url in enumerate(urls):
         count = index + 1
+        processed_count = count
         resource, api_doc = CrawlerFactory.crawl(url)
         if resource is None or api_doc is None:
             continue
@@ -108,6 +110,13 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
             logger.info(f"{count}/{len(urls)} URLs processed.")
             if is_debug:
                 break
+    if processed_count == len(urls):
+        logger.info(f"{processed_count}/{len(urls)} URLs processed. All pages crawled.")
+    else:
+        logger.info(
+            f"{processed_count}/{len(urls)} URLs processed. "
+            "Crawling stopped before all pages were crawled."
+        )
     CrawlerFactory.close()
 
     with output_file.open("w", encoding="utf-8") as f:
