@@ -1,5 +1,6 @@
 import os
 import re
+import time
 from typing import Any, Optional
 from datetime import datetime, timezone
 import httpx
@@ -11,6 +12,7 @@ from playwright.sync_api import (
     Response,
     BrowserContext,
     sync_playwright,
+    TimeoutError as PlaywrightTimeoutError,
 )
 from loguru import logger
 
@@ -176,6 +178,8 @@ class StandardCrawler:
         if base_url_locator.count() > 0:
             base_url: str = base_url_locator.inner_text()
             base_url = base_url.split("{PORT}")[1].strip()
+            if base_url.endswith("/"):
+                base_url = base_url[:-1]
             logger.debug(f"Extracted base URL: {base_url} from {page.url}")
             return base_url
         logger.warning(f"No base URL found in document: {page.url}")
@@ -279,8 +283,10 @@ class StandardCrawler:
                 "doc_url": url,
                 "status": status,
             }
-        except (httpx.HTTPError, AttributeError) as exc:
+        except (httpx.HTTPError, AttributeError, PlaywrightTimeoutError) as exc:
             logger.error(f"Error processing URL {url}: {exc}")
+            if isinstance(exc, PlaywrightTimeoutError):
+                time.sleep(10)
         finally:
             if page is not None:
                 page.close()
@@ -403,6 +409,26 @@ class ServerLogCollectionCrawler(StandardCrawler):
         )
 
 
+class NoBaseUrlCrawler(StandardCrawler):
+    def get_base_url(self, page: Page) -> str:
+        return "/api/public/v1.0"
+
+    def get_endpoints(self, page: Page) -> list[str]:
+        endpoints = super().get_endpoints(page)
+        endpoints = [e.replace("/api/public/v1.0", "") for e in endpoints]
+        return endpoints
+
+
+class RootCrawler(StandardCrawler):
+    def get_resource_name(self, page: Page) -> str:
+        return "Root"
+
+
+class AutomationCrawler(StandardCrawler):
+    def get_body_description(self, page: Page) -> str:
+        return "any"
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -432,6 +458,9 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["update_ss"] = UpdateSSCrawler(context)
         CrawlerFactory.crawlers["duplicate_base_url"] = DuplicateBaseURLCrawler(context)
         CrawlerFactory.crawlers["server_log_collection"] = ServerLogCollectionCrawler(context)
+        CrawlerFactory.crawlers["no_base_url"] = NoBaseUrlCrawler(context)
+        CrawlerFactory.crawlers["root"] = RootCrawler(context)
+        CrawlerFactory.crawlers["automation"] = AutomationCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -489,6 +518,18 @@ class CrawlerFactory:
             "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/"
         ]:
             crawler = CrawlerFactory.crawlers["server_log_collection"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/",
+        ]:
+            crawler = CrawlerFactory.crawlers["no_base_url"]
+        elif url in ["https://www.mongodb.com/docs/ops-manager/current/reference/api/root/"]:
+            crawler = CrawlerFactory.crawlers["root"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/",
+        ]:
+            crawler = CrawlerFactory.crawlers["automation"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

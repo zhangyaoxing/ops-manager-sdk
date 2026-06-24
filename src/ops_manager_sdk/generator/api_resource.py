@@ -143,9 +143,10 @@ class APIResource:
             body_required, body_params = self._resolve_params(
                 api.get("body_params", []), url=api["doc_url"]
             )
+            body_type = str(api.get("body_type", "object")).lower()
             path_needed = len(path_params) > 0
             query_needed = len(query_params) > 0
-            body_needed = len(body_params) > 0
+            body_needed = len(body_params) > 0 or body_type == "any"
             need_datetime = any(
                 param["type"] == "datetime" for param in path_params + query_params + body_params
             )
@@ -172,7 +173,7 @@ class APIResource:
                         "needed": body_needed,
                         "params": body_params,
                     },
-                    "body_type": api.get("body_type", "object"),
+                    "body_type": body_type,
                     "need_datetime": need_datetime,
                     "doc": doc,
                 }
