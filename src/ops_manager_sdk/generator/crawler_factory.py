@@ -424,6 +424,11 @@ class RootCrawler(StandardCrawler):
         return "Root"
 
 
+class AutomationCrawler(StandardCrawler):
+    def get_body_description(self, page: Page) -> str:
+        return "any"
+
+
 class CrawlerFactory:
     crawlers: dict[str, StandardCrawler] = {}
     playwright: Playwright
@@ -455,6 +460,7 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["server_log_collection"] = ServerLogCollectionCrawler(context)
         CrawlerFactory.crawlers["no_base_url"] = NoBaseUrlCrawler(context)
         CrawlerFactory.crawlers["root"] = RootCrawler(context)
+        CrawlerFactory.crawlers["automation"] = AutomationCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -519,6 +525,11 @@ class CrawlerFactory:
             crawler = CrawlerFactory.crawlers["no_base_url"]
         elif url in ["https://www.mongodb.com/docs/ops-manager/current/reference/api/root/"]:
             crawler = CrawlerFactory.crawlers["root"]
+        elif url in [
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/",
+            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/#std-label-update-automation-configuration-no-secrets",
+        ]:
+            crawler = CrawlerFactory.crawlers["automation"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
         return crawler.crawl(url)

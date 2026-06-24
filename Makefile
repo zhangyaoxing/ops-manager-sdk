@@ -3,13 +3,17 @@ PACKAGE = ops_manager_sdk
 VENV = .venv
 VENV_PYTHON = $(VENV)/bin/python
 
-.PHONY: help venv install install-dev lint format-resources clean
+.PHONY: help venv install install-dev crawl recrawl pygen reset lint format-resources clean
 
 help:
 	@echo "Available targets:"
 	@echo "  venv         Create the local virtual environment"
 	@echo "  install      Install runtime dependencies"
 	@echo "  install-dev  Install package with development dependencies"
+	@echo "  crawl        Crawl API docs and write .data/api_docs.json"
+	@echo "  recrawl      Crawl all API docs and replace .data/api_docs.json"
+	@echo "  pygen        Generate normalized docs and Python SDK code"
+	@echo "  reset        Set statuses for one api_docs.json key to 404: make reset KEY=<key>"
 	@echo "  lint         Run pylint on source and tests"
 	@echo "  format-resources  Format all Python files under resources"
 	@echo "  clean        Remove Python build artifacts"
@@ -24,6 +28,19 @@ install: venv
 install-dev: venv install
 	$(VENV_PYTHON) -m pip install -e .[dev]
 	$(VENV_PYTHON) -m playwright install chromium
+
+crawl:
+	$(VENV_PYTHON) -m ops_manager_sdk.generator crawl
+
+recrawl: install-dev
+	FORCE_CRAWL=1 $(VENV_PYTHON) -m ops_manager_sdk.generator crawl
+
+pygen:
+	$(VENV_PYTHON) -m ops_manager_sdk.generator pygen
+
+reset:
+	@test -n "$(KEY)" || ( echo "Usage: make reset KEY=<api_docs_key>"; exit 1 )
+	$(VENV_PYTHON) -m ops_manager_sdk.generator reset "$(KEY)"
 
 lint: venv
 	$(VENV_PYTHON) -m pylint src/$(PACKAGE) tests

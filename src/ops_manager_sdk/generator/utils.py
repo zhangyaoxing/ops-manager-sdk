@@ -77,11 +77,12 @@ def extract_apis(urls: list[str]) -> dict[str, list]:
         A dictionary containing the API endpoint and parameters.
     """
     is_debug: bool = os.getenv("ENV", "INFO").upper() == "DEVELOPMENT"
+    force_crawl: bool = os.getenv("FORCE_CRAWL", "0").lower() in {"1", "true", "yes"}
     # Check if the API document was crawled recently (within the last 7 days).
     HOME_DIR.mkdir(parents=True, exist_ok=True)
     output_file = HOME_DIR / "api_docs.json"
     api_docs: dict[str, list] = {}
-    if output_file.exists() and not is_debug:
+    if output_file.exists() and not is_debug and not force_crawl:
         logger.info(f"API documentation already exists at {output_file}. Loading from file.")
         with output_file.open("r", encoding="utf-8") as f:
             api_docs = json.load(f)
