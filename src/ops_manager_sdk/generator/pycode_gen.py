@@ -30,13 +30,13 @@ class OpsManagerClient:
     {% for package_name, class_name in resources %}
     @property
     def {{ package_name }}(self) -> {{ class_name }}:
-        \"\"\"Get the resource object for {{ class_name }} resource.\"\"\"
+        r\"\"\"Get the resource object for {{ class_name }} resource.\"\"\"
         return {{ class_name }}(self._client){% endfor %}
 
 """
 
 RESOURCE_TEMPLATE = """
-\"\"\"Auto-generated client for {{ class_name }} resource.
+r\"\"\"Auto-generated client for {{ class_name }} resource.
 Any manual changes to this file may be overwritten when the code is regenerated.
 \"\"\"
 from typing import Any, Optional
@@ -48,7 +48,7 @@ from .base_resource import BaseResource
 from .enums import *
 
 class {{ class_name }}(BaseResource):
-    \"\"\"Client for {{ class_name }} resource.
+    r\"\"\"Client for {{ class_name }} resource.
     \"\"\"
     {% for snippet in code_data %}
     {% if snippet.path_params.needed %}
@@ -56,7 +56,7 @@ class {{ class_name }}(BaseResource):
         model_config = ConfigDict(populate_by_name=True)
         {% for param in snippet.path_params.params %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none or not param.required %}default={{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
-        \"\"\"{{ param.description }}
+        r\"\"\"{{ param.description }}
         \"\"\"
         {% endfor %}
     {% endif %}
@@ -69,12 +69,12 @@ class {{ class_name }}(BaseResource):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
             {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none or not nested_param.required %}default={{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
-            \"\"\"{{ nested_param.description }}
+            r\"\"\"{{ nested_param.description }}
             \"\"\"
             {% endfor %}
         {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none or not param.required %}default={{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
-        \"\"\"{{ param.description }}
+        r\"\"\"{{ param.description }}
         \"\"\"
         {% endfor %}
     {% endif %}
@@ -87,12 +87,12 @@ class {{ class_name }}(BaseResource):
             model_config = ConfigDict(populate_by_name=True)
             {% for nested_param in param.nested_params %}
             {{ nested_param.name }}: {% if nested_param.required %}{{ nested_param.type }}{% else %}Optional[{{ nested_param.type }}]{% endif %} = Field({% if nested_param.default is not none or not nested_param.required %}default={{ nested_param.default }}, {% endif %}serialization_alias="{{ nested_param.alias }}")
-            \"\"\"{{ nested_param.description }}
+            r\"\"\"{{ nested_param.description }}
             \"\"\"
             {% endfor %}
         {% endif %}
         {{ param.name }}: {% if param.required %}{{ param.type }}{% else %}Optional[{{ param.type }}]{% endif %} = Field({% if param.default is not none or not param.required %}default={{ param.default }}, {% endif %}serialization_alias="{{ param.alias }}")
-        \"\"\"{{ param.description }}
+        r\"\"\"{{ param.description }}
         \"\"\"
         {% endfor %}
     {% endif %}
@@ -107,7 +107,7 @@ class {{ class_name }}(BaseResource):
         body_params: {% if snippet.body_type == "array" %}list[{% endif %}{% if snippet.body_params.required %}{{ snippet.params_class_name }}BodyParams{% else %}Optional[{{ snippet.params_class_name }}BodyParams]{% endif %}{% if snippet.body_type == "array" %}]{% endif %},
         {% endif %}
     ) -> dict[str, Any]:
-        \"\"\"{{ snippet.doc }}
+        r\"\"\"{{ snippet.doc }}
         \"\"\"
         return self._request(
             "{{ snippet.verb }}",
