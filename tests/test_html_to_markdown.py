@@ -27,3 +27,14 @@ def test_html_to_markdown_converts_simple_tables() -> None:
     assert html_to_markdown(html) == (
         "| Name | Description |\n" "| --- | --- |\n" "| `id` | Project identifier |"
     )
+
+
+def test_html_to_markdown_ignores_css_javascript_and_non_basic_tags() -> None:
+    html = (
+        '<style>.hidden { display: none; }</style>'
+        '<script>alert("x")</script>'
+        '<p style="color: red" onclick="doThing()">Use <span>basic</span> '
+        '<strong>markdown</strong>.</p>'
+    )
+
+    assert html_to_markdown(html) == "Use basic **markdown**."

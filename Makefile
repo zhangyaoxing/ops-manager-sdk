@@ -32,7 +32,7 @@ install-dev: venv install
 crawl:
 	$(VENV_PYTHON) -m ops_manager_sdk.generator crawl
 
-recrawl: install-dev
+recrawl:
 	FORCE_CRAWL=1 $(VENV_PYTHON) -m ops_manager_sdk.generator crawl
 
 pygen:
