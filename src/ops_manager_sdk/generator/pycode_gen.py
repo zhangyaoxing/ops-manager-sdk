@@ -30,7 +30,7 @@ class OpsManagerClient:
     {% for package_name, class_name in resources %}
     @property
     def {{ package_name }}(self) -> {{ class_name }}:
-        \"\"\"Get the client for {{ class_name }} resource.\"\"\"
+        \"\"\"Get the resource object for {{ class_name }} resource.\"\"\"
         return {{ class_name }}(self._client){% endfor %}
 
 """
