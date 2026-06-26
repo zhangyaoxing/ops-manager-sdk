@@ -16,6 +16,8 @@ from playwright.sync_api import (
 )
 from loguru import logger
 
+from ops_manager_sdk.generator.html_to_markdown import html_to_markdown
+
 
 class StandardCrawler:
     LOCATORS: dict[str, str] = {
@@ -118,7 +120,7 @@ class StandardCrawler:
                 if desc_locator.count() == 0:
                     desc_locator = param.locator(f"xpath=./td[{required_col}]")
                 desc: str = (
-                    desc_locator.inner_text() if desc_locator.count() > 0 else "No description."
+                    html_to_markdown(desc_locator.inner_html()) if desc_locator.count() > 0 else "No description."
                 )
                 has_table = desc_locator.locator("xpath=(.//table|.//ul)").count() > 0
                 if has_table and param_name != "envelope":
@@ -207,7 +209,7 @@ class StandardCrawler:
     def get_description(self, page: Page) -> str:
         description_locator = page.locator(self.LOCATORS["description"])
         if description_locator.count() > 0:
-            description: str = description_locator.inner_text()
+            description: str = html_to_markdown(description_locator.inner_html())
             logger.debug(f"Extracted description: {description} from {page.url}")
             if "Base URL" not in description:
                 return description
