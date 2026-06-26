@@ -95,12 +95,12 @@ def parse_args() -> argparse.Namespace:
         help="Generator phase to run.",
     )
     parser.add_argument("key", nargs="?", help="First-level .data/api_docs.json key to reset.")
-    args = parser.parse_args()
-    if args.command == "reset" and args.key is None:
+    parsed_args = parser.parse_args()
+    if parsed_args.command == "reset" and parsed_args.key is None:
         parser.error("reset requires a first-level api_docs.json key")
-    if args.command != "reset" and args.key is not None:
-        parser.error(f"{args.command} does not accept a key argument")
-    return args
+    if parsed_args.command != "reset" and parsed_args.key is not None:
+        parser.error(f"{parsed_args.command} does not accept a key argument")
+    return parsed_args
 
 
 if __name__ == "__main__":
