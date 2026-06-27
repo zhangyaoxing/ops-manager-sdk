@@ -13,7 +13,7 @@ You can find the original metadata extracted from API documents in the file `.da
 ## How to Use
 The `Makefile` has some targets that can help you run the code:
 
-### Crawl the Document
+### Crawl the Documents
 ```bash
 make crawl
 ```
@@ -21,14 +21,16 @@ This will crawl the document in the `.data/api_docs.json` which are:
 - Older than 30 days, or
 - Returned non-200 HTTP response.
 
-### Recrawl the Document
+If the crawls are all successful, it will generate a normalized version of the API metadata `.data/normalized_api_docs.json`. The normalized metadata fixes some known issues, and is easier to use for code generation.
+
+### Recrawl the Documents
 If there are new API endpoints added, or if you simply want to recrawl all the document, use this target:
 ```bash
 make recrawl
 ```
 
 ### Reset and Crawl
-If you wish to recrawl all documents of a certain resource, use the reset target. It will set the `status` of each document to 404, so in the next crawl run, the documents can be recrawled.
+If you wish to recrawl all documents of a certain resource, use the reset target. It will set the `status` of each document to `404`, so in the next crawl run, the documents can be recrawled.
 ```bash
 make reset KEY=SnapshotSchedule
 make crawl
