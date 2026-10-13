@@ -1,7 +1,7 @@
 import os
 import re
 import time
-from typing import Any, Optional
+from typing import Any, Optional, Literal
 from datetime import datetime, timezone
 import httpx
 from playwright.sync_api import (
@@ -16,6 +16,7 @@ from playwright.sync_api import (
 )
 from loguru import logger
 
+from ops_manager_sdk.generator.config import DOCS_VERSION
 from ops_manager_sdk.generator.html_to_markdown import html_to_markdown
 
 
@@ -120,7 +121,9 @@ class StandardCrawler:
                 if desc_locator.count() == 0:
                     desc_locator = param.locator(f"xpath=./td[{required_col}]")
                 desc: str = (
-                    html_to_markdown(desc_locator.inner_html()) if desc_locator.count() > 0 else "No description."
+                    html_to_markdown(desc_locator.inner_html())
+                    if desc_locator.count() > 0
+                    else "No description."
                 )
                 has_table = desc_locator.locator("xpath=(.//table|.//ul)").count() > 0
                 if has_table and param_name != "envelope":
@@ -246,12 +249,26 @@ class StandardCrawler:
 
         return "object"
 
-    def crawl(self, url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
+    def crawl(
+        self,
+        url: str,
+        wait_until: Optional[
+            Literal["commit", "domcontentloaded", "load", "networkidle"]
+        ] = "domcontentloaded",
+    ) -> tuple[Optional[str], Optional[dict[str, Any]]]:
+        """Fetches the API documentation page and extracts the metadata from it.
+        Args:
+            url: The API documentation page to crawl.
+            wait_until: The Playwright load state to wait for before extracting the
+                content. Use "networkidle" for pages rendered by JavaScript.
+        Returns:
+            The resource name and the extracted API documentation.
+        """
         page: Optional[Page] = None
         status: Optional[int] = 500
         try:
             page = self.context.new_page()
-            res: Optional[Response] = page.goto(url, wait_until="domcontentloaded")
+            res: Optional[Response] = page.goto(url, wait_until=wait_until)
             status = res.status if res else None
             if status is None or status >= 300 or status < 200:
                 raise httpx.HTTPError(f"Failed to load page with status code: {status}")
@@ -314,7 +331,7 @@ class EventsCrawler(StandardCrawler):
     def __init__(self, context) -> None:
         super().__init__(context)
         # This is a special handling for the following page which has a different structure for body parameters.
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/events/
+        # f https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/events/
         self.LOCATORS["query_params"] = (
             "xpath=(//h3[contains(text(), 'Query Parameters')])[1]/following-sibling::section/div/table"
         )
@@ -405,7 +422,7 @@ class ServerLogCollectionCrawler(StandardCrawler):
     def __init__(self, context) -> None:
         super().__init__(context)
         # This is a special handling for the following page which has a different structure for body parameters.
-        # https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/
+        # f https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/om-log-collections/om-log-collections-submit/
         self.LOCATORS["body_params"] = (
             "xpath=((//h3[contains(text(), 'Body Parameters')])[1]/following-sibling::div/table)[1]"
         )
@@ -429,6 +446,28 @@ class RootCrawler(StandardCrawler):
 class AutomationCrawler(StandardCrawler):
     def get_body_description(self, page: Page) -> str:
         return "any"
+
+
+# This page loads content asynchronously. Need to wait for the content to load.
+# f https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/restorejobs/create-one-restore-job-for-one-cluster/
+class CreateOneRestoreJobCrawler(StandardCrawler):
+    def crawl(
+        self,
+        url: str,
+        wait_until: Optional[
+            Literal["commit", "domcontentloaded", "load", "networkidle"]
+        ] = "networkidle",
+    ) -> tuple[Optional[str], Optional[dict[str, Any]]]:
+        """Crawls the page once the JavaScript on it has finished running.
+        The content of this page is rendered asynchronously, so waiting only for
+        "domcontentloaded" extracts the metadata before it is present.
+        Args:
+            url: The API documentation page to crawl.
+            wait_until: The Playwright load state to wait for.
+        Returns:
+            The resource name and the extracted API documentation.
+        """
+        return super().crawl(url, wait_until=wait_until)
 
 
 class CrawlerFactory:
@@ -463,6 +502,7 @@ class CrawlerFactory:
         CrawlerFactory.crawlers["no_base_url"] = NoBaseUrlCrawler(context)
         CrawlerFactory.crawlers["root"] = RootCrawler(context)
         CrawlerFactory.crawlers["automation"] = AutomationCrawler(context)
+        CrawlerFactory.crawlers["create_one_restore_job"] = CreateOneRestoreJobCrawler(context)
 
     @staticmethod
     def close() -> None:
@@ -470,7 +510,8 @@ class CrawlerFactory:
         CrawlerFactory.playwright.stop()
 
     @staticmethod
-    def crawl(url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
+    def crawl(original_url: str) -> tuple[Optional[str], Optional[dict[str, Any]]]:
+        url = original_url.lower()
         if "create-org-api-key-access-list" in url:
             crawler = CrawlerFactory.crawlers["organization_access_lists"]
         elif "/events/get-all" in url or "/measures/" in url:
@@ -481,31 +522,31 @@ class CrawlerFactory:
         ):
             crawler = CrawlerFactory.crawlers["integration"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/get-master-key/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/kmip-keys/rotate-master-key/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-create/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/backup/get-snapshot-schedule/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/kmip-keys/get-master-key/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/kmip-keys/rotate-master-key/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/third-party-integration-settings-create/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/backup/get-snapshot-schedule/",
         ]:
             crawler = CrawlerFactory.crawlers["group_id_to_project_id"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-one/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-slow-queries/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/performance-advisor/get-suggested-indexes/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/log-collections/log-collections-get-one/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/performance-advisor/get-slow-queries/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/performance-advisor/get-suggested-indexes/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/restorejobs/get-all-restore-jobs-for-one-cluster/",
         ]:
             crawler = CrawlerFactory.crawlers["missing_header_4_cols"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alerts-get-all/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/log-collections/log-collections-get-all/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/usage/create-one-report/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/diagnostics/get-project-diagnostic-archive/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/fileSystemConfigs/get-all-file-system-store-configurations/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/admin/backup/snapshot/s3Configs/get-all-s3-blockstore-configurations/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/global-alerts-get-all/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/log-collections/log-collections-get-all/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/usage/create-one-report/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/diagnostics/get-project-diagnostic-archive/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/admin/backup/snapshot/filesystemconfigs/get-all-file-system-store-configurations/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/admin/backup/snapshot/s3configs/get-all-s3-blockstore-configurations/",
         ]:
             crawler = CrawlerFactory.crawlers["missing_header_5_cols"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/clusters/clusters-get-all-key/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/third-party-integration-settings-get-all/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/clusters/clusters-get-all-key/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/third-party-integration-settings-get-all/",
         ]:
             crawler = CrawlerFactory.crawlers["duplicate_base_url"]
         elif "/get-all-hosts-in-group/" in url:
@@ -517,21 +558,25 @@ class CrawlerFactory:
         elif "/update-one-snapshot-schedule-by-cluster-id/" in url:
             crawler = CrawlerFactory.crawlers["update_ss"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/om-log-collections/om-log-collections-submit/"
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/om-log-collections/om-log-collections-submit/"
         ]:
             crawler = CrawlerFactory.crawlers["server_log_collection"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/global-alert-configurations-test-one/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/alert-configurations-test-config/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/global-alert-configurations-test-one/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/alert-configurations-test-config/",
         ]:
             crawler = CrawlerFactory.crawlers["no_base_url"]
-        elif url in ["https://www.mongodb.com/docs/ops-manager/current/reference/api/root/"]:
+        elif url in [
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/root/",
+        ]:
             crawler = CrawlerFactory.crawlers["root"]
         elif url in [
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config/",
-            "https://www.mongodb.com/docs/ops-manager/current/reference/api/automation-config/update-automation-config-no-secrets/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/automation-config/update-automation-config/",
+            f"https://www.mongodb.com/docs/ops-manager/{DOCS_VERSION}/reference/api/automation-config/update-automation-config-no-secrets/",
         ]:
             crawler = CrawlerFactory.crawlers["automation"]
+        elif "/restorejobs/create-one-restore-job" in url:
+            crawler = CrawlerFactory.crawlers["create_one_restore_job"]
         else:
             crawler = CrawlerFactory.crawlers["standard"]
-        return crawler.crawl(url)
+        return crawler.crawl(original_url)

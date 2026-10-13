@@ -11,7 +11,8 @@ from ops_manager_sdk.generator.pycode_gen import (
     gen_resources_init_code,
     gen_resource_code,
 )
-from ops_manager_sdk.generator.utils import HOME_DIR, extract_apis, get_sitemap_urls
+from ops_manager_sdk.generator.config import HOME_DIR
+from ops_manager_sdk.generator.utils import extract_apis, get_sitemap_urls
 
 
 LOG_LEVELS: list[str] = [

@@ -1,14 +1,16 @@
 import importlib
 import os
 import re
+import subprocess
+import sys
 
 import pytest
 
-from ops_manager_sdk.generator import utils
+from ops_manager_sdk.generator import config
 from ops_manager_sdk.generator.version import Version
 
 
-PYPROJECT_FILE = utils.PROJECT_ROOT / "pyproject.toml"
+PYPROJECT_FILE = config.PROJECT_ROOT / "pyproject.toml"
 
 
 def test_docs_version_uses_major_and_minor_of_project_version() -> None:
@@ -19,11 +21,13 @@ def test_docs_version_uses_major_and_minor_of_project_version() -> None:
 
     project_version = Version.parse(declared.group(1))
 
-    assert utils.DOCS_VERSION == f"v{project_version.major_version}.{project_version.minor_version}"
-    assert re.fullmatch(r"v\d+\.\d+", utils.DOCS_VERSION)
+    assert config.DOCS_VERSION == (
+        f"v{project_version.major_version}.{project_version.minor_version}"
+    )
+    assert re.fullmatch(r"v\d+\.\d+", config.DOCS_VERSION)
 
     # The project version itself must still be parsed into the same object.
-    assert utils.PROJECT_VERSION == project_version
+    assert config.PROJECT_VERSION == project_version
 
 
 @pytest.mark.skipif(
@@ -31,8 +35,24 @@ def test_docs_version_uses_major_and_minor_of_project_version() -> None:
     reason="the documentation URLs are overridden in the environment",
 )
 def test_documentation_urls_default_to_the_docs_version() -> None:
-    reloaded = importlib.reload(utils)
-    docs_base_url = f"https://www.mongodb.com/docs/ops-manager/{utils.DOCS_VERSION}"
+    reloaded = importlib.reload(config)
+    docs_base_url = f"https://www.mongodb.com/docs/ops-manager/{config.DOCS_VERSION}"
 
     assert reloaded.SITEMAP_URL == f"{docs_base_url}/sitemap-0.xml"
     assert reloaded.API_BASE_URL == f"{docs_base_url}/reference/api/"
+
+
+@pytest.mark.parametrize(
+    "imports",
+    [
+        # crawler_factory first: it imports config.DOCS_VERSION at module level.
+        "import ops_manager_sdk.generator.crawler_factory; import ops_manager_sdk.generator.utils",
+        # utils first: it imports crawler_factory at module level.
+        "import ops_manager_sdk.generator.utils; import ops_manager_sdk.generator.crawler_factory",
+        # the entry point of the CLI.
+        "import ops_manager_sdk.generator.__main__",
+    ],
+)
+def test_generator_modules_import_without_cycles(imports: str) -> None:
+    """The generator modules must be importable in any order (see the config module)."""
+    subprocess.run([sys.executable, "-c", imports], check=True, capture_output=True)
