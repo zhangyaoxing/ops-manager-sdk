@@ -21,7 +21,6 @@ from loguru import logger
 
 from ops_manager_sdk.generator.version import Version
 
-
 PROJECT_ROOT: Path = Path(__file__).resolve().parents[3]
 
 
@@ -60,8 +59,9 @@ def _read_project_version() -> str:
 
 
 PROJECT_VERSION: Version = Version.parse(_read_project_version())
-# The documentation is versioned by major and minor only, for example "v8.0".
-DOCS_VERSION: str = f"v{PROJECT_VERSION.major_version}.{PROJECT_VERSION.minor_version}"
+# The documentation is versioned by major and minor only, for example "v9.0".
+# DOCS_VERSION: str = f"v{PROJECT_VERSION.major_version}.{PROJECT_VERSION.minor_version}"
+DOCS_VERSION: str = "current"
 
 
 def _get_int_env(name: str, default: int) -> int:
