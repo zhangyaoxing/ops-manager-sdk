@@ -11,7 +11,8 @@ from ops_manager_sdk.generator.pycode_gen import (
     gen_resources_init_code,
     gen_resource_code,
 )
-from ops_manager_sdk.generator.utils import HOME_DIR, extract_apis, get_sitemap_urls
+from ops_manager_sdk.generator.config import HOME_DIR
+from ops_manager_sdk.generator.utils import extract_apis, get_sitemap_urls
 
 
 LOG_LEVELS: list[str] = [
@@ -30,14 +31,8 @@ logger.remove()
 logger.add(sys.stderr, level=LEVEL)
 
 
-def crawl_docs() -> None:
-    """Crawl API documentation and write .data/api_docs.json."""
-    urls = get_sitemap_urls()
-    extract_apis(urls)
-
-
-def generate_python_code() -> None:
-    """Generate normalized API docs and Python code from .data/api_docs.json."""
+def normalize_api_docs() -> None:
+    """Normalize .data/api_docs.json and write .data/normalized_api_docs.json."""
     input_file = HOME_DIR / "api_docs.json"
     if not input_file.exists():
         raise FileNotFoundError(
@@ -56,6 +51,44 @@ def generate_python_code() -> None:
     output_file = HOME_DIR / "normalized_api_docs.json"
     with output_file.open("w", encoding="utf-8") as f:
         json.dump(normalized_api_docs, f, ensure_ascii=False, indent=4)
+
+
+def _has_failed_docs(api_docs: dict[str, list[dict[str, Any]]]) -> bool:
+    """Return True if any API doc entry has a non-success HTTP status."""
+    for apis in api_docs.values():
+        for api in apis:
+            status: int | None = api.get("status")
+            if status is None or status < 200 or status >= 300:
+                return True
+    return False
+
+
+def crawl_docs() -> None:
+    """Crawl API documentation, normalize, and write output files."""
+    try:
+        urls = get_sitemap_urls()
+        api_docs = extract_apis(urls)
+    except Exception:
+        logger.warning("Crawl failed — .data/normalized_api_docs.json was not generated.")
+        raise
+    if _has_failed_docs(api_docs):
+        logger.warning(
+            "Some API docs failed to crawl — skipping .data/normalized_api_docs.json generation. Run `make crawl` again to retry failed docs."
+        )
+        return
+    normalize_api_docs()
+
+
+def generate_python_code() -> None:
+    """Generate Python SDK code from .data/normalized_api_docs.json."""
+    input_file = HOME_DIR / "normalized_api_docs.json"
+    if not input_file.exists():
+        raise FileNotFoundError(
+            f"Normalized API docs not found at {input_file}. Run `make crawl` first."
+        )
+
+    with input_file.open("r", encoding="utf-8") as f:
+        normalized_api_docs: dict[str, list[dict[str, Any]]] = json.load(f)
 
     resources: list[tuple[str, str]] = []
     for class_name, normalized_apis in normalized_api_docs.items():
@@ -95,12 +128,12 @@ def parse_args() -> argparse.Namespace:
         help="Generator phase to run.",
     )
     parser.add_argument("key", nargs="?", help="First-level .data/api_docs.json key to reset.")
-    args = parser.parse_args()
-    if args.command == "reset" and args.key is None:
+    parsed_args = parser.parse_args()
+    if parsed_args.command == "reset" and parsed_args.key is None:
         parser.error("reset requires a first-level api_docs.json key")
-    if args.command != "reset" and args.key is not None:
-        parser.error(f"{args.command} does not accept a key argument")
-    return args
+    if parsed_args.command != "reset" and parsed_args.key is not None:
+        parser.error(f"{parsed_args.command} does not accept a key argument")
+    return parsed_args
 
 
 if __name__ == "__main__":

@@ -8,7 +8,10 @@
             "name": "API Crawler",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/ops_manager_sdk/generator/__main__.py",
+            "module": "ops_manager_sdk.generator",
+            "args": [
+                "crawl"
+            ],
             "console": "integratedTerminal",
             "postDebugTask": "format-resources",
             "cwd": "${workspaceFolder}",

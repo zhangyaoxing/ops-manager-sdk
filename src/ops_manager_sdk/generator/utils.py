@@ -1,5 +1,4 @@
 from typing import Any, Optional
-from pathlib import Path
 import os
 import json
 from datetime import datetime, timezone
@@ -7,13 +6,8 @@ import xml.etree.ElementTree as ET
 import httpx
 from loguru import logger
 
+from ops_manager_sdk.generator.config import API_BASE_URL, EXPIRE_DAYS, HOME_DIR, SITEMAP_URL
 from ops_manager_sdk.generator.crawler_factory import CrawlerFactory
-
-
-SITEMAP_URL: str = "https://www.mongodb.com/docs/ops-manager/current/sitemap-0.xml"
-API_BASE_URL: str = "https://www.mongodb.com/docs/ops-manager/current/reference/api/"
-HOME_DIR: Path = Path.cwd() / ".data"
-EXPIRE_DAYS: int = 7
 
 
 def get_sitemap_urls() -> list[str]:
