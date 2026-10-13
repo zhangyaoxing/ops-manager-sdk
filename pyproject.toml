@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ops-manager-sdk-generator"
-version = "0.1.3"
+version = "8.0.0"
 description = "MongoDB Ops Manager SDK generator."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,6 +17,8 @@ dependencies = [
   "markdownify>=0.13,<2.0",
   "jinja2>=3.1,<4.0",
   "pydantic>=2.0,<3.0",
+  "python-dotenv>=1.0,<2.0",
+  "tomli>=2.0,<3.0; python_version < '3.11'",
 ]
 
 [project.optional-dependencies]
